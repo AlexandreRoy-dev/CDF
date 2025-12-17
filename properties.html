@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Properties - PO</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="properties-page">
+
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center dark-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.webp" alt=""> -->
+          <h1 class="sitename">Dewi</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
+      <div class="container position-relative">
+        <h1>Properties</h1>
+        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Properties</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Properties 2 Section -->
+    <section id="properties-2" class="properties-2 section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+
+          <div class="col-lg-8">
+
+            <div class="properties-header mb-4">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="view-toggle d-flex gap-2">
+                  <button class="btn btn-outline-secondary btn-sm view-btn active" data-view="grid">
+                    <i class="bi bi-grid-3x3-gap"></i> Grid
+                  </button>
+                  <button class="btn btn-outline-secondary btn-sm view-btn" data-view="list">
+                    <i class="bi bi-list"></i> List
+                  </button>
+                </div>
+                <div class="sort-dropdown">
+                  <select class="form-select form-select-sm">
+                    <option>Sort by: Newest</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Most Viewed</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="properties-grid view-grid active" data-aos="fade-up" data-aos-delay="200">
+              <div class="row g-4">
+
+                <div class="col-lg-6 col-md-6">
+                  <div class="property-card">
+                    <div class="property-image">
+                      <img src="assets/img/real-estate/property-exterior-1.webp" alt="Modern Family Home" class="img-fluid">
+                      <div class="property-badges">
+                        <span class="badge featured">Featured</span>
+                        <span class="badge for-sale">For Sale</span>
+                      </div>
+                      <div class="property-overlay">
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <button class="gallery-btn" data-count="12"><i class="bi bi-images"></i></button>
+                      </div>
+                    </div>
+                    <div class="property-content">
+                      <div class="property-price">$875,000</div>
+                      <h4 class="property-title">Modern Family Home with Garden</h4>
+                      <p class="property-location"><i class="bi bi-geo-alt"></i> 2847 Oak Street, Beverly Hills, CA 90210</p>
+                      <div class="property-features">
+                        <span><i class="bi bi-house"></i> 4 Bed</span>
+                        <span><i class="bi bi-water"></i> 3 Bath</span>
+                        <span><i class="bi bi-arrows-angle-expand"></i> 2,400 sqft</span>
+                      </div>
+                      <div class="property-agent">
+                        <img src="assets/img/real-estate/agent-1.webp" alt="Agent" class="agent-avatar">
+                        <div class="agent-info">
+                          <strong>Sarah Johnson</strong>
+                          <div class="agent-contact">
+                            <small><i class="bi bi-telephone"></i> +1 (555) 123-4567</small>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="#" class="btn btn-primary w-100">View Details</a>
+                    </div>
+                  </div>
+                </div><!-- End Property Item -->
+
+                <div class="col-lg-6 col-md-6">
+                  <div class="property-card">
+                    <div class="property-image">
+                      <img src="assets/img/real-estate/property-exterior-3.webp" alt="Downtown Luxury Condo" class="img-fluid">
+                      <div class="property-badges">
+                        <span class="badge new">New</span>
+                        <span class="badge for-sale">For Sale</span>
+                      </div>
+                      <div class="property-overlay">
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <button class="gallery-btn" data-count="8"><i class="bi bi-images"></i></button>
+                      </div>
+                    </div>
+                    <div class="property-content">
+                      <div class="property-price">$1,250,000</div>
+                      <h4 class="property-title">Downtown Luxury Condominium</h4>
+                      <p class="property-location"><i class="bi bi-geo-alt"></i> 1542 Main Avenue, Manhattan, NY 10001</p>
+                      <div class="property-features">
+                        <span><i class="bi bi-house"></i> 2 Bed</span>
+                        <span><i class="bi bi-water"></i> 2 Bath</span>
+                        <span><i class="bi bi-arrows-angle-expand"></i> 1,800 sqft</span>
+                      </div>
+                      <div class="property-agent">
+                        <img src="assets/img/real-estate/agent-3.webp" alt="Agent" class="agent-avatar">
+                        <div class="agent-info">
+                          <strong>Michael Chen</strong>
+                          <div class="agent-contact">
+                            <small><i class="bi bi-telephone"></i> +1 (555) 234-5678</small>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="#" class="btn btn-primary w-100">View Details</a>
+                    </div>
+                  </div>
+                </div><!-- End Property Item -->
+
+                <div class="col-lg-6 col-md-6">
+                  <div class="property-card">
+                    <div class="property-image">
+                      <img src="assets/img/real-estate/property-interior-4.webp" alt="Suburban Villa" class="img-fluid">
+                      <div class="property-badges">
+                        <span class="badge for-rent">For Rent</span>
+                      </div>
+                      <div class="property-overlay">
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <button class="gallery-btn" data-count="15"><i class="bi bi-images"></i></button>
+                      </div>
+                    </div>
+                    <div class="property-content">
+                      <div class="property-price">$4,500<span>/month</span></div>
+                      <h4 class="property-title">Spacious Suburban Villa</h4>
+                      <p class="property-location"><i class="bi bi-geo-alt"></i> 789 Pine Ridge Drive, Austin, TX 73301</p>
+                      <div class="property-features">
+                        <span><i class="bi bi-house"></i> 5 Bed</span>
+                        <span><i class="bi bi-water"></i> 4 Bath</span>
+                        <span><i class="bi bi-arrows-angle-expand"></i> 3,200 sqft</span>
+                      </div>
+                      <div class="property-agent">
+                        <img src="assets/img/real-estate/agent-5.webp" alt="Agent" class="agent-avatar">
+                        <div class="agent-info">
+                          <strong>Emma Rodriguez</strong>
+                          <div class="agent-contact">
+                            <small><i class="bi bi-telephone"></i> +1 (555) 345-6789</small>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="#" class="btn btn-primary w-100">View Details</a>
+                    </div>
+                  </div>
+                </div><!-- End Property Item -->
+
+                <div class="col-lg-6 col-md-6">
+                  <div class="property-card">
+                    <div class="property-image">
+                      <img src="assets/img/real-estate/property-exterior-6.webp" alt="Waterfront Townhouse" class="img-fluid">
+                      <div class="property-badges">
+                        <span class="badge open-house">Open House</span>
+                        <span class="badge for-sale">For Sale</span>
+                      </div>
+                      <div class="property-overlay">
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <button class="gallery-btn" data-count="20"><i class="bi bi-images"></i></button>
+                      </div>
+                    </div>
+                    <div class="property-content">
+                      <div class="property-price">$695,000</div>
+                      <h4 class="property-title">Waterfront Townhouse with Dock</h4>
+                      <p class="property-location"><i class="bi bi-geo-alt"></i> 456 Harbor View Lane, Miami, FL 33101</p>
+                      <div class="property-features">
+                        <span><i class="bi bi-house"></i> 3 Bed</span>
+                        <span><i class="bi bi-water"></i> 2 Bath</span>
+                        <span><i class="bi bi-arrows-angle-expand"></i> 2,100 sqft</span>
+                      </div>
+                      <div class="property-agent">
+                        <img src="assets/img/real-estate/agent-7.webp" alt="Agent" class="agent-avatar">
+                        <div class="agent-info">
+                          <strong>David Williams</strong>
+                          <div class="agent-contact">
+                            <small><i class="bi bi-telephone"></i> +1 (555) 456-7890</small>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="#" class="btn btn-primary w-100">View Details</a>
+                    </div>
+                  </div>
+                </div><!-- End Property Item -->
+
+              </div>
+            </div>
+
+            <div class="properties-list view-list" data-aos="fade-up" data-aos-delay="200">
+
+              <div class="property-list-item">
+                <div class="row align-items-center">
+                  <div class="col-lg-4">
+                    <div class="property-image">
+                      <img src="assets/img/real-estate/property-exterior-1.webp" alt="Modern Family Home" class="img-fluid">
+                      <div class="property-badges">
+                        <span class="badge featured">Featured</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="property-content">
+                      <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                          <h4 class="property-title mb-1">Modern Family Home with Garden</h4>
+                          <p class="property-location mb-2"><i class="bi bi-geo-alt"></i> 2847 Oak Street, Beverly Hills, CA 90210</p>
+                        </div>
+                        <div class="property-price">$875,000</div>
+                      </div>
+                      <div class="property-features mb-3">
+                        <span><i class="bi bi-house"></i> 4 Bed</span>
+                        <span><i class="bi bi-water"></i> 3 Bath</span>
+                        <span><i class="bi bi-arrows-angle-expand"></i> 2,400 sqft</span>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="property-agent">
+                          <img src="assets/img/real-estate/agent-1.webp" alt="Agent" class="agent-avatar">
+                          <span>Sarah Johnson</span>
+                        </div>
+                        <div class="property-actions">
+                          <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-heart"></i></button>
+                          <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Property List Item -->
+
+              <div class="property-list-item">
+                <div class="row align-items-center">
+                  <div class="col-lg-4">
+                    <div class="property-image">
+                      <img src="assets/img/real-estate/property-exterior-3.webp" alt="Downtown Luxury Condo" class="img-fluid">
+                      <div class="property-badges">
+                        <span class="badge new">New</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="property-content">
+                      <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                          <h4 class="property-title mb-1">Downtown Luxury Condominium</h4>
+                          <p class="property-location mb-2"><i class="bi bi-geo-alt"></i> 1542 Main Avenue, Manhattan, NY 10001</p>
+                        </div>
+                        <div class="property-price">$1,250,000</div>
+                      </div>
+                      <div class="property-features mb-3">
+                        <span><i class="bi bi-house"></i> 2 Bed</span>
+                        <span><i class="bi bi-water"></i> 2 Bath</span>
+                        <span><i class="bi bi-arrows-angle-expand"></i> 1,800 sqft</span>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="property-agent">
+                          <img src="assets/img/real-estate/agent-3.webp" alt="Agent" class="agent-avatar">
+                          <span>Michael Chen</span>
+                        </div>
+                        <div class="property-actions">
+                          <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-heart"></i></button>
+                          <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Property List Item -->
+
+              <div class="property-list-item">
+                <div class="row align-items-center">
+                  <div class="col-lg-4">
+                    <div class="property-image">
+                      <img src="assets/img/real-estate/property-interior-4.webp" alt="Suburban Villa" class="img-fluid">
+                      <div class="property-badges">
+                        <span class="badge for-rent">For Rent</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="property-content">
+                      <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                          <h4 class="property-title mb-1">Spacious Suburban Villa</h4>
+                          <p class="property-location mb-2"><i class="bi bi-geo-alt"></i> 789 Pine Ridge Drive, Austin, TX 73301</p>
+                        </div>
+                        <div class="property-price">$4,500<span>/month</span></div>
+                      </div>
+                      <div class="property-features mb-3">
+                        <span><i class="bi bi-house"></i> 5 Bed</span>
+                        <span><i class="bi bi-water"></i> 4 Bath</span>
+                        <span><i class="bi bi-arrows-angle-expand"></i> 3,200 sqft</span>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="property-agent">
+                          <img src="assets/img/real-estate/agent-5.webp" alt="Agent" class="agent-avatar">
+                          <span>Emma Rodriguez</span>
+                        </div>
+                        <div class="property-actions">
+                          <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-heart"></i></button>
+                          <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Property List Item -->
+
+              <div class="property-list-item">
+                <div class="row align-items-center">
+                  <div class="col-lg-4">
+                    <div class="property-image">
+                      <img src="assets/img/real-estate/property-exterior-6.webp" alt="Waterfront Townhouse" class="img-fluid">
+                      <div class="property-badges">
+                        <span class="badge open-house">Open House</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="property-content">
+                      <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                          <h4 class="property-title mb-1">Waterfront Townhouse with Dock</h4>
+                          <p class="property-location mb-2"><i class="bi bi-geo-alt"></i> 456 Harbor View Lane, Miami, FL 33101</p>
+                        </div>
+                        <div class="property-price">$695,000</div>
+                      </div>
+                      <div class="property-features mb-3">
+                        <span><i class="bi bi-house"></i> 3 Bed</span>
+                        <span><i class="bi bi-water"></i> 2 Bath</span>
+                        <span><i class="bi bi-arrows-angle-expand"></i> 2,100 sqft</span>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="property-agent">
+                          <img src="assets/img/real-estate/agent-7.webp" alt="Agent" class="agent-avatar">
+                          <span>David Williams</span>
+                        </div>
+                        <div class="property-actions">
+                          <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-heart"></i></button>
+                          <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Property List Item -->
+
+            </div>
+
+            <nav class="mt-5" data-aos="fade-up" data-aos-delay="300">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="properties-sidebar">
+
+              <div class="filter-widget">
+                <h5 class="filter-title">Filter Properties</h5>
+
+                <div class="filter-section">
+                  <label class="form-label">Property Type</label>
+                  <select class="form-select">
+                    <option>All Types</option>
+                    <option>House</option>
+                    <option>Apartment</option>
+                    <option>Condo</option>
+                    <option>Townhouse</option>
+                    <option>Commercial</option>
+                  </select>
+                </div>
+
+                <div class="filter-section">
+                  <label class="form-label">Price Range</label>
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <input type="number" class="form-control" placeholder="Min Price">
+                    </div>
+                    <div class="col-6">
+                      <input type="number" class="form-control" placeholder="Max Price">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filter-section">
+                  <label class="form-label">Bedrooms</label>
+                  <div class="bedroom-filter">
+                    <button class="btn btn-outline-secondary btn-sm filter-btn active">Any</button>
+                    <button class="btn btn-outline-secondary btn-sm filter-btn">1+</button>
+                    <button class="btn btn-outline-secondary btn-sm filter-btn">2+</button>
+                    <button class="btn btn-outline-secondary btn-sm filter-btn">3+</button>
+                    <button class="btn btn-outline-secondary btn-sm filter-btn">4+</button>
+                  </div>
+                </div>
+
+                <div class="filter-section">
+                  <label class="form-label">Bathrooms</label>
+                  <div class="bathroom-filter">
+                    <button class="btn btn-outline-secondary btn-sm filter-btn active">Any</button>
+                    <button class="btn btn-outline-secondary btn-sm filter-btn">1+</button>
+                    <button class="btn btn-outline-secondary btn-sm filter-btn">2+</button>
+                    <button class="btn btn-outline-secondary btn-sm filter-btn">3+</button>
+                  </div>
+                </div>
+
+                <div class="filter-section">
+                  <label class="form-label">Location</label>
+                  <input type="text" class="form-control" placeholder="Enter city or neighborhood">
+                </div>
+
+                <div class="filter-section">
+                  <label class="form-label">Features</label>
+                  <div class="features-filter">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="garage">
+                      <label class="form-check-label" for="garage">Garage</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="pool">
+                      <label class="form-check-label" for="pool">Swimming Pool</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="balcony">
+                      <label class="form-check-label" for="balcony">Balcony</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="garden">
+                      <label class="form-check-label" for="garden">Garden</label>
+                    </div>
+                  </div>
+                </div>
+
+                <button class="btn btn-primary w-100">Apply Filters</button>
+
+              </div>
+
+              <div class="featured-properties mt-4">
+                <h5>Featured Properties</h5>
+
+                <div class="featured-item">
+                  <div class="row g-3 align-items-center">
+                    <div class="col-5">
+                      <img src="assets/img/real-estate/property-exterior-8.webp" alt="Property" class="img-fluid rounded">
+                    </div>
+                    <div class="col-7">
+                      <h6 class="mb-1">Luxury Penthouse</h6>
+                      <p class="text-muted small mb-1">Manhattan, NY</p>
+                      <strong class="text-primary">$2,850,000</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="featured-item">
+                  <div class="row g-3 align-items-center">
+                    <div class="col-5">
+                      <img src="assets/img/real-estate/property-interior-7.webp" alt="Property" class="img-fluid rounded">
+                    </div>
+                    <div class="col-7">
+                      <h6 class="mb-1">Modern Studio</h6>
+                      <p class="text-muted small mb-1">Brooklyn, NY</p>
+                      <strong class="text-primary">$3,200/mo</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="featured-item">
+                  <div class="row g-3 align-items-center">
+                    <div class="col-5">
+                      <img src="assets/img/real-estate/property-exterior-9.webp" alt="Property" class="img-fluid rounded">
+                    </div>
+                    <div class="col-7">
+                      <h6 class="mb-1">Family Home</h6>
+                      <p class="text-muted small mb-1">Queens, NY</p>
+                      <strong class="text-primary">$895,000</strong>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Properties 2 Section -->
+
+  </main>
+
+  <footer id="footer" class="footer-13 dark-background">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h2>MyWebsite</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fringilla ante eget feugiat commodo. Nulla et justo vitae nisl euismod fermentum in vel magna.</p>
+            <div class="social-links">
+              <a href="#" data-aos="fade-up" data-aos-delay="100"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" data-aos="fade-up" data-aos-delay="150"><i class="bi bi-facebook"></i></a>
+              <a href="#" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-instagram"></i></a>
+              <a href="#" data-aos="fade-up" data-aos-delay="250"><i class="bi bi-linkedin"></i></a>
+              <a href="#" data-aos="fade-up" data-aos-delay="300"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4 data-aos="fade-up" data-aos-delay="100">Useful Links</h4>
+            <ul data-aos="fade-up" data-aos-delay="200">
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Portfolio</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4 data-aos="fade-up" data-aos-delay="100">Contact Us</h4>
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+              <div class="contact-item">
+                <i class="bi bi-geo-alt"></i>
+                <p>123 Main Street<br>New York, NY 10001</p>
+              </div>
+              <div class="contact-item">
+                <i class="bi bi-telephone"></i>
+                <p>+1 (555) 987-6543</p>
+              </div>
+              <div class="contact-item">
+                <i class="bi bi-envelope"></i>
+                <p>contact@example.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4 data-aos="fade-up" data-aos-delay="100">Our Newsletter</h4>
+            <p data-aos="fade-up" data-aos-delay="200">Subscribe to our newsletter to receive updates and news.</p>
+            <form action="forms/newsletter.php" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+              <input type="email" name="email" placeholder="Your Email" required="">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+              <button type="submit">Subscribe</button>
+            </form>
+            <div class="opening-hours" data-aos="fade-up" data-aos-delay="400">
+              <h5><i class="bi bi-clock"></i> Opening Hours</h5>
+              <p>Monday-Saturday: 9AM - 10PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Dewi</strong> <span>All Rights Reserved</span></p>
+
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

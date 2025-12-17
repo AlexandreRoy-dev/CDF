@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Propertydetails - PO</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="propertydetails-page">
+
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center dark-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.webp" alt=""> -->
+          <h1 class="sitename">Dewi</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
+      <div class="container position-relative">
+        <h1>Propertydetails</h1>
+        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Propertydetails</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Property Details Section -->
+    <section id="property-details" class="property-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <div class="col-lg-8">
+
+            <!-- Property Gallery -->
+            <div class="property-gallery mb-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="property-slider swiper init-swiper">
+                <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": {
+                      "delay": 5000
+                    },
+                    "slidesPerView": 1,
+                    "navigation": {
+                      "nextEl": ".swiper-button-next",
+                      "prevEl": ".swiper-button-prev"
+                    },
+                    "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "fraction"
+                    }
+                  }
+                </script>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="assets/img/real-estate/property-exterior-1.webp" class="img-fluid" alt="Property Image">
+                    <div class="slide-overlay">
+                      <span class="property-status">For Sale</span>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/img/real-estate/property-interior-2.webp" class="img-fluid" alt="Property Image">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/img/real-estate/property-exterior-3.webp" class="img-fluid" alt="Property Image">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/img/real-estate/property-interior-4.webp" class="img-fluid" alt="Property Image">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/img/real-estate/features-2.webp" class="img-fluid" alt="Property Image">
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div><!-- End Property Gallery -->
+
+            <!-- Property Overview -->
+            <div class="property-overview mb-5" data-aos="fade-up" data-aos-delay="400">
+              <div class="row align-items-center mb-4">
+                <div class="col-lg-8">
+                  <h2 class="property-title">Modern Luxury Villa with Garden</h2>
+                  <p class="property-address"><i class="bi bi-geo-alt"></i> 2547 Oak Ridge Drive, Los Angeles, CA 90210</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                  <div class="property-price">$1,250,000</div>
+                  <div class="price-per-sqft">$547/sq ft</div>
+                </div>
+              </div>
+
+              <div class="property-stats">
+                <div class="row">
+                  <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                      <i class="bi bi-house-door"></i>
+                      <div class="stat-content">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Bedrooms</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                      <i class="bi bi-droplet"></i>
+                      <div class="stat-content">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Bathrooms</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                      <i class="bi bi-aspect-ratio"></i>
+                      <div class="stat-content">
+                        <div class="stat-value">2,285</div>
+                        <div class="stat-label">Sq Ft</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                      <i class="bi bi-calendar"></i>
+                      <div class="stat-content">
+                        <div class="stat-value">2018</div>
+                        <div class="stat-label">Built</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Property Overview -->
+
+            <!-- Property Description -->
+            <div class="property-description mb-5" data-aos="fade-up" data-aos-delay="500">
+              <h3>About This Property</h3>
+              <p>Discover the perfect blend of modern luxury and comfortable living in this stunning 4-bedroom villa. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+
+              <div class="property-highlights mt-4">
+                <h4>Key Features:</h4>
+                <ul>
+                  <li>Spacious open-plan living and dining area</li>
+                  <li>Modern equipped kitchen with premium appliances</li>
+                  <li>Master suite with walk-in closet and en-suite bathroom</li>
+                  <li>Private backyard with landscaped garden</li>
+                  <li>Two-car garage with additional storage</li>
+                  <li>Energy-efficient heating and cooling systems</li>
+                </ul>
+              </div>
+            </div><!-- End Property Description -->
+
+            <!-- Amenities & Features -->
+            <div class="property-amenities mb-5" data-aos="fade-up" data-aos-delay="600">
+              <h3>Property Features &amp; Amenities</h3>
+
+              <div class="amenity-categories">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="amenity-group">
+                      <h5>Interior Features</h5>
+                      <div class="amenity-list">
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>Hardwood Flooring</span>
+                        </div>
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>Central Air Conditioning</span>
+                        </div>
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>Fireplace</span>
+                        </div>
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>Walk-in Closets</span>
+                        </div>
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>Stainless Steel Appliances</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="amenity-group">
+                      <h5>Exterior Features</h5>
+                      <div class="amenity-list">
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>Private Garden</span>
+                        </div>
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>Covered Patio</span>
+                        </div>
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>2-Car Garage</span>
+                        </div>
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>Security System</span>
+                        </div>
+                        <div class="amenity-item">
+                          <i class="bi bi-check-circle"></i>
+                          <span>Sprinkler System</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Amenities & Features -->
+
+            <!-- Floor Plans -->
+            <div class="floor-plans mb-5" data-aos="fade-up" data-aos-delay="700">
+              <h3>Floor Plans</h3>
+
+              <div class="floor-plan-tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="property-details-floor-1-tab" data-bs-toggle="tab" data-bs-target="#property-details-floor-1" type="button" role="tab">Ground Floor</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="property-details-floor-2-tab" data-bs-toggle="tab" data-bs-target="#property-details-floor-2" type="button" role="tab">Second Floor</button>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="property-details-floor-1" role="tabpanel">
+                    <div class="floor-plan-content">
+                      <img src="assets/img/real-estate/property-interior-1.webp" class="img-fluid" alt="Ground Floor Plan">
+                      <div class="floor-details">
+                        <h5>Ground Floor - 1,250 sq ft</h5>
+                        <p>Features living room, dining room, kitchen, guest bedroom, and guest bathroom.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="property-details-floor-2" role="tabpanel">
+                    <div class="floor-plan-content">
+                      <img src="assets/img/real-estate/property-interior-5.webp" class="img-fluid" alt="Second Floor Plan">
+                      <div class="floor-details">
+                        <h5>Second Floor - 1,035 sq ft</h5>
+                        <p>Features master suite, two additional bedrooms, and family bathroom.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Floor Plans -->
+
+          </div>
+
+          <!-- Sidebar -->
+          <div class="col-lg-4">
+            <div class="property-sidebar">
+
+              <!-- Agent Contact -->
+              <div class="agent-contact mb-4" data-aos="fade-up" data-aos-delay="300">
+                <h4>Contact Agent</h4>
+                <div class="agent-info">
+                  <div class="agent-photo">
+                    <img src="assets/img/person/person-m-8.webp" class="img-fluid" alt="Agent">
+                  </div>
+                  <div class="agent-details">
+                    <h5>Michael Rodriguez</h5>
+                    <p class="agent-title">Senior Real Estate Agent</p>
+                    <div class="agent-contact-info">
+                      <p><i class="bi bi-telephone"></i> +1 (555) 789-0123</p>
+                      <p><i class="bi bi-envelope"></i> m.rodriguez@example.com</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="quick-actions mt-3">
+                  <a href="tel:+15557890123" class="btn btn-primary w-100 mb-2">
+                    <i class="bi bi-telephone"></i> Call Now
+                  </a>
+                </div>
+              </div><!-- End Agent Contact -->
+
+              <!-- Inquiry Form -->
+              <div class="inquiry-form mb-4" data-aos="fade-up" data-aos-delay="400">
+                <h4>Send Inquiry</h4>
+                <form action="formscontact.php" method="post" class="php-email-form">
+                  <div class="row">
+                    <div class="col-12 mb-3">
+                      <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    </div>
+                    <div class="col-12 mb-3">
+                      <input type="email" name="email" class="form-control" placeholder="Your Email" required="">
+                    </div>
+                    <div class="col-12 mb-3">
+                      <input type="tel" name="phone" class="form-control" placeholder="Phone Number">
+                    </div>
+                    <div class="col-12 mb-3">
+                      <select name="subject" class="form-select" required="">
+                        <option value="">Inquiry Type</option>
+                        <option value="schedule-tour">Schedule a Tour</option>
+                        <option value="more-info">Request More Information</option>
+                        <option value="make-offer">Make an Offer</option>
+                      </select>
+                    </div>
+                    <div class="col-12 mb-3">
+                      <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required=""></textarea>
+                    </div>
+                  </div>
+
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your inquiry has been sent. Thank you!</div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100">Send Inquiry</button>
+                  </div>
+                </form>
+              </div><!-- End Inquiry Form -->
+
+              <!-- Mortgage Calculator -->
+              <div class="mortgage-calculator mb-4" data-aos="fade-up" data-aos-delay="500">
+                <h4>Mortgage Calculator</h4>
+                <div class="calculator-form">
+                  <div class="mb-3">
+                    <label class="form-label">Property Price</label>
+                    <input type="number" class="form-control" value="1250000" id="propertyPrice">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Down Payment</label>
+                    <input type="number" class="form-control" value="250000" id="downPayment">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Interest Rate (%)</label>
+                    <input type="number" step="0.1" class="form-control" value="6.5" id="interestRate">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Loan Term (years)</label>
+                    <select class="form-select" id="loanTerm">
+                      <option value="15">15 years</option>
+                      <option value="20">20 years</option>
+                      <option value="25">25 years</option>
+                      <option value="30" selected="">30 years</option>
+                    </select>
+                  </div>
+                  <div class="calculator-result">
+                    <div class="monthly-payment">
+                      <span class="label">Monthly Payment:</span>
+                      <span class="amount">$6,247</span>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Mortgage Calculator -->
+
+              <!-- Social Share -->
+              <div class="social-share" data-aos="fade-up" data-aos-delay="600">
+                <h5>Share This Property</h5>
+                <div class="share-buttons">
+                  <a href="#" class="share-btn facebook"><i class="bi bi-facebook"></i></a>
+                  <a href="#" class="share-btn twitter"><i class="bi bi-twitter"></i></a>
+                  <a href="#" class="share-btn linkedin"><i class="bi bi-linkedin"></i></a>
+                  <a href="#" class="share-btn whatsapp"><i class="bi bi-whatsapp"></i></a>
+                  <a href="#" class="share-btn email"><i class="bi bi-envelope"></i></a>
+                  <button class="share-btn favorite"><i class="bi bi-heart"></i></button>
+                </div>
+              </div><!-- End Social Share -->
+
+            </div>
+          </div><!-- End Sidebar -->
+
+        </div>
+
+        <!-- Location & Map -->
+        <div class="property-location mt-5" data-aos="fade-up" data-aos-delay="800">
+          <h3>Location &amp; Neighborhood</h3>
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.4037482!2d-118.406!3d34.069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDA0JzA4LjQiTiAxMTjCsDI0JzIxLjYiVw!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="location-info">
+                <h5>Nearby Points of Interest</h5>
+                <ul class="poi-list">
+                  <li><i class="bi bi-book"></i> Beverly Hills High School (0.8 miles)</li>
+                  <li><i class="bi bi-cart"></i> Whole Foods Market (0.5 miles)</li>
+                  <li><i class="bi bi-tree"></i> Beverly Gardens Park (0.3 miles)</li>
+                  <li><i class="bi bi-hospital"></i> Cedars-Sinai Medical Center (2.1 miles)</li>
+                  <li><i class="bi bi-train-front"></i> Metro Station (1.2 miles)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Location & Map -->
+
+      </div>
+
+    </section><!-- /Property Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer-13 dark-background">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h2>MyWebsite</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fringilla ante eget feugiat commodo. Nulla et justo vitae nisl euismod fermentum in vel magna.</p>
+            <div class="social-links">
+              <a href="#" data-aos="fade-up" data-aos-delay="100"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" data-aos="fade-up" data-aos-delay="150"><i class="bi bi-facebook"></i></a>
+              <a href="#" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-instagram"></i></a>
+              <a href="#" data-aos="fade-up" data-aos-delay="250"><i class="bi bi-linkedin"></i></a>
+              <a href="#" data-aos="fade-up" data-aos-delay="300"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4 data-aos="fade-up" data-aos-delay="100">Useful Links</h4>
+            <ul data-aos="fade-up" data-aos-delay="200">
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Portfolio</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4 data-aos="fade-up" data-aos-delay="100">Contact Us</h4>
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+              <div class="contact-item">
+                <i class="bi bi-geo-alt"></i>
+                <p>123 Main Street<br>New York, NY 10001</p>
+              </div>
+              <div class="contact-item">
+                <i class="bi bi-telephone"></i>
+                <p>+1 (555) 987-6543</p>
+              </div>
+              <div class="contact-item">
+                <i class="bi bi-envelope"></i>
+                <p>contact@example.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4 data-aos="fade-up" data-aos-delay="100">Our Newsletter</h4>
+            <p data-aos="fade-up" data-aos-delay="200">Subscribe to our newsletter to receive updates and news.</p>
+            <form action="forms/newsletter.php" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+              <input type="email" name="email" placeholder="Your Email" required="">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+              <button type="submit">Subscribe</button>
+            </form>
+            <div class="opening-hours" data-aos="fade-up" data-aos-delay="400">
+              <h5><i class="bi bi-clock"></i> Opening Hours</h5>
+              <p>Monday-Saturday: 9AM - 10PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Dewi</strong> <span>All Rights Reserved</span></p>
+
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
