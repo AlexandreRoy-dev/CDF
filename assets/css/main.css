@@ -4662,3 +4662,40 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+
+/* 1. Les colonnes doivent étirer leurs cartes */
+.properties .row > [class*="col-"] {
+  display: flex;
+}
+
+/* 2. La carte prend toute la hauteur */
+.property-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 3. Le contenu interne s'étire */
+.property-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* 4. Le bouton reste collé en bas */
+.property-actions {
+  margin-top: auto;
+}
+/* Forcer la couleur du bouton CTA témoignages */
+#testimonials-2 .btn.btn-primary {
+  background-color: #AA1120 !important;
+  border-color: #AA1120 !important;
+  color: #ffffff !important;
+}
+
+#testimonials-2 .btn.btn-primary:hover,
+#testimonials-2 .btn.btn-primary:focus {
+  background-color: #8f0e1b !important;
+  border-color: #8f0e1b !important;
+  color: #ffffff !important;
+}
