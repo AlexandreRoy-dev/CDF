@@ -3,103 +3,145 @@
 # Contact 2 Section
 --------------------------------------------------------------*/
 .contact-2 {
-  .info-card {
-    background-color: var(--surface-color);
-    padding: 30px;
-    text-align: center;
+  .info-box {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    padding: 3rem;
+    border-radius: 1rem;
     height: 100%;
-    border-radius: 10px;
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
-
-    .icon-box {
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
-
-      i {
-        font-size: 24px;
-        color: var(--accent-color);
-      }
-    }
 
     h3 {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 15px;
+      color: var(--contrast-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+
+      @media (max-width: 767.98px) {
+        font-size: 1.75rem;
+      }
     }
 
     p {
-      margin: 0;
-      color: color-mix(in srgb, var(--default-color), transparent 20%);
-      font-size: 15px;
-      line-height: 1.6;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      color: var(--contrast-color);
+    }
+
+    @media (max-width: 992px) {
+      padding: 1.5rem;
     }
   }
 
-  .form-wrapper {
-    .input-group {
-      .input-group-text {
-        color: var(--accent-color);
-        background-color: color-mix(in srgb, var(--default-color), transparent 96%);
-        border-color: color-mix(in srgb, var(--default-color), transparent 85%);
-        border-radius: 8px 0 0 8px;
-        padding: 12px 15px;
-      }
+  .info-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 
-      .form-control {
-        color: var(--default-color);
-        background-color: var(--surface-color);
-        border-radius: 0 8px 8px 0;
-        box-shadow: none;
-        font-size: 14px;
-        border-color: color-mix(in srgb, var(--default-color), transparent 85%);
-        padding: 12px 15px;
-
-        &:focus {
-          border-color: var(--accent-color);
-        }
-
-        &::placeholder {
-          color: color-mix(in srgb, var(--default-color), transparent 70%);
-        }
-      }
+    &:last-child {
+      margin-bottom: 0;
     }
 
-    select.form-control {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      background-size: 16px 12px;
-      padding-right: 40px;
-    }
-
-    textarea.form-control {
-      min-height: 160px;
-    }
-
-    button {
-      background-color: var(--accent-color);
-      border: 0;
-      padding: 12px 40px;
-      color: var(--contrast-color);
-      border-radius: 8px;
+    .icon-box {
+      width: 3.5rem;
+      height: 3.5rem;
+      background-color: color-mix(in srgb, var(--contrast-color), transparent 85%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
       transition: 0.3s;
-      font-size: 16px;
-      font-weight: 500;
+
+      i {
+        font-size: 1.5rem;
+        color: var(--contrast-color);
+      }
+    }
+
+    &:hover .icon-box {
+      background-color: color-mix(in srgb, var(--contrast-color), transparent 70%);
+    }
+
+    .content {
+      h4 {
+        color: var(--contrast-color);
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 0.25rem;
+        font-size: 0.95rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    background-color: var(--surface-color);
+    padding: 3rem;
+    border-radius: 1rem;
+    height: 100%;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+
+    @media (max-width: 992px) {
+      padding: 1.5rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.75rem;
+      }
+    }
+
+    p {
+      color: color-mix(in srgb, var(--default-color), transparent 25%);
+      margin-bottom: 2rem;
+    }
+
+    .form-control,
+    .form-select {
+      padding: 0.875rem 1.25rem;
+      border-color: color-mix(in srgb, var(--default-color), transparent 90%);
+      border-radius: 0.5rem;
+      background-color: color-mix(in srgb, var(--surface-color) 90%, white 5%);
+      color: var(--default-color);
+
+      &:focus {
+        box-shadow: none;
+        border-color: var(--accent-color);
+      }
+
+      &::placeholder {
+        color: color-mix(in srgb, var(--default-color), transparent 50%);
+      }
+    }
+
+    .btn {
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: 0.3s;
+
+      i {
+        font-size: 1.25rem;
+      }
 
       &:hover {
-        background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+        background-color: color-mix(in srgb, var(--accent-color), var(--contrast-color) 20%);
       }
     }
   }

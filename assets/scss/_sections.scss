@@ -14,7 +14,7 @@ section,
 
   section,
   .section {
-    scroll-margin-top: 76px;
+    scroll-margin-top: 66px;
   }
 }
 
@@ -49,29 +49,32 @@ section,
   p {
     color: var(--heading-color);
     margin: 0;
-    font-size: 36px;
-    font-weight: 800;
+    font-size: 28px;
+    font-weight: 700;
     text-transform: uppercase;
     font-family: var(--heading-font);
-
-    @media (max-width: 768px) {
-      font-size: 24px;
-    }
   }
 }
 
 @import './sections/_hero.scss';
 @import './sections/_about.scss';
-@import './sections/_properties.scss';
-@import './sections/_features.scss';
-@import './sections/_testimonials.scss';
+@import './sections/_cards.scss';
+@import './sections/_services.scss';
 @import './sections/_call-to-action.scss';
-@import './sections/_post-list-4.scss';
-@import './sections/_contact.scss';
-@import './sections/_post-list.scss';
-@import './sections/_post-list-2.scss';
-@import './sections/_post-list-3.scss';
-@import './sections/_post-details.scss';
-@import './sections/_properties-2.scss';
-@import './sections/_property-details.scss';
+@import './sections/_properties.scss';
+@import './sections/_testimonials-2.scss';
 @import './sections/_contact-2.scss';
+@import './sections/_about-2.scss';
+@import './sections/_stats.scss';
+@import './sections/_team-2.scss';
+@import './sections/_skills.scss';
+@import './sections/_testimonials.scss';
+@import './sections/_services-2.scss';
+@import './sections/_features.scss';
+@import './sections/_service-details.scss';
+@import './sections/_post-list-2.scss';
+@import './sections/_post-details.scss';
+@import './sections/_contact.scss';
+@import './sections/_properties-2.scss';
+@import './sections/_about-me.scss';
+@import './sections/_about-me-2.scss';

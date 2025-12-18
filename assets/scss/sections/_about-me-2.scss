@@ -1,0 +1,311 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# About Me 2 Section
+--------------------------------------------------------------*/
+.about-me-2 {
+  padding: 120px 0;
+
+  .intro-header {
+    margin-bottom: 80px;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--heading-color);
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+      margin: 0;
+    }
+  }
+
+  .main-content-wrapper {
+    margin-bottom: 100px;
+  }
+
+  .profile-section {
+    .profile-image-container {
+      margin-bottom: 2rem;
+
+      img {
+        width: 100%;
+        max-width: 300px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 12px;
+        filter: grayscale(20%);
+        transition: filter 0.3s ease;
+
+        &:hover {
+          filter: grayscale(0%);
+        }
+      }
+    }
+
+    .profile-meta {
+      .location {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+
+        i {
+          margin-right: 0.5rem;
+          color: var(--accent-color);
+        }
+      }
+
+      .status {
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+
+        .status-indicator {
+          width: 8px;
+          height: 8px;
+          background-color: #10b981;
+          border-radius: 50%;
+          margin-right: 0.5rem;
+          animation: pulse 2s infinite;
+        }
+      }
+    }
+  }
+
+  .content-area {
+    padding-left: 2rem;
+
+    .story-block {
+      margin-bottom: 3rem;
+
+      .lead-text {
+        font-size: 1.3rem;
+        line-height: 1.7;
+        font-weight: 300;
+        margin-bottom: 1.5rem;
+        color: var(--default-color);
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: color-mix(in srgb, var(--default-color), transparent 15%);
+        margin: 0;
+      }
+    }
+  }
+
+  .expertise-grid {
+    margin-bottom: 3rem;
+
+    .expertise-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+
+      .expertise-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.5rem;
+
+        i {
+          font-size: 1.5rem;
+          color: var(--accent-color);
+        }
+      }
+
+      .expertise-content {
+        h4 {
+          font-size: 1.1rem;
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+          color: var(--heading-color);
+        }
+
+        p {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          color: color-mix(in srgb, var(--default-color), transparent 30%);
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .philosophy-quote {
+    position: relative;
+    padding: 2rem 0;
+
+    .quote-mark {
+      position: absolute;
+      top: -10px;
+      left: -20px;
+      font-size: 5rem;
+      font-weight: 300;
+      color: color-mix(in srgb, var(--accent-color), transparent 80%);
+      line-height: 1;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--default-color);
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .bottom-section {
+    padding-top: 60px;
+    border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+
+    .collaboration-text {
+      h3 {
+        font-size: 2rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        color: var(--heading-color);
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        margin: 0;
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+
+      .btn-custom {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.875rem 2rem;
+        border-radius: 6px;
+        font-weight: 400;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+
+        &.primary {
+          background-color: var(--accent-color);
+          color: var(--contrast-color);
+
+          &:hover {
+            background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+            transform: translateY(-1px);
+          }
+        }
+
+        &.secondary {
+          border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+          color: var(--default-color);
+
+          &:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-1px);
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @media (max-width: 992px) {
+    padding: 80px 0;
+
+    .intro-header {
+      margin-bottom: 60px;
+
+      h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    .main-content-wrapper {
+      margin-bottom: 60px;
+    }
+
+    .content-area {
+      padding-left: 0;
+      margin-top: 2rem;
+    }
+
+    .bottom-section {
+      .action-buttons {
+        justify-content: flex-start;
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .intro-header {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+      }
+    }
+
+    .philosophy-quote {
+      .quote-mark {
+        font-size: 3.5rem;
+        left: -10px;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
+    .bottom-section {
+      .collaboration-text {
+        h3 {
+          font-size: 1.6rem;
+        }
+      }
+
+      .action-buttons {
+        flex-direction: column;
+
+        .btn-custom {
+          text-align: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
