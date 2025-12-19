@@ -4699,3 +4699,389 @@ section,
   border-color: #8f0e1b !important;
   color: #ffffff !important;
 }
+/* TEST CONTACT – doit visuellement corriger la section */
+.contact.section {
+  padding: 80px 0 !important;
+  background: #f6f7f8 !important;
+}
+
+.contact .info-box,
+.contact .contact-form {
+  background: #ffffff !important;
+  padding: 30px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+}
+
+.contact .info-item {
+  margin-bottom: 20px;
+}
+/* =========================
+   CONTACT – STYLE FINAL
+   ========================= */
+
+/* Titres */
+.contact .section-title h2 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.contact .section-title p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #6c757d;
+}
+
+/* Info box (colonne gauche) */
+.contact .info-box h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.contact .info-box p {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Info items */
+.contact .info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contact .info-item .icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(170, 17, 32, 0.1); /* #AA1120 soft */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #AA1120;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact .info-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.contact .info-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+/* Contact form */
+.contact .contact-form h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.contact .contact-form p {
+  color: #6c757d;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.contact .form-control {
+  border-radius: 10px;
+  padding: 12px 15px;
+  border: 1px solid #dee2e6;
+  font-size: 15px;
+}
+
+.contact .form-control:focus {
+  border-color: #AA1120;
+  box-shadow: 0 0 0 0.2rem rgba(170, 17, 32, 0.15);
+}
+
+/* Submit button */
+.contact .php-email-form button {
+  background: #AA1120;
+  border: none;
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact .php-email-form button:hover {
+  background: #8f0e1b;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(170, 17, 32, 0.25);
+}
+
+/* Messages */
+.contact .loading,
+.contact .sent-message,
+.contact .error-message {
+  margin-top: 15px;
+  font-size: 14px;
+}
+/* =========================
+   CARTES COURTIERS – IMAGE FULL
+   ========================= */
+
+#cards .category-card {
+  position: relative;
+  height: 520px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background: #000;
+}
+
+/* Image = vrai background */
+#cards .category-image {
+  position: absolute;
+  inset: 0;
+}
+
+#cards .category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay lisible */
+#cards .category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.65) 60%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+/* Contenu au-dessus */
+#cards .category-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 32px;
+  width: 100%;
+}
+
+#cards .category-content h3 {
+  color: #fff;
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+#cards .category-content p {
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Bouton */
+#cards .btn-shop-now {
+  background: #AA1120;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+}
+
+#cards .btn-shop-now:hover {
+  background: #8f0e1b;
+}
+
+/* Hover premium */
+#cards .category-card:hover img {
+  transform: scale(1.05);
+  transition: transform 0.6s ease;
+}
+/* =========================
+   CONTENU TOUJOURS EN BAS
+   ========================= */
+
+#cards .category-card {
+  display: flex;
+  align-items: flex-end; /* clé : pousse le contenu en bas */
+}
+
+/* Contenu */
+#cards .category-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* texte + bouton en bas */
+  gap: 16px;
+}
+
+/* Optionnel : limiter la largeur du texte */
+#cards .category-content p {
+  max-width: 90%;
+}
+
+/* HERO – supprimer tout voile blanc */
+#hero img {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+#hero::before,
+#hero::after {
+  display: none !important;
+  background: none !important;
+}
+#hero .btn-get-started {
+  background-color: #AA1120;
+  border-color: #AA1120;
+  color: #ffffff;
+}
+
+#hero .btn-get-started:hover {
+  background-color: #8f0e1b;
+  border-color: #8f0e1b;
+}
+/* HERO – typographie renforcée */
+#hero h2 {
+  font-size: clamp(2.6rem, 4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+#hero p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+/* CTA rouge plus présent */
+#hero .btn-get-started {
+  font-size: 1.05rem;
+  padding: 14px 34px;
+  background-color: #AA1120;
+  border-color: #AA1120;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+#hero .btn-get-started:hover {
+  background-color: #8f0e1b;
+  border-color: #8f0e1b;
+}
+/* HEADER BACKGROUND */
+#header {
+  background-color: #0c2749;
+}
+
+/* LOGO / SITENAME */
+#header .sitename {
+  color: #ffffff;
+}
+
+/* NAV LINKS */
+#navmenu ul li a {
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* ACTIVE + HOVER STATE */
+#navmenu ul li a.active,
+#navmenu ul li a:hover {
+  color: #AA1120; /* rouge de la marque */
+}
+
+/* MOBILE ICON */
+.mobile-nav-toggle {
+  color: #ffffff;
+}
+
+/* CTA – Nous contacter (distinct) */
+#header .btn-getstarted {
+  background-color: #AA1120;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+#header .btn-getstarted:hover {
+  background-color: #8f0e1b;
+  color: #ffffff;
+}
+#header .logo img {
+  height: 60px !important;
+  max-height: none !important;
+  width: auto !important;
+}
+
+.hero-content-box {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.08)
+  );
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-radius: 20px;
+  padding: 50px 48px;
+  max-width: 560px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Text */
+.hero-content-box h2 {
+  color: #ffffff;
+}
+
+.hero-content-box p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+/* CTA */
+.hero-content-box .btn-get-started {
+  background-color: #AA1120;
+  color: #ffffff;
+  padding: 14px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.hero-content-box .btn-get-started:hover {
+  background-color: #8f0e1b;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(170, 17, 32, 0.35);
+}
+
+@media (max-width: 991.98px) {
+  .btn-getstarted {
+    display: none !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .navmenu ul li a {
+    color: #000 !important;
+  }
+
+  .navmenu ul li a:hover,
+  .navmenu ul li a.active {
+    color: #AA1120 !important; /* ton rouge */
+  }
+}
