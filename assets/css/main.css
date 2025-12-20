@@ -5130,3 +5130,46 @@ section,
 .profile-contact-simple a:hover {
   text-decoration: underline;
 }
+.avatar-initial {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #00a878; /* adapte si besoin */
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px; /* 👈 espace réel entre le cercle et le texte */
+}
+
+.avatar-initial {
+  width: 48px;
+  height: 48px;
+  min-width: 48px; /* empêche l’écrasement */
+  border-radius: 50%;
+  background-color: #AA1120; /* couleur demandée */
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.testimonial-cta {
+  background-color: #AA1120;
+  color: #ffffff;
+  border: none;
+}
+
+.testimonial-cta:hover {
+  background-color: #8f0e1a; /* légèrement plus foncé */
+  color: #ffffff;
+}
