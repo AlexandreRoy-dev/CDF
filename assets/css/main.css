@@ -5085,3 +5085,17 @@ section,
     color: #AA1120 !important; /* ton rouge */
   }
 }
+#contact,
+#contact .container,
+#contact::before {
+  background-color: #f7f5ee !important;
+}
+#contact.section {
+  background-color: #f7f5ee !important;
+}
+#contact {
+  --background-color: #f7f5ee;
+}
+#footer.footer.dark-background {
+  background-color: #0c2749 !important;
+}
