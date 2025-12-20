@@ -27,50 +27,60 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- ONLY ADDITION: styles for Marco contact highlight -->
+  <style>
+    .profile-contact {
+      background: #f7f5ee;
+      border-left: 4px solid #AA1120;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+    .profile-contact h4 {
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .profile-contact i {
+      color: #AA1120;
+      margin-right: 8px;
+    }
+    .profile-contact a {
+      color: #0c2749;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+
 </head>
 
 <body class="marco-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+ <header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Sailor</h1>
-      </a>
+    <a href="index.html" class="logo d-flex align-items-center me-auto">
+     
+ <img src="assets/img/logo.svg" alt="Chiasson De Francesco"> 
+      
+    </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li class="dropdown"><a href="about.html"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero" class="active">Accueil</a></li>
+        <li><a href="https://www.centris.ca/fr/courtier-immobilier~marco-de-francesco~re-max-d-abord-inc./h3493?uc=1">Propriétés</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="blog.html">Blogue</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
 
-      <a class="btn-getstarted" href="about.html">Get Started</a>
+    <a class="btn-getstarted" href="index.html#contact">
+      Nous contacter
+    </a>
 
-    </div>
-  </header>
+  </div>
+</header>
 
 <main class="main">
 
@@ -106,15 +116,31 @@
               <div class="col-lg-4" data-aos="fade-right" data-aos-delay="200">
                 <div class="profile-section">
                   <div class="profile-image-container">
-                    <img src="assets/img/profile/profile-square-2.webp" class="img-fluid" alt="Marco De Francesco">
+                    <img src="assets/img/marco.webp" class="img-fluid" alt="Marco De Francesco">
                   </div>
                   <div class="profile-meta">
-                    
+
                     <div class="status">
                       <div class="status-indicator"></div>
                       <span>Toujours disponible pour vous accompagner</span>
                     </div>
                   </div>
+
+           <div class="profile-contact-simple">
+  <p>
+    <i class="bi bi-telephone"></i>
+    <a href="tel:18195620656">819&nbsp;562-0656</a>
+  </p>
+
+  <p>
+    <i class="bi bi-envelope"></i>
+    <a href="mailto:marco.defrancesco@remax-quebec.com">
+      marco.defrancesco@remax-quebec.com
+    </a>
+  </p>
+</div>
+
+
                 </div>
               </div>
 
@@ -207,8 +233,8 @@
               </div>
               <div class="col-lg-6">
                 <div class="action-buttons">
-                  <a href="#contact" class="btn-custom primary">Me contacter</a>
-                  <a href="#properties" class="btn-custom secondary">Voir les propriétés</a>
+                  <a href="index.html#contact" class="btn-custom primary">Me contacter</a>
+                  <a href="properties.html" class="btn-custom secondary">Voir les propriétés</a>
                 </div>
               </div>
             </div>
@@ -223,71 +249,105 @@
 
 </main>
 
+<!-- FOOTER: UNCHANGED -->
+<footer id="footer" class="footer dark-background">
 
-  <footer id="footer" class="footer dark-background">
+  <div class="container footer-top">
+    <div class="row gy-4">
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Sailor</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
+      <!-- About / Contact -->
+      <div class="col-lg-4 col-md-6 footer-about">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <span class="sitename">Chiasson De Francesco</span>
+        </a>
+
+        <div class="footer-contact pt-3">
+          <p>
+            Équipe de courtiers immobiliers résidentiels et commerciaux,
+            offrant un accompagnement rigoureux, transparent et stratégique
+            à chaque étape de votre projet immobilier.
+          </p>
+
+          <p class="mt-3">
+            <strong>Téléphone :</strong><br>
+            Pierre-Olivier Chiasson —
+            <a href="tel:18199194631">819&nbsp;919-4631</a><br>
+            Marco De Francesco —
+            <a href="tel:18195620656">819&nbsp;562-0656</a>
+          </p>
+
+          <p>
+            <strong>Courriel :</strong><br>
+            <a href="mailto:p-o.chiasson@remax-quebec.com">p-o.chiasson@remax-quebec.com</a><br>
+            <a href="mailto:marco.defrancesco@remax-quebec.com">marco.defrancesco@remax-quebec.com</a>
+          </p>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
+        <div class="social-links d-flex mt-4">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
         </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
-
       </div>
+
+      <!-- Navigation -->
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Accueil</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#properties">Propriétés</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Vente de propriété</a></li>
+          <li><a href="#services">Achat immobilier</a></li>
+          <li><a href="#services">Investissement immobilier</a></li>
+          <li><a href="#services">Évaluation de propriété</a></li>
+          <li><a href="#contact">Consultation immobilière</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-lg-4 col-md-12 footer-newsletter">
+        <h4>Offres</h4>
+        <p>
+          Recevez nos nouvelles propriétés, conseils immobiliers
+          et tendances du marché directement dans votre boîte courriel.
+        </p>
+
+        <form action="forms/newsletter.php" method="post" class="php-email-form">
+          <div class="newsletter-form">
+            <input type="email" name="email" placeholder="Votre adresse courriel">
+            <input type="submit" value="S’inscrire">
+          </div>
+
+          <div class="loading">Envoi…</div>
+          <div class="error-message"></div>
+          <div class="sent-message">
+            Merci pour votre inscription.
+          </div>
+        </form>
+      </div>
+
     </div>
+  </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Sailor</strong> <span>All Rights Reserved</span></p>
+  <div class="container copyright text-center mt-4">
+    <p>
+      © <span>Copyright</span>
+      <strong class="px-1 sitename">Chiasson De Francesco</strong>
+      <span>— Tous droits réservés</span>
+    </p>
+  </div>
 
-    </div>
-
-  </footer>
+</footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

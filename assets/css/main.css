@@ -5099,3 +5099,34 @@ section,
 #footer.footer.dark-background {
   background-color: #0c2749 !important;
 }
+/* Remove dark overlay on category cards */
+.category-card .category-image::before,
+.category-card .category-image::after {
+  display: none !important;
+}
+.profile-contact-simple {
+  margin-top: 12px;
+}
+
+.profile-contact-simple p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-contact-simple i {
+  color: #AA1120;
+  font-size: 1rem;
+}
+
+.profile-contact-simple a {
+  color: #0c2749;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.profile-contact-simple a:hover {
+  text-decoration: underline;
+}
