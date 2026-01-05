@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <title>Marco De Francesco — Chiasson De Francesco</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900|Playfair+Display:400,500,600,700,800,900&amp;subset=latin">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"Playfair Display"', 'serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#AA1120',
+                            navy: '#0c2749'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="antialiased bg-white text-gray-900 font-body flex flex-col min-h-screen">
+
+    <nav class="py-4 px-6 fixed w-full top-0 z-50 bg-brand-navy shadow-md">
+        <div class="relative max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="../src/assets/logo.png" alt="Chiasson & De Francesco" class="h-10 md:h-12 w-auto">
+                </a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
+                <a href="index.html#about" class="text-white hover:text-brand-red transition-colors font-medium">Équipe</a>
+                <a href="proprietes.html" class="text-white hover:text-brand-red transition-colors font-medium">Propriétés</a>
+                <a href="blog.html" class="text-white hover:text-brand-red transition-colors font-medium">Blogue</a>
+                <a href="index.html#contact" class="text-white hover:text-brand-red transition-colors font-medium">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden relative bg-brand-navy px-6 py-6 space-y-4 border-t border-white/10 mt-4">
+            <a href="index.html" class="block text-white hover:text-brand-red font-medium">Accueil</a>
+            <a href="index.html#about" class="block text-white hover:text-brand-red font-medium">Équipe</a>
+            <a href="proprietes.html" class="block text-white hover:text-brand-red font-medium">Propriétés</a>
+            <a href="index.html#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-12 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm text-gray-500">
+                    <li><a href="index.html" class="hover:text-brand-red">Accueil</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li><a href="index.html#about" class="hover:text-brand-red">Notre Équipe</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li class="font-semibold text-brand-navy">Marco De Francesco</li>
+                </ol>
+            </nav>
+            <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy">
+                Marco De Francesco
+            </h1>
+            <p class="text-brand-red font-semibold text-lg mt-2">Courtier immobilier résidentiel et commercial</p>
+        </div>
+    </header>
+
+    <main class="flex-grow py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                        <img 
+                            src="../src/assets/marco-de-francesco.webp" 
+                            alt="Marco De Francesco" 
+                            class="w-full h-auto object-cover aspect-[3/4]"
+                        >
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+                                <span class="text-sm text-gray-500">Affiliation</span>
+                                <span class="font-bold text-brand-navy">RE/MAX D'ABORD</span>
+                            </div>
+                            
+                            <a href="tel:8195620656" class="flex items-center justify-center gap-3 w-full bg-brand-navy text-white py-3 rounded-lg hover:bg-brand-red transition-colors font-semibold shadow-md">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                <span>(819) 562-0656</span>
+                            </a>
+                            
+                            <a href="mailto:marco.defrancesco@remax-quebec.com" class="flex items-center justify-center gap-3 w-full bg-white border-2 border-brand-navy text-brand-navy py-3 rounded-lg hover:bg-gray-50 transition-colors font-semibold">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <span>Envoyer un courriel</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-xl text-center border border-gray-200">
+                            <span class="block text-2xl font-bold text-brand-red font-heading">20 Ans</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wide">Service Militaire</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-xl text-center border border-gray-200">
+                            <span class="block text-2xl font-bold text-brand-red font-heading">100%</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wide">Bilingue (FR/EN)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 space-y-10">
+                    
+                    <div>
+                        <h2 class="font-heading text-3xl font-bold text-brand-navy mb-6 decoration-brand-red decoration-4 underline-offset-8">
+                            Biographie
+                        </h2>
+                        <div class="prose prose-lg text-gray-600 leading-relaxed max-w-none">
+                            <p class="mb-4">
+                                Courtier immobilier résidentiel et commercial depuis plus de 5 ans, Marco De Francesco détient une solide expérience de plus de 10 ans dans la vente et la gestion hôtelière. Il est également parfaitement bilingue, en mesure de vous servir autant en anglais qu'en français.
+                            </p>
+                            <p>
+                                Ce qui distingue particulièrement Marco, c'est son parcours de <strong class="text-brand-navy">20 ans de service militaire</strong> spécialisé en logistique, gestion administrative et financière. Cette expérience unique lui a permis de développer un sens inné de la collaboration, de la structure et de la rigueur, des atouts majeurs pour mener à bien vos transactions immobilières.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-navy text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+                        <h3 class="font-heading text-2xl font-bold mb-4 relative z-10">Rigueur, Analyse et Humanité</h3>
+                        <p class="text-gray-300 relative z-10 leading-relaxed">
+                            Le monde du courtage immobilier recèle de subtilités et de défis. L'approche de Marco combine professionnalisme militaire et écoute humaine pour vous offrir :
+                        </p>
+                        <ul class="mt-6 space-y-3 relative z-10">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-brand-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><strong>Tranquillité d'esprit :</strong> Une gestion administrative sans faille.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-brand-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><strong>Protection :</strong> Collaboration avec des experts vérifiés pour sécuriser votre transaction.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-brand-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><strong>Approche personnalisée :</strong> Une stratégie basée sur VOTRE situation personnelle.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold text-brand-navy mb-4">L'avantage de l'expérience</h3>
+                        <p class="text-gray-600 mb-6">
+                            Faire appel à Marco, c’est mettre toutes les chances de votre côté pour une transaction réussie.
+                        </p>
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="flex-1 bg-gray-50 p-6 rounded-xl border-l-4 border-brand-red">
+                                <h4 class="font-bold text-brand-navy">Investisseur Immobilier</h4>
+                                <p class="text-sm text-gray-600 mt-2">
+                                    Ayant lui-même été propriétaire immobilier locatif et résidentiel, Marco comprend la réalité des investisseurs et est à même de vous conseiller judicieusement.
+                                </p>
+                            </div>
+                            <div class="flex-1 bg-gray-50 p-6 rounded-xl border-l-4 border-brand-navy">
+                                <h4 class="font-bold text-brand-navy">Logistique & Gestion</h4>
+                                <p class="text-sm text-gray-600 mt-2">
+                                    20 ans d'expérience en logistique militaire garantissent que rien n'est laissé au hasard dans la gestion de votre dossier.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-10 mt-10">
+                        <h3 class="font-heading text-2xl font-bold text-brand-navy mb-4">Discutons de votre projet</h3>
+                        <p class="text-gray-600 mb-6">
+                            L’achat ou la vente d’une propriété est une étape importante de votre vie. Je suis prêt à vous accompagner avec rigueur et dévouement.
+                        </p>
+                        <a href="index.html#contact" class="inline-flex items-center gap-2 bg-brand-red text-white px-8 py-4 rounded-full font-bold hover:bg-red-800 transition-colors shadow-lg">
+                            <span>Prendre rendez-vous avec Marco</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="bg-[#232323] text-gray-400 py-16 border-t-4 border-brand-red font-body">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
+                
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <img src="../src/assets/logo.png" alt="Chiasson & De Francesco" class="h-12 w-auto opacity-90">
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-400 pr-6">
+                        Une expertise locale et un service personnalisé pour réaliser vos projets de vente ou d'achat en Estrie.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:border-brand-red hover:text-white transition-all duration-300"><svg class="h-4 w-4" fill="currentColor" viewbox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+                        <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:border-brand-red hover:text-white transition-all duration-300"><svg class="h-4 w-4" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-heading font-bold text-lg mb-6 tracking-wide">Navigation</h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="index.html" class="hover:text-brand-red transition-colors">Accueil</a></li>
+                        <li><a href="index.html#about" class="hover:text-brand-red transition-colors">Notre Équipe</a></li>
+                        <li><a href="proprietes.html" class="hover:text-brand-red transition-colors">Propriétés</a></li>
+                        <li><a href="index.html#contact" class="hover:text-brand-red transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <h4 class="text-white font-heading font-bold text-lg mb-6 tracking-wide">Nous Joindre</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-red mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span><span class="block text-white font-semibold">RE/MAX D'ABORD</span>Sherbrooke, Québec</span>
+                        </li>
+                        <li>
+                            <a href="mailto:info@chiassondefrancesco.com" class="flex items-center gap-3 hover:text-white transition-colors">
+                                <svg class="h-5 w-5 text-gray-500 hover:text-brand-red shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                <span>info@chiassondefrancesco.com</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-xs text-gray-500">
+                <p>&copy; 2026 Équipe Chiasson & De Francesco. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
