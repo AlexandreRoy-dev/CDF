@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <title>Blogue Immobilier — Chiasson De Francesco</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900|Playfair+Display:400,500,600,700,800,900&amp;subset=latin">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"Playfair Display"', 'serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#AA1120',
+                            navy: '#0c2749'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="antialiased bg-gray-50 text-gray-900 font-body flex flex-col min-h-screen">
+
+    <nav class="py-4 px-6 fixed w-full top-0 z-50 bg-brand-navy shadow-md">
+        <div class="relative max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="../src/assets/logo.png" alt="Chiasson & De Francesco" class="h-10 md:h-12 w-auto">
+                </a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
+                <a href="index.html#about" class="text-white hover:text-brand-red transition-colors font-medium">Équipe</a>
+                <a href="proprietes.html" class="text-white hover:text-brand-red transition-colors font-medium">Propriétés</a>
+                <a href="blog.html" class="text-brand-red font-bold transition-colors">Blogue</a>
+                <a href="index.html#contact" class="text-white hover:text-brand-red transition-colors font-medium">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden relative bg-brand-navy px-6 py-6 space-y-4 border-t border-white/10 mt-4">
+            <a href="index.html" class="block text-white hover:text-brand-red font-medium">Accueil</a>
+            <a href="index.html#about" class="block text-white hover:text-brand-red font-medium">Équipe</a>
+            <a href="proprietes.html" class="block text-white hover:text-brand-red font-medium">Propriétés</a>
+            <a href="blog.html" class="block text-brand-red font-bold">Blogue</a>
+            <a href="index.html#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-12 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy mb-4">
+                Actualités & Conseils
+            </h1>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                Restez informé sur le marché immobilier en Estrie, nos conseils pour vendre ou acheter, et les dernières nouvelles du secteur.
+            </p>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <div class="lg:col-span-8">
+                
+                <article class="bg-white rounded-2xl shadow-md overflow-hidden mb-12 group hover:shadow-xl transition-shadow duration-300">
+                    <a href="#" class="block relative h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80" alt="Marché Immobilier 2026" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand-red text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                            Marché Immobilier
+                        </div>
+                    </a>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                5 Janvier 2026
+                            </span>
+                            <span>•</span>
+                            <span>Par Marco De Francesco</span>
+                        </div>
+                        <h2 class="font-heading text-3xl font-bold text-brand-navy mb-4 group-hover:text-brand-red transition-colors">
+                            <a href="#">Prévisions du marché immobilier en Estrie pour 2026</a>
+                        </h2>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Les taux d'intérêt se stabilisent et l'inventaire reprend des couleurs à Sherbrooke. Voici ce que les acheteurs et vendeurs doivent savoir pour tirer leur épingle du jeu cette année...
+                        </p>
+                        <a href="#" class="inline-flex items-center font-bold text-brand-red hover:text-brand-navy transition-colors">
+                            Lire la suite
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <article class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80" alt="Home Staging" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-brand-navy px-3 py-1 rounded-md text-xs font-bold uppercase">
+                                Vendre
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="block text-xs text-gray-400 mb-2">12 Décembre 2025</span>
+                            <h3 class="font-heading text-xl font-bold text-brand-navy mb-3 leading-tight group-hover:text-brand-red transition-colors">
+                                <a href="#">5 Astuces de Home Staging à petit budget</a>
+                            </h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-3">
+                                Pas besoin de dépenser une fortune pour mettre votre maison en valeur. Découvrez nos conseils simples pour séduire les visiteurs.
+                            </p>
+                            <a href="#" class="text-sm font-semibold text-brand-navy hover:text-brand-red transition-colors">Lire l'article &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=600&q=80" alt="Investissement" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-brand-navy px-3 py-1 rounded-md text-xs font-bold uppercase">
+                                Investissement
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="block text-xs text-gray-400 mb-2">28 Novembre 2025</span>
+                            <h3 class="font-heading text-xl font-bold text-brand-navy mb-3 leading-tight group-hover:text-brand-red transition-colors">
+                                <a href="#">Pourquoi investir dans le multi-logements à Sherbrooke ?</a>
+                            </h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-3">
+                                Sherbrooke reste une ville universitaire dynamique. Analyse de la rentabilité des plex dans les secteurs clés.
+                            </p>
+                            <a href="#" class="text-sm font-semibold text-brand-navy hover:text-brand-red transition-colors">Lire l'article &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=600&q=80" alt="Premier Acheteur" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-brand-navy px-3 py-1 rounded-md text-xs font-bold uppercase">
+                                Acheter
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="block text-xs text-gray-400 mb-2">15 Novembre 2025</span>
+                            <h3 class="font-heading text-xl font-bold text-brand-navy mb-3 leading-tight group-hover:text-brand-red transition-colors">
+                                <a href="#">Guide du premier acheteur : Éviter les pièges courants</a>
+                            </h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-3">
+                                De la pré-approbation à l'inspection, nous vous guidons à travers chaque étape pour un premier achat sans stress.
+                            </p>
+                            <a href="#" class="text-sm font-semibold text-brand-navy hover:text-brand-red transition-colors">Lire l'article &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&q=80" alt="Notaire" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-brand-navy px-3 py-1 rounded-md text-xs font-bold uppercase">
+                                Juridique
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="block text-xs text-gray-400 mb-2">30 Octobre 2025</span>
+                            <h3 class="font-heading text-xl font-bold text-brand-navy mb-3 leading-tight group-hover:text-brand-red transition-colors">
+                                <a href="#">Les frais cachés lors de l'achat d'une propriété</a>
+                            </h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-3">
+                                Taxe de bienvenue, frais de notaire, ajustements... Prévoyez votre budget avec précision grâce à notre liste complète.
+                            </p>
+                            <a href="#" class="text-sm font-semibold text-brand-navy hover:text-brand-red transition-colors">Lire l'article &rarr;</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="mt-12 flex justify-center">
+                    <nav class="flex items-center gap-2">
+                        <a href="#" class="px-4 py-2 rounded-lg border border-gray-200 text-gray-600 hover:border-brand-navy hover:text-brand-navy transition-colors">Précédent</a>
+                        <span class="px-4 py-2 rounded-lg bg-brand-navy text-white font-bold">1</span>
+                        <a href="#" class="px-4 py-2 rounded-lg border border-gray-200 text-gray-600 hover:border-brand-navy hover:text-brand-navy transition-colors">2</a>
+                        <a href="#" class="px-4 py-2 rounded-lg border border-gray-200 text-gray-600 hover:border-brand-navy hover:text-brand-navy transition-colors">Suivant</a>
+                    </nav>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-4 space-y-8">
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-heading text-xl font-bold text-brand-navy mb-4">Rechercher</h3>
+                    <div class="relative">
+                        <input type="text" placeholder="Mots-clés..." class="w-full pl-4 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-brand-navy transition-colors">
+                        <button class="absolute right-3 top-3 text-gray-400 hover:text-brand-red">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-heading text-xl font-bold text-brand-navy mb-4">Catégories</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="flex justify-between items-center text-gray-600 hover:text-brand-red transition-colors group">
+                                <span>Acheter une propriété</span>
+                                <span class="bg-gray-100 text-gray-500 text-xs px-2 py-1 rounded-full group-hover:bg-red-50 group-hover:text-brand-red">12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex justify-between items-center text-gray-600 hover:text-brand-red transition-colors group">
+                                <span>Vendre sa maison</span>
+                                <span class="bg-gray-100 text-gray-500 text-xs px-2 py-1 rounded-full group-hover:bg-red-50 group-hover:text-brand-red">8</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex justify-between items-center text-gray-600 hover:text-brand-red transition-colors group">
+                                <span>Investissement & Commercial</span>
+                                <span class="bg-gray-100 text-gray-500 text-xs px-2 py-1 rounded-full group-hover:bg-red-50 group-hover:text-brand-red">5</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex justify-between items-center text-gray-600 hover:text-brand-red transition-colors group">
+                                <span>Actualités du marché</span>
+                                <span class="bg-gray-100 text-gray-500 text-xs px-2 py-1 rounded-full group-hover:bg-red-50 group-hover:text-brand-red">4</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-brand-navy p-8 rounded-2xl shadow-lg text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-red/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                    
+                    <h3 class="font-heading text-xl font-bold text-white mb-2 relative z-10">Ne manquez rien !</h3>
+                    <p class="text-gray-300 text-sm mb-6 relative z-10">Recevez nos derniers articles et les nouvelles opportunités directement par courriel.</p>
+                    
+                    <form class="space-y-3 relative z-10">
+                        <input type="email" placeholder="Votre courriel" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:bg-white/20 transition-colors">
+                        <button type="button" class="w-full bg-brand-red text-white font-bold py-3 rounded-lg hover:bg-white hover:text-brand-navy transition-colors shadow-lg">
+                            Je m'abonne
+                        </button>
+                    </form>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-heading text-xl font-bold text-brand-navy mb-4">Mots-clés populaires</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-md hover:bg-brand-navy hover:text-white transition-colors">Sherbrooke</a>
+                        <a href="#" class="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-md hover:bg-brand-navy hover:text-white transition-colors">Hypothèque</a>
+                        <a href="#" class="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-md hover:bg-brand-navy hover:text-white transition-colors">Rénovation</a>
+                        <a href="#" class="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-md hover:bg-brand-navy hover:text-white transition-colors">Magog</a>
+                        <a href="#" class="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-md hover:bg-brand-navy hover:text-white transition-colors">Inspection</a>
+                        <a href="#" class="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-md hover:bg-brand-navy hover:text-white transition-colors">Notaire</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <footer id="footer" class="bg-[#232323] text-gray-400 py-16 border-t-4 border-brand-red font-body">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
+                
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <img src="../src/assets/logo.png" alt="Chiasson & De Francesco" class="h-12 w-auto opacity-90">
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-400 pr-6">
+                        Une expertise locale et un service personnalisé pour réaliser vos projets de vente ou d'achat en Estrie.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:border-brand-red hover:text-white transition-all duration-300"><svg class="h-4 w-4" fill="currentColor" viewbox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+                        <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:border-brand-red hover:text-white transition-all duration-300"><svg class="h-4 w-4" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-heading font-bold text-lg mb-6 tracking-wide">Navigation</h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="index.html" class="hover:text-brand-red transition-colors">Accueil</a></li>
+                        <li><a href="index.html#about" class="hover:text-brand-red transition-colors">Notre Équipe</a></li>
+                        <li><a href="proprietes.html" class="hover:text-brand-red transition-colors">Propriétés</a></li>
+                        <li><a href="blog.html" class="hover:text-brand-red transition-colors">Blogue</a></li>
+                        <li><a href="index.html#contact" class="hover:text-brand-red transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <h4 class="text-white font-heading font-bold text-lg mb-6 tracking-wide">Nous Joindre</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-red mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span><span class="block text-white font-semibold">RE/MAX D'ABORD</span>Sherbrooke, Québec</span>
+                        </li>
+                        <li>
+                            <a href="mailto:info@chiassondefrancesco.com" class="flex items-center gap-3 hover:text-white transition-colors">
+                                <svg class="h-5 w-5 text-gray-500 hover:text-brand-red shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                <span>info@chiassondefrancesco.com</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-xs text-gray-500">
+                <p>&copy; 2026 Équipe Chiasson & De Francesco. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
