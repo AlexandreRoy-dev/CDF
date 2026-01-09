@@ -65,11 +65,9 @@
     <!-- Page wrapper -->
     <div>
 
-<!-- HOME / NAV + HERO -->
 <div id="home">
 
-  <!-- Sticky navbar (CLEAR on load, SOLID after ~half hero scroll) -->
-<nav
+  <nav
     class="py-6 px-6 fixed w-full top-0 z-50 transition-all duration-300 bg-transparent"
     id="navbar"
   >
@@ -134,63 +132,164 @@
     </div>
   </nav>
 
-  <!-- Hero section WITH VIDEO BACKGROUND -->
-<section class="relative h-screen overflow-hidden" id="hero">
+  <section class="relative h-screen overflow-hidden" id="hero">
 
-  <video
-    class="absolute inset-0 w-full h-full object-cover"
-    autoplay
-    muted
-    loop
-    playsinline
-  >
-    <source src="./src/assets/bannercdf.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la lecture vidéo.
-  </video>
-
-  <div class="absolute inset-0 bg-black/20"></div>
-
-  <div class="relative max-w-7xl mx-auto px-6 h-full flex flex-col justify-center items-start">
-
-    <div
-      class="
-        w-full max-w-lg
-        bg-white/20
-        backdrop-blur-2xl
-        rounded-[2.5rem]
-        p-8 md:p-12 md:py-16
-        border border-white/30
-        shadow-[0_20px_50px_rgba(0,0,0,0.3)]
-        animate-fade-in-up
-        text-left
-      "
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
     >
+      <source src="./src/assets/bannercdf.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture vidéo.
+    </video>
 
-      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 font-heading leading-tight">
-    
-    Chiasson & <br>
-    De Francesco
-      </h1>
+    <div class="absolute inset-0 bg-black/20"></div>
 
-      <p class="text-lg text-white/95 mb-10 leading-relaxed font-medium">
-        Une équipe de courtiers immobiliers résidentiels et commerciaux, engagée à vous accompagner avec rigueur, transparence et stratégie à chaque étape de votre projet immobilier.
-      </p>
+    <div class="relative max-w-7xl mx-auto px-6 h-full flex flex-col justify-center items-start">
 
-      <div class="flex flex-col gap-4">
-        <a href="#about" class="w-full sm:w-auto px-8 py-4 bg-brand-red text-white font-bold rounded-xl hover:bg-red-900 transition-all shadow-lg hover:shadow-red-900/30 text-center">
-          Découvrir notre équipe
-        </a>
-        
-        <a href="#listings" class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-xl hover:bg-white hover:text-brand-navy transition-all text-center">
-          Voir les propriétés
-        </a>
+      <div
+        class="
+          w-full max-w-lg
+          bg-white/20
+          backdrop-blur-2xl
+          rounded-[2.5rem]
+          p-8 md:p-12 md:py-16
+          border border-white/30
+          shadow-[0_20px_50px_rgba(0,0,0,0.3)]
+          animate-fade-in-up
+          text-left
+        "
+      >
+
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 font-heading leading-tight">
+          Chiasson & <br>
+          De Francesco
+        </h1>
+
+        <p class="text-lg text-white/95 mb-10 leading-relaxed font-medium">
+          Une équipe de courtiers immobiliers résidentiels et commerciaux, engagée à vous accompagner avec rigueur, transparence et stratégie à chaque étape de votre projet immobilier.
+        </p>
+
+        <div class="flex flex-col gap-4">
+          <a href="#event-promo" class="w-full sm:w-auto px-8 py-4 bg-brand-red text-white font-bold rounded-xl hover:bg-red-900 transition-all shadow-lg hover:shadow-red-900/30 text-center flex items-center justify-center gap-2">
+            <span>S'inscrire à la formation</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+          
+          <a href="#listings" class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-xl hover:bg-white hover:text-brand-navy transition-all text-center">
+            Voir les propriétés
+          </a>
+        </div>
+
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- Script: make navbar solid after half of hero -->
+  <section id="event-promo" class="relative py-16 bg-brand-navy overflow-hidden">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-brand-red/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-60 h-60 bg-white/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6 text-white">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-red/20 border border-brand-red/50 text-brand-red font-bold text-sm uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                    En vedette au 107.7 & 93.5 FM
+                </div>
+
+                <h2 class="font-heading text-3xl md:text-5xl font-bold leading-tight">
+                    Soirée Immobilière : <br>
+                    <span class="text-brand-red">Formation & Rénovation</span>
+                </h2>
+
+                <p class="text-gray-300 text-lg">
+                    Rejoignez l'équipe Chiasson & De Francesco pour une soirée exclusive de 90 minutes. Découvrez les secrets d'une transaction réussie et les astuces de rénovation.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 border-t border-white/10 pt-6">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-brand-red mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <div>
+                            <p class="font-bold text-lg">Mardi 17 février 2026</p>
+                            <p class="text-gray-400 text-sm">Début : 18h30 (Durée : 1h30)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-brand-red mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div>
+                            <p class="font-bold text-lg">Bureau RE/MAX D'abord</p>
+                            <p class="text-gray-400 text-sm">Sherbrooke, QC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 rounded-xl p-5 border border-white/10 mt-6">
+                    <h3 class="font-bold text-white mb-3 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        Au programme & Prix
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span>
+                            Présence d'un <strong>Inspecteur en bâtiment</strong>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span>
+                            Kiosque exclusif avec l'entreprise <strong>Wrap Ma Cuisine</strong>
+                        </li>
+                        <li class="flex items-center gap-2 text-yellow-400 font-bold">
+                            <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full"></span>
+                            🎁 TIRAGE : Une valeur de 500$ parmi les présents !
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-2xl relative">
+                <div class="absolute -top-3 -right-3 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg transform rotate-3">
+                    Places limitées
+                </div>
+
+                <h3 class="text-2xl font-heading font-bold text-brand-navy mb-2">Réserver ma place</h3>
+                <p class="text-gray-500 text-sm mb-6">Remplissez ce formulaire pour confirmer votre présence au tirage.</p>
+
+                <form action="https://formspree.io/f/xwvpzzba" method="POST" class="space-y-4">
+                    <input type="hidden" name="_subject" value="Inscription Soirée Formation (17 Fév)">
+
+                    <div>
+                        <label class="sr-only">Nom complet</label>
+                        <input type="text" name="name" required placeholder="Votre nom complet" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-navy focus:border-brand-navy outline-none transition-all">
+                    </div>
+
+                    <div>
+                        <label class="sr-only">Email</label>
+                        <input type="email" name="email" required placeholder="Votre adresse courriel" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-navy focus:border-brand-navy outline-none transition-all">
+                    </div>
+
+                    <div>
+                        <label class="sr-only">Téléphone</label>
+                        <input type="tel" name="phone" placeholder="Numéro de téléphone" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-navy focus:border-brand-navy outline-none transition-all">
+                    </div>
+
+                    <div class="flex items-center gap-2 pt-2">
+                        <input type="checkbox" id="reminder" name="send_reminder" value="yes" checked class="w-4 h-4 text-brand-red border-gray-300 rounded focus:ring-brand-red">
+                        <label for="reminder" class="text-xs text-gray-500">M'envoyer un rappel par courriel la veille.</label>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-brand-red hover:bg-red-800 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        Je m'inscris gratuitement
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const navbar = document.getElementById('navbar');
