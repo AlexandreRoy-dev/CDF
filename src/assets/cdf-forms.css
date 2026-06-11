@@ -1,0 +1,42 @@
+/* Lead Connector form embeds — match CDF site cards */
+.cdf-form-embed {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: transparent;
+}
+
+.cdf-form-embed iframe,
+.cdf-form-iframe {
+  width: 100% !important;
+  max-width: 100%;
+  border: 0 !important;
+  display: block;
+  min-height: 420px;
+  background: transparent;
+  border-radius: 0.5rem;
+}
+
+.cdf-form-card--wide {
+  width: 100%;
+}
+
+.cdf-form-card {
+  overflow: hidden;
+}
+
+.cdf-form-card__header {
+  border-bottom: 1px solid #f3f4f6;
+  background: #f9fafb;
+  padding: 1.25rem 1.5rem;
+}
+
+.cdf-form-card__body {
+  padding: 0.5rem 0.75rem 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .cdf-form-card__body {
+    padding: 0.5rem 1rem 1rem;
+  }
+}
