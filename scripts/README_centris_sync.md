@@ -1,6 +1,6 @@
 # Centris periodic sync
 
-Downloads **full photo galleries** from Centris for each listing in `data/properties.json`, generates a **1200×630** social share image (`og-share.jpg`) per property, and writes sync metadata to `data/centris_listings.json`.
+Discovers active listings from the RE/MAX courtier profile (P-O Chiasson → view all properties), then downloads **full photo galleries** from Centris for each ULS, generates a **1200×630** social share image (`og-share.jpg`) per property, and writes sync metadata to `data/centris_listings.json`.
 
 ## Files generated
 
@@ -32,6 +32,12 @@ From the project root:
 
 ```bash
 pip install -r scripts/requirements.txt
+python scripts/centris_sync.py --sync-remax --max-listings 30
+```
+
+Registry-only mode (skip RE/MAX discovery):
+
+```bash
 python scripts/centris_sync.py --sync-registry --max-listings 12
 ```
 
@@ -54,20 +60,25 @@ The workflow `.github/workflows/centris-sync.yml` runs daily and can also be tri
 
 It will:
 
-1. Sync all listings in `data/properties.json`
-2. Download full galleries + 1200×630 share images
+1. Discover listings from RE/MAX (`p-o.chiasson` → view all properties)
+2. Download full Centris galleries + 1200×630 share images
 3. Commit and push changes back to `main`
 
 ### Optional repository configuration
 
 | Name | Type | Purpose |
 |------|------|---------|
+| `REMAX_BROKER_SLUG` | Variable | RE/MAX broker slug (default: `p-o.chiasson`) |
+| `REMAX_AGENT_URL` | Variable | RE/MAX courtier profile URL (for logs) |
+| `REMAX_API_KEY` | Secret | Override RE/MAX API key (optional) |
 | `CENTRIS_BROKER_FEED_URL` | Secret | Official Centris broker JSON feed |
 | `CENTRIS_SEARCH_URL` | Variable | Custom Centris search URL (search-page mode only) |
 
 ### Manual run
 
 GitHub → **Actions** → **Sync Centris listing images** → **Run workflow**
+
+You can adjust `max_listings` and `delay_seconds` when running manually.
 
 ## Migrate / rebuild property pages
 
@@ -79,14 +90,9 @@ python scripts/migrate_property_pages.py
 
 This injects the gallery + share UI and updates SEO paths/canonicals.
 
-## Scheduling (Windows Task Scheduler)
-
-```powershell
-python scripts/centris_sync.py --sync-registry --max-listings 12
-```
-
 ## Notes / limitations
 
+- RE/MAX discovery uses the public frontend API (`BrokerId` filter on active listings).
 - Centris HTML can change. Gallery extraction uses `window.MosaicPhotoUrls`.
 - Image URLs above 1260px wide may return empty payloads; the script caps sizes safely.
-- The PowerShell script `centris_sync.ps1` remains for local Windows use but GitHub Actions uses `centris_sync.py`.
+- The PowerShell script `centris_sync.ps1` remains for local Windows hero-image sync; GitHub Actions uses `centris_sync.py`.
