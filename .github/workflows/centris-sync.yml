@@ -45,9 +45,12 @@ jobs:
         env:
           CENTRIS_BROKER_FEED_URL: ${{ secrets.CENTRIS_BROKER_FEED_URL }}
           CENTRIS_SEARCH_URL: ${{ vars.CENTRIS_SEARCH_URL }}
+          REMAX_BROKER_SLUG: ${{ vars.REMAX_BROKER_SLUG }}
+          REMAX_AGENT_URL: ${{ vars.REMAX_AGENT_URL }}
+          REMAX_API_KEY: ${{ secrets.REMAX_API_KEY }}
         run: |
           python scripts/centris_sync.py \
-            --sync-registry \
+            --sync-remax \
             --max-listings "${{ github.event.inputs.max_listings || '30' }}" \
             --delay-seconds "${{ github.event.inputs.delay_seconds || '2' }}"
 
