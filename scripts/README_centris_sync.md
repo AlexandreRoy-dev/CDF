@@ -11,7 +11,7 @@ It downloads images locally and writes `data/centris_listings.json`.
 ## Files generated
 
 - `data/centris_listings.json`
-- `src/assets/images/proprietes/centris/<id>.<ext>`
+- `src/assets/images/proprietes/<uls-id>.<ext>` (hero image per listing)
 
 ## Run manually
 
@@ -34,6 +34,32 @@ pwsh -ExecutionPolicy Bypass -File .\scripts\centris_sync.ps1 -OfficialBrokerFee
 Or set an environment variable:
 
 - `CENTRIS_BROKER_FEED_URL`
+
+## GitHub Actions (recommended)
+
+The workflow `.github/workflows/centris-sync.yml` runs daily and can also be triggered manually from the **Actions** tab.
+
+It will:
+
+1. Scrape Centris (or use an official broker feed if configured)
+2. Download listing hero images into `src/assets/images/proprietes/`
+3. Write `data/centris_listings.json`
+4. Commit and push any changes back to `main`
+
+### Optional repository configuration
+
+| Name | Type | Purpose |
+|------|------|---------|
+| `CENTRIS_BROKER_FEED_URL` | Secret | Official Centris broker JSON feed (preferred over HTML scraping) |
+| `CENTRIS_SEARCH_URL` | Variable | Custom Centris search URL filtered to your team's listings |
+
+If neither is set, the workflow uses the default search URL embedded in the script.
+
+### Manual run
+
+GitHub → **Actions** → **Sync Centris listing images** → **Run workflow**
+
+You can adjust `max_listings` and `delay_seconds` when running manually.
 
 ## Scheduling (Windows Task Scheduler)
 
