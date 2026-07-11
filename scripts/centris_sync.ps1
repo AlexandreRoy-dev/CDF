@@ -19,7 +19,7 @@ if ([string]::IsNullOrWhiteSpace($OutputJsonPath)) {
 }
 
 if ([string]::IsNullOrWhiteSpace($OutputImagesDir)) {
-  $OutputImagesDir = (Join-Path $ProjectRoot "src/assets/images/proprietes/centris")
+  $OutputImagesDir = (Join-Path $ProjectRoot "src/assets/images/proprietes")
 }
 
 function Get-IdFromCentrisUrl {
