@@ -1,0 +1,149 @@
+{
+  "baseUrl": "https://chiassondefrancesco.ca",
+  "listings": [
+    {
+      "uls": "10701075",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "les-nations",
+      "street": "31-rue-king-o-app-305",
+      "title": "31, Rue King O., app. 305 — Sherbrooke",
+      "shareTitle": "Condo à louer — 31, Rue King O., app. 305, Sherbrooke",
+      "legacyFile": "prop-31-rue-king-o-app-305-sherbrooke-10701075.html",
+      "fallbackImage": "10701075.jpg"
+    },
+    {
+      "uls": "25365838",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "les-nations",
+      "street": "31-rue-king-o-app-304",
+      "title": "31, Rue King O., app. 304 — Sherbrooke",
+      "shareTitle": "Condo à louer — 31, Rue King O., app. 304, Sherbrooke",
+      "legacyFile": "prop-31-rue-king-o-app-304-sherbrooke-25365838.html",
+      "fallbackImage": "25365838.jpg"
+    },
+    {
+      "uls": "10326178",
+      "country": "ca",
+      "province": "qc",
+      "city": "coaticook",
+      "sector": "centre",
+      "street": "251-rue-main-o",
+      "title": "251, Rue Main Ouest — Coaticook",
+      "shareTitle": "Maison à vendre — 251, Rue Main Ouest, Coaticook",
+      "legacyFile": "prop-251-rue-main-o-coaticook-10326178.html",
+      "fallbackImage": "251ruemainouest.jpg"
+    },
+    {
+      "uls": "26831137",
+      "country": "ca",
+      "province": "qc",
+      "city": "milan",
+      "sector": "centre",
+      "street": "505-chemin-de-la-yard",
+      "title": "505, Chemin de la Yard — Milan",
+      "shareTitle": "Maison à vendre — 505, Chemin de la Yard, Milan",
+      "legacyFile": "prop-505-chemin-de-la-yard-milan-26831137.html",
+      "fallbackImage": "26831137.jpg"
+    },
+    {
+      "uls": "16447016",
+      "country": "ca",
+      "province": "qc",
+      "city": "cookshire-eaton",
+      "sector": "sawyerville",
+      "street": "16-rue-lisee",
+      "title": "16, Rue Lisée — Cookshire-Eaton",
+      "shareTitle": "Maison à vendre — 16, Rue Lisée, Cookshire-Eaton",
+      "legacyFile": "prop-16-rue-lisee-cookshire-eaton-16447016.html",
+      "fallbackImage": "16ruelise.jpg"
+    },
+    {
+      "uls": "23954624",
+      "country": "ca",
+      "province": "qc",
+      "city": "saint-isidore-de-clifton",
+      "sector": "centre",
+      "street": "251-9e-rang",
+      "title": "251, 9e Rang — Saint-Isidore-de-Clifton",
+      "shareTitle": "Fermette à vendre — 251, 9e Rang, Saint-Isidore-de-Clifton",
+      "legacyFile": "prop-251-9e-rang-saint-isidore-de-clifton-23954624.html",
+      "fallbackImage": "2519erang.jpg"
+    },
+    {
+      "uls": "10043722",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "mont-bellevue",
+      "street": "182-rue-wellington-n",
+      "title": "182, Rue Wellington N. — Sherbrooke",
+      "shareTitle": "Fonds de commerce à vendre — 182, Rue Wellington N., Sherbrooke",
+      "legacyFile": "prop-182-rue-wellington-n-10043722.html",
+      "fallbackImage": "182wells.jpg"
+    },
+    {
+      "uls": "13807137",
+      "country": "ca",
+      "province": "qc",
+      "city": "quebec",
+      "sector": "la-cite-limoilou",
+      "street": "760-av-honore-mercier-local-115",
+      "title": "760, Av. Honoré-Mercier, local 115 — Québec",
+      "shareTitle": "Co-propriété à vendre — 760, Av. Honoré-Mercier, local 115, Québec",
+      "legacyFile": "prop-760-av-honore-mercier-local-115-13807137.html",
+      "fallbackImage": "760honore.jpg"
+    },
+    {
+      "uls": "20828105",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "mont-bellevue",
+      "street": "800-rue-tessier",
+      "title": "800, Rue Tessier — Sherbrooke",
+      "shareTitle": "Bâtisse commerciale à vendre — 800, Rue Tessier, Sherbrooke",
+      "legacyFile": "prop-800-rue-tessier-20828105.html",
+      "fallbackImage": "800tessier.jpg"
+    },
+    {
+      "uls": "17958008",
+      "country": "ca",
+      "province": "qc",
+      "city": "montreal",
+      "sector": "ville-marie",
+      "street": "1111-rue-st-urbain-local-104",
+      "title": "1111, Rue Saint-Urbain, local 104 — Montréal",
+      "shareTitle": "Co-propriété commerciale à vendre — 1111, Rue Saint-Urbain, Montréal",
+      "legacyFile": "prop-1111-rue-st-urbain-local-104-17958008.html",
+      "fallbackImage": "ruesturbain.jpg"
+    },
+    {
+      "uls": "27084256",
+      "country": "ca",
+      "province": "qc",
+      "city": "saint-alexis-des-monts",
+      "sector": "centre",
+      "street": "boul-des-chasseurs",
+      "title": "Boul. des Chasseurs — Saint-Alexis-des-Monts",
+      "shareTitle": "Terrain à vendre — Boul. des Chasseurs, Saint-Alexis-des-Monts",
+      "legacyFile": "prop-boul-des-chasseurs-st-alexis-des-monts-27084256.html",
+      "fallbackImage": "stalexi.jpg"
+    },
+    {
+      "uls": "11185705",
+      "country": "ca",
+      "province": "qc",
+      "city": "cookshire-eaton",
+      "sector": "cookshire",
+      "street": "route-108",
+      "title": "Route 108 — Cookshire-Eaton",
+      "shareTitle": "Terrain à vendre — Route 108, Cookshire-Eaton",
+      "legacyFile": "prop-route-108-cookshire-eaton-cookshire-11185705.html",
+      "fallbackImage": "route108.jpg"
+    }
+  ]
+}

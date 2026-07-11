@@ -1,39 +1,58 @@
-# Centris periodic sync (PowerShell)
+# Centris periodic sync
 
-This script pulls the Centris public search page HTML, extracts listing URLs, then fetches each listing page to grab:
-
-- `og:image` (main image)
-- `og:title` (best-effort title)
-- `price` (best-effort, from JSON-LD if present)
-
-It downloads images locally and writes `data/centris_listings.json`.
+Discovers active listings from the RE/MAX courtier profile (P-O Chiasson → view all properties), then downloads **full photo galleries** from Centris for each ULS, generates a **1200×630** social share image (`og-share.jpg`) per property, and writes sync metadata to `data/centris_listings.json`.
 
 ## Files generated
 
 - `data/centris_listings.json`
-- `src/assets/images/proprietes/<uls-id>.<ext>` (hero image per listing)
+- `src/assets/images/proprietes/<uls-id>/01.jpg`, `02.jpg`, …
+- `src/assets/images/proprietes/<uls-id>/og-share.jpg` (Open Graph / Twitter card)
+- `src/assets/images/proprietes/<uls-id>/manifest.json`
+- `src/assets/images/proprietes/<uls-id>.jpg` (hero copy for listing cards)
 
-## Run manually
+## Property page URLs (SEO)
+
+Listings live at:
+
+```text
+/ca/qc/{city}/{sector}/{street}/
+```
+
+Example:
+
+```text
+https://chiassondefrancesco.ca/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-305/
+```
+
+Legacy `prop-*.html` URLs redirect to the new paths.
+
+## Run manually (Python)
 
 From the project root:
 
-```powershell
-pwsh -ExecutionPolicy Bypass -File .\scripts\centris_sync.ps1 -MaxListings 8
+```bash
+pip install -r scripts/requirements.txt
+python scripts/centris_sync.py --sync-remax --max-listings 30
 ```
 
-If you want to use the default search URL already embedded in the script, you can omit `-SearchUrl`.
+Registry-only mode (skip RE/MAX discovery):
 
-### Optional: official broker feed
-
-If you have an official Centris broker feed URL (JSON), you can pass it with:
-
-```powershell
-pwsh -ExecutionPolicy Bypass -File .\scripts\centris_sync.ps1 -OfficialBrokerFeedUrl "https://..." -MaxListings 8
+```bash
+python scripts/centris_sync.py --sync-registry --max-listings 12
 ```
 
-Or set an environment variable:
+Search-page mode (without registry):
 
-- `CENTRIS_BROKER_FEED_URL`
+```bash
+python scripts/centris_sync.py --max-listings 8
+```
+
+Official broker feed:
+
+```bash
+export CENTRIS_BROKER_FEED_URL="https://..."
+python scripts/centris_sync.py --official-feed-url "$CENTRIS_BROKER_FEED_URL"
+```
 
 ## GitHub Actions (recommended)
 
@@ -41,19 +60,19 @@ The workflow `.github/workflows/centris-sync.yml` runs daily and can also be tri
 
 It will:
 
-1. Scrape Centris (or use an official broker feed if configured)
-2. Download listing hero images into `src/assets/images/proprietes/`
-3. Write `data/centris_listings.json`
-4. Commit and push any changes back to `main`
+1. Discover listings from RE/MAX (`p-o.chiasson` → view all properties)
+2. Download full Centris galleries + 1200×630 share images
+3. Commit and push changes back to `main`
 
 ### Optional repository configuration
 
 | Name | Type | Purpose |
 |------|------|---------|
-| `CENTRIS_BROKER_FEED_URL` | Secret | Official Centris broker JSON feed (preferred over HTML scraping) |
-| `CENTRIS_SEARCH_URL` | Variable | Custom Centris search URL filtered to your team's listings |
-
-If neither is set, the workflow uses the default search URL embedded in the script.
+| `REMAX_BROKER_SLUG` | Variable | RE/MAX broker slug (default: `p-o.chiasson`) |
+| `REMAX_AGENT_URL` | Variable | RE/MAX courtier profile URL (for logs) |
+| `REMAX_API_KEY` | Secret | Override RE/MAX API key (optional) |
+| `CENTRIS_BROKER_FEED_URL` | Secret | Official Centris broker JSON feed |
+| `CENTRIS_SEARCH_URL` | Variable | Custom Centris search URL (search-page mode only) |
 
 ### Manual run
 
@@ -61,19 +80,19 @@ GitHub → **Actions** → **Sync Centris listing images** → **Run workflow**
 
 You can adjust `max_listings` and `delay_seconds` when running manually.
 
-## Scheduling (Windows Task Scheduler)
+## Migrate / rebuild property pages
 
-1. Open **Task Scheduler**
-2. Create **Task**
-3. **General**: set a user account that has permission to write to the project folder
-4. **Triggers**: set frequency (ex: once per day)
-5. **Actions**: Start a program
-   - Program/script: `powershell.exe`
-   - Add arguments:
-     - `-ExecutionPolicy Bypass -File "C:\Users\Alex\OneDrive - Codesk\01. Roy Marketing\Clients\Chiasson De Francesco\CDF\scripts\centris_sync.ps1" -MaxListings 8`
+After editing `data/properties.json`:
+
+```bash
+python scripts/migrate_property_pages.py
+```
+
+This injects the gallery + share UI and updates SEO paths/canonicals.
 
 ## Notes / limitations
 
-- Centris HTML can change. If no listing links are found, the regex may need adjustment.
-- Image URLs are downloaded from each listing’s `og:image`.
-- This script only downloads images + outputs JSON; it does not automatically rewrite `proprietes.html`.
+- RE/MAX discovery uses the public frontend API (`BrokerId` filter on active listings).
+- Centris HTML can change. Gallery extraction uses `window.MosaicPhotoUrls`.
+- Image URLs above 1260px wide may return empty payloads; the script caps sizes safely.
+- The PowerShell script `centris_sync.ps1` remains for local Windows hero-image sync; GitHub Actions uses `centris_sync.py`.

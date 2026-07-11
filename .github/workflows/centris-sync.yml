@@ -31,44 +31,40 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Sync Centris listings and download images
-        shell: pwsh
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Sync Centris galleries and social share images
         env:
           CENTRIS_BROKER_FEED_URL: ${{ secrets.CENTRIS_BROKER_FEED_URL }}
           CENTRIS_SEARCH_URL: ${{ vars.CENTRIS_SEARCH_URL }}
+          REMAX_BROKER_SLUG: ${{ vars.REMAX_BROKER_SLUG }}
+          REMAX_AGENT_URL: ${{ vars.REMAX_AGENT_URL }}
+          REMAX_API_KEY: ${{ secrets.REMAX_API_KEY }}
         run: |
-          $maxListings = [int]("${{ github.event.inputs.max_listings || '30' }}")
-          $delaySeconds = [int]("${{ github.event.inputs.delay_seconds || '2' }}")
-          $searchUrl = $env:CENTRIS_SEARCH_URL
-          if ([string]::IsNullOrWhiteSpace($searchUrl)) {
-            $searchUrl = "https://www.centris.ca/fr/propriete~a-vendre?q=H4sIAAAAAAAACk2MsQ6CMBRF_6UzAxIToyuDMSYOYlgIw5PeQmOhpAVNQ_h3X6MD27vn3vMW0RsvTiIViXg6-4LLrQSDXbY_ZEemVind4IrAkOPscYZtHY1dKDoawXaaCB_PUuPDsao5g1zT3aiPv1hT2kxw_1JpGOlLMnO0q-UHLpKnOU1orQusvGPP6A6vJYZJkxFrsh0XMEYP7SOM2OwLMhBrvX4Bb6jOs9sAAAA&sortSeed=1077964681&sort=None&pageSize=20"
-          }
-
-          $params = @{
-            MaxListings = $maxListings
-            DelaySeconds = $delaySeconds
-            SearchUrl = $searchUrl
-            OutputImagesDir = "./src/assets/images/proprietes"
-            OutputJsonPath = "./data/centris_listings.json"
-          }
-
-          if (-not [string]::IsNullOrWhiteSpace($env:CENTRIS_BROKER_FEED_URL)) {
-            $params.OfficialBrokerFeedUrl = $env:CENTRIS_BROKER_FEED_URL
-          }
-
-          & ./scripts/centris_sync.ps1 @params
+          python scripts/centris_sync.py \
+            --sync-remax \
+            --max-listings "${{ github.event.inputs.max_listings || '30' }}" \
+            --delay-seconds "${{ github.event.inputs.delay_seconds || '2' }}"
 
       - name: Commit and push updated images
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/centris_listings.json src/assets/images/proprietes/
+          git add data/ src/assets/images/proprietes/
 
           if git diff --staged --quiet; then
             echo "No listing image changes to commit."
             exit 0
           fi
 
-          git commit -m "chore: sync Centris listing images [skip ci]"
+          git commit -m "chore: sync Centris listing galleries [skip ci]"
           git push
