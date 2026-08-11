@@ -75,7 +75,10 @@ It will:
 | `CENTRIS_BROKER_FEED_URL` | Secret | Official Centris broker JSON feed |
 | `CENTRIS_SEARCH_URL` | Variable | Custom Centris search URL (search-page mode only) |
 
-If the RE/MAX listings API returns **403** (common on GitHub Actions IPs), the workflow falls back to syncing `data/properties.json` so image updates still run. When RE/MAX discovery succeeds, sold listings are pruned from the registry, `proprietes.html`, sitemap, and detail pages.
+If the RE/MAX listings API returns **403**:
+
+1. First check that `REMAX_API_KEY` is not set to an empty GitHub secret (blank env vars override the embedded default key and cause 403).
+2. The workflow unsets blank env vars automatically and falls back to Centris search discovery, then the registry, so the job still completes.
 
 ### Manual run
 

@@ -48,8 +48,17 @@ jobs:
           REMAX_BROKER_SLUG: ${{ vars.REMAX_BROKER_SLUG }}
           REMAX_AGENT_URL: ${{ vars.REMAX_AGENT_URL }}
           REMAX_BROKER_IDAGENT: ${{ vars.REMAX_BROKER_IDAGENT }}
+          # Only set when the secret exists; an empty value would blank the default key and cause 403.
           REMAX_API_KEY: ${{ secrets.REMAX_API_KEY }}
         run: |
+          # Unset blank env vars so the script can use embedded defaults.
+          [ -n "$REMAX_API_KEY" ] || unset REMAX_API_KEY
+          [ -n "$REMAX_BROKER_SLUG" ] || unset REMAX_BROKER_SLUG
+          [ -n "$REMAX_AGENT_URL" ] || unset REMAX_AGENT_URL
+          [ -n "$REMAX_BROKER_IDAGENT" ] || unset REMAX_BROKER_IDAGENT
+          [ -n "$CENTRIS_SEARCH_URL" ] || unset CENTRIS_SEARCH_URL
+          [ -n "$CENTRIS_BROKER_FEED_URL" ] || unset CENTRIS_BROKER_FEED_URL
+
           python scripts/centris_sync.py \
             --sync-remax \
             --remax-broker-idagent "${REMAX_BROKER_IDAGENT:-24115}" \

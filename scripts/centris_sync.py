@@ -640,6 +640,28 @@ def sync_listing(
     }
 
 
+def discover_centris_search_listings(
+    search_url: str,
+    session: requests.Session,
+) -> dict[str, str]:
+    """Discover listing ULS/URLs from a Centris search results page."""
+    by_id: dict[str, str] = {}
+    html = http_get(search_url, session).text
+    for link in extract_listing_links(html):
+        listing_id = extract_listing_id(link)
+        if listing_id:
+            by_id[listing_id] = link
+    return by_id
+
+
+def jobs_from_registry(registry: dict) -> dict[str, str]:
+    by_id: dict[str, str] = {}
+    for item in registry.get("listings", []):
+        uls = str(item["uls"])
+        by_id[uls] = f"https://www.centris.ca/fr/propriete~a-vendre/{uls}"
+    return by_id
+
+
 def collect_listing_jobs(
     args: argparse.Namespace,
     session: requests.Session,
@@ -691,15 +713,37 @@ def collect_listing_jobs(
         except requests.RequestException as exc:
             print(
                 f"WARN: RE/MAX listings API unavailable ({exc}); "
-                "falling back to data/properties.json registry.",
+                "falling back to Centris search discovery.",
                 file=sys.stderr,
             )
-            if remax_meta is not None:
-                remax_meta["fallback"] = "registry"
-                remax_meta["error"] = str(exc)
-            for item in registry.get("listings", []):
-                uls = str(item["uls"])
-                by_id[uls] = f"https://www.centris.ca/fr/propriete~a-vendre/{uls}"
+            # Restore HTML accept for Centris pages.
+            session.headers["Accept"] = (
+                "text/html,application/xhtml+xml,application/xml;q=0.9,"
+                "image/avif,image/webp,*/*;q=0.8"
+            )
+            try:
+                by_id.update(discover_centris_search_listings(args.search_url, session))
+                # Keep registry rentals/other ULS that Centris sale-search may omit.
+                for uls, url in jobs_from_registry(registry).items():
+                    by_id.setdefault(uls, url)
+                if remax_meta is not None:
+                    remax_meta["fallback"] = "centris-search"
+                    remax_meta["error"] = str(exc)
+                    remax_meta["discoveredCount"] = len(by_id)
+                    # Centris search fallback is not a complete sold authority for rentals,
+                    # so only prune ULS that disappeared from both Centris search and
+                    # are absent from RE/MAX — here we skip aggressive prune by marking limited.
+                    remax_meta["syncLimited"] = True
+            except requests.RequestException as centris_exc:
+                print(
+                    f"WARN: Centris search also failed ({centris_exc}); "
+                    "falling back to data/properties.json registry.",
+                    file=sys.stderr,
+                )
+                by_id.update(jobs_from_registry(registry))
+                if remax_meta is not None:
+                    remax_meta["fallback"] = "registry"
+                    remax_meta["error"] = f"{exc} | {centris_exc}"
         else:
             for item in listings:
                 uls = str(item.get("no_inscription") or "")
@@ -709,9 +753,7 @@ def collect_listing_jobs(
                 remax_meta["fallback"] = None
                 remax_meta["discoveredCount"] = len(by_id)
     elif args.sync_registry:
-        for item in registry.get("listings", []):
-            uls = str(item["uls"])
-            by_id[uls] = f"https://www.centris.ca/fr/propriete~a-vendre/{uls}"
+        by_id.update(jobs_from_registry(registry))
     else:
         search_html = http_get(args.search_url, session).text
         for link in extract_listing_links(search_html):
@@ -795,19 +837,20 @@ def main() -> int:
         parser.error("Use only one of --sync-registry or --sync-remax")
 
     if not args.official_feed_url:
-        args.official_feed_url = os.environ.get("CENTRIS_BROKER_FEED_URL", "")
+        args.official_feed_url = os.environ.get("CENTRIS_BROKER_FEED_URL") or ""
     if not args.search_url or args.search_url == DEFAULT_SEARCH:
-        env_search = os.environ.get("CENTRIS_SEARCH_URL", "")
+        env_search = os.environ.get("CENTRIS_SEARCH_URL") or ""
         if env_search:
             args.search_url = env_search
 
-    env_broker_slug = os.environ.get("REMAX_BROKER_SLUG", "")
+    # GitHub Actions sets missing secrets/vars to "" — treat blank as unset.
+    env_broker_slug = os.environ.get("REMAX_BROKER_SLUG") or ""
     if env_broker_slug:
         args.remax_broker_slug = env_broker_slug
-    env_agent_url = os.environ.get("REMAX_AGENT_URL", "")
+    env_agent_url = os.environ.get("REMAX_AGENT_URL") or ""
     if env_agent_url:
         args.remax_agent_url = env_agent_url
-    env_idagent = os.environ.get("REMAX_BROKER_IDAGENT", "")
+    env_idagent = os.environ.get("REMAX_BROKER_IDAGENT") or ""
     if env_idagent.isdigit():
         args.remax_broker_idagent = int(env_idagent)
     elif not args.remax_broker_idagent:
@@ -829,14 +872,19 @@ def main() -> int:
     )
 
     remax_meta: dict = {}
-    remax_api_key = os.environ.get("REMAX_API_KEY", DEFAULT_REMAX_API_KEY)
+    # Critical: empty GitHub secret must not override the embedded default key.
+    remax_api_key = os.environ.get("REMAX_API_KEY") or DEFAULT_REMAX_API_KEY
     if args.sync_remax:
         session.headers.update(remax_api_headers(remax_api_key))
 
     jobs = collect_listing_jobs(args, session, registry, remax_meta=remax_meta)
     used_remax_discovery = bool(args.sync_remax and not remax_meta.get("fallback"))
     if args.sync_remax:
-        scrape_mode = "remax" if used_remax_discovery else "remax-fallback-registry"
+        scrape_mode = (
+            "remax"
+            if used_remax_discovery
+            else f"remax-fallback-{remax_meta.get('fallback') or 'registry'}"
+        )
     elif args.sync_registry:
         scrape_mode = "registry"
     elif args.official_feed_url:
@@ -852,8 +900,12 @@ def main() -> int:
             f"Broker: {remax_meta.get('brokerName')} "
             f"({remax_meta.get('brokerMemberNo')}) via {remax_meta.get('brokerSource')}"
         )
+        print(
+            "RE/MAX API key: "
+            + ("custom" if (os.environ.get("REMAX_API_KEY") or "") else "embedded-default")
+        )
         if remax_meta.get("fallback"):
-            print("RE/MAX discovery failed — syncing registry listings only.")
+            print(f"RE/MAX discovery failed — using fallback: {remax_meta.get('fallback')}")
         else:
             print("Discovered listings (Centris ULS):")
             for uls, url in jobs.items():
