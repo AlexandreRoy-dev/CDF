@@ -70,9 +70,12 @@ It will:
 |------|------|---------|
 | `REMAX_BROKER_SLUG` | Variable | RE/MAX broker slug (default: `p-o.chiasson`) |
 | `REMAX_AGENT_URL` | Variable | RE/MAX courtier profile URL (for logs) |
+| `REMAX_BROKER_IDAGENT` | Variable | Broker `idagent` override (default: `24115`) — avoids brokers API on GitHub Actions |
 | `REMAX_API_KEY` | Secret | Override RE/MAX API key (optional) |
 | `CENTRIS_BROKER_FEED_URL` | Secret | Official Centris broker JSON feed |
 | `CENTRIS_SEARCH_URL` | Variable | Custom Centris search URL (search-page mode only) |
+
+If the RE/MAX listings API returns **403** (common on GitHub Actions IPs), the workflow falls back to syncing `data/properties.json` so image updates still run. When RE/MAX discovery succeeds, sold listings are pruned from the registry, `proprietes.html`, sitemap, and detail pages.
 
 ### Manual run
 

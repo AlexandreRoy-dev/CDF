@@ -47,10 +47,12 @@ jobs:
           CENTRIS_SEARCH_URL: ${{ vars.CENTRIS_SEARCH_URL }}
           REMAX_BROKER_SLUG: ${{ vars.REMAX_BROKER_SLUG }}
           REMAX_AGENT_URL: ${{ vars.REMAX_AGENT_URL }}
+          REMAX_BROKER_IDAGENT: ${{ vars.REMAX_BROKER_IDAGENT }}
           REMAX_API_KEY: ${{ secrets.REMAX_API_KEY }}
         run: |
           python scripts/centris_sync.py \
             --sync-remax \
+            --remax-broker-idagent "${REMAX_BROKER_IDAGENT:-24115}" \
             --max-listings "${{ github.event.inputs.max_listings || '30' }}" \
             --delay-seconds "${{ github.event.inputs.delay_seconds || '2' }}"
 
@@ -59,7 +61,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/ src/assets/images/proprietes/
+          git add data/ src/assets/images/proprietes/ proprietes.html sitemap.xml ca/ prop-*.html
 
           if git diff --staged --quiet; then
             echo "No listing image changes to commit."

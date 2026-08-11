@@ -36,6 +36,24 @@ DEFAULT_REMAX_AGENT_URL = (
 )
 # Public frontend key (also embedded in remax-quebec.com JS bundles).
 DEFAULT_REMAX_API_KEY = "c4dWcBkE#RL78Y@zg4Y06M$qrOJAeh7Fwv!Z9T4Q1f@zZ"
+# Known idagent for p-o.chiasson — used when the brokers API is blocked (e.g. GitHub Actions).
+DEFAULT_REMAX_BROKER_IDAGENT = 24115
+
+SOLD_REDIRECT_HTML = """<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <title>Propriété vendue — redirection…</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="{canonical}">
+  <meta http-equiv="refresh" content="0; url={canonical}">
+  <script>window.location.replace("{canonical}");</script>
+</head>
+<body>
+  <p>Cette propriété a été vendue. <a href="{canonical}">Voir nos propriétés disponibles</a>.</p>
+</body>
+</html>
+"""
 
 
 def load_properties_registry() -> dict:
@@ -207,6 +225,8 @@ def remax_api_headers(api_key: str) -> dict[str, str]:
         "User-Agent": USER_AGENT,
         "Accept": "application/json",
         "Content-Language": "fr",
+        "Origin": REMAX_BASE_URL,
+        "Referer": f"{REMAX_BASE_URL}/fr/courtiers-immobiliers/{DEFAULT_REMAX_BROKER_SLUG}",
         "X-Header-Api": api_key,
     }
 
@@ -216,14 +236,74 @@ def remax_view_all_url(broker_idagent: int | str, include_sold: bool = False) ->
     return f"{REMAX_BASE_URL}/fr/resultats?{urllib.parse.urlencode(params)}"
 
 
-def fetch_remax_broker(slug: str, session: requests.Session) -> dict:
-    url = f"{REMAX_API_URL}brokers/{slug}"
-    resp = session.get(url, timeout=60)
-    resp.raise_for_status()
-    broker = resp.json()
-    if not broker.get("idagent"):
-        raise RuntimeError(f"RE/MAX broker profile missing idagent for slug {slug!r}")
-    return broker
+def parse_broker_idagent_from_static(slug: str, session: requests.Session) -> int | None:
+    """Resolve idagent from public Nuxt payload when the brokers API is blocked."""
+    payload_url = (
+        f"{REMAX_BASE_URL}/resources/static/prod/fr/courtiers-immobiliers/{slug}/payload.js"
+    )
+    try:
+        text = session.get(payload_url, timeout=60).text
+    except requests.RequestException:
+        return None
+
+    # Typical payload ends with: ...,24115,"PIERRE-OLIVIER CHIASSON INC.","dabord-...
+    match = re.search(r'(\d{4,6}),"[^"]*","dabord-', text)
+    if match:
+        return int(match.group(1))
+
+    match = re.search(r"idagent:(\d+)", text)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def resolve_remax_broker(
+    slug: str,
+    session: requests.Session,
+    *,
+    idagent_override: int | None = None,
+) -> dict:
+    if idagent_override:
+        return {
+            "slug": slug,
+            "idagent": idagent_override,
+            "name": slug,
+            "no_membre": None,
+            "source": "override",
+        }
+
+    try:
+        url = f"{REMAX_API_URL}brokers/{slug}"
+        resp = session.get(url, timeout=60)
+        resp.raise_for_status()
+        broker = resp.json()
+        if not broker.get("idagent"):
+            raise RuntimeError(f"RE/MAX broker profile missing idagent for slug {slug!r}")
+        broker["source"] = "api"
+        return broker
+    except requests.RequestException as exc:
+        print(f"WARN: RE/MAX brokers API unavailable ({exc}); trying static payload…")
+
+    parsed = parse_broker_idagent_from_static(slug, session)
+    if parsed:
+        return {
+            "slug": slug,
+            "idagent": parsed,
+            "name": slug,
+            "no_membre": None,
+            "source": "static-payload",
+        }
+
+    if slug == DEFAULT_REMAX_BROKER_SLUG:
+        return {
+            "slug": slug,
+            "idagent": DEFAULT_REMAX_BROKER_IDAGENT,
+            "name": "PIERRE-OLIVIER CHIASSON",
+            "no_membre": "124729",
+            "source": "default",
+        }
+
+    raise RuntimeError(f"Could not resolve RE/MAX idagent for broker slug {slug!r}")
 
 
 def discover_remax_listings(
@@ -263,6 +343,133 @@ def discover_remax_listings(
     return listings
 
 
+def save_properties_registry(registry: dict) -> Path:
+    path = ROOT / "data" / "properties.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(registry, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    return path
+
+
+def prune_registry_to_active(registry: dict, active_uls: set[str]) -> list[dict]:
+    """Drop sold/inactive listings from data/properties.json."""
+    kept: list[dict] = []
+    removed: list[dict] = []
+    for item in registry.get("listings", []):
+        if str(item["uls"]) in active_uls:
+            kept.append(item)
+        else:
+            removed.append(item)
+    registry["listings"] = kept
+    if removed:
+        save_properties_registry(registry)
+        for item in removed:
+            print(f"  pruned registry ULS {item['uls']} ({item.get('title', '')})")
+    return removed
+
+
+def remove_proprietes_card(html: str, public_path: str) -> str:
+    """Remove a listing card from proprietes.html by its detail-page href."""
+    href = public_path if public_path.endswith("/") else public_path + "/"
+    href_token = f'href="{href}"'
+    href_at = html.find(href_token)
+    if href_at < 0:
+        return html
+
+    card_marker = '<div class="bg-white rounded-2xl shadow-sm border border-gray-200'
+    card_start = html.rfind(card_marker, 0, href_at)
+    if card_start < 0:
+        return html
+
+    comment_start = html.rfind("<!--", 0, card_start)
+    if comment_start >= 0 and "-->" in html[comment_start:card_start]:
+        # Only attach the comment when it sits immediately above this card.
+        between = html[comment_start:card_start]
+        if between.count("\n") <= 3 and "<div" not in between[between.find("-->") + 3 :]:
+            start = comment_start
+        else:
+            start = card_start
+    else:
+        start = card_start
+
+    # Walk forward from the card opening div to its matching close.
+    i = card_start
+    depth = 0
+    end = None
+    while i < len(html):
+        next_open = html.find("<div", i)
+        next_close = html.find("</div>", i)
+        if next_close < 0:
+            break
+        if next_open >= 0 and next_open < next_close:
+            depth += 1
+            i = next_open + 4
+            continue
+        depth -= 1
+        i = next_close + len("</div>")
+        if depth == 0:
+            end = i
+            break
+
+    if end is None:
+        return html
+
+    # Drop trailing whitespace/newline after the card.
+    while end < len(html) and html[end] in "\r\n":
+        end += 1
+    return html[:start] + html[end:]
+
+
+def prune_delisted_site_pages(removed_listings: list[dict]) -> list[str]:
+    """Redirect sold detail pages, drop sitemap URLs, remove proprietes.html cards."""
+    if not removed_listings:
+        return []
+
+    actions: list[str] = []
+    sitemap_path = ROOT / "sitemap.xml"
+    proprietes_path = ROOT / "proprietes.html"
+    sitemap = sitemap_path.read_text(encoding="utf-8") if sitemap_path.exists() else ""
+    proprietes = (
+        proprietes_path.read_text(encoding="utf-8") if proprietes_path.exists() else ""
+    )
+
+    for item in removed_listings:
+        public = listing_public_path(item)
+        absolute = BASE_URL + public
+        redirect = SOLD_REDIRECT_HTML.format(canonical=f"{BASE_URL}/proprietes.html")
+
+        page_path = ROOT / public.lstrip("/") / "index.html"
+        page_path.parent.mkdir(parents=True, exist_ok=True)
+        page_path.write_text(redirect, encoding="utf-8")
+        actions.append(str(page_path))
+
+        legacy = item.get("legacyFile")
+        if legacy:
+            legacy_path = ROOT / legacy
+            legacy_path.write_text(redirect, encoding="utf-8")
+            actions.append(str(legacy_path))
+
+        sitemap_line = f'  <url><loc>{absolute}</loc><priority>0.7</priority></url>\n'
+        if sitemap_line in sitemap:
+            sitemap = sitemap.replace(sitemap_line, "")
+            actions.append(f"sitemap:{public}")
+
+        if public in proprietes or public.rstrip("/") in proprietes:
+            before = proprietes
+            proprietes = remove_proprietes_card(proprietes, public)
+            if proprietes != before:
+                actions.append(f"proprietes.html:{public}")
+
+    if sitemap_path.exists():
+        sitemap_path.write_text(sitemap, encoding="utf-8")
+    if proprietes_path.exists():
+        proprietes_path.write_text(proprietes, encoding="utf-8")
+
+    return actions
+
+
 def centris_url_for_remax_listing(uls: str, listing: dict) -> str:
     if listing.get("is_rental") and not listing.get("is_for_sale"):
         return f"https://www.centris.ca/fr/propriete~a-louer/{uls}"
@@ -284,8 +491,15 @@ def fetch_listing_html(listing_id: str, property_url: str, session: requests.Ses
     last_error: Exception | None = None
     for url in candidates:
         try:
-            html = http_get(url, session).text
-            if "MosaicPhotoUrls" in html or 'property="og:image"' in html:
+            resp = session.get(url, timeout=60)
+            resp.raise_for_status()
+            if "listingnotfound=" in resp.url:
+                continue
+            html = resp.text
+            if "MosaicPhotoUrls" in html:
+                return html
+            # Accept og:image only when we stayed on the listing URL.
+            if f"/{listing_id}" in resp.url and 'property="og:image"' in html:
                 return html
         except requests.RequestException as exc:
             last_error = exc
@@ -445,7 +659,12 @@ def collect_listing_jobs(
             if listing_id and property_url:
                 by_id[listing_id] = property_url
     elif args.sync_remax:
-        broker = fetch_remax_broker(args.remax_broker_slug, session)
+        idagent_override = getattr(args, "remax_broker_idagent", None)
+        broker = resolve_remax_broker(
+            args.remax_broker_slug,
+            session,
+            idagent_override=idagent_override,
+        )
         broker_idagent = int(broker["idagent"])
         if remax_meta is not None:
             remax_meta.update(
@@ -454,6 +673,7 @@ def collect_listing_jobs(
                     "brokerName": broker.get("name"),
                     "brokerMemberNo": broker.get("no_membre"),
                     "brokerIdAgent": broker_idagent,
+                    "brokerSource": broker.get("source"),
                     "agentUrl": args.remax_agent_url,
                     "viewAllUrl": remax_view_all_url(
                         broker_idagent,
@@ -461,16 +681,33 @@ def collect_listing_jobs(
                     ),
                 }
             )
-        listings = discover_remax_listings(
-            broker_idagent,
-            session,
-            include_sold=args.remax_include_sold,
-            page_size=max(args.max_listings, 100),
-        )
-        for item in listings:
-            uls = str(item.get("no_inscription") or "")
-            if uls:
-                by_id[uls] = centris_url_for_remax_listing(uls, item)
+        try:
+            listings = discover_remax_listings(
+                broker_idagent,
+                session,
+                include_sold=args.remax_include_sold,
+                page_size=max(args.max_listings, 100),
+            )
+        except requests.RequestException as exc:
+            print(
+                f"WARN: RE/MAX listings API unavailable ({exc}); "
+                "falling back to data/properties.json registry.",
+                file=sys.stderr,
+            )
+            if remax_meta is not None:
+                remax_meta["fallback"] = "registry"
+                remax_meta["error"] = str(exc)
+            for item in registry.get("listings", []):
+                uls = str(item["uls"])
+                by_id[uls] = f"https://www.centris.ca/fr/propriete~a-vendre/{uls}"
+        else:
+            for item in listings:
+                uls = str(item.get("no_inscription") or "")
+                if uls:
+                    by_id[uls] = centris_url_for_remax_listing(uls, item)
+            if remax_meta is not None:
+                remax_meta["fallback"] = None
+                remax_meta["discoveredCount"] = len(by_id)
     elif args.sync_registry:
         for item in registry.get("listings", []):
             uls = str(item["uls"])
@@ -484,6 +721,11 @@ def collect_listing_jobs(
 
     if not by_id:
         raise RuntimeError("No Centris listings found to sync.")
+
+    if remax_meta is not None and "discoveredCount" in remax_meta:
+        remax_meta["syncLimited"] = bool(
+            args.max_listings and 0 < args.max_listings < remax_meta["discoveredCount"]
+        )
 
     limit = args.max_listings
     if limit and limit > 0:
@@ -527,6 +769,12 @@ def main() -> int:
         help="Include sold RE/MAX listings when discovering broker properties",
     )
     parser.add_argument(
+        "--remax-broker-idagent",
+        type=int,
+        default=0,
+        help="Optional RE/MAX idagent override (skips brokers API lookup)",
+    )
+    parser.add_argument(
         "--output-json",
         default=str(ROOT / "data" / "centris_listings.json"),
     )
@@ -559,6 +807,15 @@ def main() -> int:
     env_agent_url = os.environ.get("REMAX_AGENT_URL", "")
     if env_agent_url:
         args.remax_agent_url = env_agent_url
+    env_idagent = os.environ.get("REMAX_BROKER_IDAGENT", "")
+    if env_idagent.isdigit():
+        args.remax_broker_idagent = int(env_idagent)
+    elif not args.remax_broker_idagent:
+        args.remax_broker_idagent = None
+    else:
+        # argparse default 0 means unset
+        if args.remax_broker_idagent == 0:
+            args.remax_broker_idagent = None
 
     registry = load_properties_registry()
     registry_by_uls = {str(item["uls"]): item for item in registry.get("listings", [])}
@@ -577,8 +834,9 @@ def main() -> int:
         session.headers.update(remax_api_headers(remax_api_key))
 
     jobs = collect_listing_jobs(args, session, registry, remax_meta=remax_meta)
+    used_remax_discovery = bool(args.sync_remax and not remax_meta.get("fallback"))
     if args.sync_remax:
-        scrape_mode = "remax"
+        scrape_mode = "remax" if used_remax_discovery else "remax-fallback-registry"
     elif args.sync_registry:
         scrape_mode = "registry"
     elif args.official_feed_url:
@@ -588,11 +846,18 @@ def main() -> int:
     print(f"Scrape mode: {scrape_mode}")
     if args.sync_remax:
         print(f"RE/MAX agent page: {args.remax_agent_url}")
-        print(f"RE/MAX view all: {remax_meta.get('viewAllUrl')}")
-        print(f"Broker: {remax_meta.get('brokerName')} ({remax_meta.get('brokerMemberNo')})")
-        print("Discovered listings (Centris ULS):")
-        for uls, url in jobs.items():
-            print(f"  - {uls}: {url}")
+        if remax_meta.get("viewAllUrl"):
+            print(f"RE/MAX view all: {remax_meta.get('viewAllUrl')}")
+        print(
+            f"Broker: {remax_meta.get('brokerName')} "
+            f"({remax_meta.get('brokerMemberNo')}) via {remax_meta.get('brokerSource')}"
+        )
+        if remax_meta.get("fallback"):
+            print("RE/MAX discovery failed — syncing registry listings only.")
+        else:
+            print("Discovered listings (Centris ULS):")
+            for uls, url in jobs.items():
+                print(f"  - {uls}: {url}")
     elif args.sync_registry:
         print("Listing pages (per ULS in data/properties.json):")
         for uls in jobs:
@@ -601,6 +866,11 @@ def main() -> int:
     elif not args.official_feed_url:
         print(f"Search page: {args.search_url}")
     print(f"Syncing {len(jobs)} listing(s)...")
+
+    # Restore HTML Accept for Centris page fetches after JSON API discovery.
+    session.headers["Accept"] = (
+        "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
+    )
 
     images_root = Path(args.output_images_dir)
     results = []
@@ -627,18 +897,44 @@ def main() -> int:
         time.sleep(args.delay_seconds)
 
     active_uls = set(jobs.keys())
+    removed_listings: list[dict] = []
+    pruned_pages: list[str] = []
+    can_prune = (
+        used_remax_discovery
+        and not args.no_cleanup_stale
+        and not remax_meta.get("syncLimited")
+    )
+    if can_prune:
+        print("Pruning sold/inactive listings from registry and site pages...")
+        removed_listings = prune_registry_to_active(registry, active_uls)
+        pruned_pages = prune_delisted_site_pages(removed_listings)
+        registry_by_uls = {str(item["uls"]): item for item in registry.get("listings", [])}
+    elif used_remax_discovery and remax_meta.get("syncLimited"):
+        print(
+            "Skipping sold-listing prune because --max-listings limited the discovery set."
+        )
+
     removed_stale: list[str] = []
-    if not args.no_cleanup_stale and scrape_mode in {"registry", "remax"}:
+    if not args.no_cleanup_stale and scrape_mode in {
+        "registry",
+        "remax",
+        "remax-fallback-registry",
+    }:
         print("Cleaning up stale property images...")
-        removed_stale = cleanup_stale_properties(images_root, registry, active_uls)
+        cleanup_uls = active_uls if used_remax_discovery else get_active_uls(registry)
+        removed_stale = cleanup_stale_properties(images_root, registry, cleanup_uls)
 
     payload = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "scrapeMode": scrape_mode,
         "searchUrl": args.search_url if scrape_mode == "search" else None,
-        "registryPath": "data/properties.json" if scrape_mode == "registry" else None,
-        "remax": remax_meta if scrape_mode == "remax" else None,
-        "discoveredUls": sorted(active_uls) if scrape_mode == "remax" else None,
+        "registryPath": "data/properties.json"
+        if scrape_mode in {"registry", "remax-fallback-registry", "remax"}
+        else None,
+        "remax": remax_meta if args.sync_remax else None,
+        "discoveredUls": sorted(active_uls) if used_remax_discovery else None,
+        "removedListings": [item.get("uls") for item in removed_listings],
+        "prunedPages": pruned_pages,
         "maxListings": args.max_listings,
         "removedStale": removed_stale,
         "listings": results,
