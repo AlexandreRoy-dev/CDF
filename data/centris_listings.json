@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T12:59:32.370239+00:00",
+  "generatedAt": "2026-08-13T13:01:06.011856+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -27,28 +27,10 @@
     "26831137",
     "27084256"
   ],
-  "removedListings": [
-    "10701075"
-  ],
-  "prunedPages": [
-    "/home/runner/work/CDF/CDF/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-305/index.html",
-    "/home/runner/work/CDF/CDF/prop-31-rue-king-o-app-305-sherbrooke-10701075.html",
-    "sitemap:/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-305/",
-    "proprietes.html:/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-305/"
-  ],
+  "removedListings": [],
+  "prunedPages": [],
   "maxListings": 30,
-  "removedStale": [
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/10701075",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/10701075.jpg",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/1105esplanade.jpg",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/1492leclerc.jpg",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/1625bardeau.jpg",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/183frontenac.jpg",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/1917chateaumont.jpg",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/3075ferry.jpg",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/428vaisseaudor.jpg",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/4turner.jpg"
-  ],
+  "removedStale": [],
   "listings": [
     {
       "id": "25365838",
