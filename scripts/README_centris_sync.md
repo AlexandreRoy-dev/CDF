@@ -70,9 +70,15 @@ It will:
 |------|------|---------|
 | `REMAX_BROKER_SLUG` | Variable | RE/MAX broker slug (default: `p-o.chiasson`) |
 | `REMAX_AGENT_URL` | Variable | RE/MAX courtier profile URL (for logs) |
+| `REMAX_BROKER_IDAGENT` | Variable | Broker `idagent` override (default: `24115`) — avoids brokers API on GitHub Actions |
 | `REMAX_API_KEY` | Secret | Override RE/MAX API key (optional) |
 | `CENTRIS_BROKER_FEED_URL` | Secret | Official Centris broker JSON feed |
 | `CENTRIS_SEARCH_URL` | Variable | Custom Centris search URL (search-page mode only) |
+
+If the RE/MAX listings API returns **403**:
+
+1. First check that `REMAX_API_KEY` is not set to an empty GitHub secret (blank env vars override the embedded default key and cause 403).
+2. The workflow unsets blank env vars automatically and falls back to Centris search discovery, then the registry, so the job still completes.
 
 ### Manual run
 

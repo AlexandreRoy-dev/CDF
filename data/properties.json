@@ -2,18 +2,6 @@
   "baseUrl": "https://chiassondefrancesco.ca",
   "listings": [
     {
-      "uls": "10701075",
-      "country": "ca",
-      "province": "qc",
-      "city": "sherbrooke",
-      "sector": "les-nations",
-      "street": "31-rue-king-o-app-305",
-      "title": "31, Rue King O., app. 305 — Sherbrooke",
-      "shareTitle": "Condo à louer — 31, Rue King O., app. 305, Sherbrooke",
-      "legacyFile": "prop-31-rue-king-o-app-305-sherbrooke-10701075.html",
-      "fallbackImage": "10701075.jpg"
-    },
-    {
       "uls": "25365838",
       "country": "ca",
       "province": "qc",
@@ -24,18 +12,6 @@
       "shareTitle": "Condo à louer — 31, Rue King O., app. 304, Sherbrooke",
       "legacyFile": "prop-31-rue-king-o-app-304-sherbrooke-25365838.html",
       "fallbackImage": "25365838.jpg"
-    },
-    {
-      "uls": "10326178",
-      "country": "ca",
-      "province": "qc",
-      "city": "coaticook",
-      "sector": "centre",
-      "street": "251-rue-main-o",
-      "title": "251, Rue Main Ouest — Coaticook",
-      "shareTitle": "Maison à vendre — 251, Rue Main Ouest, Coaticook",
-      "legacyFile": "prop-251-rue-main-o-coaticook-10326178.html",
-      "fallbackImage": "251ruemainouest.jpg"
     },
     {
       "uls": "26831137",
