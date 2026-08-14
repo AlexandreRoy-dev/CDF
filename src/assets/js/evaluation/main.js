@@ -1,0 +1,681 @@
+import { visibleQuestions, questionIsAnswered } from './questions.js';
+import { searchRegions, findRegion } from './regions.js';
+import { analyzeAnswers } from './score.js';
+import { buildLeadPayload, submitLead } from './lead.js';
+
+const app = document.getElementById('eval-app');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const state = {
+  screen: 'landing',
+  step: 0,
+  answers: {},
+  analysis: null,
+  revealChoice: null,
+  lead: { kind: 'idle' },
+  regionQuery: '',
+  form: { name: '', email: '', phone: '', consent: false, website: '' },
+  error: ''
+};
+
+function delay(ms) {
+  return new Promise((resolve) => window.setTimeout(resolve, reduceMotion ? 0 : ms));
+}
+
+function questions() {
+  return visibleQuestions(state.answers);
+}
+
+function currentQuestion() {
+  return questions()[state.step];
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function formatCurrencyInput(raw) {
+  const digits = String(raw).replace(/[^\d]/g, '');
+  if (!digits) return '';
+  return new Intl.NumberFormat('fr-CA').format(Number(digits));
+}
+
+function parseCurrency(raw) {
+  const digits = String(raw).replace(/[^\d]/g, '');
+  return digits ? Number(digits) : null;
+}
+
+function setAnswer(id, value) {
+  state.answers[id] = value;
+  state.error = '';
+}
+
+function goNext() {
+  const list = questions();
+  const question = list[state.step];
+  if (!questionIsAnswered(question, state.answers)) {
+    state.error = 'Choisissez une réponse pour continuer.';
+    render();
+    return;
+  }
+
+  if (question.id === 'hasContract' && state.answers.hasContract === true) {
+    state.screen = 'contract';
+    render();
+    return;
+  }
+
+  if (state.step >= list.length - 1) {
+    startAnalysis();
+    return;
+  }
+
+  state.step += 1;
+  state.error = '';
+  render();
+}
+
+function goBack() {
+  if (state.screen === 'contract') {
+    state.screen = 'quiz';
+    render();
+    return;
+  }
+  if (state.step === 0) {
+    state.screen = 'landing';
+    render();
+    return;
+  }
+  state.step -= 1;
+  state.error = '';
+  render();
+}
+
+async function startAnalysis() {
+  state.screen = 'analyzing';
+  render();
+  await delay(2200);
+  state.analysis = analyzeAnswers(state.answers);
+  state.screen = 'gate';
+  render();
+}
+
+function restart() {
+  state.screen = 'landing';
+  state.step = 0;
+  state.answers = {};
+  state.analysis = null;
+  state.revealChoice = null;
+  state.lead = { kind: 'idle' };
+  state.regionQuery = '';
+  state.form = { name: '', email: '', phone: '', consent: false, website: '' };
+  state.error = '';
+  render();
+}
+
+function icons() {
+  return {
+    arrow: '<svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10h10M11 6l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+    phone: '<svg class="w-4 h-4 text-white" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 4.5C3.5 4 4 3.5 4.5 3.5H7L8.5 7L6.5 8.5C7.5 11 9 12.5 11.5 13.5L13 11.5L16.5 13V15.5C16.5 16 16 16.5 15.5 16.5C9 16.5 3.5 11 3.5 4.5Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>'
+  };
+}
+
+function logos() {
+  return `
+    <a href="index.html" class="eval-logo" aria-label="Retour à l’accueil Chiasson de Francesco">
+      <img src="./src/assets/logocdf.svg" alt="Chiasson de Francesco" class="h-full w-auto">
+    </a>
+  `;
+}
+
+function callCard() {
+  return `
+    <a class="eval-call" href="tel:+18199194631" aria-label="Appeler Pierre-Olivier Chiasson au 819 919-4631">
+      <div class="relative shrink-0">
+        <img src="./src/assets/pierre-olivier-chiasson.webp" alt="Pierre-Olivier Chiasson" onerror="this.onerror=null;this.src='./src/assets/images/chiassondefrancescoteam.jpg';">
+        <span class="eval-online absolute -bottom-0.5 -right-0.5" aria-hidden="true"></span>
+      </div>
+      <div class="min-w-0 flex-1">
+        <div class="flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+          <span class="text-[10px] font-medium text-emerald-700 uppercase tracking-wide">Disponible maintenant</span>
+        </div>
+        <p class="font-heading text-base leading-tight text-brand-navy mt-0.5 truncate">Pierre-Olivier Chiasson</p>
+        <p class="text-[11px] text-slate-500 truncate">Courtier immobilier, Estrie</p>
+      </div>
+      <div class="shrink-0 flex flex-col items-center">
+        <div class="w-11 h-11 rounded-full bg-brand-red flex items-center justify-center shadow-md">${icons().phone}</div>
+        <span class="text-[9px] text-slate-500 font-medium tracking-wide mt-0.5">Appeler</span>
+      </div>
+    </a>
+  `;
+}
+
+function landing() {
+  return `
+    ${logos()}
+    <section class="relative min-h-dvh flex flex-col items-center justify-start px-5 sm:px-8 pt-24 sm:pt-28 pb-36">
+      <div class="max-w-3xl text-center">
+        <div class="eval-badge eval-enter mb-8">
+          <span class="eval-dot"></span>
+          <span class="font-medium tracking-wide">Estimation personnalisée</span>
+        </div>
+        <h1 class="eval-enter eval-enter-delay font-heading text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.05] tracking-tight text-balance">
+          Est-ce le bon moment pour vendre votre propriété ?
+        </h1>
+        <p class="eval-enter eval-enter-delay-2 mt-6 text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
+          Répondez à une dizaine de questions et recevez une analyse honnête et confidentielle de votre timing, selon votre plus-value, votre équité et votre situation.
+        </p>
+        <div class="eval-rule"></div>
+        <div class="eval-enter eval-enter-delay-2 mt-10 flex flex-col items-center gap-3">
+          <button type="button" class="eval-btn eval-btn-primary" data-action="start">
+            <span>Commencer mon évaluation</span>
+            ${icons().arrow}
+          </button>
+          <p class="text-xs text-slate-400">3 minutes, gratuit et confidentiel</p>
+        </div>
+      </div>
+      <p class="absolute bottom-24 sm:bottom-10 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 uppercase tracking-[0.2em]">Confidentiel · Sans engagement</p>
+    </section>
+    ${callCard()}
+  `;
+}
+
+function progressBar() {
+  const list = questions();
+  const total = list.length;
+  const current = Math.min(state.step + 1, total);
+  const width = Math.round((current / total) * 100);
+  return `
+    <div class="w-full max-w-xl mx-auto mb-8">
+      <div class="flex items-center justify-between text-[11px] text-slate-400 mb-2 tracking-wide">
+        <span class="uppercase">Question <span class="text-white font-medium">${current}</span> / ${total}</span>
+        <button type="button" class="eval-back text-slate-400 hover:text-white" data-action="back">Précédent</button>
+      </div>
+      <div class="eval-progress" aria-hidden="true"><span style="width:${width}%"></span></div>
+    </div>
+  `;
+}
+
+function choiceList(question) {
+  const selected = state.answers[question.id];
+  return `
+    <div class="grid gap-3">
+      ${question.choices.map((choice) => `
+        <button type="button" class="eval-choice ${selected === choice.value ? 'is-selected' : ''}" data-action="choose" data-id="${question.id}" data-value="${choice.value}">
+          <span class="block font-medium text-white">${escapeHtml(choice.label)}</span>
+          ${choice.hint ? `<span class="block text-sm text-slate-400 mt-0.5">${escapeHtml(choice.hint)}</span>` : ''}
+        </button>
+      `).join('')}
+    </div>
+  `;
+}
+
+function booleanList(question) {
+  const selected = state.answers[question.id];
+  return `
+    <div class="grid sm:grid-cols-2 gap-3">
+      <button type="button" class="eval-choice ${selected === true ? 'is-selected' : ''}" data-action="choose-bool" data-id="${question.id}" data-value="true">
+        <span class="block font-medium text-white">Oui</span>
+      </button>
+      <button type="button" class="eval-choice ${selected === false ? 'is-selected' : ''}" data-action="choose-bool" data-id="${question.id}" data-value="false">
+        <span class="block font-medium text-white">Non</span>
+      </button>
+    </div>
+  `;
+}
+
+function numberField(question) {
+  const value = state.answers[question.id];
+  return `
+    <div class="max-w-sm mx-auto">
+      <label class="sr-only" for="${question.id}">${escapeHtml(question.title)}</label>
+      <input class="eval-input text-center text-2xl tracking-wide" id="${question.id}" inputmode="numeric" data-kind="number" data-id="${question.id}" value="${value ?? ''}" placeholder="${question.placeholder || '0'}">
+      <p class="text-center text-xs text-slate-400 mt-3">Années</p>
+    </div>
+  `;
+}
+
+function currencyField(question) {
+  const value = state.answers[question.id];
+  return `
+    <div class="max-w-sm mx-auto">
+      <label class="sr-only" for="${question.id}">${escapeHtml(question.title)}</label>
+      <div class="relative">
+        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+        <input class="eval-input text-center text-2xl tracking-wide pl-8" id="${question.id}" inputmode="numeric" data-kind="currency" data-id="${question.id}" value="${value ? formatCurrencyInput(value) : ''}" placeholder="${question.placeholder || '450 000'}">
+      </div>
+      <p class="text-center text-xs text-slate-400 mt-3">Votre estimation, en dollars canadiens</p>
+    </div>
+  `;
+}
+
+function regionSuggestions() {
+  if (!state.regionQuery.trim()) return '';
+  const matches = searchRegions(state.regionQuery);
+  return `
+    <div class="eval-suggest mt-2" role="listbox">
+      ${matches.length ? matches.map((region) => `
+        <button type="button" role="option" data-action="choose-region" data-value="${region.id}">${escapeHtml(region.name)}</button>
+      `).join('') : `<p class="px-4 py-3 text-sm text-slate-400">Aucun secteur trouvé. Essayez le nom de la ville.</p>`}
+    </div>
+  `;
+}
+
+function regionField(question) {
+  const selected = findRegion(state.answers[question.id]);
+  if (selected) {
+    return `
+      <div class="eval-card text-center py-10">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-2">Votre secteur</p>
+        <p class="font-heading text-2xl text-white">${escapeHtml(selected.name)}</p>
+        <button type="button" class="mt-5 text-sm text-slate-300 hover:text-white" data-action="clear-region">Modifier ma réponse</button>
+      </div>
+    `;
+  }
+
+  return `
+    <div>
+      <label class="sr-only" for="region">Secteur</label>
+      <input class="eval-input" id="region" data-kind="region" value="${escapeHtml(state.regionQuery)}" placeholder="Écrivez votre secteur (ex. Sherbrooke, Magog.)" autocomplete="off">
+      <div id="region-results">${regionSuggestions()}</div>
+    </div>
+  `;
+}
+
+function quiz() {
+  const question = currentQuestion();
+  let field = '';
+  if (question.kind === 'choice') field = choiceList(question);
+  if (question.kind === 'boolean') field = booleanList(question);
+  if (question.kind === 'number') field = numberField(question);
+  if (question.kind === 'currency') field = currencyField(question);
+  if (question.kind === 'region') field = regionField(question);
+
+  const canContinue = question.kind !== 'choice' && question.kind !== 'boolean';
+
+  return `
+    ${logos()}
+    <section class="min-h-dvh px-5 sm:px-8 pt-24 pb-28 max-w-xl mx-auto w-full">
+      ${progressBar()}
+      <div class="eval-enter">
+        <h2 class="font-heading text-3xl sm:text-4xl text-white leading-tight text-balance">${escapeHtml(question.title)}</h2>
+        <p class="mt-3 text-slate-300">${escapeHtml(question.subtitle)}</p>
+        <div class="mt-8">${field}</div>
+        ${state.error ? `<p class="eval-error mt-4">${escapeHtml(state.error)}</p>` : ''}
+        ${canContinue ? `
+          <div class="mt-8 flex justify-center">
+            <button type="button" class="eval-btn eval-btn-primary" data-action="next">
+              <span>Suivant</span>
+              ${icons().arrow}
+            </button>
+          </div>
+        ` : ''}
+      </div>
+    </section>
+    ${callCard()}
+  `;
+}
+
+function contract() {
+  return `
+    ${logos()}
+    <section class="min-h-dvh px-5 sm:px-8 pt-28 pb-28 max-w-xl mx-auto w-full">
+      <div class="eval-enter eval-card">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-[#c4a574]">Restriction légale</p>
+        <h2 class="font-heading text-2xl sm:text-3xl text-white mt-3 leading-tight">Vous êtes déjà sous contrat avec un courtier.</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">Légalement, on ne peut pas vous aider à évaluer une propriété déjà sous contrat de courtage avec un autre professionnel. C’est une protection pour vous et pour le courtier en place.</p>
+        <p class="mt-5 text-slate-300 leading-relaxed">Si vous n’êtes <strong class="text-white">pas satisfait</strong> de votre courtier actuel et que vous voulez explorer un changement, vous pouvez quand même continuer votre évaluation.</p>
+        <div class="mt-7 flex flex-col gap-3">
+          <button type="button" class="eval-btn eval-btn-primary" data-action="continue-contract">Continuer quand même</button>
+          <button type="button" class="eval-btn eval-btn-ghost" data-action="back">Modifier ma réponse</button>
+        </div>
+      </div>
+    </section>
+    ${callCard()}
+  `;
+}
+
+function analyzing() {
+  return `
+    ${logos()}
+    <section class="min-h-dvh flex items-center justify-center px-5 text-center">
+      <div class="eval-enter max-w-lg">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Analyse en cours</p>
+        <h2 class="font-heading italic text-3xl sm:text-5xl text-white mt-4 leading-tight">Nous lisons votre situation</h2>
+        <p class="mt-8 text-sm text-slate-300">Quelques secondes. On croise votre plus-value, votre équité et votre situation pour vous donner une réponse honnête.</p>
+        <div class="mt-10 flex justify-center gap-2" aria-hidden="true">
+          <span class="eval-dot"></span>
+          <span class="eval-dot" style="animation-delay:.2s"></span>
+          <span class="eval-dot" style="animation-delay:.4s"></span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function gate() {
+  return `
+    ${logos()}
+    <section class="min-h-dvh px-5 sm:px-8 py-24 max-w-xl mx-auto w-full text-center">
+      <div class="eval-enter">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Analyse complète</p>
+        <h2 class="font-heading text-3xl sm:text-4xl text-white mt-4">Votre réponse est prête.</h2>
+        <p class="mt-5 text-slate-300">Avant de voir la réponse, voulez-vous recevoir une analyse gratuite de votre propriété ?</p>
+        <div class="mt-8 grid gap-3">
+          <button type="button" class="eval-btn eval-btn-primary" data-action="reveal" data-value="yes">Oui, je veux voir la réponse</button>
+          <button type="button" class="eval-btn eval-btn-ghost" data-action="reveal" data-value="no">Non, je veux juste savoir si c’est le bon moment</button>
+        </div>
+        <p class="mt-6 text-xs text-slate-500">Sans engagement. Vous choisissez la suite.</p>
+      </div>
+    </section>
+  `;
+}
+
+function leadForm(gated) {
+  const analysis = state.analysis;
+  const heading = gated
+    ? 'Débloquer mon analyse'
+    : analysis.scoring.verdict === 'defavorable'
+      ? 'Mises à jour du marché'
+      : 'Analyse gratuite';
+
+  const blurb = gated
+    ? 'Laissez-nous votre contact pour la débloquer et recevoir un appel personnalisé avec Pierre-Olivier, Marco ou Jade.'
+    : analysis.scoring.verdict === 'defavorable'
+      ? 'Recevez les mises à jour du marché dans votre secteur, sans pression.'
+      : 'Recevez votre analyse par téléphone.';
+
+  const busy = state.lead.kind === 'submitting';
+
+  return `
+    <form class="eval-card mt-10 text-left" data-form="lead" novalidate>
+      <p class="text-[11px] uppercase tracking-[0.18em] text-[#c4a574]">${heading}</p>
+      <p class="mt-2 text-slate-300">${blurb}</p>
+      <div class="sr-only-hp" aria-hidden="true">
+        <label>Site web<input name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <div class="mt-5 grid gap-3">
+        <label class="block">
+          <span class="sr-only">Votre prénom</span>
+          <input class="eval-input" name="name" autocomplete="name" placeholder="Votre prénom" value="${escapeHtml(state.form.name)}" required>
+        </label>
+        <label class="block">
+          <span class="sr-only">Courriel</span>
+          <input class="eval-input" name="email" type="email" autocomplete="email" placeholder="marie@exemple.ca" value="${escapeHtml(state.form.email)}" required>
+        </label>
+        <label class="block">
+          <span class="sr-only">Téléphone</span>
+          <input class="eval-input" name="phone" type="tel" autocomplete="tel" placeholder="(819) 555-0123" value="${escapeHtml(state.form.phone)}" required>
+        </label>
+        <label class="eval-check">
+          <input type="checkbox" name="consent" ${state.form.consent ? 'checked' : ''}>
+          <span>J’accepte d’être contacté par l’équipe Chiasson de Francesco au sujet de cette évaluation. Consultez notre <a class="underline hover:text-white" href="confidentialite.html">politique de confidentialité</a>.</span>
+        </label>
+      </div>
+      ${state.error ? `<p class="eval-error mt-3">${escapeHtml(state.error)}</p>` : ''}
+      <button type="submit" class="eval-btn eval-btn-primary w-full mt-5" ${busy ? 'disabled' : ''}>
+        ${busy ? 'Envoi en cours…' : gated ? 'Voir mon analyse' : 'Recevoir mon analyse gratuite'}
+      </button>
+    </form>
+  `;
+}
+
+function leadThanks() {
+  return `
+    <div class="eval-card mt-10 text-center">
+      <p class="font-heading text-2xl text-white">Bien reçu.</p>
+      <p class="mt-3 text-slate-300">Votre analyse est prête ci-dessous. Un courtier vous appellera pour confirmer les résultats.</p>
+    </div>
+  `;
+}
+
+function results() {
+  const { scoring, report } = state.analysis;
+  const gatedPending = state.revealChoice === 'yes' && state.lead.kind !== 'done';
+
+  if (gatedPending) {
+    return `
+      ${logos()}
+      <section class="min-h-dvh px-5 sm:px-8 py-24 max-w-xl mx-auto w-full">
+        <div class="eval-enter text-center">
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Analyse complète disponible</p>
+          <h2 class="font-heading text-3xl text-white mt-4">Votre analyse est prête.</h2>
+          <p class="mt-4 text-slate-300">Laissez-nous votre contact pour la débloquer et recevoir un appel personnalisé avec Pierre-Olivier, Marco ou Jade.</p>
+          ${leadForm(true)}
+          <button type="button" class="mt-8 text-xs text-slate-500 hover:text-white" data-action="restart">Retour à l’accueil</button>
+        </div>
+      </section>
+      ${callCard()}
+    `;
+  }
+
+  return `
+    ${logos()}
+    <section class="min-h-dvh px-5 sm:px-8 pt-24 pb-36 max-w-3xl mx-auto w-full">
+      <div class="eval-enter text-center">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">${escapeHtml(scoring.label)}</p>
+        <h2 class="font-heading text-4xl sm:text-5xl text-white mt-3">${escapeHtml(scoring.headline)}</h2>
+        <p class="mt-6 text-slate-300 max-w-2xl mx-auto leading-relaxed">${escapeHtml(report.summary)}</p>
+      </div>
+      <div class="eval-score rounded-3xl p-7 sm:p-9 mt-10 text-center eval-enter">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-300">Score d’opportunité</p>
+        <p class="font-heading text-6xl text-white mt-2">${scoring.score}<span class="text-2xl text-slate-400">/100</span></p>
+        <p class="mt-3 text-sm text-slate-300">${escapeHtml(scoring.label)}</p>
+      </div>
+      <p class="text-center text-xs text-slate-500 italic mt-3">Un courtier vous appellera pour confirmer les résultats.</p>
+      ${state.lead.kind === 'done' ? leadThanks() : leadForm(false)}
+      <div class="grid sm:grid-cols-3 gap-3 mt-10">
+        ${report.stats.slice(1, 4).map((stat) => `
+          <article class="eval-card">
+            <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">${escapeHtml(stat.label)}</p>
+            <p class="mt-2 font-heading text-xl text-white">${escapeHtml(stat.value)}</p>
+          </article>
+        `).join('')}
+      </div>
+      <div class="eval-card mt-6">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Facteurs détectés</p>
+        <ul class="mt-4 space-y-4">
+          ${report.factors.map((factor) => `
+            <li>
+              <p class="text-sm font-semibold text-white">${escapeHtml(factor.label)}</p>
+              <p class="text-sm text-slate-300 mt-1">${escapeHtml(factor.text)}</p>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+      <div class="eval-card mt-6">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Prochaines étapes</p>
+        <ol class="mt-4 space-y-3 text-slate-300 text-sm list-decimal pl-5">
+          ${report.nextSteps.map((step) => `<li>${escapeHtml(step)}</li>`).join('')}
+        </ol>
+      </div>
+      <div class="text-center mt-10 pb-16">
+        <button type="button" class="text-sm text-slate-400 hover:text-white" data-action="restart">Refaire une évaluation</button>
+        <p class="mt-4 text-xs text-slate-500">
+          <a class="hover:text-white" href="confidentialite.html">Politique de confidentialité</a>
+        </p>
+      </div>
+    </section>
+    ${callCard()}
+  `;
+}
+
+function declined() {
+  return `
+    ${logos()}
+    <section class="min-h-dvh px-5 sm:px-8 py-24 max-w-xl mx-auto w-full text-center">
+      <div class="eval-enter">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Bien noté</p>
+        <h2 class="font-heading text-3xl text-white mt-4">Pas pressé de vendre ? Aucun souci.</h2>
+        <p class="mt-4 text-slate-300">Voici tout de même votre lecture de timing. Vous pourrez revenir quand le projet sera plus concret.</p>
+        <button type="button" class="eval-btn eval-btn-primary mt-8" data-action="show-results">Voir mon analyse</button>
+        <div>
+          <button type="button" class="mt-4 text-xs text-slate-500 hover:text-white" data-action="restart">Retour à l’accueil</button>
+        </div>
+      </div>
+    </section>
+    ${callCard()}
+  `;
+}
+
+function render() {
+  let html = landing();
+  if (state.screen === 'quiz') html = quiz();
+  if (state.screen === 'contract') html = contract();
+  if (state.screen === 'analyzing') html = analyzing();
+  if (state.screen === 'gate') html = gate();
+  if (state.screen === 'declined') html = declined();
+  if (state.screen === 'results') html = results();
+  app.innerHTML = html;
+}
+
+function validateLead(form) {
+  if (form.website) return 'ignored';
+  if (!form.name.trim()) return 'Votre nom est requis.';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) return 'Format de courriel invalide.';
+  if (form.phone.replace(/\D/g, '').length < 10) return 'Numéro de téléphone invalide.';
+  if (!form.consent) return 'Merci de cocher la case de consentement.';
+  return '';
+}
+
+async function handleLeadSubmit(formEl) {
+  const data = new FormData(formEl);
+  state.form = {
+    name: String(data.get('name') || ''),
+    email: String(data.get('email') || ''),
+    phone: String(data.get('phone') || ''),
+    consent: data.get('consent') === 'on',
+    website: String(data.get('website') || '')
+  };
+
+  const error = validateLead(state.form);
+  if (error === 'ignored') return;
+  if (error) {
+    state.error = error;
+    render();
+    return;
+  }
+
+  state.lead = { kind: 'submitting' };
+  state.error = '';
+  render();
+
+  const payload = buildLeadPayload({
+    ...state.form,
+    answers: state.answers,
+    analysis: state.analysis,
+    leadType: state.revealChoice === 'yes' || state.analysis.scoring.verdict !== 'defavorable'
+      ? 'evaluation'
+      : 'market_info'
+  });
+
+  try {
+    const result = await submitLead(payload);
+    state.lead = { kind: 'done', stored: !!result.stored, firstName: payload.firstName };
+    state.screen = 'results';
+    render();
+  } catch {
+    state.lead = { kind: 'idle' };
+    state.error = 'Une erreur est survenue. Réessayez dans quelques secondes.';
+    render();
+  }
+}
+
+app.addEventListener('click', (event) => {
+  const target = event.target.closest('[data-action]');
+  if (!target) return;
+  const action = target.getAttribute('data-action');
+
+  if (action === 'start') {
+    state.screen = 'quiz';
+    state.step = 0;
+    render();
+  }
+  if (action === 'back') goBack();
+  if (action === 'next') goNext();
+  if (action === 'restart') restart();
+  if (action === 'show-results') {
+    state.screen = 'results';
+    render();
+  }
+  if (action === 'continue-contract') {
+    const list = questions();
+    const idx = list.findIndex((item) => item.id === 'hasContract');
+    state.step = idx + 1;
+    state.screen = 'quiz';
+    render();
+  }
+  if (action === 'choose') {
+    setAnswer(target.dataset.id, target.dataset.value);
+    render();
+    window.setTimeout(goNext, reduceMotion ? 0 : 180);
+  }
+  if (action === 'choose-bool') {
+    setAnswer(target.dataset.id, target.dataset.value === 'true');
+    render();
+    window.setTimeout(goNext, reduceMotion ? 0 : 180);
+  }
+  if (action === 'choose-region') {
+    setAnswer('region', target.dataset.value);
+    state.regionQuery = '';
+    render();
+    window.setTimeout(goNext, reduceMotion ? 0 : 220);
+  }
+  if (action === 'clear-region') {
+    delete state.answers.region;
+    state.regionQuery = '';
+    render();
+    document.getElementById('region')?.focus();
+  }
+  if (action === 'reveal') {
+    state.revealChoice = target.dataset.value;
+    state.screen = target.dataset.value === 'no' ? 'declined' : 'results';
+    render();
+  }
+});
+
+app.addEventListener('input', (event) => {
+  const el = event.target;
+  if (el.dataset.kind === 'number') {
+    const value = el.value.replace(/[^\d]/g, '');
+    el.value = value;
+    setAnswer(el.dataset.id, value === '' ? null : Number(value));
+  }
+  if (el.dataset.kind === 'currency') {
+    const amount = parseCurrency(el.value);
+    el.value = amount == null ? '' : formatCurrencyInput(amount);
+    setAnswer(el.dataset.id, amount);
+  }
+  if (el.dataset.kind === 'region') {
+    state.regionQuery = el.value;
+    const host = document.getElementById('region-results');
+    if (host) host.innerHTML = regionSuggestions();
+  }
+  if (el.name && ['name', 'email', 'phone'].includes(el.name)) {
+    state.form[el.name] = el.value;
+  }
+  if (el.name === 'consent') {
+    state.form.consent = el.checked;
+  }
+});
+
+app.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && event.target.dataset?.kind) {
+    event.preventDefault();
+    goNext();
+  }
+});
+
+app.addEventListener('submit', (event) => {
+  if (event.target.matches('[data-form="lead"]')) {
+    event.preventDefault();
+    handleLeadSubmit(event.target);
+  }
+});
+
+render();
