@@ -1,7 +1,7 @@
 import { visibleQuestions, questionIsAnswered } from './questions.js';
 import { searchRegions, findRegion } from './regions.js';
 import { analyzeAnswers } from './score.js';
-import { buildLeadPayload, submitLead } from './lead.js';
+import { buildLeadPayload, buildWidgetMessagePayload, submitLead } from './lead.js';
 
 const app = document.getElementById('eval-app');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -15,6 +15,17 @@ const state = {
   lead: { kind: 'idle' },
   regionQuery: '',
   form: { name: '', email: '', phone: '', consent: false, website: '' },
+  widget: {
+    open: false,
+    sending: false,
+    sent: false,
+    error: '',
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+    consent: false
+  },
   error: ''
 };
 
@@ -113,6 +124,17 @@ function restart() {
   state.lead = { kind: 'idle' };
   state.regionQuery = '';
   state.form = { name: '', email: '', phone: '', consent: false, website: '' };
+  state.widget = {
+    open: false,
+    sending: false,
+    sent: false,
+    error: '',
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+    consent: false
+  };
   state.error = '';
   render();
 }
@@ -120,7 +142,8 @@ function restart() {
 function icons() {
   return {
     arrow: '<svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10h10M11 6l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-    phone: '<svg class="w-4 h-4 text-white" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 4.5C3.5 4 4 3.5 4.5 3.5H7L8.5 7L6.5 8.5C7.5 11 9 12.5 11.5 13.5L13 11.5L16.5 13V15.5C16.5 16 16 16.5 15.5 16.5C9 16.5 3.5 11 3.5 4.5Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>'
+    phone: '<svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 4.5C3.5 4 4 3.5 4.5 3.5H7L8.5 7L6.5 8.5C7.5 11 9 12.5 11.5 13.5L13 11.5L16.5 13V15.5C16.5 16 16 16.5 15.5 16.5C9 16.5 3.5 11 3.5 4.5Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+    message: '<svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 5.5h13v9H7l-3.5 2.5V5.5Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>'
   };
 }
 
@@ -133,25 +156,70 @@ function logos() {
 }
 
 function callCard() {
-  return `
-    <a class="eval-call" href="tel:+18199194631" aria-label="Appeler Pierre-Olivier Chiasson au 819 919-4631">
-      <div class="relative shrink-0">
-        <img src="./src/assets/pierre-olivier-chiasson.webp" alt="Pierre-Olivier Chiasson" onerror="this.onerror=null;this.src='./src/assets/images/chiassondefrancescoteam.jpg';">
-        <span class="eval-online absolute -bottom-0.5 -right-0.5" aria-hidden="true"></span>
-      </div>
-      <div class="min-w-0 flex-1">
-        <div class="flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-          <span class="text-[10px] font-medium text-emerald-700 uppercase tracking-wide">Disponible maintenant</span>
+  const widget = state.widget;
+  const messagePanel = widget.open ? `
+    <form class="eval-call-panel" data-form="widget-message" novalidate>
+      <div class="flex items-start justify-between gap-3 mb-3">
+        <div>
+          <p class="font-heading text-lg text-brand-navy leading-tight">Écrire à Pierre-Olivier</p>
+          <p class="text-[11px] text-slate-500 mt-0.5">Un message suffit. Il vous reviendra.</p>
         </div>
-        <p class="font-heading text-base leading-tight text-brand-navy mt-0.5 truncate">Pierre-Olivier Chiasson</p>
-        <p class="text-[11px] text-slate-500 truncate">Courtier immobilier, Estrie</p>
+        <button type="button" class="eval-call-close" data-action="close-message" aria-label="Fermer">×</button>
       </div>
-      <div class="shrink-0 flex flex-col items-center">
-        <div class="w-11 h-11 rounded-full bg-brand-red flex items-center justify-center shadow-md">${icons().phone}</div>
-        <span class="text-[9px] text-slate-500 font-medium tracking-wide mt-0.5">Appeler</span>
+      ${widget.sent ? `
+        <p class="text-sm text-emerald-800 bg-emerald-50 rounded-xl px-3 py-2">Message envoyé. Pierre-Olivier vous recontacte sous peu.</p>
+      ` : `
+        <div class="grid gap-2">
+          <label class="sr-only" for="widget-name">Votre nom</label>
+          <input class="eval-call-input" id="widget-name" name="widget-name" autocomplete="name" placeholder="Votre nom" value="${escapeHtml(widget.name)}" required>
+          <label class="sr-only" for="widget-phone">Votre téléphone</label>
+          <input class="eval-call-input" id="widget-phone" name="widget-phone" type="tel" autocomplete="tel" placeholder="Votre téléphone" value="${escapeHtml(widget.phone)}" required>
+          <label class="sr-only" for="widget-email">Courriel (optionnel)</label>
+          <input class="eval-call-input" id="widget-email" name="widget-email" type="email" autocomplete="email" placeholder="Courriel (optionnel)" value="${escapeHtml(widget.email)}">
+          <label class="sr-only" for="widget-message">Votre message</label>
+          <textarea class="eval-call-input eval-call-textarea" id="widget-message" name="widget-message" rows="3" placeholder="Votre message" required>${escapeHtml(widget.message)}</textarea>
+          <label class="eval-check text-slate-600">
+            <input type="checkbox" name="widget-consent" ${widget.consent ? 'checked' : ''}>
+            <span>J’accepte d’être contacté au sujet de ce message.</span>
+          </label>
+        </div>
+        ${widget.error ? `<p class="eval-error mt-2">${escapeHtml(widget.error)}</p>` : ''}
+        <button type="submit" class="eval-btn eval-btn-primary w-full mt-3" ${widget.sending ? 'disabled' : ''}>
+          ${widget.sending ? 'Envoi en cours…' : 'Envoyer le message'}
+        </button>
+      `}
+    </form>
+  ` : '';
+
+  return `
+    <div class="eval-call-wrap">
+      ${messagePanel}
+      <div class="eval-call">
+        <div class="relative shrink-0">
+          <img src="./src/assets/pierre-olivier-chiasson.webp" alt="Pierre-Olivier Chiasson" onerror="this.onerror=null;this.src='./src/assets/images/chiassondefrancescoteam.jpg';">
+          <span class="eval-online absolute -bottom-0.5 -right-0.5" aria-hidden="true"></span>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+            <span class="text-[10px] font-medium text-emerald-700 uppercase tracking-wide">Disponible maintenant</span>
+          </div>
+          <p class="font-heading text-base leading-tight text-brand-navy mt-0.5 truncate">Pierre-Olivier Chiasson</p>
+          <a class="eval-call-number" href="tel:+18199194631">819-919-4631</a>
+          <p class="text-[11px] text-slate-500 truncate">Courtier immobilier, Estrie</p>
+        </div>
+        <div class="eval-call-actions">
+          <a class="eval-call-action eval-call-action--phone" href="tel:+18199194631" aria-label="Appeler Pierre-Olivier au 819-919-4631">
+            <span class="eval-call-icon">${icons().phone}</span>
+            <span>Appeler</span>
+          </a>
+          <button type="button" class="eval-call-action eval-call-action--message" data-action="open-message" aria-expanded="${widget.open ? 'true' : 'false'}">
+            <span class="eval-call-icon">${icons().message}</span>
+            <span>Écrire</span>
+          </button>
+        </div>
       </div>
-    </a>
+    </div>
   `;
 }
 
@@ -586,6 +654,56 @@ async function handleLeadSubmit(formEl) {
   }
 }
 
+async function handleWidgetMessage(formEl) {
+  const data = new FormData(formEl);
+  state.widget.name = String(data.get('widget-name') || '');
+  state.widget.phone = String(data.get('widget-phone') || '');
+  state.widget.email = String(data.get('widget-email') || '');
+  state.widget.message = String(data.get('widget-message') || '');
+  state.widget.consent = data.get('widget-consent') === 'on';
+
+  if (!state.widget.name.trim()) {
+    state.widget.error = 'Votre nom est requis.';
+    render();
+    return;
+  }
+  if (state.widget.phone.replace(/\D/g, '').length < 10) {
+    state.widget.error = 'Numéro de téléphone invalide.';
+    render();
+    return;
+  }
+  if (state.widget.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.widget.email.trim())) {
+    state.widget.error = 'Format de courriel invalide.';
+    render();
+    return;
+  }
+  if (!state.widget.message.trim()) {
+    state.widget.error = 'Écrivez un court message.';
+    render();
+    return;
+  }
+  if (!state.widget.consent) {
+    state.widget.error = 'Merci de cocher la case de consentement.';
+    render();
+    return;
+  }
+
+  state.widget.sending = true;
+  state.widget.error = '';
+  render();
+
+  try {
+    await submitLead(buildWidgetMessagePayload(state.widget));
+    state.widget.sending = false;
+    state.widget.sent = true;
+    render();
+  } catch {
+    state.widget.sending = false;
+    state.widget.error = 'Une erreur est survenue. Réessayez dans quelques secondes.';
+    render();
+  }
+}
+
 app.addEventListener('click', (event) => {
   const target = event.target.closest('[data-action]');
   if (!target) return;
@@ -637,6 +755,17 @@ app.addEventListener('click', (event) => {
     state.screen = target.dataset.value === 'no' ? 'declined' : 'results';
     render();
   }
+  if (action === 'open-message') {
+    state.widget.open = true;
+    state.widget.sent = false;
+    state.widget.error = '';
+    render();
+    document.getElementById('widget-name')?.focus();
+  }
+  if (action === 'close-message') {
+    state.widget.open = false;
+    render();
+  }
 });
 
 app.addEventListener('input', (event) => {
@@ -662,6 +791,11 @@ app.addEventListener('input', (event) => {
   if (el.name === 'consent') {
     state.form.consent = el.checked;
   }
+  if (el.name === 'widget-name') state.widget.name = el.value;
+  if (el.name === 'widget-phone') state.widget.phone = el.value;
+  if (el.name === 'widget-email') state.widget.email = el.value;
+  if (el.name === 'widget-message') state.widget.message = el.value;
+  if (el.name === 'widget-consent') state.widget.consent = el.checked;
 });
 
 app.addEventListener('keydown', (event) => {
@@ -675,6 +809,10 @@ app.addEventListener('submit', (event) => {
   if (event.target.matches('[data-form="lead"]')) {
     event.preventDefault();
     handleLeadSubmit(event.target);
+  }
+  if (event.target.matches('[data-form="widget-message"]')) {
+    event.preventDefault();
+    handleWidgetMessage(event.target);
   }
 });
 

@@ -110,13 +110,11 @@ function customFieldsFromPayload(payload) {
 }
 
 function tagsFromPayload(payload) {
-  const verdict = payload.custom?.verdict || 'defavorable';
-  return [
-    'évaluation-timing',
-    'Lead Vendeur',
-    `verdict-${verdict}`,
-    payload.leadType || 'evaluation'
-  ];
+  const tags = ['évaluation-timing', 'Lead Vendeur', payload.leadType || 'evaluation'];
+  if (payload.leadType !== 'widget-message' && payload.custom?.verdict) {
+    tags.push(`verdict-${payload.custom.verdict}`);
+  }
+  return tags;
 }
 
 async function addTags(contactId, tags) {
@@ -206,7 +204,7 @@ module.exports = async function handler(req, res) {
     json(res, 400, { stored: false, error: 'Name required' }, origin);
     return;
   }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     json(res, 400, { stored: false, error: 'Invalid email' }, origin);
     return;
   }
@@ -232,7 +230,7 @@ module.exports = async function handler(req, res) {
         firstName,
         lastName: lastName || undefined,
         name: payload.name || `${firstName} ${lastName}`.trim(),
-        email,
+        email: email || undefined,
         phone,
         city: payload.city || undefined,
         state: 'QC',

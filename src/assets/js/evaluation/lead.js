@@ -64,6 +64,35 @@ export function buildLeadPayload({ name, email, phone, consent, answers, analysi
   };
 }
 
+export function buildWidgetMessagePayload({ name, email, phone, message, consent }) {
+  const { firstName, lastName } = splitName(name);
+  const utm = readUtms();
+
+  return {
+    firstName,
+    lastName,
+    name: name.trim(),
+    email: (email || '').trim(),
+    phone: phone.trim(),
+    source: LEAD_CONFIG.source,
+    tags: ['évaluation-timing', 'widget-message', 'Lead Vendeur'],
+    consent,
+    leadType: 'widget-message',
+    landingPage: window.location.href.split('?')[0],
+    utm,
+    custom: {
+      sellingMotivation: '',
+      verdict: '',
+      score: null
+    },
+    notes: [
+      'Formulaire: widget message Pierre-Olivier',
+      '',
+      message.trim()
+    ].join('\n')
+  };
+}
+
 export async function submitLead(payload) {
   const response = await fetch(LEAD_CONFIG.endpoint, {
     method: 'POST',
