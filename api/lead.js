@@ -160,10 +160,10 @@ function customFieldsFromPayload(payload) {
   addField(fields, FIELDS.raison, motivation);
   addField(fields, FIELDS.timeline, timeline);
   addField(fields, FIELDS.typeDeContact, 'Lead Vendeur');
-  addField(fields, FIELDS.interessePar, lookingTo);
   addField(fields, FIELDS.langue, 'Français');
 
   if (isQuiz) {
+    addField(fields, FIELDS.interessePar, lookingTo);
     addField(fields, FIELDS.propertyType, PROPERTY_LABELS[custom.propertyType] || '');
     addField(fields, FIELDS.yearsOwned, Number.isFinite(yearsOwned) ? yearsOwned : '');
     addField(fields, FIELDS.estimatedValue, Number.isFinite(estimatedValue) && estimatedValue > 0 ? estimatedValue : '');
