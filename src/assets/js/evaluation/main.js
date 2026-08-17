@@ -5,6 +5,20 @@ import { buildLeadPayload, buildWidgetMessagePayload, submitLead } from './lead.
 
 const app = document.getElementById('eval-app');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let advanceLock = false;
+let advanceTimer = 0;
+
+function withAdvanceLock(fn) {
+  if (advanceLock) return;
+  advanceLock = true;
+  app.classList.add('is-advancing');
+  window.clearTimeout(advanceTimer);
+  fn();
+  advanceTimer = window.setTimeout(() => {
+    advanceLock = false;
+    app.classList.remove('is-advancing');
+  }, 450);
+}
 
 const state = {
   screen: 'landing',
@@ -708,18 +722,35 @@ app.addEventListener('click', (event) => {
   const target = event.target.closest('[data-action]');
   if (!target) return;
   const action = target.getAttribute('data-action');
+  const autoAdvance = action === 'choose' || action === 'choose-bool' || action === 'choose-region';
+  if (advanceLock && autoAdvance) {
+    event.preventDefault();
+    event.stopPropagation();
+    return;
+  }
 
   if (action === 'start') {
     state.screen = 'quiz';
     state.step = 0;
     render();
+    return;
   }
-  if (action === 'back') goBack();
-  if (action === 'next') goNext();
-  if (action === 'restart') restart();
+  if (action === 'back') {
+    goBack();
+    return;
+  }
+  if (action === 'next') {
+    goNext();
+    return;
+  }
+  if (action === 'restart') {
+    restart();
+    return;
+  }
   if (action === 'show-results') {
     state.screen = 'results';
     render();
+    return;
   }
   if (action === 'continue-contract') {
     const list = questions();
@@ -727,28 +758,42 @@ app.addEventListener('click', (event) => {
     state.step = idx + 1;
     state.screen = 'quiz';
     render();
+    return;
   }
   if (action === 'choose') {
-    setAnswer(target.dataset.id, target.dataset.value);
-    render();
-    window.setTimeout(goNext, reduceMotion ? 0 : 180);
+    event.preventDefault();
+    event.stopPropagation();
+    withAdvanceLock(() => {
+      setAnswer(target.dataset.id, target.dataset.value);
+      goNext();
+    });
+    return;
   }
   if (action === 'choose-bool') {
-    setAnswer(target.dataset.id, target.dataset.value === 'true');
-    render();
-    window.setTimeout(goNext, reduceMotion ? 0 : 180);
+    event.preventDefault();
+    event.stopPropagation();
+    withAdvanceLock(() => {
+      setAnswer(target.dataset.id, target.dataset.value === 'true');
+      goNext();
+    });
+    return;
   }
   if (action === 'choose-region') {
-    setAnswer('region', target.dataset.value);
-    state.regionQuery = '';
-    render();
-    window.setTimeout(goNext, reduceMotion ? 0 : 220);
+    event.preventDefault();
+    event.stopPropagation();
+    withAdvanceLock(() => {
+      setAnswer('region', target.dataset.value);
+      state.regionQuery = '';
+      goNext();
+    });
+    return;
   }
   if (action === 'clear-region') {
     delete state.answers.region;
     state.regionQuery = '';
     render();
     document.getElementById('region')?.focus();
+    return;
   }
   if (action === 'reveal') {
     state.revealChoice = target.dataset.value;

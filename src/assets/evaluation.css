@@ -184,6 +184,11 @@ body.eval-body {
   background: rgba(255, 255, 255, 0.1);
 }
 
+#eval-app.is-advancing .eval-choice,
+#eval-app.is-advancing [data-action="choose-region"] {
+  pointer-events: none;
+}
+
 .eval-choice {
   width: 100%;
   text-align: left;
