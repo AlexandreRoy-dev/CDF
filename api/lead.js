@@ -10,7 +10,15 @@ const FIELDS = {
   timeline: 'yYB06uYc7V0OTBwylVdY',
   typeDeContact: '4zQR0GZQZLCMujxJyRNr',
   interessePar: 'qxdLPECH3T0E9GfCjqi9',
-  langue: 'vL1JGOmzLjyIyu7BFIIZ'
+  langue: 'vL1JGOmzLjyIyu7BFIIZ',
+  propertyType: '2dCSk0tB9HRRknAKMUo0',
+  estimatedValue: 'Pn3F2SUInFPvlh8gaoGt',
+  hasContract: 'Ziu6VlGXCFzjUXNPXZ5I',
+  yearsOwned: 'gVlaNphtDqMkojnO4YYB',
+  financialProfile: 'hI1spxaKjr4xKwxVZRWF',
+  verdict: 'juOYr3h0BYDWV0oqobO0',
+  hasChildren: 'lblu9G2ZuVDHN1drQFZm',
+  score: 'q2aAqIwfD7l3CvYMi3sa'
 };
 
 const ALLOWED_ORIGINS = [
@@ -106,24 +114,67 @@ const VERDICT_LABELS = {
   defavorable: 'Pas encore prêt'
 };
 
+const PROPERTY_LABELS = {
+  maison: 'Maison unifamiliale',
+  condo: 'Condo',
+  plex: 'Plex',
+  chalet: 'Chalet'
+};
+
+const FINANCIAL_LABELS = {
+  salarie: 'Salarié',
+  autonome: 'Autonome',
+  entrepreneur: 'Entrepreneur',
+  placements: 'Placements',
+  retraite: 'Retraité',
+  transition: 'En transition'
+};
+
+function addField(fields, id, value) {
+  if (value === undefined || value === null || value === '') return;
+  fields.push({ id, fieldValue: value });
+}
+
+function yesNo(value) {
+  if (value === true || value === 'Oui' || value === 'oui') return 'Oui';
+  if (value === false || value === 'Non' || value === 'non') return 'Non';
+  return '';
+}
+
 function customFieldsFromPayload(payload) {
   const custom = payload.custom || {};
+  const isQuiz = payload.leadType !== 'widget-message';
   const lookingTo = custom.sellingMotivation === 'no_sell'
     ? 'Recevoir une évaluation gratuite'
     : 'Vendre une propriété';
   const motivation = MOTIVATION_LABELS[custom.sellingMotivation] || custom.sellingMotivation || '';
-  const verdict = VERDICT_LABELS[custom.verdict] || custom.verdict || '';
-  const score = custom.score != null && custom.score !== '' ? `${custom.score}/100` : '';
-  const timeline = [verdict, score].filter(Boolean).join(' · ');
+  const verdict = VERDICT_LABELS[custom.verdict] || '';
+  const scoreNumber = Number(custom.score);
+  const scoreLabel = Number.isFinite(scoreNumber) ? `${scoreNumber}/100` : '';
+  const timeline = [verdict, scoreLabel].filter(Boolean).join(' · ');
+  const yearsOwned = Number(custom.yearsOwned);
+  const estimatedValue = Number(custom.estimatedValue);
+  const fields = [];
 
-  return [
-    { id: FIELDS.message, fieldValue: payload.notes || '' },
-    { id: FIELDS.raison, fieldValue: String(motivation) },
-    { id: FIELDS.timeline, fieldValue: timeline },
-    { id: FIELDS.typeDeContact, fieldValue: 'Lead Vendeur' },
-    { id: FIELDS.interessePar, fieldValue: lookingTo },
-    { id: FIELDS.langue, fieldValue: 'Français' }
-  ].filter((field) => field.fieldValue);
+  addField(fields, FIELDS.message, payload.notes || '');
+  addField(fields, FIELDS.raison, motivation);
+  addField(fields, FIELDS.timeline, timeline);
+  addField(fields, FIELDS.typeDeContact, 'Lead Vendeur');
+  addField(fields, FIELDS.interessePar, lookingTo);
+  addField(fields, FIELDS.langue, 'Français');
+
+  if (isQuiz) {
+    addField(fields, FIELDS.propertyType, PROPERTY_LABELS[custom.propertyType] || '');
+    addField(fields, FIELDS.yearsOwned, Number.isFinite(yearsOwned) ? yearsOwned : '');
+    addField(fields, FIELDS.estimatedValue, Number.isFinite(estimatedValue) && estimatedValue > 0 ? estimatedValue : '');
+    addField(fields, FIELDS.verdict, verdict);
+    addField(fields, FIELDS.score, Number.isFinite(scoreNumber) ? scoreNumber : '');
+    addField(fields, FIELDS.hasContract, yesNo(custom.hasContract));
+    addField(fields, FIELDS.hasChildren, yesNo(custom.hasChildren));
+    addField(fields, FIELDS.financialProfile, FINANCIAL_LABELS[custom.financialProfile] || '');
+  }
+
+  return fields;
 }
 
 const FORM_EVAL_TAG = 'form-eval';

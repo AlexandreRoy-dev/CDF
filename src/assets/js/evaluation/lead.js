@@ -53,7 +53,9 @@ export function buildLeadPayload({ name, email, phone, consent, answers, analysi
       yearsOwned: answers.yearsOwned ?? '',
       estimatedValue: answers.estimatedValue ?? '',
       region: region ? region.name : answers.region || '',
-      hasContract: answers.hasContract === true ? 'Oui' : 'Non'
+      hasContract: answers.hasContract === true ? 'Oui' : answers.hasContract === false ? 'Non' : '',
+      hasChildren: answers.hasChildren === true ? 'Oui' : answers.hasChildren === false ? 'Non' : '',
+      financialProfile: answers.financialProfile || ''
     },
     notes: [
       `Formulaire: ${LEAD_CONFIG.formName}`,
