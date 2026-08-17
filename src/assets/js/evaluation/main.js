@@ -244,24 +244,24 @@ function landing() {
       <div class="max-w-3xl text-center">
         <div class="eval-badge eval-enter mb-8">
           <span class="eval-dot"></span>
-          <span class="font-medium tracking-wide">Estimation personnalisée</span>
+          <span class="font-medium tracking-wide">Lecture de marché Estrie</span>
         </div>
         <h1 class="eval-enter eval-enter-delay font-heading text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.05] tracking-tight text-balance">
-          Est-ce le bon moment pour vendre votre propriété ?
+          Vendre maintenant, plus tard, ou pas encore ?
         </h1>
         <p class="eval-enter eval-enter-delay-2 mt-6 text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
-          Répondez à une dizaine de questions et recevez une analyse honnête et confidentielle de votre timing, selon votre plus-value, votre équité et votre situation.
+          Dix questions sur votre bien, votre projet et votre foyer. L’équipe Chiasson de Francesco vous dit si une mise en marché a du sens aujourd’hui, sans pression.
         </p>
         <div class="eval-rule"></div>
         <div class="eval-enter eval-enter-delay-2 mt-10 flex flex-col items-center gap-3">
           <button type="button" class="eval-btn eval-btn-primary" data-action="start">
-            <span>Commencer mon évaluation</span>
+            <span>Commencer le questionnaire</span>
             ${icons().arrow}
           </button>
-          <p class="text-xs text-slate-400">3 minutes, gratuit et confidentiel</p>
+          <p class="text-xs text-slate-400">Environ cinq minutes. Gratuit, sans engagement.</p>
         </div>
       </div>
-      <p class="absolute bottom-24 sm:bottom-10 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 uppercase tracking-[0.2em]">Confidentiel · Sans engagement</p>
+      <p class="absolute bottom-24 sm:bottom-10 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 uppercase tracking-[0.2em]">Privé · Sans contrat</p>
     </section>
     ${callCard()}
   `;
@@ -408,13 +408,13 @@ function contract() {
     ${logos()}
     <section class="min-h-dvh px-5 sm:px-8 pt-28 pb-28 max-w-xl mx-auto w-full">
       <div class="eval-enter eval-card">
-        <p class="text-[11px] uppercase tracking-[0.18em] text-[#c4a574]">Restriction légale</p>
-        <h2 class="font-heading text-2xl sm:text-3xl text-white mt-3 leading-tight">Vous êtes déjà sous contrat avec un courtier.</h2>
-        <p class="mt-4 text-slate-300 leading-relaxed">Légalement, on ne peut pas vous aider à évaluer une propriété déjà sous contrat de courtage avec un autre professionnel. C’est une protection pour vous et pour le courtier en place.</p>
-        <p class="mt-5 text-slate-300 leading-relaxed">Si vous n’êtes <strong class="text-white">pas satisfait</strong> de votre courtier actuel et que vous voulez explorer un changement, vous pouvez quand même continuer votre évaluation.</p>
+        <p class="text-[11px] uppercase tracking-[0.18em] text-[#c4a574]">Cadre professionnel</p>
+        <h2 class="font-heading text-2xl sm:text-3xl text-white mt-3 leading-tight">Un courtier est déjà lié à ce bien.</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">Quand un contrat de courtage est en vigueur, nous ne pouvons pas intervenir sur l’évaluation ni sur la mise en marché. C’est une règle de la profession, pour vous et pour le courtier en place.</p>
+        <p class="mt-5 text-slate-300 leading-relaxed">Si le mandat se termine bientôt, ou si vous voulez simplement comprendre votre situation, vous pouvez poursuivre le questionnaire.</p>
         <div class="mt-7 flex flex-col gap-3">
-          <button type="button" class="eval-btn eval-btn-primary" data-action="continue-contract">Continuer quand même</button>
-          <button type="button" class="eval-btn eval-btn-ghost" data-action="back">Modifier ma réponse</button>
+          <button type="button" class="eval-btn eval-btn-primary" data-action="continue-contract">Poursuivre le questionnaire</button>
+          <button type="button" class="eval-btn eval-btn-ghost" data-action="back">Corriger ma réponse</button>
         </div>
       </div>
     </section>
@@ -427,9 +427,9 @@ function analyzing() {
     ${logos()}
     <section class="min-h-dvh flex items-center justify-center px-5 text-center">
       <div class="eval-enter max-w-lg">
-        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Analyse en cours</p>
-        <h2 class="font-heading italic text-3xl sm:text-5xl text-white mt-4 leading-tight">Nous lisons votre situation</h2>
-        <p class="mt-8 text-sm text-slate-300">Quelques secondes. On croise votre plus-value, votre équité et votre situation pour vous donner une réponse honnête.</p>
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Lecture en cours</p>
+        <h2 class="font-heading italic text-3xl sm:text-5xl text-white mt-4 leading-tight">On croise vos réponses</h2>
+        <p class="mt-8 text-sm text-slate-300">Quelques secondes. Durée de détention, secteur et projet de vie, pour une lecture claire plutôt qu’un slogan.</p>
         <div class="mt-10 flex justify-center gap-2" aria-hidden="true">
           <span class="eval-dot"></span>
           <span class="eval-dot" style="animation-delay:.2s"></span>
@@ -445,14 +445,14 @@ function gate() {
     ${logos()}
     <section class="min-h-dvh px-5 sm:px-8 py-24 max-w-xl mx-auto w-full text-center">
       <div class="eval-enter">
-        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Analyse complète</p>
-        <h2 class="font-heading text-3xl sm:text-4xl text-white mt-4">Votre réponse est prête.</h2>
-        <p class="mt-5 text-slate-300">Avant de voir la réponse, voulez-vous recevoir une analyse gratuite de votre propriété ?</p>
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Résultat disponible</p>
+        <h2 class="font-heading text-3xl sm:text-4xl text-white mt-4">Votre lecture est prête.</h2>
+        <p class="mt-5 text-slate-300">Souhaitez-vous qu’un courtier de l’équipe vous la présente, avec un appel de suivi ?</p>
         <div class="mt-8 grid gap-3">
-          <button type="button" class="eval-btn eval-btn-primary" data-action="reveal" data-value="yes">Oui, je veux voir la réponse</button>
-          <button type="button" class="eval-btn eval-btn-ghost" data-action="reveal" data-value="no">Non, je veux juste savoir si c’est le bon moment</button>
+          <button type="button" class="eval-btn eval-btn-primary" data-action="reveal" data-value="yes">Oui, je veux le détail et un appel</button>
+          <button type="button" class="eval-btn eval-btn-ghost" data-action="reveal" data-value="no">Non, le verdict seul me suffit</button>
         </div>
-        <p class="mt-6 text-xs text-slate-500">Sans engagement. Vous choisissez la suite.</p>
+        <p class="mt-6 text-xs text-slate-500">Vous restez libre. Aucune mise en marché n’est lancée.</p>
       </div>
     </section>
   `;
@@ -461,16 +461,16 @@ function gate() {
 function leadForm(gated) {
   const analysis = state.analysis;
   const heading = gated
-    ? 'Débloquer mon analyse'
+    ? 'Recevoir le détail'
     : analysis.scoring.verdict === 'defavorable'
-      ? 'Mises à jour du marché'
-      : 'Analyse gratuite';
+      ? 'Suivi de secteur'
+      : 'Appel de l’équipe';
 
   const blurb = gated
-    ? 'Laissez-nous votre contact pour la débloquer et recevoir un appel personnalisé avec Pierre-Olivier, Marco ou Jade.'
+    ? 'Vos coordonnées débloquent le détail et un appel avec Pierre-Olivier, Marco ou Jade.'
     : analysis.scoring.verdict === 'defavorable'
-      ? 'Recevez les mises à jour du marché dans votre secteur, sans pression.'
-      : 'Recevez votre analyse par téléphone.';
+      ? 'Recevez un suivi des ventes dans votre secteur, sans pression de mise en marché.'
+      : 'Un courtier vous rappelle pour commenter le résultat.';
 
   const busy = state.lead.kind === 'submitting';
 
@@ -501,7 +501,7 @@ function leadForm(gated) {
       </div>
       ${state.error ? `<p class="eval-error mt-3">${escapeHtml(state.error)}</p>` : ''}
       <button type="submit" class="eval-btn eval-btn-primary w-full mt-5" ${busy ? 'disabled' : ''}>
-        ${busy ? 'Envoi en cours…' : gated ? 'Voir mon analyse' : 'Recevoir mon analyse gratuite'}
+        ${busy ? 'Envoi en cours…' : gated ? 'Voir le détail' : 'Être rappelé par l’équipe'}
       </button>
     </form>
   `;
@@ -525,9 +525,9 @@ function results() {
       ${logos()}
       <section class="min-h-dvh px-5 sm:px-8 py-24 max-w-xl mx-auto w-full">
         <div class="eval-enter text-center">
-          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Analyse complète disponible</p>
-          <h2 class="font-heading text-3xl text-white mt-4">Votre analyse est prête.</h2>
-          <p class="mt-4 text-slate-300">Laissez-nous votre contact pour la débloquer et recevoir un appel personnalisé avec Pierre-Olivier, Marco ou Jade.</p>
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400">Détail disponible</p>
+          <h2 class="font-heading text-3xl text-white mt-4">On peut vous la présenter.</h2>
+          <p class="mt-4 text-slate-300">Laissez vos coordonnées. Pierre-Olivier, Marco ou Jade vous rappellent pour commenter le résultat.</p>
           ${leadForm(true)}
           <button type="button" class="mt-8 text-xs text-slate-500 hover:text-white" data-action="restart">Retour à l’accueil</button>
         </div>
@@ -577,7 +577,7 @@ function results() {
         </ol>
       </div>
       <div class="text-center mt-10 pb-16">
-        <button type="button" class="text-sm text-slate-400 hover:text-white" data-action="restart">Refaire une évaluation</button>
+        <button type="button" class="text-sm text-slate-400 hover:text-white" data-action="restart">Recommencer le questionnaire</button>
         <p class="mt-4 text-xs text-slate-500">
           <a class="hover:text-white" href="confidentialite.html">Politique de confidentialité</a>
         </p>

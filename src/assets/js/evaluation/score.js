@@ -27,19 +27,19 @@ const VERDICTS = {
   favorable: {
     id: 'favorable',
     label: 'Moment idéal',
-    headline: 'C’est le moment idéal.',
+    headline: 'Les conditions jouent en votre faveur.',
     tone: 'green'
   },
   moyen: {
     id: 'moyen',
     label: 'Prêt à vendre',
-    headline: 'Vous êtes prêt à vendre.',
+    headline: 'Une vente est envisageable, avec méthode.',
     tone: 'amber'
   },
   defavorable: {
     id: 'defavorable',
     label: 'Pas encore prêt',
-    headline: 'Vous n’êtes pas prêt encore.',
+    headline: 'Mieux vaut préparer avant de passer au marché.',
     tone: 'rose'
   }
 };

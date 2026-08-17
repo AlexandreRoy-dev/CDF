@@ -1,0 +1,17 @@
+[Unit]
+Description=Chiasson de Francesco evaluation lead API
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/cdf-eval
+EnvironmentFile=/opt/cdf-eval/.env
+Environment=HOST=127.0.0.1
+Environment=PORT=8790
+ExecStart=/usr/bin/node /opt/cdf-eval/scripts/lead-api.mjs
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
