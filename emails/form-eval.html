@@ -1,0 +1,133 @@
+<!--
+  GHL workflow: Contact tag added = form-eval
+  Action: Send Email (HTML)
+
+  Objet:
+  {{contact.first_name}}, votre évaluation timing est bien reçue
+
+  Expéditeur recommandé: Pierre-Olivier Chiasson
+  Coller le HTML ci-dessous dans l’éditeur HTML de HighLevel.
+-->
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{{contact.first_name}}, votre évaluation timing est bien reçue</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f4f1ec;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    Un courtier de l’équipe vous rappellera pour confirmer les résultats.
+  </div>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f4f1ec;">
+    <tr>
+      <td align="center" style="padding:28px 12px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:600px;max-width:600px;background-color:#ffffff;">
+
+          <tr>
+            <td style="background-color:#0c2749;padding:28px 36px 24px 36px;">
+              <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#d7c7a3;">
+                Chiasson de Francesco
+              </p>
+              <p style="margin:10px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:1.25;color:#ffffff;">
+                Votre évaluation est bien reçue.
+              </p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="height:4px;line-height:4px;font-size:0;background-color:#AA1120;">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td style="padding:36px 36px 8px 36px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#1f2933;">
+              <p style="margin:0 0 16px 0;">Bonjour {{contact.first_name}},</p>
+              <p style="margin:0 0 16px 0;">Merci d’avoir pris le temps de répondre à l’évaluation de timing de vente. Nous avons bien noté votre situation, et un courtier de l’équipe vous appellera pour confirmer les résultats.</p>
+              <p style="margin:0;">Ce n’est pas une mise en marché. C’est une lecture honnête de votre moment, selon votre plus-value, votre secteur et votre projet.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:24px 36px 8px 36px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;background-color:#f8f5f0;border:1px solid #eadfd0;">
+                <tr>
+                  <td style="padding:22px 24px;">
+                    <p style="margin:0 0 14px 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;">
+                      Ce que nous avons retenu
+                    </p>
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                      <tr>
+                        <td style="padding:0 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6b7280;width:140px;vertical-align:top;">Intérêt</td>
+                        <td style="padding:0 0 10px 0;font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#0c2749;">{{contact.je_suis_interesse_par}}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:0 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6b7280;width:140px;vertical-align:top;">Secteur</td>
+                        <td style="padding:0 0 10px 0;font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#0c2749;">{{contact.city}}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:0 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6b7280;width:140px;vertical-align:top;">Motivation</td>
+                        <td style="padding:0 0 10px 0;font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#0c2749;">{{contact.raison}}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6b7280;width:140px;vertical-align:top;">Résultat</td>
+                        <td style="padding:0;font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#0c2749;">{{contact.timeline}}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:28px 36px 8px 36px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#1f2933;">
+              <p style="margin:0;">Si vous préférez ne pas attendre l’appel, vous pouvez m’écrire ou me joindre directement. Je pourrai valider le prix, le timing et la prochaine étape avec vous.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding:24px 36px 12px 36px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" bgcolor="#AA1120" style="background-color:#AA1120;">
+                    <a href="tel:{{user.phone}}" style="display:inline-block;padding:14px 28px;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;color:#ffffff;text-decoration:none;">
+                      Appeler {{user.first_name}}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:14px 0 0 0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6b7280;">
+                {{user.phone}} · <a href="mailto:{{user.email}}" style="color:#0c2749;text-decoration:underline;">{{user.email}}</a>
+              </p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:20px 36px 36px 36px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#1f2933;">
+              <p style="margin:0 0 4px 0;">À très bientôt,</p>
+              <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:18px;color:#0c2749;">{{user.first_name}} {{user.last_name}}</p>
+              <p style="margin:4px 0 0 0;font-size:14px;color:#6b7280;">{{location.name}}</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="background-color:#0c2749;padding:22px 36px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#c5d0dc;">
+              <p style="margin:0 0 6px 0;color:#ffffff;">{{location.name}}</p>
+              <p style="margin:0;">Courtiers immobiliers RE/MAX · Estrie</p>
+              <p style="margin:8px 0 0 0;">
+                <a href="https://chiassondefrancesco.ca/" style="color:#d7c7a3;text-decoration:underline;">chiassondefrancesco.ca</a>
+              </p>
+              <p style="margin:16px 0 0 0;font-size:11px;color:#8fa0b3;">
+                Vous recevez ce courriel parce que vous avez demandé une analyse sur chiassondefrancesco.ca.
+                <a href="{{unsubscribe_link}}" style="color:#d7c7a3;text-decoration:underline;">Se désabonner</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

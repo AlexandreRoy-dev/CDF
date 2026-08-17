@@ -93,39 +93,60 @@ async function ghl(path, options = {}) {
   return data;
 }
 
+const MOTIVATION_LABELS = {
+  upsize: 'Passer à plus grand',
+  downsize: 'Réduire ou simplifier',
+  relocation: 'Déménager ailleurs',
+  no_sell: 'Curiosité, sans projet de vente'
+};
+
+const VERDICT_LABELS = {
+  favorable: 'Moment idéal',
+  moyen: 'Prêt à vendre',
+  defavorable: 'Pas encore prêt'
+};
+
 function customFieldsFromPayload(payload) {
   const custom = payload.custom || {};
   const lookingTo = custom.sellingMotivation === 'no_sell'
     ? 'Recevoir une évaluation gratuite'
     : 'Vendre une propriété';
+  const motivation = MOTIVATION_LABELS[custom.sellingMotivation] || custom.sellingMotivation || '';
+  const verdict = VERDICT_LABELS[custom.verdict] || custom.verdict || '';
+  const score = custom.score != null && custom.score !== '' ? `${custom.score}/100` : '';
+  const timeline = [verdict, score].filter(Boolean).join(' · ');
 
   return [
     { id: FIELDS.message, fieldValue: payload.notes || '' },
-    { id: FIELDS.raison, fieldValue: String(custom.sellingMotivation || '') },
-    { id: FIELDS.timeline, fieldValue: `${custom.verdict || ''} ${custom.score != null ? `(${custom.score}/100)` : ''}`.trim() },
+    { id: FIELDS.raison, fieldValue: String(motivation) },
+    { id: FIELDS.timeline, fieldValue: timeline },
     { id: FIELDS.typeDeContact, fieldValue: 'Lead Vendeur' },
     { id: FIELDS.interessePar, fieldValue: lookingTo },
     { id: FIELDS.langue, fieldValue: 'Français' }
   ].filter((field) => field.fieldValue);
 }
 
+const FORM_EVAL_TAG = 'form-eval';
+
 function tagsFromPayload(payload) {
-  const tags = ['évaluation-timing', 'Lead Vendeur', payload.leadType || 'evaluation'];
-  if (payload.leadType !== 'widget-message' && payload.custom?.verdict) {
-    tags.push(`verdict-${payload.custom.verdict}`);
+  const tags = new Set([FORM_EVAL_TAG]);
+  if (Array.isArray(payload.tags)) {
+    payload.tags.filter(Boolean).forEach((tag) => tags.add(tag));
   }
-  return tags;
+  tags.add('évaluation-timing');
+  tags.add('Lead Vendeur');
+  if (payload.leadType) tags.add(payload.leadType);
+  if (payload.leadType !== 'widget-message' && payload.custom?.verdict) {
+    tags.add(`verdict-${payload.custom.verdict}`);
+  }
+  return [...tags];
 }
 
 async function addTags(contactId, tags) {
-  try {
-    await ghl(`/contacts/${contactId}/tags`, {
-      method: 'POST',
-      body: JSON.stringify({ tags })
-    });
-  } catch {
-    // Existing contacts may already have tags. Do not fail the lead.
-  }
+  await ghl(`/contacts/${contactId}/tags`, {
+    method: 'POST',
+    body: JSON.stringify({ tags })
+  });
 }
 
 async function addNote(contactId, body) {
@@ -248,11 +269,22 @@ module.exports = async function handler(req, res) {
       return;
     }
 
-    await addTags(contactId, tagsFromPayload(payload));
+    let tagged = false;
+    try {
+      await addTags(contactId, tagsFromPayload(payload));
+      tagged = true;
+    } catch {
+      try {
+        await addTags(contactId, [FORM_EVAL_TAG]);
+        tagged = true;
+      } catch {
+        tagged = false;
+      }
+    }
     await addNote(contactId, payload.notes);
     const opportunity = await createOpportunity(contactId, payload);
 
-    json(res, 200, { stored: true, contactId, opportunity }, origin);
+    json(res, 200, { stored: true, contactId, tagged, opportunity }, origin);
   } catch (error) {
     json(res, 502, { stored: false, error: 'CRM request failed' }, origin);
   }
