@@ -63,7 +63,7 @@ def main():
     sys.path.insert(0, str(Path(__file__).parent))
     from apply_seo_geo import main as seo_main
     seo_main()
-    print(f"done — {updated} footers patched; SEO/GEO applied via apply_seo_geo.py")
+    print(f"done : {updated} footers patched; SEO/GEO applied via apply_seo_geo.py")
 
 
 if __name__ == "__main__":

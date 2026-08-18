@@ -47,7 +47,7 @@ PAGE_META = {
     ),
     "confidentialite.html": (
         "Politique de confidentialité | Chiasson De Francesco",
-        "Politique de confidentialité de l'équipe Chiasson de Francesco — courtiers immobiliers RE/MAX D'ABORD à Sherbrooke.",
+        "Politique de confidentialité de l'équipe Chiasson de Francesco, courtiers immobiliers RE/MAX D'ABORD à Sherbrooke.",
     ),
     "pierre-olivier.html": (
         "Pierre-Olivier Chiasson, courtier Sherbrooke",
@@ -141,6 +141,116 @@ PAGE_META = {
         "Acheter un terrain en Estrie | zonage et viabilisation | CDF",
         "Un terrain à Cookshire-Eaton ou en rang n'est pas un prix à l'acre. Zonage, accès et viabilisation avant d'offrir.",
     ),
+    "fermette-estrie.html": (
+        "Vendre ou acheter une fermette en Estrie | CDF",
+        "Fermettes en Estrie : acreage, zonage agricole, bâtiments. L'équipe Chiasson de Francesco accompagne Coaticook, Clifton, Compton.",
+    ),
+    "chalet-estrie.html": (
+        "Acheter ou vendre un chalet en Estrie | CDF",
+        "Chalets à Magog, Orford, lacs Estrie : quatre-saisons, fosses, accès. Courtiers Chiasson de Francesco à Sherbrooke.",
+    ),
+    "plex-sherbrooke.html": (
+        "Acheter ou vendre un plex à Sherbrooke | CDF",
+        "Duplex, triplex et multiplex à Sherbrooke : loyers, rénos, quartiers. Équipe Chiasson de Francesco, RE/MAX.",
+    ),
+    "courtier-acheteur-estrie.html": (
+        "Courtier acheteur en Estrie | Sherbrooke | CDF",
+        "Être représenté à l'achat à Sherbrooke et en Estrie : recherche, inspection, offre. Équipe Chiasson de Francesco.",
+    ),
+    "article-vendre-hiver-estrie.html": (
+        "Vendre sa maison l'hiver en Estrie | CDF",
+        "Neige, photos et prix : ce qui change vraiment quand on affiche une maison à Sherbrooke entre novembre et mars.",
+    ),
+    "article-notaire-immobilier-quebec.html": (
+        "Notaire immobilier au Québec | rôle et délais | CDF",
+        "Titres, ajustements, acte : ce que le notaire fait (et ne fait pas) quand vous achetez ou vendez à Sherbrooke.",
+    ),
+    "article-droits-mutation-sherbrooke.html": (
+        "Droits de mutation à Sherbrooke | taxe de bienvenue | CDF",
+        "La taxe de bienvenue n'est pas un détail : comment la prévoir à Sherbrooke, Magog ou ailleurs en Estrie.",
+    ),
+    "article-contre-offre-quebec.html": (
+        "Contre-offre immobilière au Québec | CDF",
+        "Comment répondre à une offre à Sherbrooke : prix, inspection, inclusions. Conseils de l'équipe Chiasson de Francesco.",
+    ),
+    "article-declaration-vendeur.html": (
+        "Déclaration du vendeur au Québec | CDF",
+        "Fuites, fosses, sinistres : pourquoi une déclaration incomplète coûte plus cher qu'une réparation avouée à Sherbrooke.",
+    ),
+    "article-pyrrhotite-estrie.html": (
+        "Pyrrhotite et fondations en Estrie | CDF",
+        "Certaines fondations au Québec ont des problèmes de granulats. En Estrie, inspection et expert, pas un diagnostic en ligne.",
+    ),
+    "article-schl-premier-acheteur.html": (
+        "SCHL et mise de fonds au Québec | premier acheteur | CDF",
+        "Moins de 20 % de mise de fonds : l'assurance prêt existe. Le principe pour un premier achat en Estrie, pas vos primes.",
+    ),
+    "article-magog-ou-sherbrooke.html": (
+        "Magog ou Sherbrooke : où acheter ? | CDF",
+        "Services, lac, budget, trajet : les vrais écarts entre acheter à Magog et à Sherbrooke, par des courtiers qui font les deux.",
+    ),
+    "article-bromont-ou-sutton.html": (
+        "Bromont ou Sutton : où acheter ? | CDF",
+        "Ski, village, condos et maisons : comment départager Bromont et Sutton sans copier un prix de station.",
+    ),
+    "article-vendre-plex-sherbrooke.html": (
+        "Vendre un plex à Sherbrooke | dossier locatif | CDF",
+        "Un plex ne se vend pas comme une unifamiliale. Dossier locatif, photos des logements, comparables.",
+    ),
+    "article-prix-affiche-vs-vente.html": (
+        "Prix demandé vs prix de vente en Estrie | CDF",
+        "À Sherbrooke, un écart trop grand entre l'affiche et les ventes closes brûle un bien. Comment ancrer le premier prix.",
+    ),
+    "article-copropriete-documents-quebec.html": (
+        "Documents de copropriété au Québec | quoi demander | CDF",
+        "Déclaration, PV, fonds, règlements : ce qu'un acheteur de condo à Sherbrooke doit obtenir avant d'offrir.",
+    ),
+    "article-location-courte-duree-estrie.html": (
+        "Location courte durée Magog, Orford, Sutton | CDF",
+        "La location courte durée dépend du règlement municipal et de la copropriété. Vérifiez avant d'acheter en Estrie.",
+    ),
+    "article-photos-mise-en-marche.html": (
+        "Photos immobilières en Estrie | mise en marché | CDF",
+        "Lumière, neige, lac, pièces vides : comment préparer les photos avant Centris en Estrie.",
+    ),
+    "article-documents-vente-maison.html": (
+        "Documents pour vendre une maison au Québec | CDF",
+        "Liste des documents pour vendre une maison au Québec : déclaration du vendeur, certificat de localisation, taxes. Guide Chiasson de Francesco, Estrie.",
+    ),
+    "article-documents-vente-terrain.html": (
+        "Documents pour vendre un terrain au Québec | CDF",
+        "Documents pour vendre un terrain au Québec : zonage, certificat d'urbanisme, titres, servitudes. Checklist de l'équipe Chiasson de Francesco, Estrie.",
+    ),
+    "article-documents-vente-plex.html": (
+        "Documents pour vendre un plex au Québec | CDF",
+        "Documents pour vendre un plex au Québec : baux, loyers, déclaration du vendeur, inspection. Dossier locatif, Chiasson de Francesco à Sherbrooke.",
+    ),
+    "article-vendre-acheter-sherbrooke.html": ("Vendre ou acheter à Sherbrooke : quoi savoir | CDF", "Vendre ou acheter à Sherbrooke : quartiers, prix, inspection. Guide de l'équipe Chiasson de Francesco, courtiers RE/MAX."),
+    "article-vendre-acheter-magog.html": ("Vendre ou acheter à Magog : quoi savoir | CDF", "Vendre ou acheter à Magog : lac Memphrémagog, condos, chalets. Quoi savoir selon l'équipe Chiasson de Francesco."),
+    "article-vendre-acheter-bromont.html": ("Vendre ou acheter à Bromont : quoi savoir | CDF", "Vendre ou acheter à Bromont : ski, village, condos. Guide local de l'équipe Chiasson de Francesco en Estrie."),
+    "article-vendre-acheter-orford.html": ("Vendre ou acheter à Orford : quoi savoir | CDF", "Vendre ou acheter à Orford : mont, parc, chalets. Quoi savoir avec l'équipe Chiasson de Francesco."),
+    "article-vendre-acheter-north-hatley.html": ("Vendre ou acheter à North Hatley : quoi savoir | CDF", "Vendre ou acheter à North Hatley : lac Massawippi, village. Quoi savoir, équipe Chiasson de Francesco."),
+    "article-vendre-acheter-coaticook.html": ("Vendre ou acheter à Coaticook : quoi savoir | CDF", "Vendre ou acheter à Coaticook : ville de services, fermettes, gorge. Guide Chiasson de Francesco, Estrie."),
+    "article-vendre-acheter-sutton.html": ("Vendre ou acheter à Sutton : quoi savoir | CDF", "Vendre ou acheter à Sutton : village, ski, condos. Quoi savoir avec Chiasson de Francesco."),
+    "article-vendre-acheter-lac-brome.html": ("Vendre ou acheter à Lac-Brome : quoi savoir | CDF", "Vendre ou acheter à Lac-Brome (Knowlton) : village, lac. Guide Chiasson de Francesco, Estrie."),
+    "article-vendre-acheter-lennoxville.html": ("Vendre ou acheter à Lennoxville : quoi savoir | CDF", "Vendre ou acheter à Lennoxville (Sherbrooke) : village, plex, campus. Quoi savoir, Chiasson de Francesco."),
+    "article-vendre-acheter-fleurimont.html": ("Vendre ou acheter à Fleurimont : quoi savoir | CDF", "Vendre ou acheter à Fleurimont (Sherbrooke) : bungalows, familles, CHUS. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-les-nations.html": ("Vendre ou acheter aux Nations : quoi savoir | CDF", "Vendre ou acheter aux Nations (Sherbrooke) : condos, plex, centre. Quoi savoir, Chiasson de Francesco."),
+    "article-vendre-acheter-rock-forest.html": ("Vendre ou acheter à Rock Forest : quoi savoir | CDF", "Vendre ou acheter à Rock Forest (Sherbrooke) : terrain, axe Magog. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-eastman.html": ("Vendre ou acheter à Eastman : quoi savoir | CDF", "Vendre ou acheter à Eastman : village, Orford, Magog. Quoi savoir, équipe Chiasson de Francesco."),
+    "article-vendre-acheter-windsor.html": ("Vendre ou acheter à Windsor : quoi savoir | CDF", "Vendre ou acheter à Windsor (Estrie) : Saint-François, navette Sherbrooke. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-stanstead.html": ("Vendre ou acheter à Stanstead : quoi savoir | CDF", "Vendre ou acheter à Stanstead : frontière, Memphrémagog, patrimoine. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-cookshire-eaton.html": ("Vendre ou acheter à Cookshire-Eaton : quoi savoir | CDF", "Vendre ou acheter à Cookshire-Eaton : terrains, Sawyerville, route 108. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-ayers-cliff.html": ("Vendre ou acheter à Ayer's Cliff : quoi savoir | CDF", "Vendre ou acheter à Ayer's Cliff : lac Massawippi. Quoi savoir, Chiasson de Francesco."),
+    "article-vendre-acheter-austin.html": ("Vendre ou acheter à Austin : quoi savoir | CDF", "Vendre ou acheter à Austin : près d'Orford et Magog. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-richmond.html": ("Vendre ou acheter à Richmond : quoi savoir | CDF", "Vendre ou acheter à Richmond : Saint-François, Estrie. Quoi savoir, Chiasson de Francesco."),
+    "article-vendre-acheter-compton.html": ("Vendre ou acheter à Compton : quoi savoir | CDF", "Vendre ou acheter à Compton : village, rangs, fermettes. Guide Chiasson de Francesco, Estrie."),
+    "article-vendre-acheter-waterville.html": ("Vendre ou acheter à Waterville : quoi savoir | CDF", "Vendre ou acheter à Waterville : entre Sherbrooke et Coaticook. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-hatley.html": ("Vendre ou acheter à Hatley : quoi savoir | CDF", "Vendre ou acheter à Hatley : canton, Massawippi, pas North Hatley. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-mont-bellevue.html": ("Vendre ou acheter à Mont-Bellevue : quoi savoir | CDF", "Vendre ou acheter à Mont-Bellevue (Sherbrooke) : unifamiliales, parc. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-brompton.html": ("Vendre ou acheter à Brompton : quoi savoir | CDF", "Vendre ou acheter à Brompton (Sherbrooke) : vallée, Saint-François. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-val-des-sources.html": ("Vendre ou acheter à Val-des-Sources : quoi savoir | CDF", "Vendre ou acheter à Val-des-Sources (Asbestos) : Estrie, MRC des Sources. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-lac-megantic.html": ("Vendre ou acheter à Lac-Mégantic : quoi savoir | CDF", "Vendre ou acheter à Lac-Mégantic : ville, lac, Granit. Guide Chiasson de Francesco."),
 }
 
 REGION_META = {
@@ -165,18 +275,30 @@ REGION_META = {
     "val-des-sources": ("Courtier à Val-des-Sources | CDF", "Maisons à Val-des-Sources (Asbestos). Courtiers Chiasson de Francesco pour un achat ou une vente en Estrie."),
     "weedon": ("Courtier immobilier à Weedon | Estrie | CDF", "Acheter ou vendre à Weedon, Estrie, près du lac Aylmer. Accompagnement Chiasson de Francesco, RE/MAX."),
     "windsor": ("Courtier immobilier à Windsor | Estrie | CDF", "Propriétés à Windsor, Estrie, sur la Saint-François. L'équipe Chiasson de Francesco vous accompagne."),
+    "lennoxville": ("Courtier immobilier à Lennoxville | CDF", "Acheter ou vendre à Lennoxville (Sherbrooke) : village universitaire, unifamiliales et multiplex. Équipe Chiasson de Francesco."),
+    "fleurimont": ("Courtier immobilier à Fleurimont | Sherbrooke | CDF", "Maisons à Fleurimont, Sherbrooke : quartiers familiaux, bungalows et accès hôpital. Courtiers Chiasson de Francesco."),
+    "rock-forest": ("Courtier à Rock Forest–Saint-Élie–Deauville | CDF", "Acheter ou vendre à Rock Forest, Sherbrooke : maisons, terrains plus grands, accès Magog. Équipe Chiasson de Francesco."),
+    "les-nations": ("Courtier Les Nations Sherbrooke | condos et centre | CDF", "Condos, plex et centre-ville aux Nations, Sherbrooke. Acheter ou vendre avec l'équipe Chiasson de Francesco, RE/MAX."),
+    "brompton": ("Courtier immobilier à Brompton | Sherbrooke | CDF", "Maisons à Brompton (Sherbrooke), vallée de la Saint-François. Acheter ou vendre avec Chiasson de Francesco."),
+    "mont-bellevue": ("Courtier Mont-Bellevue Sherbrooke | CDF", "Unifamiliales et rues résidentielles à Mont-Bellevue, Sherbrooke. Équipe Chiasson de Francesco, RE/MAX D'ABORD."),
+    "ayers-cliff": ("Courtier immobilier à Ayer's Cliff | lac Massawippi | CDF", "Maisons et bord de lac à Ayer's Cliff, Estrie. L'équipe Chiasson de Francesco vous accompagne au Massawippi."),
+    "austin": ("Courtier immobilier à Austin | près d'Orford | CDF", "Maisons et chalets à Austin, Estrie, entre Magog et le mont Orford. Équipe Chiasson de Francesco."),
+    "waterville": ("Courtier immobilier à Waterville | Estrie | CDF", "Acheter ou vendre à Waterville, entre Sherbrooke et Coaticook. Courtiers Chiasson de Francesco."),
+    "hatley": ("Courtier immobilier à Hatley | Cantons-de-l'Est | CDF", "Propriétés à Hatley, près de North Hatley et du Massawippi. Équipe Chiasson de Francesco, Estrie."),
+    "milan": ("Courtier immobilier à Milan | Estrie | CDF", "Acheter ou vendre à Milan, Estrie (MRC du Granit). L'équipe Chiasson de Francesco y inscrit aussi des propriétés."),
+    "saint-isidore-de-clifton": ("Courtier à Saint-Isidore-de-Clifton | fermettes | CDF", "Fermettes et rangs à Saint-Isidore-de-Clifton, Estrie. L'équipe Chiasson de Francesco y accompagne achat et vente."),
 }
 
 LISTING_OFFERS = {
-    "25365838": {"price": "1300", "availability": "https://schema.org/InStock", "unitCode": "MON", "name": "Condo à louer — 31, Rue King O., app. 304, Sherbrooke"},
-    "26831137": {"price": "234900", "availability": "https://schema.org/InStock", "name": "Maison à vendre — 505, Chemin de la Yard, Milan"},
-    "23954624": {"price": "949900", "availability": "https://schema.org/InStock", "name": "Fermette à vendre — 251, 9e Rang, Saint-Isidore-de-Clifton"},
-    "10043722": {"price": "100000", "availability": "https://schema.org/InStock", "name": "Fonds de commerce à vendre — 182, Rue Wellington N., Sherbrooke"},
-    "13807137": {"price": "425000", "availability": "https://schema.org/InStock", "name": "Co-propriété à vendre — 760, Av. Honoré-Mercier, Québec"},
-    "20828105": {"price": "650000", "availability": "https://schema.org/InStock", "name": "Bâtisse commerciale à vendre — 800, Rue Tessier, Sherbrooke"},
-    "17958008": {"price": "1475000", "availability": "https://schema.org/InStock", "name": "Co-propriété commerciale à vendre — 1111, Rue Saint-Urbain, Montréal"},
-    "27084256": {"price": "54000", "availability": "https://schema.org/InStock", "name": "Terrain à vendre — Boul. des Chasseurs, Saint-Alexis-des-Monts"},
-    "11185705": {"price": "1275000", "availability": "https://schema.org/InStock", "name": "Terrain à vendre — Route 108, Cookshire-Eaton"},
+    "25365838": {"price": "1300", "availability": "https://schema.org/InStock", "unitCode": "MON", "name": "Condo à louer : 31, Rue King O., app. 304, Sherbrooke"},
+    "26831137": {"price": "234900", "availability": "https://schema.org/InStock", "name": "Maison à vendre : 505, Chemin de la Yard, Milan"},
+    "23954624": {"price": "949900", "availability": "https://schema.org/InStock", "name": "Fermette à vendre : 251, 9e Rang, Saint-Isidore-de-Clifton"},
+    "10043722": {"price": "100000", "availability": "https://schema.org/InStock", "name": "Fonds de commerce à vendre : 182, Rue Wellington N., Sherbrooke"},
+    "13807137": {"price": "425000", "availability": "https://schema.org/InStock", "name": "Co-propriété à vendre : 760, Av. Honoré-Mercier, Québec"},
+    "20828105": {"price": "650000", "availability": "https://schema.org/InStock", "name": "Bâtisse commerciale à vendre : 800, Rue Tessier, Sherbrooke"},
+    "17958008": {"price": "1475000", "availability": "https://schema.org/InStock", "name": "Co-propriété commerciale à vendre : 1111, Rue Saint-Urbain, Montréal"},
+    "27084256": {"price": "54000", "availability": "https://schema.org/InStock", "name": "Terrain à vendre : Boul. des Chasseurs, Saint-Alexis-des-Monts"},
+    "11185705": {"price": "1275000", "availability": "https://schema.org/InStock", "name": "Terrain à vendre : Route 108, Cookshire-Eaton"},
 }
 
 ARTICLES = {
@@ -197,6 +319,49 @@ ARTICLES = {
     "article-vendre-condo-sherbrooke.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
     "article-navette-sherbrooke.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
     "article-terrain-estrie.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-vendre-hiver-estrie.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-notaire-immobilier-quebec.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-droits-mutation-sherbrooke.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-contre-offre-quebec.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-declaration-vendeur.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-pyrrhotite-estrie.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-schl-premier-acheteur.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-magog-ou-sherbrooke.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-bromont-ou-sutton.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-vendre-plex-sherbrooke.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-prix-affiche-vs-vente.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-copropriete-documents-quebec.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-location-courte-duree-estrie.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-photos-mise-en-marche.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-documents-vente-maison.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-documents-vente-terrain.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-documents-vente-plex.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-sherbrooke.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-vendre-acheter-magog.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-bromont.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-vendre-acheter-orford.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-north-hatley.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-coaticook.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-vendre-acheter-sutton.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-vendre-acheter-lac-brome.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-lennoxville.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-vendre-acheter-fleurimont.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-vendre-acheter-les-nations.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-vendre-acheter-rock-forest.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-eastman.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-windsor.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-vendre-acheter-stanstead.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-cookshire-eaton.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-vendre-acheter-ayers-cliff.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-austin.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-richmond.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-vendre-acheter-compton.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-vendre-acheter-waterville.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-vendre-acheter-hatley.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-vendre-acheter-mont-bellevue.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-vendre-acheter-brompton.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-vendre-acheter-val-des-sources.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-vendre-acheter-lac-megantic.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
 }
 
 BROKERS = {
@@ -352,7 +517,13 @@ def inject_json_ld(text: str, payload: dict | list) -> str:
 def listing_json_ld(listing: dict, offer: dict, desc: str) -> dict:
     canonical = f"{BASE}/{listing['country']}/{listing['province']}/{listing['city']}/{listing['sector']}/{listing['street']}/"
     city = listing["city"].replace("-", " ").title()
-    street = listing["title"].split("—")[0].strip()
+    title = listing.get("title") or ""
+    if " : " in title:
+        street = title.split(" : ", 1)[0].strip()
+    elif "\u2014" in title:
+        street = title.split("\u2014", 1)[0].strip()
+    else:
+        street = title.split(",")[0].strip()
     offer_node = {
         "@type": "Offer",
         "price": offer["price"],
@@ -548,6 +719,10 @@ def write_sitemap(listings: list[dict]) -> None:
         (f"{BASE}/vendre.html", "0.8"),
         (f"{BASE}/acheter.html", "0.8"),
         (f"{BASE}/courtier-commercial.html", "0.8"),
+        (f"{BASE}/courtier-acheteur-estrie.html", "0.8"),
+        (f"{BASE}/fermette-estrie.html", "0.7"),
+        (f"{BASE}/chalet-estrie.html", "0.7"),
+        (f"{BASE}/plex-sherbrooke.html", "0.7"),
         (f"{BASE}/regions-desservies.html", "0.8"),
         (f"{BASE}/blog.html", "0.7"),
         (f"{BASE}/pierre-olivier.html", "0.7"),
@@ -556,7 +731,7 @@ def write_sitemap(listings: list[dict]) -> None:
         (f"{BASE}/confidentialite.html", "0.3"),
     ]
     for slug in REGION_META:
-        urls.append((f"{BASE}/regions/{slug}.html", "0.8" if slug in {"sherbrooke", "magog", "bromont", "orford", "north-hatley"} else "0.6"))
+        urls.append((f"{BASE}/regions/{slug}.html", "0.8" if slug in {"sherbrooke", "magog", "bromont", "orford", "north-hatley", "lennoxville", "fleurimont", "les-nations"} else "0.6"))
     for name in ARTICLES:
         urls.append((f"{BASE}/{name}", "0.6"))
     for listing in listings:

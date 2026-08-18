@@ -25,7 +25,7 @@ PAGES = [
             ),
             (
                 "Acheter à Sherbrooke",
-                "Un achat ici se joue souvent sur l'inspection, le zonage (surtout en mixte résidentiel-commercial) et la comparaison avec des ventes récentes du même secteur — pas seulement le prix demandé. Nous filtrons les inscriptions Centris, visitons avec vous et négocions les conditions, pas seulement le montant.",
+                "Un achat ici se joue souvent sur l'inspection, le zonage (surtout en mixte résidentiel-commercial) et la comparaison avec des ventes récentes du même secteur : pas seulement le prix demandé. Nous filtrons les inscriptions Centris, visitons avec vous et négocions les conditions, pas seulement le montant.",
             ),
             (
                 "Vendre une propriété à Sherbrooke",
@@ -68,7 +68,7 @@ PAGES = [
         "description": "Acheter ou vendre à Magog, porte d'entrée du lac Memphrémagog. Maisons, condos et chalets avec Chiasson de Francesco.",
         "h1": "Acheter ou vendre une propriété à Magog",
         "lead": "L'équipe Chiasson de Francesco, courtiers RE/MAX à Sherbrooke, accompagne l'achat et la vente à Magog : centre-ville, bord du lac Memphrémagog, condos et résidences de villégiature.",
-        "intro": "Magog combine un vrai centre-ville, l'accès au lac et la proximité d'Orford. Les prix et les délais n'ont rien à voir entre un condo en ville, une maison de rang et un bord de lac — d'où l'intérêt d'un courtier qui travaille l'Estrie au quotidien.",
+        "intro": "Magog combine un vrai centre-ville, l'accès au lac et la proximité d'Orford. Les prix et les délais n'ont rien à voir entre un condo en ville, une maison de rang et un bord de lac : d'où l'intérêt d'un courtier qui travaille l'Estrie au quotidien.",
         "sections": [
             (
                 "Centre-ville, lac et villégiature",
@@ -76,7 +76,7 @@ PAGES = [
             ),
             (
                 "Acheter à Magog",
-                "Sur le Memphrémagog, vérifiez titres, servitudes, champ d'épuration ou égouts, et la réglementation municipale avant d'offrir. Nous comparons des ventes comparables au même type de bien — pas un chalet avec un bungalow de rangée.",
+                "Sur le Memphrémagog, vérifiez titres, servitudes, champ d'épuration ou égouts, et la réglementation municipale avant d'offrir. Nous comparons des ventes comparables au même type de bien : pas un chalet avec un bungalow de rangée.",
             ),
             (
                 "Vendre à Magog",
@@ -119,7 +119,7 @@ PAGES = [
         "sections": [
             (
                 "Village, montagne et lotissements",
-                "Le village reste le point de repère pour commerces et services. Les secteurs liés au ski et au vélo de montagne attirent la villégiature et la location courte durée — sous réserve des règlements municipaux. Les développements résidentiels hors pente conviennent davantage à une résidence à l'année.",
+                "Le village reste le point de repère pour commerces et services. Les secteurs liés au ski et au vélo de montagne attirent la villégiature et la location courte durée : sous réserve des règlements municipaux. Les développements résidentiels hors pente conviennent davantage à une résidence à l'année.",
             ),
             (
                 "Acheter à Bromont",
@@ -151,7 +151,7 @@ PAGES = [
             ),
             (
                 "Maison de village ou condo ski : que choisir ?",
-                "Une maison de village convient mieux à une résidence principale à l'année. Un condo près des pentes vise souvent la villégiature. Le bon choix dépend de l'usage, des charges et de votre horizon de détention — pas seulement de la vue.",
+                "Une maison de village convient mieux à une résidence principale à l'année. Un condo près des pentes vise souvent la villégiature. Le bon choix dépend de l'usage, des charges et de votre horizon de détention : pas seulement de la vue.",
             ),
         ],
     },
@@ -198,7 +198,7 @@ PAGES = [
             ),
             (
                 "Quand vendre un chalet à Orford ?",
-                "La fin d'hiver et le printemps attirent souvent les acheteurs ski et été, mais un bien bien préparé se vend hors pic. Le timing dépend aussi de votre prochain logement — d'où le questionnaire d'évaluation de l'équipe.",
+                "La fin d'hiver et le printemps attirent souvent les acheteurs ski et été, mais un bien bien préparé se vend hors pic. Le timing dépend aussi de votre prochain logement : d'où le questionnaire d'évaluation de l'équipe.",
             ),
         ],
     },

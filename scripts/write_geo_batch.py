@@ -21,7 +21,7 @@ REMAINING = [
         "description": "Acheter ou vendre à Coaticook : ville de services, gorge et campagne en Estrie. Équipe Chiasson de Francesco, RE/MAX.",
         "h1": "Acheter ou vendre une propriété à Coaticook",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Coaticook : maisons de ville, fermettes et propriétés près de la gorge, avec un ancrage RE/MAX à Sherbrooke.",
-        "intro": "Coaticook est une vraie ville de services en Estrie, pas seulement un village-dortoir de Sherbrooke. Fromagerie, commerces, écoles et un cadre plus champêtre qu'en ville changent le type d'acheteurs — et les comparables.",
+        "intro": "Coaticook est une vraie ville de services en Estrie, pas seulement un village-dortoir de Sherbrooke. Fromagerie, commerces, écoles et un cadre plus champêtre qu'en ville changent le type d'acheteurs : et les comparables.",
         "sections": [
             ("Ville de services et campagne", "Le noyau urbain convient aux ménages qui veulent tout à proximité. Autour, les rangs et les fermettes se négocient selon l'acreage, les bâtiments et l'accès à l'eau ou à un champ d'épuration. La gorge et les attraits touristiques attirent aussi une clientèle villégiature, distincte d'un bungalow de rue résidentielle."),
             ("Acheter à Coaticook", "Hors réseau d'égouts, inspection et tests d'eau/fosse valent plus qu'une clause copiée. En ville, comparez des ventes du même quartier, pas un prix « MRC de Coaticook » unique. Nous filtrons Centris et visitons sur place."),
@@ -172,7 +172,7 @@ REMAINING = [
         "sections": [
             ("North Hatley, Ayer's Cliff et les rives", "North Hatley concentre le prestige village. Ayer's Cliff et d'autres rives ont d'autres budgets. Une maison sans lac dans le secteur n'est pas un « prix Massawippi »."),
             ("Acheter au Massawippi", "Bandes riveraines, fosses, bâtiments souvent anciens, marché mince. Inspection et comparables du même versant du lac. Offre trop agressive sans comparables se paie cher."),
-            ("Vendre au Massawippi", "Ne pas surcoter « parce que c'est le lac ». Photos, état du bâtiment, et patience pour le bon acheteur — souvent hors région ou bilingue."),
+            ("Vendre au Massawippi", "Ne pas surcoter « parce que c'est le lac ». Photos, état du bâtiment, et patience pour le bon acheteur : souvent hors région ou bilingue."),
         ],
         "related": [("North Hatley", "north-hatley.html"), ("Sherbrooke", "sherbrooke.html"), ("Magog", "magog.html"), ("Évaluation", "../evaluation.html")],
         "faqs": [
@@ -254,7 +254,7 @@ REMAINING = [
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Stanstead : village frontalier, patrimoine, proximité du Memphrémagog et d'un marché bilingue.",
         "intro": "Stanstead (et Rock Island / Beebe) vit la frontière au quotidien. Patrimoine, douane, et un bassin parfois transfrontalier : ce n'est pas Magog centre, ni un rang de Compton.",
         "sections": [
-            ("Village frontalier", "Rues anciennes, bâtiments de caractère, proximité de Derby Line. Le Haskell Free Library illustre le caractère unique du lieu — ça n'ajoute pas automatiquement 100 000 $ à une maison sans comparables."),
+            ("Village frontalier", "Rues anciennes, bâtiments de caractère, proximité de Derby Line. Le Haskell Free Library illustre le caractère unique du lieu : ça n'ajoute pas automatiquement 100 000 $ à une maison sans comparables."),
             ("Acheter à Stanstead", "Inspection de bâtiments anciens, titres, et clarté sur ce qui est au Québec. Un acheteur américain n'achète pas comme un acheteur de Sherbrooke. Marco travaille en anglais."),
             ("Vendre à Stanstead", "Mise en marché bilingue utile. Comparables Stanstead/Memphrémagog sud, pas Knowlton ou Bromont ski."),
         ],
@@ -275,7 +275,7 @@ REMAINING = [
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Sutton : village, ski, condos de montagne et maisons pour résidence principale ou villégiature dans les Cantons-de-l'Est.",
         "intro": "Sutton mélange arts, ski et village : un marché plus « montagne » que Sherbrooke, plus village que Bromont station. Copropriétés de pente et maisons du village ne se comparent pas.",
         "sections": [
-            ("Village et montagne", "Le village marche vers cafés et galeries. Les secteurs liés au ski visent villégiature et parfois location — selon règlements. Les rangs autour offrent plus de terrain."),
+            ("Village et montagne", "Le village marche vers cafés et galeries. Les secteurs liés au ski visent villégiature et parfois location : selon règlements. Les rangs autour offrent plus de terrain."),
             ("Acheter à Sutton", "Frais de condo, règles de location, accès hivernal, pente et drainage. Un chalet ski n'est pas une résidence à l'année tant que le bâtiment ne l'est pas. Comparables Sutton, pas Knowlton lac."),
             ("Vendre à Sutton", "Acheteurs Montréal/Rive-Sud fréquents. Mise en marché claire sur l'usage (principal vs week-end). Prix de montagne, pas de Sherbrooke."),
         ],
@@ -436,10 +436,10 @@ SERVICES = [
         "h1": "Vendre une propriété à Sherbrooke et en Estrie",
         "lead": "L'équipe Chiasson de Francesco, courtiers RE/MAX D'ABORD à Sherbrooke, prépare le prix, le dossier et la négociation pour vendre une maison, un condo, un plex ou un immeuble en Estrie.",
         "sections": [
-            ("Une évaluation avant l'affichage", "Le premier levier d'une vente, c'est le prix d'inscription. Trop haut, le bien s'use sur Centris. Trop bas, vous laissez de l'argent. Nous ancrons le prix sur des ventes récentes du même secteur — Les Nations n'est pas Magog, Coaticook n'est pas Bromont."),
-            ("Mise en marché", "Photos, description honnête, réseau RE/MAX et diffusion. Home staging léger quand ça paie. Visites accompagnées, comptes rendus, et ajustement si le marché ne répond pas — pas d'attente passive de six mois."),
+            ("Une évaluation avant l'affichage", "Le premier levier d'une vente, c'est le prix d'inscription. Trop haut, le bien s'use sur Centris. Trop bas, vous laissez de l'argent. Nous ancrons le prix sur des ventes récentes du même secteur : Les Nations n'est pas Magog, Coaticook n'est pas Bromont."),
+            ("Mise en marché", "Photos, description honnête, réseau RE/MAX et diffusion. Home staging léger quand ça paie. Visites accompagnées, comptes rendus, et ajustement si le marché ne répond pas : pas d'attente passive de six mois."),
             ("Négociation et conditions", "Le prix n'est pas le seul enjeu : inspection, délais, inclusions, financement. L'équipe gère les offres jusqu'à l'acte chez le notaire."),
-            ("Vendre sans urgence — ou avec", "Si vous hésitez encore entre vendre maintenant ou attendre, commencez par le questionnaire de timing. Il ne remplace pas une évaluation sur place, mais il cadre la décision."),
+            ("Vendre sans urgence : ou avec", "Si vous hésitez encore entre vendre maintenant ou attendre, commencez par le questionnaire de timing. Il ne remplace pas une évaluation sur place, mais il cadre la décision."),
         ],
         "faqs": [
             ("Combien coûte un courtier pour vendre à Sherbrooke ?", "La rémunération est prévue au contrat de courtage (généralement un pourcentage du prix de vente, à confirmer par écrit). Il n'y a pas de « tarif unique Estrie » affiché ici : on le discute avant de signer."),
@@ -447,18 +447,18 @@ SERVICES = [
             ("Combien de temps pour vendre ?", "Ça dépend du prix, de l'état et du secteur. Un bien juste n'a pas le même délai qu'un bien 15 % au-dessus des comparables."),
             ("Intervenez-vous hors Sherbrooke ?", "Oui : Magog, Bromont, Orford, North Hatley, Coaticook et le reste de l'Estrie, selon le mandat."),
         ],
-        "links": [("Évaluer le timing", "evaluation.html"), ("Régions desservies", "regions-desservies.html"), ("Courtier vs vente libre", "article-courtier-ou-vente-libre.html")],
+        "links": [("Évaluer le timing", "evaluation.html"), ("Documents maison", "article-documents-vente-maison.html"), ("Documents terrain", "article-documents-vente-terrain.html"), ("Documents plex", "article-documents-vente-plex.html"), ("Fermette", "fermette-estrie.html"), ("Chalet", "chalet-estrie.html"), ("Plex", "plex-sherbrooke.html"), ("Régions desservies", "regions-desservies.html")],
     },
     {
         "file": "acheter.html",
         "title": "Acheter une maison en Estrie | courtier Sherbrooke | CDF",
         "desc": "Acheter à Sherbrooke et en Estrie avec un courtier acheteur : recherche Centris, visites, inspection et négociation. Équipe Chiasson de Francesco.",
         "h1": "Acheter une propriété à Sherbrooke et en Estrie",
-        "lead": "L'équipe Chiasson de Francesco représente les acheteurs à Sherbrooke et en Estrie : recherche ciblée, lecture des comparables, visites et négociation des conditions — pas seulement du prix.",
+        "lead": "L'équipe Chiasson de Francesco représente les acheteurs à Sherbrooke et en Estrie : recherche ciblée, lecture des comparables, visites et négociation des conditions : pas seulement du prix.",
         "sections": [
-            ("Courtier acheteur, à quoi ça sert", "Le vendeur a souvent déjà un courtier. Le vôtre lit les défauts, le zonage, et ce que le marché a vraiment payé dans la rue — pas l'annonce. Au Québec, les règles d'agence s'expliquent avant de visiter sérieusement."),
+            ("Courtier acheteur, à quoi ça sert", "Le vendeur a souvent déjà un courtier. Le vôtre lit les défauts, le zonage, et ce que le marché a vraiment payé dans la rue : pas l'annonce. Au Québec, les règles d'agence s'expliquent avant de visiter sérieusement."),
             ("Recherche et filtres", "Centris, hors-marché parfois, et le territoire réel : Fleurimont n'est pas Lennoxville, un chalet Orford n'est pas un condo Magog. Nous évitons les visites hors critères."),
-            ("Offre, inspection, notaire", "Une offre trop émotive se paie. Inspection, tests (fosse, pyrite selon le cas), et notaire. Les frais de clôture (mutation, notaire, ajustements) se prévoient — voir notre guide des frais cachés."),
+            ("Offre, inspection, notaire", "Une offre trop émotive se paie. Inspection, tests (fosse, pyrite selon le cas), et notaire. Les frais de clôture (mutation, notaire, ajustements) se prévoient : voir notre guide des frais cachés."),
             ("Premier achat", "Préautorisation, mise de fonds, SCHL si moins de 20 %, et calendrier réaliste. Jade, Pierre-Olivier et Marco accompagnent aussi les premiers acheteurs."),
         ],
         "faqs": [
@@ -483,7 +483,7 @@ SERVICES = [
         ],
         "faqs": [
             ("Faites-vous seulement le résidentiel ?", "Non. Pierre-Olivier et Marco sont aussi courtiers commerciaux. Jade se concentre sur le résidentiel."),
-            ("Intervenez-vous à Montréal ou Québec ?", "Lorsque le mandat le justifie, oui — des fiches hors Estrie l'illustrent. Le bureau reste à Sherbrooke."),
+            ("Intervenez-vous à Montréal ou Québec ?", "Lorsque le mandat le justifie, oui : des fiches hors Estrie l'illustrent. Le bureau reste à Sherbrooke."),
             ("Un dépanneur ou un resto, c'est du commercial ?", "Souvent un fonds de commerce + un bail ou un immeuble. Les équipements et l'achalandage se négocient à part des murs. Voyez avec l'équipe le bon véhicule."),
             ("Par où commencer ?", "Appel ou formulaire : type de bien, occupation vs investissement, échéance. Une visite à l'aveugle sans zonage fait perdre du temps."),
         ],
@@ -505,7 +505,7 @@ ARTICLES = [
         "author_page": "pierre-olivier.html",
         "kicker": "En Estrie, la vente libre n'est pas « gratuite » : vous payez en temps, en risque de clauses, et parfois en prix. Voici comment décider.",
         "sections": [
-            ("Ce que le courtier facture vraiment", "La commission n'est pas un impôt : c'est un contrat. Elle couvre mise en marché, réseau, négociation et responsabilité professionnelle. Un pourcentage sur 400 000 $ n'a de sens que si le prix net et le délai s'améliorent assez pour le justifier — ce n'est pas automatique."),
+            ("Ce que le courtier facture vraiment", "La commission n'est pas un impôt : c'est un contrat. Elle couvre mise en marché, réseau, négociation et responsabilité professionnelle. Un pourcentage sur 400 000 $ n'a de sens que si le prix net et le délai s'améliorent assez pour le justifier : ce n'est pas automatique."),
             ("Où la vente libre casse", "Prix d'affichage copié sur une annonce voisine, visite d'acheteurs mal cadrée, offre avec conditions que vous ne lisez pas. À Sherbrooke comme à Magog, le marché punit vite un bien 10 % trop cher. Sans comparables de ventes closes, vous naviguez à l'estime."),
             ("Où elle peut suffire", "Bien atypique déjà promis à un acheteur identifié, copropriété avec un voisin acquéreur, ou vous avez déjà fait trois transactions et un notaire solide. Même là, une évaluation indépendante reste utile."),
             ("Le test simple", "Si vous ne pouvez pas citer trois ventes récentes du même type dans votre secteur, vous n'êtes pas en position de fixer le prix seul. L'équipe Chiasson de Francesco le fait tous les jours à Sherbrooke et en Estrie."),
@@ -544,7 +544,7 @@ ARTICLES = [
             ("Le prix d'inscription", "C'est le facteur n°1. Un bien 8 à 15 % au-dessus des ventes récentes accumule des jours, puis des baisses publiques qui signalent un problème aux acheteurs."),
             ("Le type de bien", "Unifamiliale en quartier familial : plus de volume. Chalet, bord de lac, commercial, terre : moins d'acheteurs, plus de conditions. Orford au printemps n'est pas Fleurimont en novembre."),
             ("La préparation", "Photos sombres, odeurs, travaux visibles non budgétés : les visiteurs partent. Un home staging léger et une inspection pré-vente évitent les négociations-surprises."),
-            ("Ce que nous faisons", "Après deux à trois semaines sans trafic qualifié, on révise le prix ou le positionnement — on n'attend pas six mois. Le questionnaire de timing aide aussi à ne pas afficher trop tôt par rapport à votre prochain logement."),
+            ("Ce que nous faisons", "Après deux à trois semaines sans trafic qualifié, on révise le prix ou le positionnement : on n'attend pas six mois. Le questionnaire de timing aide aussi à ne pas afficher trop tôt par rapport à votre prochain logement."),
         ],
     },
     {
@@ -557,7 +557,7 @@ ARTICLES = [
         "tag": "Acheter",
         "author": "Pierre-Olivier Chiasson",
         "author_page": "pierre-olivier.html",
-        "kicker": "Une offre n'est pas un « j'aime » sur Centris. Au Québec, c'est un document qui engage. Mal rédigée, elle vous coûte la maison — ou vous y enferme trop vite.",
+        "kicker": "Une offre n'est pas un « j'aime » sur Centris. Au Québec, c'est un document qui engage. Mal rédigée, elle vous coûte la maison : ou vous y enferme trop vite.",
         "sections": [
             ("Prix vs conditions", "Gagner 5 000 $ et perdre l'inspection, ce n'est pas gagner. En marché plus calme, on négocie délais et travaux. En marché tendu, le prix et la solidité du financement parlent plus fort."),
             ("Inspection et tests", "Prévoir le temps et le professionnel. Fosse, toiture, fondations. Une clause d'inspection « pour la forme » ne protège personne."),
@@ -575,7 +575,7 @@ ARTICLES = [
         "tag": "Acheter",
         "author": "Marco De Francesco",
         "author_page": "marco.html",
-        "kicker": "« Bord de lac » dans une annonce veut parfois dire une vue, un droit d'accès, ou réellement le frontage. Les trois n'ont pas le même prix — ni les mêmes règles.",
+        "kicker": "« Bord de lac » dans une annonce veut parfois dire une vue, un droit d'accès, ou réellement le frontage. Les trois n'ont pas le même prix : ni les mêmes règles.",
         "sections": [
             ("Trois lacs, trois marchés", "Memphrémagog (Magog, rives) : plus de services et de volume. Massawippi (North Hatley) : plus rare, plus village. Aylmer : autre bassin, souvent plus accessible. Ne copiez pas un prix d'un lac sur l'autre."),
             ("Droit à l'eau", "Titres, servitudes, quai, association de riverains. Un sentier « tout le monde passe » n'est pas un droit. Le notaire et le courtier doivent le voir avant l'offre, pas après."),
@@ -629,7 +629,7 @@ ARTICLES = [
         "tag": "Commercial",
         "author": "Pierre-Olivier Chiasson",
         "author_page": "pierre-olivier.html",
-        "kicker": "Une vitrine sur Wellington n'autorise pas tous les usages. À Sherbrooke, le règlement d'urbanisme décide si votre projet est légal — l'annonce Centris, non.",
+        "kicker": "Une vitrine sur Wellington n'autorise pas tous les usages. À Sherbrooke, le règlement d'urbanisme décide si votre projet est légal : l'annonce Centris, non.",
         "sections": [
             ("Usages permis vs « on verra »", "Restauration, dépanneur, bureaux, résidentiel dans un mixte : chaque zone a une grille. Un courtier commercial commence par ça, pas par le loyer rêvé."),
             ("Mixte et projets", "Des bâtisses attendent un projet résidentiel ou une occupation commerciale. Sol, décontamination, stationnement et hauteurs changent la faisabilité. Les études ne sont pas optionnelles."),
@@ -647,12 +647,12 @@ ARTICLES = [
         "tag": "Acheter",
         "author": "Jade Sirois",
         "author_page": "jade.html",
-        "kicker": "En Estrie, l'inspection ne s'arrête pas au toit. Fosses, puits, chalets trois-saisons et bâtiments de ferme changent la liste — et parfois l'offre.",
+        "kicker": "En Estrie, l'inspection ne s'arrête pas au toit. Fosses, puits, chalets trois-saisons et bâtiments de ferme changent la liste : et parfois l'offre.",
         "sections": [
             ("Le bâtiment d'abord", "Fondations, toiture, électricité, humidité. Un bungalow des années 1970 à Fleurimont n'a pas les mêmes points de vigilance qu'une maison de village à North Hatley. L'inspecteur en bâtiment reste le premier rendez-vous après une offre conditionnelle."),
             ("Hors égouts municipaux", "Une grande partie de l'Estrie rurale (Coaticook, Compton, rangs d'Orford, bords de lac) fonctionne à la fosse. Un test et une lecture de conformité valent plus qu'une clause copiée. Une mise aux normes se chiffre en milliers, pas en « petit ajustement »."),
             ("Chalets et villégiature", "Isolation, chauffage, accès hivernal, quai. Un trois-saisons vendu comme résidence principale est un chantier. Magog, Orford, Aylmer : même logique, différents règlements riverains."),
-            ("Après le rapport", "Renégocier, se retirer, ou accepter avec réserve. Un courtier acheteur traduit le jargon et évite de tout laisser tomber pour un détail cosmétique — ou d'ignorer une fissure structurelle."),
+            ("Après le rapport", "Renégocier, se retirer, ou accepter avec réserve. Un courtier acheteur traduit le jargon et évite de tout laisser tomber pour un détail cosmétique : ou d'ignorer une fissure structurelle."),
         ],
     },
     {
@@ -686,7 +686,7 @@ ARTICLES = [
         "kicker": "Beaucoup d'acheteurs veulent « 20 minutes de Sherbrooke » et un prix plus bas. Le trajet réel, le quotidien d'hiver et le type de bien comptent plus que le pin Google.",
         "sections": [
             ("Windsor et Richmond", "Vallée de la Saint-François : souvent plus abordable, navette plausible. Windsor est plus proche ; Richmond un cran plus loin. Visitez à l'heure de pointe, pas un dimanche après-midi."),
-            ("Magog et Orford", "Services, lac, montagne — et un prix souvent plus élevé. Le trajet Magog–Sherbrooke est courant, mais ce n'est pas le même budget qu'un bungalow de Rock Forest."),
+            ("Magog et Orford", "Services, lac, montagne : et un prix souvent plus élevé. Le trajet Magog–Sherbrooke est courant, mais ce n'est pas le même budget qu'un bungalow de Rock Forest."),
             ("Coaticook et Cookshire-Eaton", "Plus champêtre, moins de volume. Le compromis est l'espace et le calme, pas la proximité du CHUS. Un premier acheteur pressé par le travail de quart doit mesurer le trajet, pas le rêve."),
             ("Comment on aide", "On ne vous vend pas une municipalité. On aligne budget, type de bien et quotidien. L'équipe Chiasson de Francesco connaît ces corridors pour les avoir parcourus en visites, pas seulement en carte."),
         ],
@@ -708,6 +708,7 @@ ARTICLES = [
             ("Accès et hiver", "Servitude, entretien de rang, pente. Un beau lot en juillet peut être un cauchemar en février. Visitez hors saison si vous comptez habiter à l'année."),
             ("L'équipe et les terrains", "Nous inscrivons aussi des terrains (notamment Cookshire-Eaton). Même lecture à l'achat : comparables au bon type de lot, pas un prix à l'acre copié sur le voisin."),
         ],
+        "extra_links": [("Documents pour vendre un terrain", "article-documents-vente-terrain.html")],
     },
 ]
 
@@ -774,6 +775,21 @@ def write_article(a: dict) -> None:
         f'<h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">{h}</h2><p class="text-gray-600 leading-relaxed mb-6">{p}</p>'
         for h, p in a["sections"]
     )
+    faqs_html = ""
+    if a.get("faqs"):
+        items = "\n".join(
+            f'<div class="border border-gray-200 rounded-xl p-5 bg-white mb-4"><h3 class="font-semibold text-brand-navy mb-2">{q}</h3><p class="text-gray-600">{ans}</p></div>'
+            for q, ans in a["faqs"]
+        )
+        faqs_html = f'<h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">Questions fréquentes</h2>\n{items}'
+    extra = ""
+    if a.get("region_href"):
+        extra = f' · <a class="text-brand-navy font-medium hover:text-brand-red" href="{a["region_href"]}">{a.get("region_label", "Page région")}</a>'
+    if a.get("extra_links"):
+        extra += "".join(
+            f' · <a class="text-brand-navy font-medium hover:text-brand-red" href="{href}">{label}</a>'
+            for label, href in a["extra_links"]
+        )
     body = f"""
   <main class="pt-32 pb-20">
     <div class="max-w-3xl mx-auto px-6">
@@ -783,12 +799,12 @@ def write_article(a: dict) -> None:
       <p class="text-sm text-gray-500 mb-8">Par <a class="hover:text-brand-red" href="{a["author_page"]}">{a["author"]}</a> · {a["date"]}</p>
       <p class="text-xl font-medium text-brand-navy mb-8">{a["kicker"]}</p>
       {sections}
-      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="index.html#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Retour au blogue</a></p>
+      {faqs_html}
+      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="index.html#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Retour au blogue</a>{extra}</p>
     </div>
   </main>
 """
-    ld = {
-        "@context": "https://schema.org",
+    article_ld = {
         "@type": "Article",
         "headline": a["headline"],
         "description": a["desc"],
@@ -804,6 +820,10 @@ def write_article(a: dict) -> None:
         },
         "mainEntityOfPage": {"@type": "WebPage", "@id": f"{BASE}/{a['file']}"},
     }
+    if a.get("faqs"):
+        ld = {"@context": "https://schema.org", "@graph": [article_ld, faq_ld(f"{BASE}/{a['file']}", a["faqs"])]}
+    else:
+        ld = {"@context": "https://schema.org", **article_ld}
     (ROOT / a["file"]).write_text(page_shell(a["title"], a["desc"], f"{BASE}/{a['file']}", body, ld), encoding="utf-8")
     print("wrote", a["file"])
 

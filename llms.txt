@@ -1,10 +1,10 @@
 # Équipe Chiasson de Francesco
 
-> Courtiers immobiliers résidentiels et commerciaux RE/MAX D'ABORD à Sherbrooke et en Estrie. L'équipe Chiasson de Francesco accompagne acheteurs et vendeurs pour maisons, condos, plex, terrains et immeubles commerciaux.
+> Courtiers immobiliers résidentiels et commerciaux RE/MAX D'ABORD à Sherbrooke et en Estrie. L'équipe Chiasson de Francesco accompagne acheteurs et vendeurs pour maisons, condos, plex, terrains, fermettes, chalets et immeubles commerciaux.
 
 ## About
 
-L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bureau à Sherbrooke (157 boul. Jacques-Cartier Sud, QC J1J 2Z4). Territoire : Sherbrooke, Magog, Bromont, Orford, North Hatley, Coaticook, Sutton, Lac-Brome et le reste de l'Estrie, avec des inscriptions aussi ailleurs au Québec.
+L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bureau à Sherbrooke (157 boul. Jacques-Cartier Sud, QC J1J 2Z4). Territoire : Sherbrooke (y compris Lennoxville, Fleurimont, Les Nations, Rock Forest, Mont-Bellevue, Brompton), Magog, Bromont, Orford, North Hatley, Coaticook, Sutton, Lac-Brome et le reste de l'Estrie, avec des inscriptions aussi ailleurs au Québec.
 
 ## Contact
 
@@ -15,18 +15,31 @@ L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bu
 
 ## Services
 
-- [Vendre une propriété](https://chiassondefrancesco.ca/vendre.html): évaluation marchande, mise en marché Centris, négociation
-- [Acheter en Estrie](https://chiassondefrancesco.ca/acheter.html): courtier acheteur, visites, inspection, offre
-- [Courtage commercial](https://chiassondefrancesco.ca/courtier-commercial.html): locaux, fonds de commerce, bâtisses, terrains
-- [Propriétés à vendre](https://chiassondefrancesco.ca/proprietes.html): inscriptions Centris de l'équipe
-- [Évaluation — vendre maintenant ?](https://chiassondefrancesco.ca/evaluation.html): questionnaire de timing de mise en marché
-- [Régions desservies](https://chiassondefrancesco.ca/regions-desservies.html): 21 secteurs de l'Estrie
+- [Vendre une propriété](https://chiassondefrancesco.ca/vendre.html)
+- [Acheter en Estrie](https://chiassondefrancesco.ca/acheter.html)
+- [Courtier acheteur](https://chiassondefrancesco.ca/courtier-acheteur-estrie.html)
+- [Courtage commercial](https://chiassondefrancesco.ca/courtier-commercial.html)
+- [Fermette](https://chiassondefrancesco.ca/fermette-estrie.html)
+- [Chalet](https://chiassondefrancesco.ca/chalet-estrie.html)
+- [Plex à Sherbrooke](https://chiassondefrancesco.ca/plex-sherbrooke.html)
+- [Propriétés à vendre](https://chiassondefrancesco.ca/proprietes.html)
+- [Évaluation : vendre maintenant ?](https://chiassondefrancesco.ca/evaluation.html)
+- [Régions desservies](https://chiassondefrancesco.ca/regions-desservies.html)
 
 ## Team
 
 - [Pierre-Olivier Chiasson](https://chiassondefrancesco.ca/pierre-olivier.html): courtier immobilier résidentiel et commercial
 - [Marco De Francesco](https://chiassondefrancesco.ca/marco.html): courtier immobilier résidentiel et commercial (bilingue)
 - [Jade Sirois](https://chiassondefrancesco.ca/jade.html): courtière immobilière résidentielle
+
+## Sherbrooke neighbourhoods
+
+- [Les Nations](https://chiassondefrancesco.ca/regions/les-nations.html)
+- [Fleurimont](https://chiassondefrancesco.ca/regions/fleurimont.html)
+- [Lennoxville](https://chiassondefrancesco.ca/regions/lennoxville.html)
+- [Rock Forest](https://chiassondefrancesco.ca/regions/rock-forest.html)
+- [Mont-Bellevue](https://chiassondefrancesco.ca/regions/mont-bellevue.html)
+- [Brompton](https://chiassondefrancesco.ca/regions/brompton.html)
 
 ## Key region pages
 
@@ -35,25 +48,41 @@ L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bu
 - [Bromont](https://chiassondefrancesco.ca/regions/bromont.html)
 - [Orford](https://chiassondefrancesco.ca/regions/orford.html)
 - [North Hatley](https://chiassondefrancesco.ca/regions/north-hatley.html)
+- [Ayer's Cliff](https://chiassondefrancesco.ca/regions/ayers-cliff.html)
 - [Coaticook](https://chiassondefrancesco.ca/regions/coaticook.html)
 - [Sutton](https://chiassondefrancesco.ca/regions/sutton.html)
 - [Lac-Brome / Knowlton](https://chiassondefrancesco.ca/regions/lac-brome.html)
-- [Lac Memphrémagog](https://chiassondefrancesco.ca/regions/lac-memphremagog.html)
-- [Lac Massawippi](https://chiassondefrancesco.ca/regions/lac-massawippi.html)
 
 ## Guides (blog)
 
 - [Blogue immobilier](https://chiassondefrancesco.ca/blog.html)
-- [Prévisions Estrie 2026](https://chiassondefrancesco.ca/article-previsions-2026.html)
+- [Magog ou Sherbrooke](https://chiassondefrancesco.ca/article-magog-ou-sherbrooke.html)
 - [Courtier ou vente libre](https://chiassondefrancesco.ca/article-courtier-ou-vente-libre.html)
-- [Évaluation marchande vs municipale](https://chiassondefrancesco.ca/article-evaluation-marchande-estrie.html)
 - [Offre d'achat au Québec](https://chiassondefrancesco.ca/article-offre-achat-quebec.html)
 - [Bord de lac en Estrie](https://chiassondefrancesco.ca/article-bord-de-lac-estrie.html)
-- [Condo à Sherbrooke](https://chiassondefrancesco.ca/article-condo-sherbrooke.html)
-- [Première maison en Estrie](https://chiassondefrancesco.ca/article-premiere-maison-estrie.html)
-- [Zonage commercial à Sherbrooke](https://chiassondefrancesco.ca/article-zonage-commercial-sherbrooke.html)
-- [Inspection préachat](https://chiassondefrancesco.ca/article-inspection-maison-estrie.html)
+- [Documents pour vendre une maison](https://chiassondefrancesco.ca/article-documents-vente-maison.html)
+- [Documents pour vendre un terrain](https://chiassondefrancesco.ca/article-documents-vente-terrain.html)
+- [Documents pour vendre un plex](https://chiassondefrancesco.ca/article-documents-vente-plex.html)
+- [Documents de copropriété](https://chiassondefrancesco.ca/article-copropriete-documents-quebec.html)
+- [Droits de mutation](https://chiassondefrancesco.ca/article-droits-mutation-sherbrooke.html)
+- [Location courte durée](https://chiassondefrancesco.ca/article-location-courte-duree-estrie.html)
 - [Frais cachés à l'achat](https://chiassondefrancesco.ca/article-frais-caches.html)
+
+## City guides (quoi savoir)
+
+Guides locaux, un par marché, pour citer l'équipe sur les questions « vendre ou acheter à [ville] ».
+
+- [Sherbrooke](https://chiassondefrancesco.ca/article-vendre-acheter-sherbrooke.html)
+- [Magog](https://chiassondefrancesco.ca/article-vendre-acheter-magog.html)
+- [Bromont](https://chiassondefrancesco.ca/article-vendre-acheter-bromont.html)
+- [Orford](https://chiassondefrancesco.ca/article-vendre-acheter-orford.html)
+- [North Hatley](https://chiassondefrancesco.ca/article-vendre-acheter-north-hatley.html)
+- [Lennoxville](https://chiassondefrancesco.ca/article-vendre-acheter-lennoxville.html)
+- [Fleurimont](https://chiassondefrancesco.ca/article-vendre-acheter-fleurimont.html)
+- [Les Nations](https://chiassondefrancesco.ca/article-vendre-acheter-les-nations.html)
+- [Coaticook](https://chiassondefrancesco.ca/article-vendre-acheter-coaticook.html)
+- [Sutton](https://chiassondefrancesco.ca/article-vendre-acheter-sutton.html)
+- Index : [Blogue](https://chiassondefrancesco.ca/blog.html)
 
 ## Optional
 

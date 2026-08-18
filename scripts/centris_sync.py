@@ -36,14 +36,14 @@ DEFAULT_REMAX_AGENT_URL = (
 )
 # Public frontend key (also embedded in remax-quebec.com JS bundles).
 DEFAULT_REMAX_API_KEY = "c4dWcBkE#RL78Y@zg4Y06M$qrOJAeh7Fwv!Z9T4Q1f@zZ"
-# Known idagent for p-o.chiasson — used when the brokers API is blocked (e.g. GitHub Actions).
+# Known idagent for p-o.chiasson : used when the brokers API is blocked (e.g. GitHub Actions).
 DEFAULT_REMAX_BROKER_IDAGENT = 24115
 
 SOLD_REDIRECT_HTML = """<!DOCTYPE html>
 <html lang="fr-CA">
 <head>
   <meta charset="utf-8">
-  <title>Propriété vendue — redirection…</title>
+  <title>Propriété vendue : redirection…</title>
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="refresh" content="0; url={canonical}">
@@ -732,7 +732,7 @@ def collect_listing_jobs(
                     remax_meta["discoveredCount"] = len(by_id)
                     # Centris search fallback is not a complete sold authority for rentals,
                     # so only prune ULS that disappeared from both Centris search and
-                    # are absent from RE/MAX — here we skip aggressive prune by marking limited.
+                    # are absent from RE/MAX : here we skip aggressive prune by marking limited.
                     remax_meta["syncLimited"] = True
             except requests.RequestException as centris_exc:
                 print(
@@ -843,7 +843,7 @@ def main() -> int:
         if env_search:
             args.search_url = env_search
 
-    # GitHub Actions sets missing secrets/vars to "" — treat blank as unset.
+    # GitHub Actions sets missing secrets/vars to "" : treat blank as unset.
     env_broker_slug = os.environ.get("REMAX_BROKER_SLUG") or ""
     if env_broker_slug:
         args.remax_broker_slug = env_broker_slug
@@ -905,7 +905,7 @@ def main() -> int:
             + ("custom" if (os.environ.get("REMAX_API_KEY") or "") else "embedded-default")
         )
         if remax_meta.get("fallback"):
-            print(f"RE/MAX discovery failed — using fallback: {remax_meta.get('fallback')}")
+            print(f"RE/MAX discovery failed : using fallback: {remax_meta.get('fallback')}")
         else:
             print("Discovered listings (Centris ULS):")
             for uls, url in jobs.items():

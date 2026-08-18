@@ -47,9 +47,12 @@ Must match visible copy. Do not invent ratings, prices, or review counts.
 
 - [`scripts/apply_seo_geo.py`](../../../scripts/apply_seo_geo.py) is the maintainable SEO pass.
 - [`scripts/write_top_regions.py`](../../../scripts/write_top_regions.py) writes the five highest-intent region pages.
-- [`scripts/write_geo_batch.py`](../../../scripts/write_geo_batch.py) writes the other 16 region pages, service pages, and GEO articles.
+- [`scripts/write_geo_batch.py`](../../../scripts/write_geo_batch.py) writes 16 region pages, service pages, and GEO articles.
+- [`scripts/write_geo_batch2.py`](../../../scripts/write_geo_batch2.py) writes Sherbrooke quartiers, extra towns, and product pages.
+- [`scripts/write_quoi_savoir.py`](../../../scripts/write_quoi_savoir.py) writes city guides "Vendre ou acheter à [ville] : quoi savoir" (En bref, QAE, FAQ, named brokers). No em dashes in site copy.
+- [`scripts/write_documents_vente.py`](../../../scripts/write_documents_vente.py) writes sale-document checklists (maison, terrain, plex) with En bref, numbered lists, FAQ + HowTo schema. No em dashes.
 - [`scripts/patch-cdf-seo.py`](../../../scripts/patch-cdf-seo.py) must **not** inject a second description or put `merci.html` in the sitemap.
-- New listings inherit schema from `apply_seo_geo.py` / Centris sync — do not recreate the duplicate-meta pattern.
+- New listings inherit schema from `apply_seo_geo.py` / Centris sync. Do not recreate the duplicate-meta pattern.
 
 ## Analytics MCP
 
