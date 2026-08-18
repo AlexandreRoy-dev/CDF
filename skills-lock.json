@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "generative-engine-optimization": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/strategies/commercial/geo/SKILL.md",
+      "computedHash": "350541c9af16b3aef1a2ef306409edccc44bf9e7df80e8ef5ca79ddf9c9b68cd"
+    },
+    "geo-best-practices": {
+      "source": "luka2chat/geo-skills",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "499f6c603da3d62e8e9b4bf9c76177ed7600ad7af98c344318dc273a25821dde"
+    }
+  }
+}

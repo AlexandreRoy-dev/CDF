@@ -1,0 +1,53 @@
+---
+name: cdf-seo-geo
+description: SEO and GEO rules for the Chiasson De Francesco static site (chiassondefrancesco.ca). Use when editing HTML pages, listings, region pages, meta tags, JSON-LD, sitemap, robots.txt, or llms.txt.
+---
+
+# CDF SEO + GEO
+
+French-Canadian real-estate brokerage site. Stack: static HTML, Tailwind CDN, Vercel. Listings at `/ca/qc/{city}/{sector}/{street}/`.
+
+## Language and NAP
+
+- `html lang="fr-CA"`, `og:locale` `fr_CA`
+- Brand: Équipe Chiasson de Francesco, RE/MAX D'ABORD
+- Address: 157 boul. Jacques-Cartier Sud, Sherbrooke, QC J1J 2Z4
+- Phones: P-O 819-919-4631 · Marco 819-562-0656 · Jade 819-434-2652
+- Measurement ID: `G-VBQPR5ZNV0` via `/src/assets/js/ga.js`
+
+## Meta
+
+- One `<title>`, one `<meta name="description">` per page. Never inject a second description.
+- Title ~50–60 characters, intent first, brand at the end.
+- Description ~140–160 characters, unique, no cloned prefix (`Équipe Chiasson de Francesco, courtiers… {title}`).
+- Self-canonical. `merci.html` is `noindex` and must stay out of `sitemap.xml`.
+- Do not add sitewide `hreflang` except the homepage `fr-CA` / `en-CA` pair.
+
+## JSON-LD
+
+Must match visible copy. Do not invent ratings, prices, or review counts.
+
+| Page | Types |
+|------|--------|
+| Home | RealEstateAgent + LocalBusiness + WebSite (reviews only if visible) |
+| Listing | RealEstateListing + Offer (CAD) + PostalAddress + BreadcrumbList |
+| Broker | Person + RealEstateAgent |
+| Article | Article |
+| Top region pages | BreadcrumbList + FAQPage |
+
+## GEO
+
+- Answer-first first paragraph (who + where + what).
+- Visible FAQ on Sherbrooke, Magog, Bromont, Orford, North Hatley.
+- Keep `/llms.txt` and AI crawlers allowed in `robots.txt`.
+- Descriptive French internal anchors.
+
+## Generators
+
+- [`scripts/apply_seo_geo.py`](../../../scripts/apply_seo_geo.py) is the maintainable SEO pass.
+- [`scripts/patch-cdf-seo.py`](../../../scripts/patch-cdf-seo.py) must **not** inject a second description or put `merci.html` in the sitemap.
+- New listings inherit schema from `apply_seo_geo.py` / Centris sync — do not recreate the duplicate-meta pattern.
+
+## Analytics MCP
+
+Do not commit ADC JSON. Copy [`.cursor/mcp.json.example`](../../mcp.json.example) locally after `gcloud auth application-default login` with `analytics.readonly`.

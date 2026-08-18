@@ -223,7 +223,10 @@ def update_site_links(registry: dict) -> None:
 
 
 def regenerate_sitemap(registry: dict) -> None:
-    html_files = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
+    html_files = sorted(
+        p for p in ROOT.rglob("*.html")
+        if ".git" not in p.parts and not (p.name.startswith("google") and p.suffix == ".html")
+    )
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',

@@ -105,7 +105,10 @@ def generate_sitemap(paths: list[Path]) -> str:
     return "\n".join(lines) + "\n"
 
 def main():
-    html_files = [p for p in ROOT.rglob("*.html") if ".git" not in p.parts]
+    html_files = [
+        p for p in ROOT.rglob("*.html")
+        if ".git" not in p.parts and not (p.name.startswith("google") and p.suffix == ".html")
+    ]
     updated = 0
     for path in html_files:
         text = path.read_text(encoding="utf-8")
