@@ -35,7 +35,7 @@ PAGE_META = {
     ),
     "blog.html": (
         "Blogue immobilier Estrie | Chiasson De Francesco",
-        "Conseils d'achat et de vente, prévisions 2026 et pièges à éviter. Blogue de l'équipe Chiasson de Francesco à Sherbrooke.",
+        "Conseils d'achat et de vente en Estrie : courtier vs vente libre, offre d'achat, condos, bords de lac. Blogue Chiasson de Francesco.",
     ),
     "evaluation.html": (
         "Vendre maintenant ou attendre ? | Chiasson de Francesco",
@@ -81,30 +81,90 @@ PAGE_META = {
         "Home staging à Sherbrooke | Chiasson De Francesco",
         "Préparer une maison à la vente en Estrie : mise en valeur, photos et première impression, par l'équipe Chiasson de Francesco.",
     ),
+    "vendre.html": (
+        "Vendre sa maison à Sherbrooke et en Estrie | CDF",
+        "Vendre avec l'équipe Chiasson de Francesco : évaluation marchande, mise en marché Centris et négociation à Sherbrooke et en Estrie.",
+    ),
+    "acheter.html": (
+        "Acheter une maison en Estrie | courtier Sherbrooke | CDF",
+        "Acheter à Sherbrooke et en Estrie avec un courtier acheteur : recherche Centris, visites, inspection et négociation. Équipe Chiasson de Francesco.",
+    ),
+    "courtier-commercial.html": (
+        "Courtier immobilier commercial Sherbrooke | CDF",
+        "Locaux, fonds de commerce, bâtisses et terrains à Sherbrooke et au Québec. Pierre-Olivier Chiasson et Marco De Francesco, RE/MAX D'ABORD.",
+    ),
+    "article-courtier-ou-vente-libre.html": (
+        "Vendre avec un courtier ou seul ? | Estrie | CDF",
+        "Prix, clauses, temps et commission : quand un courtier immobilier à Sherbrooke paie, et quand la vente libre peut suffire.",
+    ),
+    "article-evaluation-marchande-estrie.html": (
+        "Évaluation marchande vs municipale | Estrie | CDF",
+        "L'évaluation municipale n'est pas le prix de marché à Sherbrooke. Comment une évaluation marchande de courtier s'en distingue.",
+    ),
+    "article-delai-vente-estrie.html": (
+        "Combien de temps pour vendre en Estrie ? | CDF",
+        "Prix, saison, type de bien : pourquoi une maison à Sherbrooke ne se vend pas au même rythme qu'un chalet à Orford.",
+    ),
+    "article-offre-achat-quebec.html": (
+        "Comment faire une offre d'achat au Québec | CDF",
+        "Promesse d'achat, inspection, financement : les clauses qui protègent un acheteur à Sherbrooke, et celles qui font fuir le vendeur.",
+    ),
+    "article-bord-de-lac-estrie.html": (
+        "Acheter un bord de lac en Estrie | CDF",
+        "Accès à l'eau vs vue, fosses, bandes riveraines : ce qu'un acheteur doit vérifier avant d'offrir sur un lac en Estrie.",
+    ),
+    "article-condo-sherbrooke.html": (
+        "Acheter un condo à Sherbrooke | frais et pièges | CDF",
+        "Charges, fonds de prévoyance, PV d'assemblée : ce qu'il faut lire avant d'acheter un condo aux Nations, en centre-ville ou à Fleurimont.",
+    ),
+    "article-premiere-maison-estrie.html": (
+        "Première maison en Estrie | budget et étapes | CDF",
+        "Mise de fonds, préautorisation, inspection : les étapes d'un premier achat à Sherbrooke, Magog ou en périphérie.",
+    ),
+    "article-zonage-commercial-sherbrooke.html": (
+        "Zonage commercial à Sherbrooke | avant d'acheter | CDF",
+        "H10, usages permis, décontamination : pourquoi un local ou une bâtisse à Sherbrooke se juge d'abord au zonage, pas à la vitrine.",
+    ),
+    "article-inspection-maison-estrie.html": (
+        "Inspection préachat en Estrie | fosses et chalets | CDF",
+        "Quoi faire inspecter avant d'acheter à Sherbrooke, Magog ou en rang : bâtiment, fosse, puits. Conseils de l'équipe Chiasson de Francesco.",
+    ),
+    "article-vendre-condo-sherbrooke.html": (
+        "Vendre un condo à Sherbrooke | charges et acheteurs | CDF",
+        "Copropriété à Sherbrooke : documents à préparer, frais, et comment un prix collé au marché évite un condo qui stagne sur Centris.",
+    ),
+    "article-navette-sherbrooke.html": (
+        "Habiter autour de Sherbrooke | navette Estrie | CDF",
+        "Où habiter autour de Sherbrooke selon le trajet, le budget et le mode de vie : Windsor, Richmond, Magog, Coaticook.",
+    ),
+    "article-terrain-estrie.html": (
+        "Acheter un terrain en Estrie | zonage et viabilisation | CDF",
+        "Un terrain à Cookshire-Eaton ou en rang n'est pas un prix à l'acre. Zonage, accès et viabilisation avant d'offrir.",
+    ),
 }
 
 REGION_META = {
     "bromont": ("Courtier immobilier à Bromont | Chiasson De Francesco", "Acheter ou vendre à Bromont : ski, vélo et maisons de village. L'équipe Chiasson de Francesco vous accompagne en Estrie."),
-    "coaticook": ("Courtier immobilier à Coaticook | CDF", "Acheter ou vendre une propriété à Coaticook, ville de services en Estrie. Équipe Chiasson de Francesco, courtiers RE/MAX."),
+    "coaticook": ("Courtier immobilier à Coaticook | Chiasson De Francesco", "Acheter ou vendre à Coaticook : ville de services, gorge et campagne en Estrie. Équipe Chiasson de Francesco, RE/MAX."),
     "compton": ("Courtier immobilier à Compton | CDF", "Maisons et fermettes à Compton, en Estrie. L'équipe Chiasson de Francesco vous accompagne pour acheter ou vendre."),
-    "cookshire-eaton": ("Courtier à Cookshire-Eaton | CDF", "Propriétés et terrains à Cookshire-Eaton. Courtiers Chiasson de Francesco pour un achat ou une vente en Estrie."),
+    "cookshire-eaton": ("Courtier à Cookshire-Eaton | terrains et maisons | CDF", "Propriétés et terrains à Cookshire-Eaton et Sawyerville. Courtiers Chiasson de Francesco pour un achat ou une vente en Estrie."),
     "danville": ("Courtier immobilier à Danville | CDF", "Acheter ou vendre à Danville, Estrie. Accompagnement par l'équipe Chiasson de Francesco, RE/MAX D'ABORD."),
-    "eastman": ("Courtier immobilier à Eastman | CDF", "Maisons et chalets à Eastman, près d'Orford. L'équipe Chiasson de Francesco vous accompagne en Estrie."),
-    "lac-aylmer": ("Propriétés au lac Aylmer | CDF", "Acheter ou vendre en bord du lac Aylmer, Estrie. Courtiers Chiasson de Francesco à Sherbrooke."),
+    "eastman": ("Courtier immobilier à Eastman | près d'Orford | CDF", "Maisons et chalets à Eastman, près d'Orford et Magog. L'équipe Chiasson de Francesco vous accompagne en Estrie."),
+    "lac-aylmer": ("Propriétés au lac Aylmer | courtier Estrie | CDF", "Acheter ou vendre en bord du lac Aylmer (Stratford, Weedon). Courtiers Chiasson de Francesco à Sherbrooke."),
     "lac-brome": ("Courtier à Lac-Brome et Knowlton | CDF", "Maisons et bord de lac à Lac-Brome (Knowlton). L'équipe Chiasson de Francesco vous accompagne."),
-    "lac-massawippi": ("Propriétés au lac Massawippi | CDF", "Acheter ou vendre autour du lac Massawippi et North Hatley. Équipe Chiasson de Francesco, courtiers RE/MAX."),
-    "lac-megantic": ("Courtier immobilier au lac Mégantic | CDF", "Acheter ou vendre une propriété au lac Mégantic, Estrie. Équipe Chiasson de Francesco."),
-    "lac-memphremagog": ("Propriétés au lac Memphrémagog | CDF", "Bord de lac à Magog, Orford et Newport. L'équipe Chiasson de Francesco vous accompagne sur le Memphrémagog."),
+    "lac-massawippi": ("Propriétés au lac Massawippi | North Hatley | CDF", "Acheter ou vendre autour du lac Massawippi et North Hatley. Équipe Chiasson de Francesco, courtiers RE/MAX."),
+    "lac-megantic": ("Courtier immobilier au lac Mégantic | CDF", "Acheter ou vendre une propriété à Lac-Mégantic et au lac. Équipe Chiasson de Francesco, Estrie."),
+    "lac-memphremagog": ("Propriétés au lac Memphrémagog | Magog, Orford | CDF", "Bord de lac à Magog, Orford et Newport. L'équipe Chiasson de Francesco vous accompagne sur le Memphrémagog."),
     "magog": ("Courtier immobilier à Magog | lac Memphrémagog", "Acheter ou vendre à Magog, porte d'entrée du lac Memphrémagog. Maisons, condos et chalets avec Chiasson de Francesco."),
     "north-hatley": ("Courtier immobilier à North Hatley | CDF", "Acheter ou vendre à North Hatley et au lac Massawippi. L'équipe Chiasson de Francesco, courtiers RE/MAX en Estrie."),
     "orford": ("Courtier immobilier à Orford | mont Orford", "Maisons et chalets à Orford, au pied du mont et du parc national. Équipe Chiasson de Francesco en Estrie."),
-    "richmond": ("Courtier immobilier à Richmond | CDF", "Acheter ou vendre à Richmond, sur la rivière Saint-François. Courtiers Chiasson de Francesco, RE/MAX."),
+    "richmond": ("Courtier immobilier à Richmond | rivière Saint-François | CDF", "Acheter ou vendre à Richmond, sur la rivière Saint-François. Courtiers Chiasson de Francesco, RE/MAX."),
     "sherbrooke": ("Courtier immobilier à Sherbrooke | Chiasson De Francesco", "Acheter ou vendre à Sherbrooke : Les Nations, Fleurimont, Lennoxville, Mont-Bellevue. Équipe Chiasson de Francesco, RE/MAX."),
-    "stanstead": ("Courtier immobilier à Stanstead | CDF", "Propriétés à Stanstead, à la frontière et près du lac Memphrémagog. Équipe Chiasson de Francesco."),
-    "sutton": ("Courtier immobilier à Sutton | CDF", "Acheter ou vendre à Sutton, village de montagne en Estrie. L'équipe Chiasson de Francesco vous accompagne."),
+    "stanstead": ("Courtier immobilier à Stanstead | frontière | CDF", "Propriétés à Stanstead, près du lac Memphrémagog et de la frontière. Équipe Chiasson de Francesco."),
+    "sutton": ("Courtier immobilier à Sutton | montagne | CDF", "Acheter ou vendre à Sutton, village de montagne en Estrie. Ski, arts et maisons : équipe Chiasson de Francesco."),
     "val-des-sources": ("Courtier à Val-des-Sources | CDF", "Maisons à Val-des-Sources (Asbestos). Courtiers Chiasson de Francesco pour un achat ou une vente en Estrie."),
-    "weedon": ("Courtier immobilier à Weedon | CDF", "Acheter ou vendre à Weedon, Estrie. Accompagnement par l'équipe Chiasson de Francesco, RE/MAX D'ABORD."),
-    "windsor": ("Courtier immobilier à Windsor | CDF", "Propriétés à Windsor, Estrie. L'équipe Chiasson de Francesco vous accompagne pour acheter ou vendre."),
+    "weedon": ("Courtier immobilier à Weedon | Estrie | CDF", "Acheter ou vendre à Weedon, Estrie, près du lac Aylmer. Accompagnement Chiasson de Francesco, RE/MAX."),
+    "windsor": ("Courtier immobilier à Windsor | Estrie | CDF", "Propriétés à Windsor, Estrie, sur la Saint-François. L'équipe Chiasson de Francesco vous accompagne."),
 }
 
 LISTING_OFFERS = {
@@ -125,6 +185,18 @@ ARTICLES = {
     "article-frais-caches.html": ("2025-10-30", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
     "article-investir-sherbrooke.html": ("2025-11-28", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
     "article-home-staging.html": ("2025-12-12", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-courtier-ou-vente-libre.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-evaluation-marchande-estrie.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-delai-vente-estrie.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-offre-achat-quebec.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-bord-de-lac-estrie.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-condo-sherbrooke.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-premiere-maison-estrie.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-zonage-commercial-sherbrooke.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-inspection-maison-estrie.html": ("2026-08-18", "Jade Sirois", "jade.html"),
+    "article-vendre-condo-sherbrooke.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
+    "article-navette-sherbrooke.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-terrain-estrie.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
 }
 
 BROKERS = {
@@ -473,6 +545,9 @@ def write_sitemap(listings: list[dict]) -> None:
         (f"{BASE}/", "1.0"),
         (f"{BASE}/proprietes.html", "0.8"),
         (f"{BASE}/evaluation.html", "0.8"),
+        (f"{BASE}/vendre.html", "0.8"),
+        (f"{BASE}/acheter.html", "0.8"),
+        (f"{BASE}/courtier-commercial.html", "0.8"),
         (f"{BASE}/regions-desservies.html", "0.8"),
         (f"{BASE}/blog.html", "0.7"),
         (f"{BASE}/pierre-olivier.html", "0.7"),

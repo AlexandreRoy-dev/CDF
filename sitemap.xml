@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://chiassondefrancesco.ca/</loc><lastmod>2026-08-18</lastmod><priority>1.0</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/acheter.html</loc><lastmod>2026-08-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-bord-de-lac-estrie.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-condo-sherbrooke.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-courtier-ou-vente-libre.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-delai-vente-estrie.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-evaluation-marchande-estrie.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-eviter-les-pieges.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-frais-caches.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-home-staging.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-inspection-maison-estrie.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-investir-sherbrooke.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-navette-sherbrooke.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-offre-achat-quebec.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-premiere-maison-estrie.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-previsions-2026.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-terrain-estrie.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-vendre-condo-sherbrooke.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/article-zonage-commercial-sherbrooke.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/blog.html</loc><lastmod>2026-08-18</lastmod><priority>0.7</priority></url>
   <url><loc>https://chiassondefrancesco.ca/ca/qc/cookshire-eaton/cookshire/route-108/</loc><lastmod>2026-08-18</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/ca/qc/milan/centre/505-chemin-de-la-yard/</loc><lastmod>2026-08-18</lastmod><priority>0.8</priority></url>
@@ -17,6 +30,7 @@
   <url><loc>https://chiassondefrancesco.ca/ca/qc/sherbrooke/mont-bellevue/182-rue-wellington-n/</loc><lastmod>2026-08-18</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/ca/qc/sherbrooke/mont-bellevue/800-rue-tessier/</loc><lastmod>2026-08-18</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/confidentialite.html</loc><lastmod>2026-08-18</lastmod><priority>0.3</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/courtier-commercial.html</loc><lastmod>2026-08-18</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/evaluation.html</loc><lastmod>2026-08-18</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/jade.html</loc><lastmod>2026-08-18</lastmod><priority>0.7</priority></url>
   <url><loc>https://chiassondefrancesco.ca/marco.html</loc><lastmod>2026-08-18</lastmod><priority>0.7</priority></url>
@@ -44,4 +58,5 @@
   <url><loc>https://chiassondefrancesco.ca/regions/val-des-sources.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions/weedon.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions/windsor.html</loc><lastmod>2026-08-18</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/vendre.html</loc><lastmod>2026-08-18</lastmod><priority>0.8</priority></url>
 </urlset>

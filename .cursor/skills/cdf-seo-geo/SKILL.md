@@ -33,18 +33,21 @@ Must match visible copy. Do not invent ratings, prices, or review counts.
 | Listing | RealEstateListing + Offer (CAD) + PostalAddress + BreadcrumbList |
 | Broker | Person + RealEstateAgent |
 | Article | Article |
-| Top region pages | BreadcrumbList + FAQPage |
+| Region pages | Place + BreadcrumbList + FAQPage |
+| Service pages (`vendre`, `acheter`, `courtier-commercial`) | FAQPage + BreadcrumbList |
 
 ## GEO
 
 - Answer-first first paragraph (who + where + what).
-- Visible FAQ on Sherbrooke, Magog, Bromont, Orford, North Hatley.
+- Visible FAQ + FAQPage JSON-LD on all `regions/*.html` pages and on `vendre.html`, `acheter.html`, `courtier-commercial.html`.
 - Keep `/llms.txt` and AI crawlers allowed in `robots.txt`.
 - Descriptive French internal anchors.
 
 ## Generators
 
 - [`scripts/apply_seo_geo.py`](../../../scripts/apply_seo_geo.py) is the maintainable SEO pass.
+- [`scripts/write_top_regions.py`](../../../scripts/write_top_regions.py) writes the five highest-intent region pages.
+- [`scripts/write_geo_batch.py`](../../../scripts/write_geo_batch.py) writes the other 16 region pages, service pages, and GEO articles.
 - [`scripts/patch-cdf-seo.py`](../../../scripts/patch-cdf-seo.py) must **not** inject a second description or put `merci.html` in the sitemap.
 - New listings inherit schema from `apply_seo_geo.py` / Centris sync — do not recreate the duplicate-meta pattern.
 

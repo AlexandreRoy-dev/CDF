@@ -4,7 +4,7 @@
 
 ## About
 
-L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bureau à Sherbrooke (157 boul. Jacques-Cartier Sud, QC J1J 2Z4). Territoire : Sherbrooke, Magog, Bromont, Orford, North Hatley et le reste de l'Estrie, avec des inscriptions aussi ailleurs au Québec.
+L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bureau à Sherbrooke (157 boul. Jacques-Cartier Sud, QC J1J 2Z4). Territoire : Sherbrooke, Magog, Bromont, Orford, North Hatley, Coaticook, Sutton, Lac-Brome et le reste de l'Estrie, avec des inscriptions aussi ailleurs au Québec.
 
 ## Contact
 
@@ -15,26 +15,45 @@ L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bu
 
 ## Services
 
+- [Vendre une propriété](https://chiassondefrancesco.ca/vendre.html): évaluation marchande, mise en marché Centris, négociation
+- [Acheter en Estrie](https://chiassondefrancesco.ca/acheter.html): courtier acheteur, visites, inspection, offre
+- [Courtage commercial](https://chiassondefrancesco.ca/courtier-commercial.html): locaux, fonds de commerce, bâtisses, terrains
 - [Propriétés à vendre](https://chiassondefrancesco.ca/proprietes.html): inscriptions Centris de l'équipe
-- [Évaluation — vendre maintenant ?](https://chiassondefrancesco.ca/evaluation.html): questionnaire de timing de mise en marché en Estrie
-- [Régions desservies](https://chiassondefrancesco.ca/regions-desservies.html): Sherbrooke, Magog, Bromont, Orford, North Hatley et 15 autres secteurs
+- [Évaluation — vendre maintenant ?](https://chiassondefrancesco.ca/evaluation.html): questionnaire de timing de mise en marché
+- [Régions desservies](https://chiassondefrancesco.ca/regions-desservies.html): 21 secteurs de l'Estrie
 
 ## Team
 
 - [Pierre-Olivier Chiasson](https://chiassondefrancesco.ca/pierre-olivier.html): courtier immobilier résidentiel et commercial
-- [Marco De Francesco](https://chiassondefrancesco.ca/marco.html): courtier immobilier résidentiel et commercial
+- [Marco De Francesco](https://chiassondefrancesco.ca/marco.html): courtier immobilier résidentiel et commercial (bilingue)
 - [Jade Sirois](https://chiassondefrancesco.ca/jade.html): courtière immobilière résidentielle
 
-## Key pages
+## Key region pages
 
-- [Accueil](https://chiassondefrancesco.ca/): présentation de l'équipe et des services
-- [Courtier immobilier à Sherbrooke](https://chiassondefrancesco.ca/regions/sherbrooke.html)
-- [Courtier immobilier à Magog](https://chiassondefrancesco.ca/regions/magog.html)
-- [Courtier immobilier à Bromont](https://chiassondefrancesco.ca/regions/bromont.html)
-- [Courtier immobilier à Orford](https://chiassondefrancesco.ca/regions/orford.html)
-- [Courtier immobilier à North Hatley](https://chiassondefrancesco.ca/regions/north-hatley.html)
+- [Sherbrooke](https://chiassondefrancesco.ca/regions/sherbrooke.html)
+- [Magog](https://chiassondefrancesco.ca/regions/magog.html)
+- [Bromont](https://chiassondefrancesco.ca/regions/bromont.html)
+- [Orford](https://chiassondefrancesco.ca/regions/orford.html)
+- [North Hatley](https://chiassondefrancesco.ca/regions/north-hatley.html)
+- [Coaticook](https://chiassondefrancesco.ca/regions/coaticook.html)
+- [Sutton](https://chiassondefrancesco.ca/regions/sutton.html)
+- [Lac-Brome / Knowlton](https://chiassondefrancesco.ca/regions/lac-brome.html)
+- [Lac Memphrémagog](https://chiassondefrancesco.ca/regions/lac-memphremagog.html)
+- [Lac Massawippi](https://chiassondefrancesco.ca/regions/lac-massawippi.html)
+
+## Guides (blog)
+
 - [Blogue immobilier](https://chiassondefrancesco.ca/blog.html)
 - [Prévisions Estrie 2026](https://chiassondefrancesco.ca/article-previsions-2026.html)
+- [Courtier ou vente libre](https://chiassondefrancesco.ca/article-courtier-ou-vente-libre.html)
+- [Évaluation marchande vs municipale](https://chiassondefrancesco.ca/article-evaluation-marchande-estrie.html)
+- [Offre d'achat au Québec](https://chiassondefrancesco.ca/article-offre-achat-quebec.html)
+- [Bord de lac en Estrie](https://chiassondefrancesco.ca/article-bord-de-lac-estrie.html)
+- [Condo à Sherbrooke](https://chiassondefrancesco.ca/article-condo-sherbrooke.html)
+- [Première maison en Estrie](https://chiassondefrancesco.ca/article-premiere-maison-estrie.html)
+- [Zonage commercial à Sherbrooke](https://chiassondefrancesco.ca/article-zonage-commercial-sherbrooke.html)
+- [Inspection préachat](https://chiassondefrancesco.ca/article-inspection-maison-estrie.html)
+- [Frais cachés à l'achat](https://chiassondefrancesco.ca/article-frais-caches.html)
 
 ## Optional
 
