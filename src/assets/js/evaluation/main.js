@@ -658,6 +658,9 @@ async function handleLeadSubmit(formEl) {
 
   try {
     const result = await submitLead(payload);
+    if (typeof window.cdfTrackLead === 'function') {
+      window.cdfTrackLead('evaluation');
+    }
     state.lead = { kind: 'done', stored: !!result.stored, firstName: payload.firstName };
     state.screen = 'results';
     render();
@@ -708,6 +711,9 @@ async function handleWidgetMessage(formEl) {
 
   try {
     await submitLead(buildWidgetMessagePayload(state.widget));
+    if (typeof window.cdfTrackLead === 'function') {
+      window.cdfTrackLead('evaluation_widget');
+    }
     state.widget.sending = false;
     state.widget.sent = true;
     render();

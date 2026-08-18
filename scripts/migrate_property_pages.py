@@ -223,31 +223,10 @@ def update_site_links(registry: dict) -> None:
 
 
 def regenerate_sitemap(registry: dict) -> None:
-    html_files = sorted(
-        p for p in ROOT.rglob("*.html")
-        if ".git" not in p.parts and not (p.name.startswith("google") and p.suffix == ".html")
-    )
-    lines = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ]
-    for path in html_files:
-        rel = path.relative_to(ROOT).as_posix()
-        if rel.startswith("prop-") and rel.endswith(".html"):
-            continue
-        if rel.endswith("/index.html"):
-            url = BASE_URL + "/" + rel.replace("/index.html", "/")
-        elif rel == "index.html":
-            url = BASE_URL + "/"
-        else:
-            url = BASE_URL + "/" + rel
-        priority = "1.0" if rel == "index.html" else "0.7"
-        if rel == "merci.html":
-            priority = "0.3"
-        lines.append(f"  <url><loc>{url}</loc><priority>{priority}</priority></url>")
-    lines.append("</urlset>")
-    (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print("regenerated sitemap.xml")
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent))
+    from apply_seo_geo import write_sitemap
+    write_sitemap(registry["listings"])
 
 
 def main() -> None:
@@ -256,6 +235,22 @@ def main() -> None:
         migrate_listing(listing)
     update_site_links(registry)
     regenerate_sitemap(registry)
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent))
+    from apply_seo_geo import process_file
+    by_uls = {item["uls"]: item for item in registry["listings"]}
+    for listing in registry["listings"]:
+        dest = (
+            ROOT
+            / listing["country"]
+            / listing["province"]
+            / listing["city"]
+            / listing["sector"]
+            / listing["street"]
+            / "index.html"
+        )
+        if dest.exists():
+            process_file(dest, by_uls)
 
 
 if __name__ == "__main__":
