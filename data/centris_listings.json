@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T12:39:36.111960+00:00",
+  "generatedAt": "2026-08-20T12:38:40.078161+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -12,13 +12,14 @@
     "agentUrl": "https://www.remax-quebec.com/fr/courtiers-immobiliers/p-o.chiasson",
     "viewAllUrl": "https://www.remax-quebec.com/fr/resultats?BrokerId=24115&Sold=0",
     "fallback": null,
-    "discoveredCount": 11,
+    "discoveredCount": 12,
     "syncLimited": false
   },
   "discoveredUls": [
     "10043722",
     "11185705",
     "13807137",
+    "16190804",
     "17958008",
     "19680229",
     "19753390",
@@ -33,6 +34,26 @@
   "maxListings": 30,
   "removedStale": [],
   "listings": [
+    {
+      "id": "16190804",
+      "propertyUrl": "https://www.centris.ca/fr/propriete~a-vendre/16190804",
+      "ogTitle": "Terrain &#xE0; vendre &#xE0; Sherbrooke (Les Nations)",
+      "ogImage": "https://mspublic.centris.ca/media.ashx?id=ADDD250DA453451DDDDDDDDDDA&t=pi&w=1260&h=1024&sm=c",
+      "price": null,
+      "photos": [
+        "01.jpg",
+        "02.jpg",
+        "03.jpg",
+        "04.jpg",
+        "05.jpg",
+        "06.jpg",
+        "07.jpg",
+        "08.jpg"
+      ],
+      "photoCount": 8,
+      "ogShareImage": "src/assets/images/proprietes/16190804/og-share.jpg",
+      "publicPath": null
+    },
     {
       "id": "19680229",
       "propertyUrl": "https://www.centris.ca/fr/propriete~a-vendre/19680229",
@@ -180,7 +201,7 @@
       "id": "25365838",
       "propertyUrl": "https://www.centris.ca/fr/propriete~a-louer/25365838",
       "ogTitle": "Condo / Appartement &#xE0; louer &#xE0; Sherbrooke (Les Nations)",
-      "ogImage": "https://mspublic.centris.ca/media.ashx?id=ADDD250DA1CC1A5DDDDDDDDDDA&t=pi&w=1260&h=1024&sm=c",
+      "ogImage": "https://mspublic.centris.ca/media.ashx?id=ADDD250DA13DCF0DDDDDDDDDDD&t=pi&w=1260&h=1024&sm=c",
       "price": null,
       "photos": [
         "01.jpg",
