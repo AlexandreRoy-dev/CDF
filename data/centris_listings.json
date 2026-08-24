@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T12:32:47.150052+00:00",
+  "generatedAt": "2026-08-24T12:39:43.692208+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -28,19 +28,10 @@
     "25365838",
     "27084256"
   ],
-  "removedListings": [
-    "26831137"
-  ],
-  "prunedPages": [
-    "/home/runner/work/CDF/CDF/ca/qc/milan/centre/505-chemin-de-la-yard/index.html",
-    "/home/runner/work/CDF/CDF/prop-505-chemin-de-la-yard-milan-26831137.html",
-    "proprietes.html:/ca/qc/milan/centre/505-chemin-de-la-yard/"
-  ],
+  "removedListings": [],
+  "prunedPages": [],
   "maxListings": 30,
-  "removedStale": [
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/26831137",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/26831137.jpg"
-  ],
+  "removedStale": [],
   "listings": [
     {
       "id": "16190804",
