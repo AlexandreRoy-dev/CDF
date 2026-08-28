@@ -1,5 +1,5 @@
 {
-  "uls": "12505188",
+  "uls": "11865981",
   "photos": [
     "01.jpg",
     "02.jpg",
@@ -31,10 +31,15 @@
     "28.jpg",
     "29.jpg",
     "30.jpg",
-    "31.jpg"
+    "31.jpg",
+    "32.jpg",
+    "33.jpg",
+    "34.jpg",
+    "35.jpg",
+    "36.jpg"
   ],
   "ogShare": "og-share.jpg",
-  "count": 31,
-  "publicPath": "/ca/qc/windsor/centre/16-rue-dufresne/",
-  "ogImageUrl": "https://chiassondefrancesco.ca/src/assets/images/proprietes/12505188/og-share.jpg"
+  "count": 36,
+  "publicPath": "/ca/qc/sherbrooke/fleurimont/1537-rue-des-roses/",
+  "ogImageUrl": "https://chiassondefrancesco.ca/src/assets/images/proprietes/11865981/og-share.jpg"
 }
