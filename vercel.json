@@ -12,38 +12,38 @@
   ],
   "redirects": [
     {
+      "source": "/prop-1537-rue-des-roses-sherbrooke-11865981.html",
+      "destination": "/ca/qc/sherbrooke/fleurimont/1537-rue-des-roses/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-16-rue-dufresne-windsor-12505188.html",
+      "destination": "/ca/qc/windsor/centre/16-rue-dufresne/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-800z-rue-tessier-sherbrooke-16190804.html",
+      "destination": "/ca/qc/sherbrooke/mont-bellevue/800z-rue-tessier/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-1505-1507-rue-st-andre-sherbrooke-19680229.html",
+      "destination": "/ca/qc/sherbrooke/mont-bellevue/1505-1507-rue-st-andre/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-251z-9e-rang-saint-isidore-de-clifton-19753390.html",
+      "destination": "/ca/qc/saint-isidore-de-clifton/centre/251z-9e-rang/",
+      "permanent": true
+    },
+    {
       "source": "/prop-31-rue-king-o-app-304-sherbrooke-25365838.html",
       "destination": "/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-304/",
       "permanent": true
     },
     {
-      "source": "/prop-505-chemin-de-la-yard-milan-26831137.html",
-      "destination": "/ca/qc/milan/centre/505-chemin-de-la-yard/",
-      "permanent": true
-    },
-    {
       "source": "/prop-251-9e-rang-saint-isidore-de-clifton-23954624.html",
       "destination": "/ca/qc/saint-isidore-de-clifton/centre/251-9e-rang/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-182-rue-wellington-n-10043722.html",
-      "destination": "/ca/qc/sherbrooke/mont-bellevue/182-rue-wellington-n/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-760-av-honore-mercier-local-115-13807137.html",
-      "destination": "/ca/qc/quebec/la-cite-limoilou/760-av-honore-mercier-local-115/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-800-rue-tessier-20828105.html",
-      "destination": "/ca/qc/sherbrooke/mont-bellevue/800-rue-tessier/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-1111-rue-st-urbain-local-104-17958008.html",
-      "destination": "/ca/qc/montreal/ville-marie/1111-rue-st-urbain-local-104/",
       "permanent": true
     },
     {
@@ -54,6 +54,26 @@
     {
       "source": "/prop-route-108-cookshire-eaton-cookshire-11185705.html",
       "destination": "/ca/qc/cookshire-eaton/cookshire/route-108/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-800-rue-tessier-20828105.html",
+      "destination": "/ca/qc/sherbrooke/mont-bellevue/800-rue-tessier/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-760-av-honore-mercier-local-115-13807137.html",
+      "destination": "/ca/qc/quebec/la-cite-limoilou/760-av-honore-mercier-local-115/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-1111-rue-st-urbain-local-104-17958008.html",
+      "destination": "/ca/qc/montreal/ville-marie/1111-rue-st-urbain-local-104/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-182-rue-wellington-n-10043722.html",
+      "destination": "/ca/qc/sherbrooke/mont-bellevue/182-rue-wellington-n/",
       "permanent": true
     },
     {
@@ -98,6 +118,21 @@
     },
     {
       "source": "/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-305/",
+      "destination": "/proprietes.html",
+      "permanent": true
+    },
+    {
+      "source": "/ca/qc/milan/centre/505-chemin-de-la-yard",
+      "destination": "/proprietes.html",
+      "permanent": true
+    },
+    {
+      "source": "/ca/qc/milan/centre/505-chemin-de-la-yard/",
+      "destination": "/proprietes.html",
+      "permanent": true
+    },
+    {
+      "source": "/prop-505-chemin-de-la-yard-milan-26831137.html",
       "destination": "/proprietes.html",
       "permanent": true
     }

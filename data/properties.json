@@ -2,13 +2,73 @@
   "baseUrl": "https://chiassondefrancesco.ca",
   "listings": [
     {
+      "uls": "11865981",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "fleurimont",
+      "street": "1537-rue-des-roses",
+      "title": "1537 Rue des Roses — Sherbrooke",
+      "shareTitle": "Maison de plain-pied à vendre — 1537 Rue des Roses, Sherbrooke",
+      "legacyFile": "prop-1537-rue-des-roses-sherbrooke-11865981.html",
+      "fallbackImage": "11865981.jpg"
+    },
+    {
+      "uls": "12505188",
+      "country": "ca",
+      "province": "qc",
+      "city": "windsor",
+      "sector": "centre",
+      "street": "16-rue-dufresne",
+      "title": "16 Rue Dufresne — Windsor",
+      "shareTitle": "Maison de plain-pied à vendre — 16 Rue Dufresne, Windsor",
+      "legacyFile": "prop-16-rue-dufresne-windsor-12505188.html",
+      "fallbackImage": "12505188.jpg"
+    },
+    {
+      "uls": "16190804",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "mont-bellevue",
+      "street": "800z-rue-tessier",
+      "title": "800Z Rue Tessier — Sherbrooke",
+      "shareTitle": "Terrain résidentiel à vendre — 800Z Rue Tessier, Sherbrooke",
+      "legacyFile": "prop-800z-rue-tessier-sherbrooke-16190804.html",
+      "fallbackImage": "16190804.jpg"
+    },
+    {
+      "uls": "19680229",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "mont-bellevue",
+      "street": "1505-1507-rue-st-andre",
+      "title": "1505 - 1507 Rue St-André — Sherbrooke",
+      "shareTitle": "2-Plex à vendre — 1505 - 1507 Rue St-André, Sherbrooke",
+      "legacyFile": "prop-1505-1507-rue-st-andre-sherbrooke-19680229.html",
+      "fallbackImage": "19680229.jpg"
+    },
+    {
+      "uls": "19753390",
+      "country": "ca",
+      "province": "qc",
+      "city": "saint-isidore-de-clifton",
+      "sector": "centre",
+      "street": "251z-9e-rang",
+      "title": "251Z 9e Rang — Saint-Isidore-de-Clifton",
+      "shareTitle": "Fermette à vendre — 251Z 9e Rang, Saint-Isidore-de-Clifton",
+      "legacyFile": "prop-251z-9e-rang-saint-isidore-de-clifton-19753390.html",
+      "fallbackImage": "19753390.jpg"
+    },
+    {
       "uls": "25365838",
       "country": "ca",
       "province": "qc",
       "city": "sherbrooke",
       "sector": "les-nations",
       "street": "31-rue-king-o-app-304",
-      "title": "31, Rue King O., app. 304 — Sherbrooke",
+      "title": "31 Rue King O., app. 304 — Sherbrooke",
       "shareTitle": "Condo à louer — 31, Rue King O., app. 304, Sherbrooke",
       "legacyFile": "prop-31-rue-king-o-app-304-sherbrooke-25365838.html",
       "fallbackImage": "25365838.jpg"
@@ -20,58 +80,10 @@
       "city": "saint-isidore-de-clifton",
       "sector": "centre",
       "street": "251-9e-rang",
-      "title": "251, 9e Rang — Saint-Isidore-de-Clifton",
+      "title": "251 9e Rang — Saint-Isidore-de-Clifton",
       "shareTitle": "Fermette à vendre — 251, 9e Rang, Saint-Isidore-de-Clifton",
       "legacyFile": "prop-251-9e-rang-saint-isidore-de-clifton-23954624.html",
       "fallbackImage": "2519erang.jpg"
-    },
-    {
-      "uls": "10043722",
-      "country": "ca",
-      "province": "qc",
-      "city": "sherbrooke",
-      "sector": "mont-bellevue",
-      "street": "182-rue-wellington-n",
-      "title": "182, Rue Wellington N. — Sherbrooke",
-      "shareTitle": "Fonds de commerce à vendre — 182, Rue Wellington N., Sherbrooke",
-      "legacyFile": "prop-182-rue-wellington-n-10043722.html",
-      "fallbackImage": "182wells.jpg"
-    },
-    {
-      "uls": "13807137",
-      "country": "ca",
-      "province": "qc",
-      "city": "quebec",
-      "sector": "la-cite-limoilou",
-      "street": "760-av-honore-mercier-local-115",
-      "title": "760, Av. Honoré-Mercier, local 115 — Québec",
-      "shareTitle": "Co-propriété à vendre — 760, Av. Honoré-Mercier, local 115, Québec",
-      "legacyFile": "prop-760-av-honore-mercier-local-115-13807137.html",
-      "fallbackImage": "760honore.jpg"
-    },
-    {
-      "uls": "20828105",
-      "country": "ca",
-      "province": "qc",
-      "city": "sherbrooke",
-      "sector": "mont-bellevue",
-      "street": "800-rue-tessier",
-      "title": "800, Rue Tessier — Sherbrooke",
-      "shareTitle": "Bâtisse commerciale à vendre — 800, Rue Tessier, Sherbrooke",
-      "legacyFile": "prop-800-rue-tessier-20828105.html",
-      "fallbackImage": "800tessier.jpg"
-    },
-    {
-      "uls": "17958008",
-      "country": "ca",
-      "province": "qc",
-      "city": "montreal",
-      "sector": "ville-marie",
-      "street": "1111-rue-st-urbain-local-104",
-      "title": "1111, Rue Saint-Urbain, local 104 — Montréal",
-      "shareTitle": "Co-propriété commerciale à vendre — 1111, Rue Saint-Urbain, Montréal",
-      "legacyFile": "prop-1111-rue-st-urbain-local-104-17958008.html",
-      "fallbackImage": "ruesturbain.jpg"
     },
     {
       "uls": "27084256",
@@ -96,6 +108,54 @@
       "shareTitle": "Terrain à vendre — Route 108, Cookshire-Eaton",
       "legacyFile": "prop-route-108-cookshire-eaton-cookshire-11185705.html",
       "fallbackImage": "route108.jpg"
+    },
+    {
+      "uls": "20828105",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "mont-bellevue",
+      "street": "800-rue-tessier",
+      "title": "800 Rue Tessier — Sherbrooke",
+      "shareTitle": "Bâtisse commerciale à vendre — 800, Rue Tessier, Sherbrooke",
+      "legacyFile": "prop-800-rue-tessier-20828105.html",
+      "fallbackImage": "800tessier.jpg"
+    },
+    {
+      "uls": "13807137",
+      "country": "ca",
+      "province": "qc",
+      "city": "quebec",
+      "sector": "la-cite-limoilou",
+      "street": "760-av-honore-mercier-local-115",
+      "title": "760 Av. Honoré-Mercier, app. 115 — Québec",
+      "shareTitle": "Co-propriété à vendre — 760, Av. Honoré-Mercier, local 115, Québec",
+      "legacyFile": "prop-760-av-honore-mercier-local-115-13807137.html",
+      "fallbackImage": "760honore.jpg"
+    },
+    {
+      "uls": "17958008",
+      "country": "ca",
+      "province": "qc",
+      "city": "montreal",
+      "sector": "ville-marie",
+      "street": "1111-rue-st-urbain-local-104",
+      "title": "1111 Rue St-Urbain, app. 104 — Montréal",
+      "shareTitle": "Co-propriété commerciale à vendre — 1111, Rue Saint-Urbain, Montréal",
+      "legacyFile": "prop-1111-rue-st-urbain-local-104-17958008.html",
+      "fallbackImage": "ruesturbain.jpg"
+    },
+    {
+      "uls": "10043722",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "mont-bellevue",
+      "street": "182-rue-wellington-n",
+      "title": "182 Rue Wellington N. — Sherbrooke",
+      "shareTitle": "Fonds de commerce à vendre — 182, Rue Wellington N., Sherbrooke",
+      "legacyFile": "prop-182-rue-wellington-n-10043722.html",
+      "fallbackImage": "182wells.jpg"
     }
   ]
 }
