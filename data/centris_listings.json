@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-28T15:26:59.431454+00:00",
+  "generatedAt": "2026-08-28T21:41:30.606528+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
   "remax": {
     "brokerSlug": "p-o.chiasson",
-    "brokerName": "PIERRE-OLIVIER CHIASSON",
-    "brokerMemberNo": "124729",
+    "brokerName": "p-o.chiasson",
+    "brokerMemberNo": null,
     "brokerIdAgent": 24115,
-    "brokerSource": "api",
+    "brokerSource": "override",
     "agentUrl": "https://www.remax-quebec.com/fr/courtiers-immobiliers/p-o.chiasson",
     "viewAllUrl": "https://www.remax-quebec.com/fr/resultats?BrokerId=24115&Sold=0",
     "fallback": null,
