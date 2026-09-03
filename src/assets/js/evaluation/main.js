@@ -322,6 +322,23 @@ function numberField(question) {
   `;
 }
 
+function selectField(question) {
+  const value = state.answers[question.id];
+  const selected = value == null ? '' : String(value);
+  return `
+    <div class="max-w-sm mx-auto">
+      <label class="sr-only" for="${question.id}">${escapeHtml(question.title)}</label>
+      <select class="eval-input eval-select text-center text-xl tracking-wide" id="${question.id}" data-kind="select" data-id="${question.id}">
+        <option value="" ${selected === '' ? 'selected' : ''} disabled>${escapeHtml(question.placeholder || 'Sélectionnez')}</option>
+        ${(question.choices || []).map((choice) => `
+          <option value="${escapeHtml(String(choice.value))}" ${selected === String(choice.value) ? 'selected' : ''}>${escapeHtml(choice.label)}</option>
+        `).join('')}
+      </select>
+      <p class="text-center text-xs text-slate-400 mt-3">Nombre d’années de détention</p>
+    </div>
+  `;
+}
+
 function currencyField(question) {
   const value = state.answers[question.id];
   return `
@@ -375,6 +392,7 @@ function quiz() {
   if (question.kind === 'choice') field = choiceList(question);
   if (question.kind === 'boolean') field = booleanList(question);
   if (question.kind === 'number') field = numberField(question);
+  if (question.kind === 'select') field = selectField(question);
   if (question.kind === 'currency') field = currencyField(question);
   if (question.kind === 'region') field = regionField(question);
 
@@ -819,12 +837,29 @@ app.addEventListener('click', (event) => {
   }
 });
 
+function readSelectAnswer(el) {
+  if (!el.value) {
+    setAnswer(el.dataset.id, null);
+    return;
+  }
+  const asNumber = Number(el.value);
+  setAnswer(el.dataset.id, Number.isFinite(asNumber) ? asNumber : el.value);
+}
+
+app.addEventListener('change', (event) => {
+  const el = event.target;
+  if (el.dataset?.kind === 'select') readSelectAnswer(el);
+});
+
 app.addEventListener('input', (event) => {
   const el = event.target;
   if (el.dataset.kind === 'number') {
     const value = el.value.replace(/[^\d]/g, '');
     el.value = value;
     setAnswer(el.dataset.id, value === '' ? null : Number(value));
+  }
+  if (el.dataset.kind === 'select') {
+    readSelectAnswer(el);
   }
   if (el.dataset.kind === 'currency') {
     const amount = parseCurrency(el.value);
