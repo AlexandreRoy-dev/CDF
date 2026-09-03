@@ -62,8 +62,22 @@ function plusValueBand(years) {
   return 'forte';
 }
 
+/** Coerce yearsOwned; reject calendar-year typos (e.g. 2015) if they ever slip through. */
+function normalizeYearsOwned(raw) {
+  const years = Number(raw);
+  if (!Number.isFinite(years) || years < 0) return 0;
+  if (years > 80) return 0;
+  return Math.min(Math.round(years), 25);
+}
+
+function yearsOwnedLabel(years) {
+  if (years >= 25) return '25 ans ou plus';
+  if (years === 1) return '1 an';
+  return `${years} ans`;
+}
+
 export function analyzeAnswers(answers) {
-  const years = Number(answers.yearsOwned) || 0;
+  const years = normalizeYearsOwned(answers.yearsOwned);
   const value = Number(answers.estimatedValue) || 0;
   let score = 52;
   const factors = [];
@@ -78,13 +92,13 @@ export function analyzeAnswers(answers) {
     score += 6;
     factors.push({
       label: 'Plus-value',
-      text: `${years} ans de détention. Une plus-value est probable, à confirmer avec des comparables du secteur.`
+      text: `${yearsOwnedLabel(years)} de détention. Une plus-value est probable, à confirmer avec des comparables du secteur.`
     });
   } else {
     score += 20;
     factors.push({
       label: 'Plus-value',
-      text: `${years} ans de détention. La fenêtre de plus-value est généralement plus confortable.`
+      text: `${yearsOwnedLabel(years)} de détention. La fenêtre de plus-value est généralement plus confortable.`
     });
   }
 
@@ -177,8 +191,8 @@ export function analyzeAnswers(answers) {
   const valueLabel = value > 0 ? formatMoney(value) : 'non précisée';
 
   const summaries = {
-    favorable: `Avec ${years} an${years > 1 ? 's' : ''} de détention, une ${propertyLabel.toLowerCase()} à ${regionName} et un projet clair, les conditions sont réunies pour vendre dans de bonnes conditions. La plus-value potentielle est ${plusValueBand(years)}, et votre situation actuelle soutient une mise en marché soignée plutôt qu’une vente précipitée.`,
-    moyen: `Vous avez les bases pour vendre, sans que tout soit aligné à 100 %. ${years} an${years > 1 ? 's' : ''} de détention à ${regionName} et une valeur estimée à ${valueLabel} méritent une lecture précise du secteur avant de fixer un prix. Un courtier pourra vous dire si le marché actuel paie vraiment votre type de propriété.`,
+    favorable: `Avec ${yearsOwnedLabel(years)} de détention, une ${propertyLabel.toLowerCase()} à ${regionName} et un projet clair, les conditions sont réunies pour vendre dans de bonnes conditions. La plus-value potentielle est ${plusValueBand(years)}, et votre situation actuelle soutient une mise en marché soignée plutôt qu’une vente précipitée.`,
+    moyen: `Vous avez les bases pour vendre, sans que tout soit aligné à 100 %. ${yearsOwnedLabel(years)} de détention à ${regionName} et une valeur estimée à ${valueLabel} méritent une lecture précise du secteur avant de fixer un prix. Un courtier pourra vous dire si le marché actuel paie vraiment votre type de propriété.`,
     defavorable: `Le portrait actuel penche vers l’attente, ou vers une préparation plus poussée avant une mise en marché. ${years < 3 ? 'La courte durée de détention pèse sur le gain net. ' : ''}Ce n’est pas un non définitif : c’est un signal pour clarifier le projet, les finances et le prix avant de vous engager.`
   };
 
@@ -216,7 +230,7 @@ export function analyzeAnswers(answers) {
         { label: 'Score d’opportunité', value: `${score}/100` },
         { label: 'Secteur', value: regionName },
         { label: 'Type', value: propertyLabel },
-        { label: 'Détention', value: `${years} an${years > 1 ? 's' : ''}` },
+        { label: 'Détention', value: yearsOwnedLabel(years) },
         { label: 'Valeur estimée', value: valueLabel },
         { label: 'Motivation', value: MOTIVATION_LABELS[answers.sellingMotivation] || 'Non précisée' },
         { label: 'Finances', value: FINANCIAL_LABELS[answers.financialProfile] || 'Non précisée' }
@@ -230,7 +244,7 @@ export function formatAnswersForCrm(answers) {
   const lines = [
     `Type: ${PROPERTY_LABELS[answers.propertyType] || answers.propertyType || 'n/d'}`,
     `Motivation: ${MOTIVATION_LABELS[answers.sellingMotivation] || answers.sellingMotivation || 'n/d'}`,
-    `Années propriétaire: ${answers.yearsOwned ?? 'n/d'}`,
+    `Années propriétaire: ${answers.yearsOwned == null || answers.yearsOwned === '' ? 'n/d' : yearsOwnedLabel(normalizeYearsOwned(answers.yearsOwned))}`,
     `Valeur estimée: ${answers.estimatedValue ? formatMoney(answers.estimatedValue) : 'n/d'}`,
     `Enfants: ${answers.hasChildren === true ? 'oui' : answers.hasChildren === false ? 'non' : 'n/d'}`,
     answers.childrenStatus ? `Situation enfants: ${answers.childrenStatus}` : null,

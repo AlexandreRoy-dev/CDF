@@ -27,12 +27,21 @@ export const QUESTIONS = [
   },
   {
     id: 'yearsOwned',
-    kind: 'number',
+    kind: 'select',
     title: 'Depuis combien d’années ce bien est-il à vous ?',
-    subtitle: 'Un chiffre rond suffit.',
-    min: 0,
-    max: 60,
-    placeholder: '0'
+    subtitle: 'Choisissez le nombre d’années de détention — pas l’année d’achat.',
+    placeholder: 'Sélectionnez',
+    // Numeric values for scoring; 25 means "25 ans ou plus".
+    choices: [
+      ...Array.from({ length: 24 }, (_, i) => {
+        const years = i + 1;
+        return {
+          value: years,
+          label: years === 1 ? '1 an' : `${years} ans`
+        };
+      }),
+      { value: 25, label: '25 ans ou plus' }
+    ]
   },
   {
     id: 'estimatedValue',
@@ -112,7 +121,7 @@ export function visibleQuestions(answers) {
 export function questionIsAnswered(question, answers) {
   const value = answers[question.id];
   if (question.kind === 'boolean') return value === true || value === false;
-  if (question.kind === 'number') {
+  if (question.kind === 'number' || question.kind === 'select') {
     return typeof value === 'number' && Number.isFinite(value) && value >= 0;
   }
   if (question.kind === 'currency') {
