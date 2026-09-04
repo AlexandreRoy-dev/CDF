@@ -12,6 +12,11 @@
   ],
   "redirects": [
     {
+      "source": "/prop-2762-ch-de-georgeville-magog-22762710.html",
+      "destination": "/ca/qc/magog/centre/2762-ch-de-georgeville/",
+      "permanent": true
+    },
+    {
       "source": "/prop-1537-rue-des-roses-sherbrooke-11865981.html",
       "destination": "/ca/qc/sherbrooke/fleurimont/1537-rue-des-roses/",
       "permanent": true

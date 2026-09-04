@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 import requests
@@ -21,6 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BASE_URL = "https://chiassondefrancesco.ca"
 REMAX_API = "https://api.remax-quebec.com/api/"
 DEFAULT_REMAX_API_KEY = "c4dWcBkE#RL78Y@zg4Y06M$qrOJAeh7Fwv!Z9T4Q1f@zZ"
+DEFAULT_BROKER_IDAGENT = 24115
 
 SOLD_REDIRECT = """<!DOCTYPE html>
 <html lang="fr-CA">
@@ -72,6 +74,34 @@ def api_key() -> str:
     import os
 
     return os.environ.get("REMAX_API_KEY") or DEFAULT_REMAX_API_KEY
+
+
+def slugify(value: str) -> str:
+    text = unicodedata.normalize("NFKD", value or "")
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    text = text.lower().replace("&", " et ")
+    text = re.sub(r"[^a-z0-9]+", "-", text)
+    return text.strip("-") or "centre"
+
+
+def city_and_sector_from_address(addr: dict) -> tuple[str, str]:
+    muni = (addr.get("municipalite") or "").strip()
+    city_raw = muni.split("(")[0].strip() or "quebec"
+    sector = "centre"
+    paren = re.findall(r"\(([^)]+)\)", muni)
+    if paren:
+        sector = slugify(paren[-1])
+    return slugify(city_raw), sector
+
+
+def street_slug_from_address(addr: dict) -> str:
+    civ = (addr.get("noCiviqueDebut") or "").strip()
+    rue = (addr.get("nomRueComplet") or "").strip()
+    apt = (addr.get("appartement") or "").strip()
+    base = f"{civ} {rue}".strip()
+    if apt:
+        base = f"{base} app {apt}"
+    return slugify(base) or "propriete"
 
 
 def public_path(listing: dict) -> str:
@@ -281,6 +311,87 @@ def fetch_detail(session: requests.Session, uls: str) -> dict:
     resp = session.get(url, timeout=60)
     resp.raise_for_status()
     return resp.json()
+
+
+def registry_entry_from_detail(uls: str, detail: dict) -> dict:
+    addr = detail.get("address") or {}
+    city, sector = city_and_sector_from_address(addr if isinstance(addr, dict) else {})
+    street = street_slug_from_address(addr if isinstance(addr, dict) else {})
+    kind = fr_text(detail.get("property_kind"), "Propriété")
+    verb = "à louer" if detail.get("is_rental") else "à vendre"
+    short = street_short(detail, {"title": "", "uls": uls})
+    city_label = (
+        (addr.get("municipalite") or city).split("(")[0].strip()
+        if isinstance(addr, dict)
+        else city
+    )
+    title = f"{short} — {city_label}" if short else f"ULS {uls}"
+    share = f"{kind} {verb} — {short}, {city_label}".strip(", ")
+    legacy = f"prop-{street}-{city}-{uls}.html"
+    return {
+        "uls": str(uls),
+        "country": "ca",
+        "province": "qc",
+        "city": city,
+        "sector": sector,
+        "street": street,
+        "title": title,
+        "shareTitle": share,
+        "legacyFile": legacy,
+        "fallbackImage": f"{uls}.jpg",
+    }
+
+
+def fetch_live_uls(session: requests.Session, broker_idagent: int = DEFAULT_BROKER_IDAGENT) -> list[str]:
+    uls_list: list[str] = []
+    page = 1
+    while True:
+        resp = session.get(
+            f"{REMAX_API}inscriptions/search",
+            params={"BrokerId": broker_idagent, "Sold": 0, "PageSize": 100, "Page": page},
+            timeout=60,
+        )
+        resp.raise_for_status()
+        payload = resp.json()
+        batch = payload.get("data") or []
+        for item in batch:
+            uls = str(item.get("no_inscription") or "")
+            if uls:
+                uls_list.append(uls)
+        meta = payload.get("meta") or {}
+        last_page = meta.get("last_page") or page
+        if page >= last_page or not batch:
+            break
+        page += 1
+    return uls_list
+
+
+def sync_registry_to_live(session: requests.Session, registry: dict) -> list[str]:
+    """Add missing live ULS to the registry; drop sold ones. Returns newly added ULS."""
+    live_uls = fetch_live_uls(session)
+    live_set = set(live_uls)
+    existing = {str(item["uls"]): item for item in registry.get("listings", [])}
+    added: list[str] = []
+
+    kept = [existing[u] for u in live_uls if u in existing]
+    for uls in live_uls:
+        if uls in existing:
+            continue
+        print(f"adding new listing ULS {uls} to registry…")
+        detail = fetch_detail(session, uls)
+        entry = registry_entry_from_detail(uls, detail)
+        kept.append(entry)
+        added.append(uls)
+
+    removed = sorted(set(existing) - live_set)
+    for uls in removed:
+        print(f"removing sold/inactive ULS {uls} from registry…")
+
+    registry["listings"] = kept
+    path = ROOT / "data" / "properties.json"
+    path.write_text(json.dumps(registry, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"registry now has {len(kept)} listings ({len(added)} added, {len(removed)} removed)")
+    return added
 
 
 def render_detail_page(listing: dict, detail: dict) -> str:
@@ -698,15 +809,19 @@ def ensure_legacy_redirect(listing: dict) -> None:
 
 def main() -> int:
     registry = json.loads((ROOT / "data" / "properties.json").read_text(encoding="utf-8"))
-    listings = registry["listings"]
     session = requests.Session()
     session.headers.update(
         {
             "User-Agent": "Mozilla/5.0 (compatible; CDF-refresh/1.0)",
             "Accept": "application/json",
             "X-Header-Api": api_key(),
+            "Origin": "https://www.remax-quebec.com",
+            "Referer": "https://www.remax-quebec.com/fr/resultats?BrokerId=24115&Sold=0",
         }
     )
+
+    added = sync_registry_to_live(session, registry)
+    listings = registry["listings"]
 
     details: dict[str, dict] = {}
     for listing in listings:
@@ -714,43 +829,34 @@ def main() -> int:
         print(f"fetch {uls}…")
         details[uls] = fetch_detail(session, uls)
 
-    # Generate missing SEO pages
+    # Generate missing SEO pages; always rewrite pages for newly added ULS.
     for listing in listings:
-        dest = ROOT / listing["country"] / listing["province"] / listing["city"] / listing["sector"] / listing["street"] / "index.html"
+        dest = (
+            ROOT
+            / listing["country"]
+            / listing["province"]
+            / listing["city"]
+            / listing["sector"]
+            / listing["street"]
+            / "index.html"
+        )
         detail = details[listing["uls"]]
-        if not dest.exists():
+        if not dest.exists() or listing["uls"] in added:
             dest.parent.mkdir(parents=True, exist_ok=True)
             dest.write_text(render_detail_page(listing, detail), encoding="utf-8")
             print(f"wrote {dest.relative_to(ROOT)}")
-        else:
-            # Only regenerate for brand-new ULS that we just created? Skip existing polished pages.
-            pass
         ensure_legacy_redirect(listing)
-        print(f"legacy redirect {listing.get('legacyFile')}")
-
-    # Force-write new listings even if somehow empty files exist
-    new_uls = {"11865981", "12505188", "16190804", "19680229", "19753390"}
-    for listing in listings:
-        if listing["uls"] not in new_uls:
-            continue
-        dest = ROOT / listing["country"] / listing["province"] / listing["city"] / listing["sector"] / listing["street"] / "index.html"
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(render_detail_page(listing, details[listing["uls"]]), encoding="utf-8")
-        print(f"refreshed new page {dest.relative_to(ROOT)}")
 
     cards = "\n".join(card_html(l, details[l["uls"]]) for l in listings)
     rebuild_proprietes(cards)
     update_king304_price()
 
-    # Sitemap + vercel redirects
     sys.path.insert(0, str(ROOT / "scripts"))
     from apply_seo_geo import write_sitemap, write_vercel_redirects
 
-    # extend sold redirects for milan yard
     write_sitemap(listings)
     write_vercel_redirects(listings)
 
-    # Ensure milan sold path is in vercel sold list
     vercel_path = ROOT / "vercel.json"
     if vercel_path.exists():
         data = json.loads(vercel_path.read_text(encoding="utf-8"))
@@ -770,20 +876,7 @@ def main() -> int:
         vercel_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
         print("extended vercel sold redirects")
 
-    meta_out = {
-        uls: {
-            "kind": fr_text(d.get("property_kind")),
-            "price": fr_text(d.get("display_price")),
-            "is_rental": d.get("is_rental"),
-            "beds": d.get("nb_of_bedrooms"),
-            "baths": d.get("nb_of_bathrooms"),
-        }
-        for uls, d in details.items()
-    }
-    (ROOT / "data" / "remax_live_meta.json").write_text(
-        json.dumps(meta_out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
-    print(f"done — {len(listings)} listings")
+    print(f"done — {len(listings)} listings ({len(added)} new)")
     return 0
 
 
