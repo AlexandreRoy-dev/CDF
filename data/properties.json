@@ -2,6 +2,18 @@
   "baseUrl": "https://chiassondefrancesco.ca",
   "listings": [
     {
+      "uls": "22762710",
+      "country": "ca",
+      "province": "qc",
+      "city": "magog",
+      "sector": "centre",
+      "street": "2762-ch-de-georgeville",
+      "title": "2762 Ch. de Georgeville — Magog",
+      "shareTitle": "Maison de plain-pied à vendre — 2762 Ch. de Georgeville, Magog",
+      "legacyFile": "prop-2762-ch-de-georgeville-magog-22762710.html",
+      "fallbackImage": "22762710.jpg"
+    },
+    {
       "uls": "11865981",
       "country": "ca",
       "province": "qc",

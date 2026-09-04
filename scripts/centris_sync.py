@@ -5,8 +5,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
+import subprocess
 import sys
 import time
 import urllib.parse
@@ -16,6 +18,8 @@ from pathlib import Path
 
 import requests
 from PIL import Image
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE_URL = "https://chiassondefrancesco.ca"
@@ -220,15 +224,115 @@ def save_og_share_image(image_bytes: bytes, destination: Path) -> None:
         cropped.save(destination, format="JPEG", quality=88, optimize=True)
 
 
-def remax_api_headers(api_key: str) -> dict[str, str]:
+def remax_api_headers(api_key: str, *, referer: str | None = None) -> dict[str, str]:
     return {
         "User-Agent": USER_AGENT,
-        "Accept": "application/json",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "fr-CA,fr;q=0.9,en;q=0.8",
         "Content-Language": "fr",
         "Origin": REMAX_BASE_URL,
-        "Referer": f"{REMAX_BASE_URL}/fr/courtiers-immobiliers/{DEFAULT_REMAX_BROKER_SLUG}",
+        "Referer": referer
+        or f"{REMAX_BASE_URL}/fr/courtiers-immobiliers/{DEFAULT_REMAX_BROKER_SLUG}",
         "X-Header-Api": api_key,
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site",
+        "Connection": "keep-alive",
     }
+
+
+def configure_session_retries(session: requests.Session, *, total: int = 5) -> None:
+    retry = Retry(
+        total=total,
+        connect=total,
+        read=total,
+        backoff_factor=1.5,
+        status_forcelist=(429, 500, 502, 503, 504),
+        allowed_methods=frozenset({"GET", "HEAD"}),
+        raise_on_status=False,
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+
+
+def warmup_remax_session(session: requests.Session, broker_idagent: int) -> None:
+    """Hit the public site first so CDN/WAF cookies exist before the API call."""
+    html_headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "fr-CA,fr;q=0.9,en;q=0.8",
+    }
+    for url in (
+        f"{REMAX_BASE_URL}/fr/",
+        f"{REMAX_BASE_URL}/fr/courtiers-immobiliers/{DEFAULT_REMAX_BROKER_SLUG}",
+        remax_view_all_url(broker_idagent),
+    ):
+        try:
+            session.get(url, headers=html_headers, timeout=45)
+        except requests.RequestException as exc:
+            print(f"WARN: RE/MAX warmup missed {url}: {exc}", file=sys.stderr)
+
+
+def curl_json(url: str, *, headers: dict[str, str], params: dict | None = None) -> dict:
+    """Fallback JSON GET via curl — sometimes works on GitHub runners when requests is reset."""
+    full_url = url
+    if params:
+        full_url = f"{url}?{urllib.parse.urlencode(params)}"
+    cmd = ["curl", "-sS", "--fail", "--compressed", "--max-time", "60", "--http1.1"]
+    for key, value in headers.items():
+        cmd.extend(["-H", f"{key}: {value}"])
+    cmd.append(full_url)
+    try:
+        completed = subprocess.run(
+            cmd,
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=75,
+        )
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, FileNotFoundError) as exc:
+        raise requests.RequestException(f"curl fallback failed: {exc}") from exc
+    try:
+        return json.loads(completed.stdout)
+    except json.JSONDecodeError as exc:
+        raise requests.RequestException(f"curl fallback returned non-JSON: {exc}") from exc
+
+
+def request_json_with_retries(
+    session: requests.Session,
+    url: str,
+    *,
+    params: dict | None = None,
+    headers: dict[str, str] | None = None,
+    attempts: int = 5,
+) -> dict:
+    last_exc: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        try:
+            resp = session.get(url, params=params, headers=headers, timeout=60)
+            resp.raise_for_status()
+            return resp.json()
+        except (requests.RequestException, ValueError) as exc:
+            last_exc = exc
+            wait = min(2 ** attempt, 20)
+            print(
+                f"WARN: RE/MAX request failed (attempt {attempt}/{attempts}): {exc}; "
+                f"retrying in {wait}s…",
+                file=sys.stderr,
+            )
+            time.sleep(wait)
+    # Final attempt via curl (different TLS stack / often allowed by WAF).
+    try:
+        merged = dict(session.headers)
+        if headers:
+            merged.update(headers)
+        print("WARN: trying curl fallback for RE/MAX JSON…", file=sys.stderr)
+        return curl_json(url, headers={k: str(v) for k, v in merged.items()}, params=params)
+    except requests.RequestException as curl_exc:
+        raise requests.RequestException(
+            f"{last_exc}; curl fallback also failed: {curl_exc}"
+        ) from curl_exc
 
 
 def remax_view_all_url(broker_idagent: int | str, include_sold: bool = False) -> str:
@@ -312,8 +416,14 @@ def discover_remax_listings(
     *,
     include_sold: bool = False,
     page_size: int = 100,
+    api_key: str | None = None,
 ) -> list[dict]:
     """Discover active listings from RE/MAX (agent page -> view all properties)."""
+    key = api_key or DEFAULT_REMAX_API_KEY
+    warmup_remax_session(session, broker_idagent)
+    referer = remax_view_all_url(broker_idagent, include_sold=include_sold)
+    headers = remax_api_headers(key, referer=referer)
+
     listings: list[dict] = []
     page = 1
     params_base = {
@@ -324,13 +434,12 @@ def discover_remax_listings(
 
     while True:
         params = {**params_base, "Page": page}
-        resp = session.get(
+        payload = request_json_with_retries(
+            session,
             f"{REMAX_API_URL}inscriptions/search",
             params=params,
-            timeout=60,
+            headers=headers,
         )
-        resp.raise_for_status()
-        payload = resp.json()
         batch = payload.get("data") or []
         listings.extend(batch)
 
@@ -709,6 +818,7 @@ def collect_listing_jobs(
                 session,
                 include_sold=args.remax_include_sold,
                 page_size=max(args.max_listings, 100),
+                api_key=getattr(args, "remax_api_key", None) or DEFAULT_REMAX_API_KEY,
             )
         except requests.RequestException as exc:
             print(
@@ -831,8 +941,6 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    import os
-
     if args.sync_registry and args.sync_remax:
         parser.error("Use only one of --sync-registry or --sync-remax")
 
@@ -864,16 +972,19 @@ def main() -> int:
     registry_by_uls = {str(item["uls"]): item for item in registry.get("listings", [])}
 
     session = requests.Session()
+    configure_session_retries(session)
     session.headers.update(
         {
             "User-Agent": USER_AGENT,
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+            "Accept-Language": "fr-CA,fr;q=0.9,en;q=0.8",
         }
     )
 
     remax_meta: dict = {}
     # Critical: empty GitHub secret must not override the embedded default key.
     remax_api_key = os.environ.get("REMAX_API_KEY") or DEFAULT_REMAX_API_KEY
+    args.remax_api_key = remax_api_key
     if args.sync_remax:
         session.headers.update(remax_api_headers(remax_api_key))
 
@@ -1000,6 +1111,30 @@ def main() -> int:
     )
 
     print(f"Wrote {output_json}")
+
+    # Inventory pages must track live RE/MAX ULS — not only photo folders.
+    if used_remax_discovery:
+        refresh_script = ROOT / "scripts" / "refresh_po_listings.py"
+        if refresh_script.exists():
+            print("Refreshing property pages/registry from live RE/MAX inventory…")
+            try:
+                subprocess.run(
+                    [sys.executable, str(refresh_script)],
+                    check=True,
+                    cwd=str(ROOT),
+                )
+            except subprocess.CalledProcessError as exc:
+                print(f"ERROR: inventory refresh failed ({exc})", file=sys.stderr)
+                return 1
+
+    if args.sync_remax and remax_meta.get("fallback"):
+        print(
+            "ERROR: RE/MAX discovery failed; galleries may be stale and new/sold "
+            "listings were not applied. See remax.error in centris_listings.json.",
+            file=sys.stderr,
+        )
+        return 1
+
     return 0
 
 
