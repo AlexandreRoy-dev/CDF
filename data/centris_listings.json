@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T15:47:22.163196+00:00",
+  "generatedAt": "2026-09-12T14:54:40.480594+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -12,13 +12,12 @@
     "agentUrl": "https://www.remax-quebec.com/fr/courtiers-immobiliers/p-o.chiasson",
     "viewAllUrl": "https://www.remax-quebec.com/fr/resultats?BrokerId=24115&Sold=0",
     "fallback": null,
-    "discoveredCount": 14,
+    "discoveredCount": 13,
     "syncLimited": false
   },
   "discoveredUls": [
     "10043722",
     "11185705",
-    "11865981",
     "12505188",
     "13807137",
     "16190804",
@@ -31,10 +30,19 @@
     "25365838",
     "27084256"
   ],
-  "removedListings": [],
-  "prunedPages": [],
+  "removedListings": [
+    "11865981"
+  ],
+  "prunedPages": [
+    "/home/runner/work/CDF/CDF/ca/qc/sherbrooke/fleurimont/1537-rue-des-roses/index.html",
+    "/home/runner/work/CDF/CDF/prop-1537-rue-des-roses-sherbrooke-11865981.html",
+    "proprietes.html:/ca/qc/sherbrooke/fleurimont/1537-rue-des-roses/"
+  ],
   "maxListings": 30,
-  "removedStale": [],
+  "removedStale": [
+    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/11865981",
+    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/11865981.jpg"
+  ],
   "listings": [
     {
       "id": "22762710",
@@ -90,54 +98,6 @@
       "photoCount": 43,
       "ogShareImage": "src/assets/images/proprietes/22762710/og-share.jpg",
       "publicPath": "/ca/qc/magog/centre/2762-ch-de-georgeville/"
-    },
-    {
-      "id": "11865981",
-      "propertyUrl": "https://www.centris.ca/fr/propriete~a-vendre/11865981",
-      "ogTitle": "Maison en copropri&#xE9;t&#xE9; &#xE0; vendre &#xE0; Sherbrooke (Fleurimont)",
-      "ogImage": "https://mspublic.centris.ca/media.ashx?id=ADDD250DA46898FDDDDDDDDDDC&t=pi&w=1260&h=1024&sm=c",
-      "price": null,
-      "photos": [
-        "01.jpg",
-        "02.jpg",
-        "03.jpg",
-        "04.jpg",
-        "05.jpg",
-        "06.jpg",
-        "07.jpg",
-        "08.jpg",
-        "09.jpg",
-        "10.jpg",
-        "11.jpg",
-        "12.jpg",
-        "13.jpg",
-        "14.jpg",
-        "15.jpg",
-        "16.jpg",
-        "17.jpg",
-        "18.jpg",
-        "19.jpg",
-        "20.jpg",
-        "21.jpg",
-        "22.jpg",
-        "23.jpg",
-        "24.jpg",
-        "25.jpg",
-        "26.jpg",
-        "27.jpg",
-        "28.jpg",
-        "29.jpg",
-        "30.jpg",
-        "31.jpg",
-        "32.jpg",
-        "33.jpg",
-        "34.jpg",
-        "35.jpg",
-        "36.jpg"
-      ],
-      "photoCount": 36,
-      "ogShareImage": "src/assets/images/proprietes/11865981/og-share.jpg",
-      "publicPath": "/ca/qc/sherbrooke/fleurimont/1537-rue-des-roses/"
     },
     {
       "id": "12505188",
