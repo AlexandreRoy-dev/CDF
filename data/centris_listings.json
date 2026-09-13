@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T14:54:40.480594+00:00",
+  "generatedAt": "2026-09-13T15:31:26.700231+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -12,7 +12,7 @@
     "agentUrl": "https://www.remax-quebec.com/fr/courtiers-immobiliers/p-o.chiasson",
     "viewAllUrl": "https://www.remax-quebec.com/fr/resultats?BrokerId=24115&Sold=0",
     "fallback": null,
-    "discoveredCount": 13,
+    "discoveredCount": 12,
     "syncLimited": false
   },
   "discoveredUls": [
@@ -27,21 +27,20 @@
     "20828105",
     "22762710",
     "23954624",
-    "25365838",
     "27084256"
   ],
   "removedListings": [
-    "11865981"
+    "25365838"
   ],
   "prunedPages": [
-    "/home/runner/work/CDF/CDF/ca/qc/sherbrooke/fleurimont/1537-rue-des-roses/index.html",
-    "/home/runner/work/CDF/CDF/prop-1537-rue-des-roses-sherbrooke-11865981.html",
-    "proprietes.html:/ca/qc/sherbrooke/fleurimont/1537-rue-des-roses/"
+    "/home/runner/work/CDF/CDF/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-304/index.html",
+    "/home/runner/work/CDF/CDF/prop-31-rue-king-o-app-304-sherbrooke-25365838.html",
+    "proprietes.html:/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-304/"
   ],
   "maxListings": 30,
   "removedStale": [
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/11865981",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/11865981.jpg"
+    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/25365838",
+    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/25365838.jpg"
   ],
   "listings": [
     {
@@ -304,51 +303,6 @@
       "photoCount": 78,
       "ogShareImage": "src/assets/images/proprietes/19753390/og-share.jpg",
       "publicPath": "/ca/qc/saint-isidore-de-clifton/centre/251z-9e-rang/"
-    },
-    {
-      "id": "25365838",
-      "propertyUrl": "https://www.centris.ca/fr/propriete~a-louer/25365838",
-      "ogTitle": "Condo / Appartement &#xE0; louer &#xE0; Sherbrooke (Les Nations)",
-      "ogImage": "https://mspublic.centris.ca/media.ashx?id=ADDD250DA13DCF0DDDDDDDDDDD&t=pi&w=1260&h=1024&sm=c",
-      "price": null,
-      "photos": [
-        "01.jpg",
-        "02.jpg",
-        "03.jpg",
-        "04.jpg",
-        "05.jpg",
-        "06.jpg",
-        "07.jpg",
-        "08.jpg",
-        "09.jpg",
-        "10.jpg",
-        "11.jpg",
-        "12.jpg",
-        "13.jpg",
-        "14.jpg",
-        "15.jpg",
-        "16.jpg",
-        "17.jpg",
-        "18.jpg",
-        "19.jpg",
-        "20.jpg",
-        "21.jpg",
-        "22.jpg",
-        "23.jpg",
-        "24.jpg",
-        "25.jpg",
-        "26.jpg",
-        "27.jpg",
-        "28.jpg",
-        "29.jpg",
-        "30.jpg",
-        "31.jpg",
-        "32.jpg",
-        "33.jpg"
-      ],
-      "photoCount": 33,
-      "ogShareImage": "src/assets/images/proprietes/25365838/og-share.jpg",
-      "publicPath": "/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-304/"
     },
     {
       "id": "23954624",
