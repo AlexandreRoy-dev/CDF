@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T15:31:26.700231+00:00",
+  "generatedAt": "2026-09-14T17:33:49.260852+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -29,19 +29,10 @@
     "23954624",
     "27084256"
   ],
-  "removedListings": [
-    "25365838"
-  ],
-  "prunedPages": [
-    "/home/runner/work/CDF/CDF/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-304/index.html",
-    "/home/runner/work/CDF/CDF/prop-31-rue-king-o-app-304-sherbrooke-25365838.html",
-    "proprietes.html:/ca/qc/sherbrooke/les-nations/31-rue-king-o-app-304/"
-  ],
+  "removedListings": [],
+  "prunedPages": [],
   "maxListings": 30,
-  "removedStale": [
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/25365838",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/25365838.jpg"
-  ],
+  "removedStale": [],
   "listings": [
     {
       "id": "22762710",
