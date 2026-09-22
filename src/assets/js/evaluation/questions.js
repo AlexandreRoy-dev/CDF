@@ -110,7 +110,7 @@ export const QUESTIONS = [
     id: 'region',
     kind: 'region',
     title: 'Dans quelle municipalité se trouve le bien ?',
-    subtitle: 'Tapez le nom et sélectionnez-le dans la liste Estrie.'
+    subtitle: 'Tapez le nom et sélectionnez-le (Estrie jusqu’à Montréal).'
   }
 ];
 
