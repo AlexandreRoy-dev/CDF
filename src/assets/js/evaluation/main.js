@@ -380,7 +380,7 @@ function regionField(question) {
   return `
     <div>
       <label class="sr-only" for="region">Secteur</label>
-      <input class="eval-input" id="region" data-kind="region" value="${escapeHtml(state.regionQuery)}" placeholder="Écrivez votre secteur (ex. Sherbrooke, Magog.)" autocomplete="off">
+      <input class="eval-input" id="region" data-kind="region" value="${escapeHtml(state.regionQuery)}" placeholder="Écrivez votre secteur (ex. Sherbrooke, Granby, Montréal)" autocomplete="off">
       <div id="region-results">${regionSuggestions()}</div>
     </div>
   `;
