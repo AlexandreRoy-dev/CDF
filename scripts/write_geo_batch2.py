@@ -16,9 +16,9 @@ REGIONS = [
     {
         "slug": "lennoxville",
         "name": "Lennoxville",
-        "title": "Courtier immobilier à Lennoxville | CDF",
+        "title": "Courtier immobilier à Lennoxville (Sherbrooke), CDF",
         "description": "Acheter ou vendre à Lennoxville (Sherbrooke) : village universitaire, unifamiliales et multiplex. Équipe Chiasson de Francesco.",
-        "h1": "Acheter ou vendre une propriété à Lennoxville",
+        "h1": "Courtier immobilier à Lennoxville",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Lennoxville : le village universitaire de Sherbrooke, ses rues résidentielles, ses plex près du campus et un marché bilingue.",
         "intro": "Lennoxville n'est pas Fleurimont. C'est un ancien village fusionné à Sherbrooke, avec Bishop's, un centre marchable et beaucoup d'acheteurs qui veulent ce cadre : pas seulement un code postal J1M.",
         "sections": [
@@ -39,7 +39,7 @@ REGIONS = [
         "name": "Fleurimont",
         "title": "Courtier immobilier à Fleurimont | Sherbrooke | CDF",
         "description": "Maisons à Fleurimont, Sherbrooke : quartiers familiaux, bungalows et accès hôpital. Courtiers Chiasson de Francesco.",
-        "h1": "Acheter ou vendre une propriété à Fleurimont",
+        "h1": "Courtier immobilier à Fleurimont (Sherbrooke)",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Fleurimont : arrondissement familial de Sherbrooke, bungalows, rues calmes et proximité du CHUS.",
         "intro": "Fleurimont est souvent le premier réflexe des familles qui veulent une unifamiliale à Sherbrooke sans payer un village lacustre. Ce n'est pas Lennoxville, ni Les Nations condos.",
         "sections": [
@@ -58,10 +58,10 @@ REGIONS = [
     {
         "slug": "rock-forest",
         "name": "Rock Forest",
-        "title": "Courtier à Rock Forest–Saint-Élie–Deauville | CDF",
-        "description": "Acheter ou vendre à Rock Forest, Sherbrooke : maisons, terrains plus grands, accès Magog. Équipe Chiasson de Francesco.",
-        "h1": "Acheter ou vendre à Rock Forest",
-        "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Rock Forest (arrondissement Rock Forest–Saint-Élie–Deauville) : unifamiliales, plus de terrain qu'en centre-ville, axe vers Magog.",
+        "title": "Courtier immobilier Rock Forest, Saint-Élie, Deauville, CDF",
+        "description": "Courtier immobilier à Rock Forest, Saint-Élie et Deauville, Sherbrooke : maisons, terrains plus grands, accès Magog. Équipe Chiasson de Francesco.",
+        "h1": "Courtier immobilier à Rock Forest, Saint-Élie et Deauville",
+        "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Rock Forest (arrondissement Rock Forest-Saint-Élie-Deauville) : unifamiliales, plus de terrain qu'en centre-ville, axe vers Magog.",
         "intro": "Rock Forest est l'ouest de Sherbrooke : moins dense que Les Nations, plus de lots, et un pied vers Magog. Saint-Élie n'est pas la même poche que les rues près de la 112. Deauville, côté Magog, se discute à part.",
         "sections": [
             ("Plus de terrain, autre rythme", "Beaucoup d'acheteurs y voient un compromis ville/espace. Les rues n'ont pas toutes les mêmes services (égouts vs fosse selon le secteur). Un prix « Rock Forest » unique n'existe pas."),
@@ -79,9 +79,9 @@ REGIONS = [
     {
         "slug": "les-nations",
         "name": "Les Nations",
-        "title": "Courtier Les Nations Sherbrooke | condos et centre | CDF",
+        "title": "Courtier immobilier aux Nations (Sherbrooke), CDF",
         "description": "Condos, plex et centre-ville aux Nations, Sherbrooke. Acheter ou vendre avec l'équipe Chiasson de Francesco, RE/MAX.",
-        "h1": "Acheter ou vendre aux Nations (Sherbrooke)",
+        "h1": "Courtier immobilier aux Nations (Sherbrooke)",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente dans l'arrondissement Les Nations : condos du centre, plex, locaux sur Wellington et King, et un marché plus urbain que Fleurimont.",
         "intro": "Les Nations, c'est le cœur dense de Sherbrooke : rivière, universités à proximité, condos, plex et commercial de rue. Un penthouse n'est pas un 4½ des années 70. Les charges de copropriété décident autant que la vue.",
         "sections": [
@@ -102,7 +102,7 @@ REGIONS = [
         "name": "Brompton",
         "title": "Courtier immobilier à Brompton | Sherbrooke | CDF",
         "description": "Maisons à Brompton (Sherbrooke), vallée de la Saint-François. Acheter ou vendre avec Chiasson de Francesco.",
-        "h1": "Acheter ou vendre une propriété à Brompton",
+        "h1": "Courtier immobilier à Brompton",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Brompton : arrondissement nord de Sherbrooke, unifamiliales, caractère de petite ville et axe vers Windsor.",
         "intro": "Brompton (Bromptonville) a gardé une identité de ville de vallée, même fusionnée à Sherbrooke. Ce n'est pas Fleurimont, ni Windsor. Les comparables doivent rester Brompton.",
         "sections": [
@@ -123,7 +123,7 @@ REGIONS = [
         "name": "Mont-Bellevue",
         "title": "Courtier Mont-Bellevue Sherbrooke | CDF",
         "description": "Unifamiliales et rues résidentielles à Mont-Bellevue, Sherbrooke. Équipe Chiasson de Francesco, RE/MAX D'ABORD.",
-        "h1": "Acheter ou vendre à Mont-Bellevue",
+        "h1": "Courtier immobilier à Mont-Bellevue",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Mont-Bellevue : arrondissement de Sherbrooke, unifamiliales, parc du mont et un marché plus résidentiel que le centre-ville.",
         "intro": "Mont-Bellevue, c'est surtout de la maison : rues familiales, accès au parc du mont, moins de condos que Les Nations. Un bungalow ici ne se compare pas à un condo King.",
         "sections": [
@@ -144,7 +144,7 @@ REGIONS = [
         "name": "Ayer's Cliff",
         "title": "Courtier immobilier à Ayer's Cliff | lac Massawippi | CDF",
         "description": "Maisons et bord de lac à Ayer's Cliff, Estrie. L'équipe Chiasson de Francesco vous accompagne au Massawippi.",
-        "h1": "Acheter ou vendre une propriété à Ayer's Cliff",
+        "h1": "Courtier immobilier à Ayer's Cliff",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Ayer's Cliff : village du lac Massawippi, distinct de North Hatley, avec un marché bilingue et souvent plus de villégiature.",
         "intro": "Ayer's Cliff partage le lac avec North Hatley sans en avoir le même cachet village ni les mêmes prix. Une rive n'est pas l'autre. Calquer un prix Hatley ici (ou l'inverse) est une erreur fréquente.",
         "sections": [
@@ -165,7 +165,7 @@ REGIONS = [
         "name": "Austin",
         "title": "Courtier immobilier à Austin | près d'Orford | CDF",
         "description": "Maisons et chalets à Austin, Estrie, entre Magog et le mont Orford. Équipe Chiasson de Francesco.",
-        "h1": "Acheter ou vendre une propriété à Austin",
+        "h1": "Courtier immobilier à Austin",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Austin : municipalité entre Magog, Eastman et Orford, maisons, chalets et cadre plus champêtre que Magog centre.",
         "intro": "Austin vit dans l'orbite du Memphrémagog et d'Orford sans être une ville de services. Peu d'inscriptions, beaucoup de villégiature et de résidences avec terrain. Un prix Magog condo ne s'applique pas.",
         "sections": [
@@ -178,7 +178,7 @@ REGIONS = [
             ("Austin ou Eastman ?", "Deux municipalités proches, deux stocks. Eastman a un village plus « destination ». Austin est souvent plus dispersé. Visitez plutôt que de choisir sur le nom."),
             ("Peut-on habiter à l'année ?", "Oui si le bâtiment et l'accès le permettent. Beaucoup de chalets restent saisonniers. L'inspection tranche."),
             ("Proche du ski Orford ?", "Dans l'orbite, pas au pied des pistes. Un condo Orford et une maison Austin ne se comparent pas."),
-            ("Desservez-vous Austin ?", "Oui. Corridor Magog–Orford–Eastman–Austin."),
+            ("Desservez-vous Austin ?", "Oui. Corridor Magog-Orford-Eastman-Austin."),
         ],
     },
     {
@@ -186,7 +186,7 @@ REGIONS = [
         "name": "Waterville",
         "title": "Courtier immobilier à Waterville | Estrie | CDF",
         "description": "Acheter ou vendre à Waterville, entre Sherbrooke et Coaticook. Courtiers Chiasson de Francesco.",
-        "h1": "Acheter ou vendre une propriété à Waterville",
+        "h1": "Courtier immobilier à Waterville",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Waterville : village entre Sherbrooke, Compton et Coaticook, unifamiliales et quelques lots plus grands.",
         "intro": "Waterville est un petit marché de village : moins d'inscriptions que Sherbrooke, plus de services que Compton rang. Un prix « 15 minutes de Sherbrooke » sans comparables Waterville ne tient pas.",
         "sections": [
@@ -207,7 +207,7 @@ REGIONS = [
         "name": "Hatley",
         "title": "Courtier immobilier à Hatley | Cantons-de-l'Est | CDF",
         "description": "Propriétés à Hatley, près de North Hatley et du Massawippi. Équipe Chiasson de Francesco, Estrie.",
-        "h1": "Acheter ou vendre une propriété à Hatley",
+        "h1": "Courtier immobilier à Hatley",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Hatley : municipalité distincte de North Hatley, rangs, maisons de campagne et orbite du lac Massawippi.",
         "intro": "Hatley (le canton) n'est pas le village de North Hatley. Confondre les deux dans un prix d'affichage est une erreur classique. Plus de terrain, moins de vitrine touristique.",
         "sections": [
@@ -228,7 +228,7 @@ REGIONS = [
         "name": "Milan",
         "title": "Courtier immobilier à Milan | Estrie | CDF",
         "description": "Acheter ou vendre à Milan, Estrie (MRC du Granit). L'équipe Chiasson de Francesco y inscrit aussi des propriétés.",
-        "h1": "Acheter ou vendre une propriété à Milan",
+        "h1": "Courtier immobilier à Milan",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Milan, petite municipalité du Granit : maisons, rangs, et un marché local distinct de Sherbrooke : l'équipe y a notamment inscrit des unifamiliales.",
         "intro": "Milan n'est pas un quartier de Sherbrooke. C'est un marché mince du Granit, plus près de Lac-Mégantic que de Magog. Les comparables doivent rester locaux. Quand l'équipe a un mandat ici, le prix se cale sur Milan, pas sur Fleurimont.",
         "sections": [
@@ -249,7 +249,7 @@ REGIONS = [
         "name": "Saint-Isidore-de-Clifton",
         "title": "Courtier à Saint-Isidore-de-Clifton | fermettes | CDF",
         "description": "Fermettes et rangs à Saint-Isidore-de-Clifton, Estrie. L'équipe Chiasson de Francesco y accompagne achat et vente.",
-        "h1": "Acheter ou vendre à Saint-Isidore-de-Clifton",
+        "h1": "Courtier immobilier à Saint-Isidore-de-Clifton",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Saint-Isidore-de-Clifton : fermettes, rangs du Haut-Saint-François, un marché rural où l'acreage et les bâtiments pèsent plus que le code postal.",
         "intro": "Saint-Isidore-de-Clifton n'est pas Coaticook centre. C'est du rural : peu d'inscriptions, beaucoup de terre et de dépendances. L'équipe y a notamment inscrit des fermettes : le prix se justifie par les ventes agricoles comparables, pas par un rêve de domaine.",
         "sections": [

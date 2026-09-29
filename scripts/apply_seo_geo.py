@@ -265,20 +265,20 @@ REGION_META = {
     "lac-massawippi": ("Propriétés au lac Massawippi | North Hatley | CDF", "Acheter ou vendre autour du lac Massawippi et North Hatley. Équipe Chiasson de Francesco, courtiers RE/MAX."),
     "lac-megantic": ("Courtier immobilier au lac Mégantic | CDF", "Acheter ou vendre une propriété à Lac-Mégantic et au lac. Équipe Chiasson de Francesco, Estrie."),
     "lac-memphremagog": ("Propriétés au lac Memphrémagog | Magog, Orford | CDF", "Bord de lac à Magog, Orford et Newport. L'équipe Chiasson de Francesco vous accompagne sur le Memphrémagog."),
-    "magog": ("Courtier immobilier à Magog | lac Memphrémagog", "Acheter ou vendre à Magog, porte d'entrée du lac Memphrémagog. Maisons, condos et chalets avec Chiasson de Francesco."),
+    "magog": ("Courtier immobilier à Magog, maisons et bord de lac, CDF", "Acheter ou vendre à Magog, porte d'entrée du lac Memphrémagog. Maisons, condos et chalets avec Chiasson de Francesco."),
     "north-hatley": ("Courtier immobilier à North Hatley | CDF", "Acheter ou vendre à North Hatley et au lac Massawippi. L'équipe Chiasson de Francesco, courtiers RE/MAX en Estrie."),
-    "orford": ("Courtier immobilier à Orford | mont Orford", "Maisons et chalets à Orford, au pied du mont et du parc national. Équipe Chiasson de Francesco en Estrie."),
+    "orford": ("Courtier immobilier à Orford, maisons et chalets, CDF", "Maisons et chalets à Orford, au pied du mont et du parc national. Équipe Chiasson de Francesco en Estrie."),
     "richmond": ("Courtier immobilier à Richmond | rivière Saint-François | CDF", "Acheter ou vendre à Richmond, sur la rivière Saint-François. Courtiers Chiasson de Francesco, RE/MAX."),
-    "sherbrooke": ("Courtier immobilier à Sherbrooke | Chiasson De Francesco", "Acheter ou vendre à Sherbrooke : Les Nations, Fleurimont, Lennoxville, Mont-Bellevue. Équipe Chiasson de Francesco, RE/MAX."),
+    "sherbrooke": ("Courtier immobilier à Sherbrooke, Chiasson De Francesco", "Acheter ou vendre à Sherbrooke : Les Nations, Fleurimont, Lennoxville, Mont-Bellevue. Équipe Chiasson de Francesco, RE/MAX."),
     "stanstead": ("Courtier immobilier à Stanstead | frontière | CDF", "Propriétés à Stanstead, près du lac Memphrémagog et de la frontière. Équipe Chiasson de Francesco."),
     "sutton": ("Courtier immobilier à Sutton | montagne | CDF", "Acheter ou vendre à Sutton, village de montagne en Estrie. Ski, arts et maisons : équipe Chiasson de Francesco."),
     "val-des-sources": ("Courtier à Val-des-Sources | CDF", "Maisons à Val-des-Sources (Asbestos). Courtiers Chiasson de Francesco pour un achat ou une vente en Estrie."),
     "weedon": ("Courtier immobilier à Weedon | Estrie | CDF", "Acheter ou vendre à Weedon, Estrie, près du lac Aylmer. Accompagnement Chiasson de Francesco, RE/MAX."),
     "windsor": ("Courtier immobilier à Windsor | Estrie | CDF", "Propriétés à Windsor, Estrie, sur la Saint-François. L'équipe Chiasson de Francesco vous accompagne."),
-    "lennoxville": ("Courtier immobilier à Lennoxville | CDF", "Acheter ou vendre à Lennoxville (Sherbrooke) : village universitaire, unifamiliales et multiplex. Équipe Chiasson de Francesco."),
+    "lennoxville": ("Courtier immobilier à Lennoxville (Sherbrooke), CDF", "Acheter ou vendre à Lennoxville (Sherbrooke) : village universitaire, unifamiliales et multiplex. Équipe Chiasson de Francesco."),
     "fleurimont": ("Courtier immobilier à Fleurimont | Sherbrooke | CDF", "Maisons à Fleurimont, Sherbrooke : quartiers familiaux, bungalows et accès hôpital. Courtiers Chiasson de Francesco."),
-    "rock-forest": ("Courtier à Rock Forest–Saint-Élie–Deauville | CDF", "Acheter ou vendre à Rock Forest, Sherbrooke : maisons, terrains plus grands, accès Magog. Équipe Chiasson de Francesco."),
-    "les-nations": ("Courtier Les Nations Sherbrooke | condos et centre | CDF", "Condos, plex et centre-ville aux Nations, Sherbrooke. Acheter ou vendre avec l'équipe Chiasson de Francesco, RE/MAX."),
+    "rock-forest": ("Courtier immobilier Rock Forest, Saint-Élie, Deauville, CDF", "Acheter ou vendre à Rock Forest, Sherbrooke : maisons, terrains plus grands, accès Magog. Équipe Chiasson de Francesco."),
+    "les-nations": ("Courtier immobilier aux Nations (Sherbrooke), CDF", "Condos, plex et centre-ville aux Nations, Sherbrooke. Acheter ou vendre avec l'équipe Chiasson de Francesco, RE/MAX."),
     "brompton": ("Courtier immobilier à Brompton | Sherbrooke | CDF", "Maisons à Brompton (Sherbrooke), vallée de la Saint-François. Acheter ou vendre avec Chiasson de Francesco."),
     "mont-bellevue": ("Courtier Mont-Bellevue Sherbrooke | CDF", "Unifamiliales et rues résidentielles à Mont-Bellevue, Sherbrooke. Équipe Chiasson de Francesco, RE/MAX D'ABORD."),
     "ayers-cliff": ("Courtier immobilier à Ayer's Cliff | lac Massawippi | CDF", "Maisons et bord de lac à Ayer's Cliff, Estrie. L'équipe Chiasson de Francesco vous accompagne au Massawippi."),
@@ -371,20 +371,37 @@ BROKERS = {
         "tel": "+1-819-919-4631",
         "email": "p-o.chiasson@remax-quebec.com",
         "image": f"{BASE}/src/assets/pierre-olivier-chiasson.webp",
+        "languages": "fr-CA",
+        "alumniOf": "Université de Sherbrooke",
+        "sameAs": [
+            "https://www.remax-quebec.com/fr/courtiers-immobiliers/p-o.chiasson",
+            "https://www.realtor.ca/courtier-immobilier/2110096/pierre-olivier-chiasson-157-boul-jacques-cartier-s-sherbrooke-quebec-j1j2z4",
+            "https://pierreoliviercourtier.com/",
+        ],
     },
     "marco.html": {
         "name": "Marco De Francesco",
         "job": "Courtier immobilier résidentiel et commercial",
         "tel": "+1-819-562-0656",
-        "email": "",
+        "email": "marco.defrancesco@remax-quebec.com",
         "image": f"{BASE}/src/assets/marco-de-francesco.webp",
+        "languages": ["fr-CA", "en-CA"],
+        "sameAs": [
+            "https://www.remax-quebec.com/fr/courtiers-immobiliers/marco.defrancesco",
+            "https://www.linkedin.com/in/marcodefrancesco",
+        ],
     },
     "jade.html": {
         "name": "Jade Sirois",
         "job": "Courtière immobilière résidentielle",
         "tel": "+1-819-434-2652",
         "email": "",
-        "image": f"{BASE}/src/assets/images/Jade.png",
+        "image": f"{BASE}/src/assets/images/jade-sirois.webp",
+        "languages": None,
+        "sameAs": [
+            "https://www.remax-quebec.com/fr/courtiers-immobiliers/jade.sirois",
+            "https://www.centris.ca/fr/courtier-immobilier~jade-sirois~re-max-d-abord-inc./j8023",
+        ],
     },
 }
 
@@ -543,7 +560,7 @@ def listing_json_ld(listing: dict, offer: dict, desc: str) -> dict:
         "@graph": [
             {
                 "@type": "RealEstateListing",
-                "name": offer["name"],
+                "name": offer["name"].replace("\u2014", ", ").replace("\u2013", ", "),
                 "description": desc,
                 "url": canonical,
                 "image": f"{BASE}/src/assets/images/proprietes/{listing['uls']}/og-share.jpg",
@@ -573,15 +590,17 @@ def person_json_ld(rel: str, broker: dict) -> dict:
     node = {
         "@context": "https://schema.org",
         "@type": ["Person", "RealEstateAgent"],
+        "@id": f"{BASE}/{rel}#person",
         "name": broker["name"],
         "jobTitle": broker["job"],
         "url": f"{BASE}/{rel}",
         "image": broker["image"],
         "telephone": broker["tel"],
-        "worksFor": {
+        "worksFor": {"@id": f"{BASE}/#organization"},
+        "memberOf": {
             "@type": "RealEstateAgent",
-            "name": "Équipe Chiasson de Francesco",
-            "url": f"{BASE}/",
+            "name": "RE/MAX D'ABORD INC.",
+            "url": "https://remax-dabord.com/",
         },
         "address": {
             "@type": "PostalAddress",
@@ -591,9 +610,19 @@ def person_json_ld(rel: str, broker: dict) -> dict:
             "postalCode": "J1J 2Z4",
             "addressCountry": "CA",
         },
+        "areaServed": [
+            {"@type": "City", "name": "Sherbrooke"},
+            {"@type": "AdministrativeArea", "name": "Estrie"},
+        ],
     }
     if broker.get("email"):
         node["email"] = broker["email"]
+    if broker.get("languages"):
+        node["knowsLanguage"] = broker["languages"]
+    if broker.get("alumniOf"):
+        node["alumniOf"] = {"@type": "CollegeOrUniversity", "name": broker["alumniOf"]}
+    if broker.get("sameAs"):
+        node["sameAs"] = broker["sameAs"]
     return node
 
 
@@ -688,10 +717,13 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
                     offer = LISTING_OFFERS.get(listing["uls"])
                     if offer:
                         payload = listing_json_ld(listing, offer, chosen_desc)
-                        # listing titles: intent first, not ULS
+                        offer_name = offer["name"].replace("\u2014", ", ").replace("\u2013", ", ")
+                        page_title = f"{offer_name} | CDF"
+                        if len(page_title) > 60:
+                            page_title = f"{offer_name.split(':')[0].strip()} | CDF"
                         text = set_or_insert_meta(
                             text,
-                            f"{offer['name']} | Chiasson De Francesco",
+                            page_title,
                             chosen_desc,
                             page_url(path),
                         )

@@ -23,11 +23,17 @@
       return "/src/assets/images/proprietes/" + uls + "/";
     }
 
+    function photoAlt(index) {
+      var label = root.getAttribute("data-photo-label");
+      if (label) return label + ", photo " + (index + 1);
+      return root.getAttribute("data-share-title") || "Photo de la propriété";
+    }
+
     function setPhoto(index) {
       if (!photos.length) return;
       activeIndex = (index + photos.length) % photos.length;
       main.src = basePath() + photos[activeIndex];
-      main.alt = root.getAttribute("data-share-title") || "Photo de la propriété";
+      main.alt = photoAlt(activeIndex);
       counter.textContent = activeIndex + 1 + " / " + photos.length;
       thumbs.querySelectorAll("[data-index]").forEach(function (btn) {
         var selected = Number(btn.getAttribute("data-index")) === activeIndex;
@@ -44,11 +50,15 @@
         btn.setAttribute("data-index", String(index));
         btn.className =
           "rounded-lg overflow-hidden border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-red";
+        btn.setAttribute("aria-label", "Photo " + (index + 1));
+        var alt = photoAlt(index).replace(/"/g, "");
         btn.innerHTML =
           '<img src="' +
           basePath() +
           file +
-          '" alt="" class="w-full h-16 object-cover" loading="lazy">';
+          '" alt="' +
+          alt +
+          '" class="w-full h-16 object-cover" loading="lazy">';
         btn.addEventListener("click", function () {
           setPhoto(index);
         });

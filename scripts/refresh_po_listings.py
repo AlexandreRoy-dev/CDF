@@ -115,6 +115,126 @@ def canonical_url(listing: dict) -> str:
     return BASE_URL + public_path(listing)
 
 
+CITY_DISPLAY = {
+    "sherbrooke": "Sherbrooke",
+    "magog": "Magog",
+    "windsor": "Windsor",
+    "saint-isidore-de-clifton": "Saint-Isidore-de-Clifton",
+    "saint-alexis-des-monts": "Saint-Alexis-des-Monts",
+    "cookshire-eaton": "Cookshire-Eaton",
+    "quebec": "Québec",
+    "montreal": "Montréal",
+    "milan": "Milan",
+    "coaticook": "Coaticook",
+}
+
+REGION_ANCHORS = {
+    "sherbrooke": "Courtier immobilier à Sherbrooke",
+    "magog": "Courtier immobilier à Magog",
+    "orford": "Courtier immobilier à Orford",
+    "bromont": "Courtier immobilier à Bromont",
+    "north-hatley": "Courtier immobilier à North Hatley",
+    "rock-forest": "Courtier immobilier à Rock Forest",
+    "les-nations": "Courtier immobilier aux Nations (Sherbrooke)",
+    "fleurimont": "Courtier immobilier à Fleurimont",
+    "lennoxville": "Courtier immobilier à Lennoxville",
+    "windsor": "Courtier immobilier à Windsor",
+    "cookshire-eaton": "Courtier immobilier à Cookshire-Eaton",
+    "saint-isidore-de-clifton": "Courtier immobilier à Saint-Isidore-de-Clifton",
+    "mont-bellevue": "Courtier immobilier à Mont-Bellevue",
+    "milan": "Courtier immobilier à Milan",
+    "coaticook": "Courtier immobilier à Coaticook",
+    "quebec": "Courtier immobilier à Québec",
+    "montreal": "Courtier immobilier à Montréal",
+    "saint-alexis-des-monts": "Courtier immobilier à Saint-Alexis-des-Monts",
+}
+
+
+def listing_kind(detail: dict) -> str:
+    """Same Centris label for the title and the H1.
+
+    Category wins when it names a different type than property_kind
+    (Fermette vs Maison à étages). Otherwise keep the more precise kind.
+    """
+    category = fr_text(detail.get("category"))
+    kind = fr_text(detail.get("property_kind"), "Propriété")
+    if category and category not in kind and kind not in category:
+        return category
+    return kind
+
+
+def municipality_label(detail: dict, listing: dict) -> str:
+    addr = detail.get("address") or {}
+    if isinstance(addr, dict):
+        muni = (addr.get("municipalite") or "").split("(")[0].strip()
+        if muni:
+            return muni
+    slug = listing.get("city") or ""
+    return CITY_DISPLAY.get(slug, slug.replace("-", " ").title())
+
+
+def build_page_title(share_title: str, headline: str, city: str) -> str:
+    page_title = f"{share_title} | CDF"
+    if len(page_title) > 60:
+        page_title = f"{headline} à {city} | CDF"
+    return page_title
+
+
+def image_dimensions(path: Path) -> tuple[int, int] | None:
+    if not path.exists():
+        return None
+    data = path.read_bytes()[:64]
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        import struct
+
+        raw = path.read_bytes()
+        return struct.unpack(">II", raw[16:24])
+    if data[:2] == b"\xff\xd8":
+        import struct
+
+        raw = path.read_bytes()
+        i = 2
+        while i < len(raw) - 8:
+            if raw[i] != 0xFF:
+                i += 1
+                continue
+            marker = raw[i + 1]
+            if marker in (0xC0, 0xC1, 0xC2):
+                height, width = struct.unpack(">HH", raw[i + 5 : i + 9])
+                return width, height
+            if marker in (0xD8, 0xD9):
+                i += 2
+                continue
+            seglen = struct.unpack(">H", raw[i + 2 : i + 4])[0]
+            i += 2 + seglen
+    return None
+
+
+def sector_block(city_slug: str, city_label: str) -> str:
+    links: list[str] = []
+    if (ROOT / "regions" / f"{city_slug}.html").exists():
+        label = REGION_ANCHORS.get(city_slug, f"Courtier immobilier à {city_label}")
+        links.append(
+            f'<li><a href="/regions/{city_slug}.html" class="text-brand-navy font-medium hover:text-brand-red">{label}</a></li>'
+        )
+    if (ROOT / f"article-vendre-acheter-{city_slug}.html").exists():
+        links.append(
+            '<li><a href="/article-vendre-acheter-'
+            + city_slug
+            + '.html" class="text-brand-navy font-medium hover:text-brand-red">'
+            + f"Vendre ou acheter à {city_label} : quoi savoir</a></li>"
+        )
+    if not links:
+        return ""
+    return f"""
+          <section class="bg-white border border-gray-200 rounded-2xl p-8" id="secteur">
+            <h2 class="font-heading text-2xl font-bold text-brand-navy mb-4">Secteur</h2>
+            <ul class="space-y-2">
+              {"".join(links)}
+            </ul>
+          </section>"""
+
+
 def sector_label(sector: str) -> str:
     return sector.replace("-", " ").title().replace("La Cite Limoilou", "La Cité-Limoilou")
 
@@ -204,7 +324,11 @@ def street_short(detail: dict, listing: dict) -> str:
         if street:
             return street
     title = listing.get("title") or ""
-    return title.split("—")[0].strip() if "—" in title else title
+    if "," in title:
+        return title.split(",")[0].strip()
+    if "\u2014" in title:
+        return title.split("\u2014")[0].strip()
+    return title
 
 
 def description_text(detail: dict, listing: dict) -> str:
@@ -302,7 +426,7 @@ def caracteristiques_items(detail: dict) -> list[tuple[str, str]]:
         items.append(("Salles de bain", val))
     if detail.get("is_without_warranty"):
         info = fr_text(detail.get("is_without_warranty_info"))
-        items.append(("Garantie légale", info or "Exclusion(s) — voir courtier"))
+        items.append(("Garantie légale", info or "Exclusion(s): voir courtier"))
     return items
 
 
@@ -317,16 +441,12 @@ def registry_entry_from_detail(uls: str, detail: dict) -> dict:
     addr = detail.get("address") or {}
     city, sector = city_and_sector_from_address(addr if isinstance(addr, dict) else {})
     street = street_slug_from_address(addr if isinstance(addr, dict) else {})
-    kind = fr_text(detail.get("property_kind"), "Propriété")
+    kind = listing_kind(detail)
     verb = "à louer" if detail.get("is_rental") else "à vendre"
     short = street_short(detail, {"title": "", "uls": uls})
-    city_label = (
-        (addr.get("municipalite") or city).split("(")[0].strip()
-        if isinstance(addr, dict)
-        else city
-    )
-    title = f"{short} — {city_label}" if short else f"ULS {uls}"
-    share = f"{kind} {verb} — {short}, {city_label}".strip(", ")
+    city_label = municipality_label(detail, {"city": city})
+    title = f"{short}, {city_label}" if short else f"ULS {uls}"
+    share = f"{kind} {verb} à {city_label} : {short}".strip(" :")
     legacy = f"prop-{street}-{city}-{uls}.html"
     return {
         "uls": str(uls),
@@ -399,12 +519,14 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     canonical = canonical_url(listing)
     og = f"{BASE_URL}/src/assets/images/proprietes/{listing['uls']}/og-share.jpg"
     fallback = listing["fallbackImage"]
-    kind = fr_text(detail.get("property_kind"), "Propriété")
+    kind = listing_kind(detail)
     verb = "à louer" if detail.get("is_rental") else "à vendre"
     headline = f"{kind} {verb}"
     addr = address_display(detail)
-    share_title = listing.get("shareTitle") or f"{headline} — {street_short(detail, listing)}"
-    page_title = f"{share_title} | Chiasson De Francesco"
+    city = municipality_label(detail, listing)
+    street_addr = street_short(detail, listing)
+    share_title = f"{headline} à {city} : {street_addr}" if street_addr else f"{headline} à {city}"
+    page_title = build_page_title(share_title, headline, city)
     desc = description_text(detail, listing)
     meta_desc = desc[:155].rsplit(" ", 1)[0] + "…" if len(desc) > 160 else desc
     badge, badge_cls = badge_for(detail)
@@ -457,7 +579,6 @@ def render_detail_page(listing: dict, detail: dict) -> str:
             </div>
           </section>"""
 
-    city = listing["city"].replace("-", " ").title()
     sector = sector_label(listing["sector"])
     cta_label = "cette location" if detail.get("is_rental") else "cette propriété"
     offer_price = numeric_price(detail)
@@ -471,7 +592,48 @@ def render_detail_page(listing: dict, detail: dict) -> str:
           "unitCode": "MON"
         }""" % offer_price
 
-    street_addr = street_short(detail, listing)
+    photo_urls = []
+    manifest_path = ROOT / "src/assets/images/proprietes" / listing["uls"] / "manifest.json"
+    if manifest_path.exists():
+        try:
+            photos = json.loads(manifest_path.read_text(encoding="utf-8")).get("photos") or []
+        except json.JSONDecodeError:
+            photos = []
+        for name in photos[:5]:
+            photo_urls.append(f"{BASE_URL}/src/assets/images/proprietes/{listing['uls']}/{name}")
+    if not photo_urls:
+        photo_urls.append(f"{BASE_URL}/src/assets/images/proprietes/{fallback}")
+    main_file = ROOT / "src/assets/images/proprietes" / fallback
+    if photo_urls and manifest_path.exists():
+        first_photo = ROOT / "src/assets/images/proprietes" / listing["uls"] / Path(photo_urls[0]).name
+        if first_photo.exists():
+            main_file = first_photo
+    dims = image_dimensions(main_file) or (1200, 800)
+    img_w, img_h = dims
+    city_slug = listing["city"]
+    region_href = f"/regions/{city_slug}.html"
+    region_exists = (ROOT / "regions" / f"{city_slug}.html").exists()
+    crumbs = [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{BASE_URL}/"},
+        {"@type": "ListItem", "position": 2, "name": "Propriétés", "item": f"{BASE_URL}/proprietes.html"},
+    ]
+    if region_exists:
+        crumbs.append(
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": city,
+                "item": f"{BASE_URL}{region_href}",
+            }
+        )
+    crumbs.append(
+        {
+            "@type": "ListItem",
+            "position": len(crumbs) + 1,
+            "name": share_title,
+            "item": canonical,
+        }
+    )
     ld = {
         "@context": "https://schema.org",
         "@graph": [
@@ -480,7 +642,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
                 "name": share_title,
                 "description": meta_desc,
                 "url": canonical,
-                "image": og,
+                "image": photo_urls,
                 "identifier": listing["uls"],
                 "address": {
                     "@type": "PostalAddress",
@@ -495,15 +657,12 @@ def render_detail_page(listing: dict, detail: dict) -> str:
                     "priceCurrency": "CAD",
                     "availability": "https://schema.org/InStock",
                     "url": canonical,
+                    "offeredBy": {"@id": f"{BASE_URL}/pierre-olivier.html#person"},
                 },
             },
             {
                 "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{BASE_URL}/"},
-                    {"@type": "ListItem", "position": 2, "name": "Propriétés", "item": f"{BASE_URL}/proprietes.html"},
-                    {"@type": "ListItem", "position": 3, "name": share_title, "item": canonical},
-                ],
+                "itemListElement": crumbs,
             },
         ],
     }
@@ -548,23 +707,8 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     <meta property="og:locale" content="fr_CA">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900|Playfair+Display:400,500,600,700,800,900&amp;subset=latin">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {{
-      theme: {{
-        extend: {{
-          fontFamily: {{
-            heading: ['"Playfair Display"', 'serif'],
-            body: ['"Inter"', 'sans-serif'],
-          }},
-          colors: {{
-            brand: {{ red: '#AA1120', navy: '#0c2749' }}
-          }}
-        }}
-      }}
-    }}
-  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700|Playfair+Display:600,700&amp;display=swap">
+  <link rel="stylesheet" href="/public/css/site.min.css">
 
 <script type="application/ld+json">
 {ld_json}
@@ -598,17 +742,18 @@ def render_detail_page(listing: dict, detail: dict) -> str:
 
   <header class="pt-32 pb-10 bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-6">
-      <nav class="text-sm text-gray-500 mb-4">
+      <nav class="text-sm text-gray-500 mb-4" aria-label="Fil d'Ariane">
+        <a href="/" class="hover:text-brand-red">Accueil</a>
+        <span class="mx-1">/</span>
         <a href="/proprietes.html" class="hover:text-brand-red">Propriétés</a>
         <span class="mx-1">/</span>
-        <a href="{path}" class="hover:text-brand-red">{city}</a>
-        <span class="mx-1">/</span>
-        <span class="text-gray-700">{sector}</span>
+        {f'<a href="{region_href}" class="hover:text-brand-red">{city}</a><span class="mx-1">/</span>' if region_exists else ''}
+        <span class="text-gray-700">{headline} à {city}</span>
       </nav>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         <div class="lg:col-span-2">
           <span class="inline-block {badge_cls} text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">{badge}</span>
-          <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy leading-tight">{headline}</h1>
+          <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy leading-tight">{headline} à {city}</h1>
           <p class="text-gray-600 mt-3 text-lg">{addr}</p>
           <div class="mt-5 flex items-center gap-4 flex-wrap">
             {price_block}
@@ -630,10 +775,11 @@ def render_detail_page(listing: dict, detail: dict) -> str:
             data-share-title="{share_title.replace('"', '&quot;')}"
             data-share-url="{canonical}"
             data-share-image="{og}"
-            data-fallback-image="/src/assets/images/proprietes/{fallback}">
+            data-fallback-image="/src/assets/images/proprietes/{fallback}"
+            data-photo-label="{headline} au {street_addr}, {city}">
             <div class="property-gallery">
               <div class="relative bg-gray-100 group">
-                <img id="property-gallery-main" src="/src/assets/images/proprietes/{fallback}" alt="{street_addr} — {city}" class="w-full h-[280px] sm:h-[380px] md:h-[520px] object-cover transition-opacity duration-300">
+                <img id="property-gallery-main" src="/src/assets/images/proprietes/{fallback}" alt="{headline} au {street_addr}, {city}, photo 1" width="{img_w}" height="{img_h}" fetchpriority="high" class="w-full h-[280px] sm:h-[380px] md:h-[520px] object-cover transition-opacity duration-300">
                 <button type="button" id="property-gallery-prev" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow-md hover:bg-white" aria-label="Photo précédente">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
@@ -656,6 +802,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
               {desc}
             </p>
           </section>
+{sector_block(city_slug, city)}
 {chars_section}
 
         </div>
@@ -665,7 +812,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
             <h2 class="font-heading text-xl font-bold text-brand-navy mb-4">Courtier(s)</h2>
             <div class="space-y-5">
               <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
-                <div class="font-semibold text-gray-900">PIERRE-OLIVIER CHIASSON</div>
+                <a href="/pierre-olivier.html" class="font-semibold text-gray-900 hover:text-brand-red">Pierre-Olivier Chiasson</a>
                 <div class="text-sm text-gray-600 mt-1">Courtier immobilier résidentiel et commercial</div>
                 <div class="text-sm text-gray-600 mt-1">RE/MAX D'ABORD INC.</div>
                 <a href="tel:8199194631" class="mt-3 inline-flex items-center justify-center w-full bg-brand-navy text-white font-semibold py-2 rounded-lg hover:bg-brand-red transition-colors text-sm">819-919-4631</a>
@@ -721,7 +868,13 @@ def card_html(listing: dict, detail: dict) -> str:
     if isinstance(addr, dict):
         muni = addr.get("municipalite") or ""
     # shorten municipality for card subtitle
-    subtitle = muni or listing.get("title", "").split("—")[-1].strip()
+    raw_title = listing.get("title", "")
+    if "," in raw_title:
+        subtitle = muni or raw_title.split(",")[-1].strip()
+    elif "\u2014" in raw_title:
+        subtitle = muni or raw_title.split("\u2014")[-1].strip()
+    else:
+        subtitle = muni or raw_title
     cat = fr_text(detail.get("category"))
     if cat and cat not in subtitle:
         subtitle = f"{subtitle} · {cat}" if subtitle else cat
@@ -752,11 +905,21 @@ def card_html(listing: dict, detail: dict) -> str:
     path = public_path(listing)
     price = format_price_html(detail)
     alt = f"{kind} {street}".replace('"', "")
+    webp = str(Path(img).with_suffix(".webp"))
+    img_tag = (
+        f'<img src="/src/assets/images/proprietes/{img}" alt="{alt}" '
+        f'class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">'
+    )
+    if (ROOT / "src/assets/images/proprietes" / webp).exists():
+        img_tag = (
+            f'<picture><source type="image/webp" srcset="/src/assets/images/proprietes/{webp}">'
+            f"{img_tag}</picture>"
+        )
 
     return f"""
       <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col">
         <div class="relative h-56 overflow-hidden">
-          <img src="/src/assets/images/proprietes/{img}" alt="{alt}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          {img_tag}
           <div class="absolute top-4 left-4 {badge_cls} text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">{badge}</div>
         </div>
         <div class="p-5 flex flex-col flex-grow">
@@ -876,7 +1039,7 @@ def main() -> int:
         vercel_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
         print("extended vercel sold redirects")
 
-    print(f"done — {len(listings)} listings ({len(added)} new)")
+    print(f"done: {len(listings)} listings ({len(added)} new)")
     return 0
 
 

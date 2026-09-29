@@ -20,28 +20,8 @@
     <meta property="og:locale" content="fr_CA">
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900|Playfair+Display:400,500,600,700,800,900&amp;subset=latin">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        heading: ['"Playfair Display"', 'serif'],
-                        body: ['"Inter"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            red: '#AA1120',
-                            navy: '#0c2749'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700|Playfair+Display:600,700&amp;display=swap">
+
 
 <script type="application/ld+json">
 {
@@ -50,15 +30,19 @@
     "Person",
     "RealEstateAgent"
   ],
+  "@id": "https://chiassondefrancesco.ca/pierre-olivier.html#person",
   "name": "Pierre-Olivier Chiasson",
   "jobTitle": "Courtier immobilier résidentiel et commercial",
   "url": "https://chiassondefrancesco.ca/pierre-olivier.html",
   "image": "https://chiassondefrancesco.ca/src/assets/pierre-olivier-chiasson.webp",
   "telephone": "+1-819-919-4631",
   "worksFor": {
+    "@id": "https://chiassondefrancesco.ca/#organization"
+  },
+  "memberOf": {
     "@type": "RealEstateAgent",
-    "name": "Équipe Chiasson de Francesco",
-    "url": "https://chiassondefrancesco.ca/"
+    "name": "RE/MAX D'ABORD INC.",
+    "url": "https://remax-dabord.com/"
   },
   "address": {
     "@type": "PostalAddress",
@@ -68,9 +52,30 @@
     "postalCode": "J1J 2Z4",
     "addressCountry": "CA"
   },
-  "email": "p-o.chiasson@remax-quebec.com"
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Sherbrooke"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Estrie"
+    }
+  ],
+  "email": "p-o.chiasson@remax-quebec.com",
+  "knowsLanguage": "fr-CA",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Université de Sherbrooke"
+  },
+  "sameAs": [
+    "https://www.remax-quebec.com/fr/courtiers-immobiliers/p-o.chiasson",
+    "https://www.realtor.ca/courtier-immobilier/2110096/pierre-olivier-chiasson-157-boul-jacques-cartier-s-sherbrooke-quebec-j1j2z4",
+    "https://pierreoliviercourtier.com/"
+  ]
 }
 </script>
+<link rel="stylesheet" href="/public/css/site.min.css">
 </head>
 
 <body class="antialiased bg-white text-gray-900 font-body flex flex-col min-h-screen">
@@ -230,6 +235,16 @@
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
                     </div>
+
+                    <section class="border-t border-gray-200 pt-10 mt-10" id="secteurs">
+                        <h2 class="font-heading text-2xl font-bold text-brand-navy mb-4">Secteurs desservis</h2>
+                        <p class="text-gray-600 mb-4">L'équipe est basée à Sherbrooke et accompagne aussi les mandats à Magog et à Orford.</p>
+                        <ul class="space-y-2">
+                            <li><a href="/regions/sherbrooke.html" class="text-brand-navy font-medium hover:text-brand-red">Courtier immobilier à Sherbrooke</a></li>
+                            <li><a href="/regions/magog.html" class="text-brand-navy font-medium hover:text-brand-red">Courtier immobilier à Magog</a></li>
+                            <li><a href="/regions/orford.html" class="text-brand-navy font-medium hover:text-brand-red">Courtier immobilier à Orford</a></li>
+                        </ul>
+                    </section>
 
                 </div>
             </div>
