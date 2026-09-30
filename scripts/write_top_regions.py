@@ -13,9 +13,9 @@ PAGES = [
     {
         "slug": "sherbrooke",
         "name": "Sherbrooke",
-        "title": "Courtier immobilier à Sherbrooke | Chiasson De Francesco",
+        "title": "Courtier immobilier à Sherbrooke, Chiasson De Francesco",
         "description": "Acheter ou vendre à Sherbrooke : Les Nations, Fleurimont, Lennoxville, Mont-Bellevue. Équipe Chiasson de Francesco, RE/MAX.",
-        "h1": "Acheter ou vendre une propriété à Sherbrooke",
+        "h1": "Courtiers immobiliers à Sherbrooke : acheter, vendre, investir",
         "lead": "L'équipe Chiasson de Francesco, courtiers immobiliers RE/MAX D'ABORD à Sherbrooke, accompagne acheteurs et vendeurs dans Les Nations, Fleurimont, Lennoxville, Mont-Bellevue, Brompton et Rock Forest.",
         "intro": "Sherbrooke est le pôle urbain de l'Estrie : universités, hôpitaux, centre-ville et quartiers familiaux. Un courtier local sert autant à lire le prix réel d'une rue qu'à éviter une offre trop haute ou trop basse.",
         "sections": [
@@ -64,9 +64,9 @@ PAGES = [
     {
         "slug": "magog",
         "name": "Magog",
-        "title": "Courtier immobilier à Magog | lac Memphrémagog",
+        "title": "Courtier immobilier à Magog, maisons et bord de lac, CDF",
         "description": "Acheter ou vendre à Magog, porte d'entrée du lac Memphrémagog. Maisons, condos et chalets avec Chiasson de Francesco.",
-        "h1": "Acheter ou vendre une propriété à Magog",
+        "h1": "Courtier immobilier à Magog : maisons, condos et bord du lac",
         "lead": "L'équipe Chiasson de Francesco, courtiers RE/MAX à Sherbrooke, accompagne l'achat et la vente à Magog : centre-ville, bord du lac Memphrémagog, condos et résidences de villégiature.",
         "intro": "Magog combine un vrai centre-ville, l'accès au lac et la proximité d'Orford. Les prix et les délais n'ont rien à voir entre un condo en ville, une maison de rang et un bord de lac : d'où l'intérêt d'un courtier qui travaille l'Estrie au quotidien.",
         "sections": [
@@ -113,7 +113,7 @@ PAGES = [
         "name": "Bromont",
         "title": "Courtier immobilier à Bromont | Chiasson De Francesco",
         "description": "Acheter ou vendre à Bromont : ski, vélo et maisons de village. L'équipe Chiasson de Francesco vous accompagne en Estrie.",
-        "h1": "Acheter ou vendre une propriété à Bromont",
+        "h1": "Courtier immobilier à Bromont",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Bromont : village, versant ski, condos et maisons pour résidence principale ou villégiature, avec un ancrage RE/MAX en Estrie.",
         "intro": "Bromont n'est pas un quartier de Sherbrooke : le marché y mélange skieurs, navetteurs vers la Rive-Sud et familles qui veulent le village. Les condos près de la montagne et les unifamiliales en lotissement ne se comparent pas.",
         "sections": [
@@ -158,9 +158,9 @@ PAGES = [
     {
         "slug": "orford",
         "name": "Orford",
-        "title": "Courtier immobilier à Orford | mont Orford",
+        "title": "Courtier immobilier à Orford, maisons et chalets, CDF",
         "description": "Maisons et chalets à Orford, au pied du mont et du parc national. Équipe Chiasson de Francesco en Estrie.",
-        "h1": "Acheter ou vendre une propriété à Orford",
+        "h1": "Courtier immobilier à Orford : maisons, condos et chalets",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Orford : chalets, maisons au pied du mont Orford et propriétés près du parc national, en lien avec Magog et Eastman.",
         "intro": "Orford se vit autour du mont, du parc et des lacs tout proches. Le marché mélange résidences principales, villégiature et quelques immeubles de plus petite densité. Un prix « vue montagne » n'est pas un prix « rang ».",
         "sections": [
@@ -194,7 +194,7 @@ PAGES = [
             ),
             (
                 "Faut-il un courtier local pour Orford ?",
-                "Un courtier qui travaille Magog–Orford–Eastman lit mieux les comparables que quelqu'un qui ne vient qu'en fin de semaine. L'équipe Chiasson de Francesco dessert ce corridor depuis Sherbrooke.",
+                "Un courtier qui travaille Magog-Orford-Eastman lit mieux les comparables que quelqu'un qui ne vient qu'en fin de semaine. L'équipe Chiasson de Francesco dessert ce corridor depuis Sherbrooke.",
             ),
             (
                 "Quand vendre un chalet à Orford ?",
@@ -207,7 +207,7 @@ PAGES = [
         "name": "North Hatley",
         "title": "Courtier immobilier à North Hatley | CDF",
         "description": "Acheter ou vendre à North Hatley et au lac Massawippi. L'équipe Chiasson de Francesco, courtiers RE/MAX en Estrie.",
-        "h1": "Acheter ou vendre une propriété à North Hatley",
+        "h1": "Courtier immobilier à North Hatley et au lac Massawippi",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à North Hatley : village au bord du lac Massawippi, maisons de caractère et propriétés de villégiature en Estrie.",
         "intro": "North Hatley est un petit marché : peu d'inscriptions, beaucoup d'acheteurs sensibles au village, à la vue lac et au cachet patrimonial. Une erreur de prix se paie longtemps, à la hausse comme à la baisse.",
         "sections": [
@@ -330,12 +330,12 @@ def render(page: dict) -> str:
   <meta property="og:image" content="{BASE}/src/assets/images/chiassondefrancescoteam.jpg">
   <meta property="og:locale" content="fr_CA">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900|Playfair+Display:400,500,600,700,800,900&amp;subset=latin">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config = {{ theme: {{ extend: {{ fontFamily: {{ heading: ['"Playfair Display"', 'serif'], body: ['"Inter"', 'sans-serif'] }}, colors: {{ brand: {{ red: '#AA1120', navy: '#0c2749' }} }} }} }} }};</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700|Playfair+Display:600,700&amp;display=swap">
+
 <script type="application/ld+json">
 {ld}
 </script>
+<link rel="stylesheet" href="/public/css/site.min.css">
 </head>
 <body class="antialiased bg-gray-50 text-gray-900 font-body flex flex-col min-h-screen">
   <nav class="py-4 px-6 fixed w-full top-0 z-50 bg-brand-navy shadow-md">

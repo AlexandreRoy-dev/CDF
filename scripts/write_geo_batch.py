@@ -19,7 +19,7 @@ REMAINING = [
         "name": "Coaticook",
         "title": "Courtier immobilier à Coaticook | Chiasson De Francesco",
         "description": "Acheter ou vendre à Coaticook : ville de services, gorge et campagne en Estrie. Équipe Chiasson de Francesco, RE/MAX.",
-        "h1": "Acheter ou vendre une propriété à Coaticook",
+        "h1": "Courtier immobilier à Coaticook",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Coaticook : maisons de ville, fermettes et propriétés près de la gorge, avec un ancrage RE/MAX à Sherbrooke.",
         "intro": "Coaticook est une vraie ville de services en Estrie, pas seulement un village-dortoir de Sherbrooke. Fromagerie, commerces, écoles et un cadre plus champêtre qu'en ville changent le type d'acheteurs : et les comparables.",
         "sections": [
@@ -40,7 +40,7 @@ REMAINING = [
         "name": "Compton",
         "title": "Courtier immobilier à Compton | Estrie | CDF",
         "description": "Maisons et fermettes à Compton, Estrie. L'équipe Chiasson de Francesco vous accompagne pour acheter ou vendre.",
-        "h1": "Acheter ou vendre une propriété à Compton",
+        "h1": "Courtier immobilier à Compton",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Compton : village, rangs et fermettes du comté, à une vingtaine de minutes de Sherbrooke.",
         "intro": "Compton reste rural : peu d'inscriptions, beaucoup de biens avec terre ou dépendances. Un prix demandé « parce qu'on est près de Sherbrooke » ne tient pas si le bâtiment ou le puits ne suit pas.",
         "sections": [
@@ -61,7 +61,7 @@ REMAINING = [
         "name": "Cookshire-Eaton",
         "title": "Courtier à Cookshire-Eaton | terrains et maisons | CDF",
         "description": "Propriétés et terrains à Cookshire-Eaton et Sawyerville. Courtiers Chiasson de Francesco pour un achat ou une vente en Estrie.",
-        "h1": "Acheter ou vendre à Cookshire-Eaton",
+        "h1": "Courtier immobilier à Cookshire-Eaton",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Cookshire-Eaton : Cookshire, Sawyerville, terrains le long de la route 108 et maisons de village.",
         "intro": "Cookshire-Eaton mélange un noyau de services et beaucoup de lots plus grands qu'en ville. Les terrains vides et les maisons existantes ne se comparent pas : un prix à l'acre n'est pas un prix au pied carré habitable.",
         "sections": [
@@ -82,7 +82,7 @@ REMAINING = [
         "name": "Danville",
         "title": "Courtier immobilier à Danville | Estrie | CDF",
         "description": "Acheter ou vendre à Danville, Estrie. Accompagnement par l'équipe Chiasson de Francesco, RE/MAX D'ABORD.",
-        "h1": "Acheter ou vendre une propriété à Danville",
+        "h1": "Courtier immobilier à Danville",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Danville : village de la MRC des Sources, maisons abordables et accès vers Val-des-Sources et Richmond.",
         "intro": "Danville est un petit marché de village : prix souvent plus accessibles que Sherbrooke, moins d'inscriptions, acheteurs locaux et de la région des Sources. Calquer un prix de Fleurimont ici ne fonctionne pas.",
         "sections": [
@@ -103,7 +103,7 @@ REMAINING = [
         "name": "Eastman",
         "title": "Courtier immobilier à Eastman | près d'Orford | CDF",
         "description": "Maisons et chalets à Eastman, près d'Orford et Magog. L'équipe Chiasson de Francesco vous accompagne en Estrie.",
-        "h1": "Acheter ou vendre une propriété à Eastman",
+        "h1": "Courtier immobilier à Eastman",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Eastman : village entre Magog et le mont Orford, maisons, chalets et cadre plus champêtre que Magog centre.",
         "intro": "Eastman vit dans l'orbite d'Orford et de Magog sans en être le centre-ville. Spa, village, accès montagne : les acheteurs paient le cadre, pas les mêmes rues que Magog lac.",
         "sections": [
@@ -115,7 +115,7 @@ REMAINING = [
         "faqs": [
             ("Eastman ou Magog : où acheter ?", "Magog a plus de services et de condos. Eastman est plus village et nature, souvent avec plus de terrain. Le choix dépend de l'usage quotidien, pas seulement du budget."),
             ("Eastman est-il un marché de chalets ?", "Il y a de la villégiature, mais aussi des résidences principales. Il faut distinguer les deux dans le prix et l'inspection."),
-            ("L'équipe connaît-elle Eastman ?", "Oui. Le corridor Magog–Orford–Eastman fait partie du territoire Chiasson de Francesco."),
+            ("L'équipe connaît-elle Eastman ?", "Oui. Le corridor Magog-Orford-Eastman fait partie du territoire Chiasson de Francesco."),
             ("Quand mettre en vente à Eastman ?", "Fin d'hiver et printemps attirent souvent villégiature et montagne. Un bien au bon prix se vend aussi hors pic."),
         ],
     },
@@ -124,7 +124,7 @@ REMAINING = [
         "name": "Lac Aylmer",
         "title": "Propriétés au lac Aylmer | courtier Estrie | CDF",
         "description": "Acheter ou vendre en bord du lac Aylmer (Stratford, Weedon). Courtiers Chiasson de Francesco à Sherbrooke.",
-        "h1": "Acheter ou vendre une propriété au lac Aylmer",
+        "h1": "Courtier immobilier au lac Aylmer",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente au lac Aylmer : chalets, bord de lac et municipalités comme Stratford et Weedon, distincts du Memphrémagog.",
         "intro": "Le lac Aylmer n'est pas le Memphrémagog : autre bassin d'acheteurs, autre densité, autres prix. Un « prix lac Estrie » unique n'existe pas. Bandes riveraines et accès à l'eau dictent beaucoup de la valeur.",
         "sections": [
@@ -145,7 +145,7 @@ REMAINING = [
         "name": "Lac-Brome",
         "title": "Courtier à Lac-Brome et Knowlton | CDF",
         "description": "Maisons et bord de lac à Lac-Brome (Knowlton). L'équipe Chiasson de Francesco vous accompagne en Estrie.",
-        "h1": "Acheter ou vendre à Lac-Brome (Knowlton)",
+        "h1": "Courtier immobilier à Lac-Brome (Knowlton)",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Lac-Brome : Knowlton, rives du Brome Lake, village anglophone et propriétés de villégiature ou de résidence principale.",
         "intro": "Lac-Brome (Knowlton) attire une clientèle souvent bilingue, parfois montréalaise, sensible au village, aux lacs et au cachet. Ce n'est ni Sutton ski ni Sherbrooke urbain.",
         "sections": [
@@ -166,7 +166,7 @@ REMAINING = [
         "name": "Lac Massawippi",
         "title": "Propriétés au lac Massawippi | North Hatley | CDF",
         "description": "Acheter ou vendre autour du lac Massawippi et North Hatley. Équipe Chiasson de Francesco, courtiers RE/MAX.",
-        "h1": "Acheter ou vendre au lac Massawippi",
+        "h1": "Courtier immobilier au lac Massawippi",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente au lac Massawippi : North Hatley, Ayer's Cliff, rives et villages, un marché plus serré que Sherbrooke.",
         "intro": "Le Massawippi est un petit lac avec une forte identité (North Hatley, Ayer's Cliff). Peu d'inscriptions, beaucoup d'attachement au lieu. Une erreur de prix se paie en mois d'affichage.",
         "sections": [
@@ -187,7 +187,7 @@ REMAINING = [
         "name": "Lac-Mégantic",
         "title": "Courtier immobilier au lac Mégantic | CDF",
         "description": "Acheter ou vendre une propriété à Lac-Mégantic et au lac. Équipe Chiasson de Francesco, Estrie.",
-        "h1": "Acheter ou vendre à Lac-Mégantic",
+        "h1": "Courtier immobilier à Lac-Mégantic",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Lac-Mégantic : ville, reconstruction du centre, rives du lac et secteur de la MRC du Granit.",
         "intro": "Lac-Mégantic a un marché local distinct de Sherbrooke : services de ville moyenne, lac, et une histoire urbaine particulière au centre. Les comparables doivent rester Granit, pas Estrie-ouest.",
         "sections": [
@@ -208,7 +208,7 @@ REMAINING = [
         "name": "Lac Memphrémagog",
         "title": "Propriétés au lac Memphrémagog | Magog, Orford | CDF",
         "description": "Bord de lac à Magog, Orford et Newport. L'équipe Chiasson de Francesco vous accompagne sur le Memphrémagog.",
-        "h1": "Acheter ou vendre au lac Memphrémagog",
+        "h1": "Courtier immobilier au lac Memphrémagog",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente au lac Memphrémagog : Magog, Georgeville, rives d'Orford et propriétés dont la valeur tient à l'eau, à la vue ou au village.",
         "intro": "Memphrémagog est le grand lac de l'Estrie ouest. Magog apporte les services ; les rives et villages lacustres apportent la rareté. Un condo en ville n'est pas un frontage. Les règles riveraines sont non négociables dans l'offre.",
         "sections": [
@@ -229,7 +229,7 @@ REMAINING = [
         "name": "Richmond",
         "title": "Courtier immobilier à Richmond | rivière Saint-François | CDF",
         "description": "Acheter ou vendre à Richmond, sur la rivière Saint-François. Courtiers Chiasson de Francesco, RE/MAX.",
-        "h1": "Acheter ou vendre une propriété à Richmond",
+        "h1": "Courtier immobilier à Richmond",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Richmond : ville sur la Saint-François, unifamiliales, plex et accès vers Windsor et Sherbrooke.",
         "intro": "Richmond est une petite ville de vallée, plus industrielle et ferroviaire dans son histoire que villégiature. Les prix et la demande suivent Windsor/Sources plus que Magog.",
         "sections": [
@@ -250,7 +250,7 @@ REMAINING = [
         "name": "Stanstead",
         "title": "Courtier immobilier à Stanstead | frontière | CDF",
         "description": "Propriétés à Stanstead, près du lac Memphrémagog et de la frontière. Équipe Chiasson de Francesco.",
-        "h1": "Acheter ou vendre une propriété à Stanstead",
+        "h1": "Courtier immobilier à Stanstead",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Stanstead : village frontalier, patrimoine, proximité du Memphrémagog et d'un marché bilingue.",
         "intro": "Stanstead (et Rock Island / Beebe) vit la frontière au quotidien. Patrimoine, douane, et un bassin parfois transfrontalier : ce n'est pas Magog centre, ni un rang de Compton.",
         "sections": [
@@ -271,7 +271,7 @@ REMAINING = [
         "name": "Sutton",
         "title": "Courtier immobilier à Sutton | montagne | CDF",
         "description": "Acheter ou vendre à Sutton, village de montagne en Estrie. Ski, arts et maisons : équipe Chiasson de Francesco.",
-        "h1": "Acheter ou vendre une propriété à Sutton",
+        "h1": "Courtier immobilier à Sutton",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Sutton : village, ski, condos de montagne et maisons pour résidence principale ou villégiature dans les Cantons-de-l'Est.",
         "intro": "Sutton mélange arts, ski et village : un marché plus « montagne » que Sherbrooke, plus village que Bromont station. Copropriétés de pente et maisons du village ne se comparent pas.",
         "sections": [
@@ -292,7 +292,7 @@ REMAINING = [
         "name": "Val-des-Sources",
         "title": "Courtier à Val-des-Sources | CDF",
         "description": "Maisons à Val-des-Sources (Asbestos). Courtiers Chiasson de Francesco pour un achat ou une vente en Estrie.",
-        "h1": "Acheter ou vendre à Val-des-Sources",
+        "h1": "Courtier immobilier à Val-des-Sources",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Val-des-Sources : ancienne ville minière en transition, unifamiliales abordables et marché local de la MRC des Sources.",
         "intro": "Val-des-Sources (anciennement Asbestos) a un marché distinct : prix souvent plus accessibles, identité industrielle en recomposition, acheteurs surtout régionaux. Ce n'est pas un marché de villégiature lacustre.",
         "sections": [
@@ -313,7 +313,7 @@ REMAINING = [
         "name": "Weedon",
         "title": "Courtier immobilier à Weedon | Estrie | CDF",
         "description": "Acheter ou vendre à Weedon, Estrie, près du lac Aylmer. Accompagnement Chiasson de Francesco, RE/MAX.",
-        "h1": "Acheter ou vendre une propriété à Weedon",
+        "h1": "Courtier immobilier à Weedon",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Weedon : village sur l'axe vers Lac-Mégantic, maisons, rangs et proximité du lac Aylmer.",
         "intro": "Weedon est un village-relais du Haut-Saint-François : route, services de base, et accès vers le lac Aylmer. Marché mince, prix à coller aux ventes locales.",
         "sections": [
@@ -334,7 +334,7 @@ REMAINING = [
         "name": "Windsor",
         "title": "Courtier immobilier à Windsor | Estrie | CDF",
         "description": "Propriétés à Windsor, Estrie, sur la Saint-François. L'équipe Chiasson de Francesco vous accompagne.",
-        "h1": "Acheter ou vendre une propriété à Windsor",
+        "h1": "Courtier immobilier à Windsor",
         "lead": "L'équipe Chiasson de Francesco accompagne l'achat et la vente à Windsor : petite ville papetière de la Saint-François, unifamiliales, plex et accès rapide vers Sherbrooke.",
         "intro": "Windsor est plus proche de Sherbrooke que Richmond ou Val-des-Sources, avec un caractère de ville industrielle de vallée. Des acheteurs y voient un budget plus sage qu'à Fleurimont, sans être Magog.",
         "sections": [
@@ -414,10 +414,10 @@ def page_shell(title: str, desc: str, canonical: str, body: str, ld: dict | None
   <meta property="og:image" content="{BASE}/src/assets/images/chiassondefrancescoteam.jpg">
   <meta property="og:locale" content="fr_CA">
   <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900|Playfair+Display:400,500,600,700,800,900&amp;subset=latin">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={{theme:{{extend:{{fontFamily:{{heading:['"Playfair Display"','serif'],body:['"Inter"','sans-serif']}},colors:{{brand:{{red:'#AA1120',navy:'#0c2749'}}}}}}}}}};</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700|Playfair+Display:600,700&amp;display=swap">
+
   {ld_html}
+<link rel="stylesheet" href="/public/css/site.min.css">
 </head>
 <body class="antialiased bg-gray-50 text-gray-900 font-body min-h-screen flex flex-col">
 {nav_root()}
@@ -686,7 +686,7 @@ ARTICLES = [
         "kicker": "Beaucoup d'acheteurs veulent « 20 minutes de Sherbrooke » et un prix plus bas. Le trajet réel, le quotidien d'hiver et le type de bien comptent plus que le pin Google.",
         "sections": [
             ("Windsor et Richmond", "Vallée de la Saint-François : souvent plus abordable, navette plausible. Windsor est plus proche ; Richmond un cran plus loin. Visitez à l'heure de pointe, pas un dimanche après-midi."),
-            ("Magog et Orford", "Services, lac, montagne : et un prix souvent plus élevé. Le trajet Magog–Sherbrooke est courant, mais ce n'est pas le même budget qu'un bungalow de Rock Forest."),
+            ("Magog et Orford", "Services, lac, montagne : et un prix souvent plus élevé. Le trajet Magog-Sherbrooke est courant, mais ce n'est pas le même budget qu'un bungalow de Rock Forest."),
             ("Coaticook et Cookshire-Eaton", "Plus champêtre, moins de volume. Le compromis est l'espace et le calme, pas la proximité du CHUS. Un premier acheteur pressé par le travail de quart doit mesurer le trajet, pas le rêve."),
             ("Comment on aide", "On ne vous vend pas une municipalité. On aligne budget, type de bien et quotidien. L'équipe Chiasson de Francesco connaît ces corridors pour les avoir parcourus en visites, pas seulement en carte."),
         ],
