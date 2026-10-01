@@ -12,6 +12,11 @@
   ],
   "redirects": [
     {
+      "source": "/prop-2249-rue-king-o-sherbrooke-13269650.html",
+      "destination": "/ca/qc/sherbrooke/jacques-cartier/2249-rue-king-o/",
+      "permanent": true
+    },
+    {
       "source": "/prop-2762-ch-de-georgeville-magog-22762710.html",
       "destination": "/ca/qc/magog/centre/2762-ch-de-georgeville/",
       "permanent": true
@@ -69,11 +74,6 @@
     {
       "source": "/prop-182-rue-wellington-n-10043722.html",
       "destination": "/ca/qc/sherbrooke/mont-bellevue/182-rue-wellington-n/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-2249-rue-king-o-sherbrooke-13269650.html",
-      "destination": "/ca/qc/sherbrooke/jacques-cartier/2249-rue-king-o/",
       "permanent": true
     },
     {

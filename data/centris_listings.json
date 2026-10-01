@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T17:31:03.086359+00:00",
+  "generatedAt": "2026-10-01T17:57:49.798755+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -33,13 +33,7 @@
   "removedListings": [],
   "prunedPages": [],
   "maxListings": 30,
-  "removedStale": [
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/182wells.webp",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/760honore.webp",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/800tessier.webp",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/route108.webp",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/ruesturbain.webp"
-  ],
+  "removedStale": [],
   "listings": [
     {
       "id": "13269650",
@@ -76,7 +70,7 @@
       ],
       "photoCount": 25,
       "ogShareImage": "src/assets/images/proprietes/13269650/og-share.jpg",
-      "publicPath": null
+      "publicPath": "/ca/qc/sherbrooke/jacques-cartier/2249-rue-king-o/"
     },
     {
       "id": "22762710",

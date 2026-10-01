@@ -2,6 +2,18 @@
   "baseUrl": "https://chiassondefrancesco.ca",
   "listings": [
     {
+      "uls": "13269650",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "jacques-cartier",
+      "street": "2249-rue-king-o",
+      "title": "2249 Rue King O., Sherbrooke",
+      "shareTitle": "Commerciale / Industrielle à vendre à Sherbrooke : 2249 Rue King O.",
+      "legacyFile": "prop-2249-rue-king-o-sherbrooke-13269650.html",
+      "fallbackImage": "13269650.jpg"
+    },
+    {
       "uls": "22762710",
       "country": "ca",
       "province": "qc",
@@ -144,18 +156,6 @@
       "shareTitle": "Fonds de commerce à vendre à Sherbrooke : 182, Rue Wellington N.",
       "legacyFile": "prop-182-rue-wellington-n-10043722.html",
       "fallbackImage": "182wells.jpg"
-    },
-    {
-      "uls": "13269650",
-      "country": "ca",
-      "province": "qc",
-      "city": "sherbrooke",
-      "sector": "jacques-cartier",
-      "street": "2249-rue-king-o",
-      "title": "2249 Rue King O., Sherbrooke",
-      "shareTitle": "Commerciale / Industrielle à vendre à Sherbrooke : 2249 Rue King O.",
-      "legacyFile": "prop-2249-rue-king-o-sherbrooke-13269650.html",
-      "fallbackImage": "13269650.jpg"
     }
   ]
 }
