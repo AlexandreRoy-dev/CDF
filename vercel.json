@@ -77,6 +77,11 @@
       "permanent": true
     },
     {
+      "source": "/prop-1119-rue-evangeline-sherbrooke-27273866.html",
+      "destination": "/ca/qc/sherbrooke/mont-bellevue/1119-rue-evangeline/",
+      "permanent": true
+    },
+    {
       "source": "/prop-16-rue-lisee-cookshire-eaton-16447016.html",
       "destination": "/proprietes.html",
       "permanent": true
