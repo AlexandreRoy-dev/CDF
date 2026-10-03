@@ -2,6 +2,18 @@
   "baseUrl": "https://chiassondefrancesco.ca",
   "listings": [
     {
+      "uls": "27273866",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "mont-bellevue",
+      "street": "1119-rue-evangeline",
+      "title": "1119 Rue Évangeline, Sherbrooke",
+      "shareTitle": "Résidentielle à vendre à Sherbrooke : 1119 Rue Évangeline",
+      "legacyFile": "prop-1119-rue-evangeline-sherbrooke-27273866.html",
+      "fallbackImage": "27273866.jpg"
+    },
+    {
       "uls": "13269650",
       "country": "ca",
       "province": "qc",
@@ -156,18 +168,6 @@
       "shareTitle": "Fonds de commerce à vendre à Sherbrooke : 182, Rue Wellington N.",
       "legacyFile": "prop-182-rue-wellington-n-10043722.html",
       "fallbackImage": "182wells.jpg"
-    },
-    {
-      "uls": "27273866",
-      "country": "ca",
-      "province": "qc",
-      "city": "sherbrooke",
-      "sector": "mont-bellevue",
-      "street": "1119-rue-evangeline",
-      "title": "1119 Rue Évangeline, Sherbrooke",
-      "shareTitle": "Résidentielle à vendre à Sherbrooke : 1119 Rue Évangeline",
-      "legacyFile": "prop-1119-rue-evangeline-sherbrooke-27273866.html",
-      "fallbackImage": "27273866.jpg"
     }
   ]
 }
