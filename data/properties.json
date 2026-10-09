@@ -168,6 +168,18 @@
       "shareTitle": "Fonds de commerce à vendre à Sherbrooke : 182, Rue Wellington N.",
       "legacyFile": "prop-182-rue-wellington-n-10043722.html",
       "fallbackImage": "182wells.jpg"
+    },
+    {
+      "uls": "9745288",
+      "country": "ca",
+      "province": "qc",
+      "city": "cleveland",
+      "sector": "centre",
+      "street": "271-ch-de-la-vallee",
+      "title": "271 Ch. de la Vallée, Cleveland",
+      "shareTitle": "Résidentielle à vendre à Cleveland : 271 Ch. de la Vallée",
+      "legacyFile": "prop-271-ch-de-la-vallee-cleveland-9745288.html",
+      "fallbackImage": "9745288.jpg"
     }
   ]
 }
