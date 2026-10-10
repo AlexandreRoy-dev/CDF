@@ -449,13 +449,81 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:500}
 @media (min-width:900px){.hero{min-height:0}.hero .panel{max-width:50rem}.hero h1{font-size:clamp(2rem,3.4vw,3rem)}}
 .section.local{padding-top:clamp(2rem,3vw,2.6rem)}
 </style>
-</head>
+<style>
+/* equipe-visibilite 2026-10-10: agency stays first and larger (OACIQ) */
+.agency{display:flex;align-items:center;gap:.85rem;text-decoration:none}
+.agency .brand-rule{width:1px;align-self:stretch;min-height:34px;background:currentColor;opacity:.35}
+.agency .brand-team{font-family:inherit;font-weight:700;font-size:.92rem;line-height:1.15;letter-spacing:.01em;color:var(--dark);white-space:nowrap}
+.agency .brand-team span{display:inline}
+.nap-team{font-weight:600;color:var(--dark)}
+@media (max-width:760px){
+ .agency{gap:.55rem}
+ .agency .brand-rule{min-height:28px}
+ .agency .brand-team{font-size:.74rem;white-space:normal}
+ .agency .brand-team span{display:block}
+}
+</style><style>
+.team-band{background:var(--dark,#111);color:#fff;padding:1.6rem 0 1.8rem}
+.team-band .tb-kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin:0 0 .35rem}
+.team-band .tb-title{font-family:var(--serif,inherit);font-size:clamp(1.55rem,4.2vw,2.4rem);line-height:1.1;margin:0 0 1.1rem;color:#fff}
+.team-band .tb-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;list-style:none;margin:0;padding:0}
+.team-band .tb-row li{display:flex;align-items:center;gap:.75rem}
+.team-band .tb-row img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none;border:2px solid rgba(255,255,255,.85)}
+.team-band .tb-row a,.team-band .tb-row .tb-who{color:#fff;text-decoration:none;display:block}
+.team-band .tb-name{font-weight:700;font-size:.95rem;line-height:1.2;display:block}
+.team-band .tb-role{font-size:.78rem;opacity:.8;line-height:1.25;display:block}
+.lead .team-name{font-weight:700;color:var(--dark)}
+@media (max-width:900px){.team-band .tb-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem .75rem}}
+@media (max-width:760px){.team-band{padding:1.25rem 0 1.4rem}.team-band .tb-row img{width:52px;height:52px}.team-band .tb-name{font-size:.84rem}.team-band .tb-role{font-size:.7rem}}
+</style><style>
+.hx{position:relative;overflow:hidden}
+.hx h1{letter-spacing:-.02em}
+.hx .hx-eyebrow{font:700 .78rem/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;margin:0 0 .7rem}
+.hx .hx-team{font:700 1.02rem/1.3 var(--sans);margin:.2rem 0 1.1rem}
+.hx .hx-team small{display:block;font-weight:500;font-size:.8rem;opacity:.8;letter-spacing:.02em}
+.hx .hx-actions{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.hx .hx-cta{white-space:normal;text-align:center}
+.hx-call{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;font:700 .82rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1.5px solid currentColor;border-radius:2px}
+.hx .photo-cap{position:absolute;right:.6rem;bottom:.5rem;margin:0;font-size:.66rem;color:#fff;opacity:.85;z-index:3;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.hx .crumbs, .hx .crumbs a{color:inherit;opacity:.85}
+.hx-below{background:var(--white)}
+.hx-below .wrap{padding-top:1.4rem;padding-bottom:1.6rem}
+.hx-below .lead{max-width:44rem}
+@media (max-width:760px){.hx .hx-actions{flex-direction:column;align-items:stretch}.hx .hx-cta,.hx-call{width:100%;justify-content:center}}
+
+.hx-a{min-height:min(88vh,760px);display:flex;align-items:flex-end;color:#fff;background:var(--dark)}
+.hx-a .hx-bg{position:absolute;inset:0}
+.hx-a .hx-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hx-a .hx-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,14,53,.25) 0%,rgba(0,14,53,.55) 40%,rgba(0,14,53,.94) 78%)}
+.hx-a .wrap{position:relative;z-index:2;padding-top:5rem;padding-bottom:3.2rem;width:100%}
+.hx-a .hx-in{max-width:46rem}
+.hx-a .hx-eyebrow{color:#fff}
+.hx-a .hx-eyebrow::before{content:"";display:inline-block;width:28px;height:3px;background:var(--red);vertical-align:middle;margin-right:.6rem}
+.hx-a h1{color:#fff;font-size:clamp(2.2rem,5.2vw,4.4rem);line-height:1.04;margin:0 0 .8rem;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.hx-a .hx-team{color:#fff}
+.hx-a .hx-call{color:#fff}
+.hx-a .hx-faces{display:flex;list-style:none;margin:0 0 1rem;padding:0}
+.hx-a .hx-faces li{margin-right:-10px}
+.hx-a .hx-faces img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #fff}
+@media (max-width:760px){.hx-a{min-height:844px;min-height:calc(100svh - 64px)}.hx-a .wrap{padding-bottom:1.6rem}.hx-a h1{font-size:2.15rem}.hx-a .hx-faces img{width:38px;height:38px}}
+
+/* hero A fixes 2026-10-10: caption inside image, agency label >= team line (OACIQ) */
+.hx-a .photo-cap{display:block !important;top:.6rem;bottom:auto;right:.6rem;background:rgba(0,14,53,.6);padding:.2rem .5rem;border-radius:2px;font-size:.7rem;opacity:1;text-shadow:none}
+.hx-a .hx-eyebrow{font-size:1.05rem;letter-spacing:.14em}
+.hx-a .hx-team{font-size:1rem}
+@media (max-width:760px){.hx-a .hx-eyebrow{font-size:1rem}.hx-a .hx-team{font-size:.96rem}}
+</style><style>
+.sector-photo{margin:0 0 1.6rem}
+.sector-photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.sector-photo figcaption{font-size:.72rem;line-height:1.4;color:var(--muted);margin-top:.45rem}
+.sector-photo figcaption a{color:inherit;text-decoration:underline}
+</style></head>
 <body>
 <header class="top">
 <div class="wrap bar">
 <a class="agency" href="/">
 <span class="logo-tile"><img alt="Logo RE/MAX D'ABORD, agence immobilière" height="567" sizes="(min-width: 1024px) 114px, 85px" src="/assets-v2/logo-remax-dabord-noir-bleu-240.webp" srcset="/assets-v2/logo-remax-dabord-noir-bleu-240.webp 240w, /assets-v2/logo-remax-dabord-noir-bleu-360.webp 360w" width="1200"/></span>
-</a>
+<span aria-hidden="true" class="brand-rule"></span><span class="brand-team"><span>L'Équipe</span> <span>Chiasson De Francesco</span></span></a>
 <nav aria-label="Principal" class="nav">
 <a href="/proprietes.html">Propriétés</a>
 <a href="/vendre.html">Vendre</a>
@@ -466,43 +534,26 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:500}
 <a class="btn btn-dark btn-sm nav-cta" href="#contact">Nous contacter</a>
 </div>
 </header>
-<div class="hero">
-<div class="hero-photo">
-<img alt="Bungalow de brique rouge en hiver, toit enneigé, porte d'entrée vitrée et haies devant la façade" fetchpriority="high" height="1080" sizes="(min-width: 1024px) 80vw, 100vw" src="/assets-v2/house-banner.webp" srcset="/assets-v2/house-banner-800.webp 800w, /assets-v2/house-banner-1200.webp 1200w, /assets-v2/house-banner.webp 1920w" width="1920"/>
-<p aria-hidden="true" class="photo-cap">Photo d'ambiance, maison non à vendre.</p>
-</div>
-<div class="wrap">
-<section aria-labelledby="h1" class="panel">
-<nav aria-label="Fil d'Ariane" class="crumbs"><ol><li><a href="/">Accueil</a></li><li><a href="/regions-desservies.html">Secteurs desservis</a></li><li aria-current="page">North Hatley</li></ol></nav>
-<p class="eyebrow label">Vendre · Acheter · North Hatley</p>
-<h1 id="h1">Courtier immobilier à North Hatley</h1>
-<p class="lead">Les courtiers de <span class="nw">RE/MAX D'ABORD</span> (L'Équipe Chiasson De Francesco) accompagnent les achats et les ventes à North Hatley, le village au nord du lac Massawippi, distinct du canton de Hatley.</p>
-<div class="nap">
+<div class="hx hx-a"><div class="hx-bg"><img alt="Bungalow de brique rouge en hiver, toit enneigé, porte d'entrée vitrée et haies devant la façade" fetchpriority="high" height="1080" sizes="100vw" src="/assets-v2/house-banner.webp" srcset="/assets-v2/house-banner-800.webp 800w, /assets-v2/house-banner-1200.webp 1200w, /assets-v2/house-banner.webp 1920w" width="1920"/></div><p class="photo-cap">Photo d'ambiance, maison non à vendre.</p><div class="wrap"><section aria-labelledby="h1" class="hx-in"><nav aria-label="Fil d'Ariane" class="crumbs"><ol><li><a href="/">Accueil</a></li><li><a href="/regions-desservies.html">Secteurs desservis</a></li><li aria-current="page">North Hatley</li></ol></nav><p class="hx-eyebrow">RE/MAX D'ABORD</p><h1 id="h1">Courtier immobilier à North Hatley</h1><ul class="hx-faces"><li><img alt="Pierre-Olivier Chiasson" height="120" src="/assets-v2/pierre-olivier-120.webp" width="120"/></li><li><img alt="Marco De Francesco" height="120" src="/assets-v2/marco-120.webp" width="120"/></li><li><img alt="Jade Sirois" height="120" src="/assets-v2/jade-120.webp" width="120"/></li><li><img alt="Pierre-Luc Giroux" height="120" src="/assets-v2/pierre-luc-giroux-0J3A8610-180.webp" width="120"/></li></ul><p class="hx-team">L'Équipe Chiasson De Francesco<small>Pierre-Olivier, Marco, Jade et Pierre-Luc</small></p><div class="hx-actions"><a class="btn btn-red hx-cta" href="/evaluation.html">Obtenir une analyse de votre propriété</a><a class="hx-call" href="tel:+18199194631"><svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z" fill="currentColor"></path></svg>Appeler 819-919-4631</a></div></section></div></div><div class="hx-below"><div class="wrap"><p class="lead">Les courtiers de <span class="nw">RE/MAX D'ABORD</span> (<strong class="team-name">L'Équipe Chiasson De Francesco</strong>) accompagnent les achats et les ventes à North Hatley, le village au nord du lac Massawippi, distinct du canton de Hatley.</p><div class="nap">
 <span class="nap-agency">RE/MAX D'ABORD INC., agence immobilière</span>
 <span class="nap-team">L'Équipe Chiasson De Francesco</span>
 <span>157 boul. Jacques-Cartier Sud, Sherbrooke (Québec) J1J 2Z4</span>
 <span class="nap-tel">Téléphones : <a class="tel" href="tel:+18199194631">819-919-4631 (P-O)</a><span aria-hidden="true" class="tel-sep"> · </span><a class="tel" href="tel:+18195620656">819-562-0656 (Marco)</a></span>
-</div>
-<div class="actions">
-<a class="btn btn-red" href="/evaluation.html">Obtenir une analyse de votre propriété</a>
-<a class="link" href="/#courtiers">Parler à un courtier <span aria-hidden="true" class="arrow"></span></a>
-</div>
-</section>
-</div>
-</div>
+</div></div></div><section aria-labelledby="equipe-titre" class="team-band"><div class="wrap"><p class="tb-kicker">RE/MAX D'ABORD</p><h2 class="tb-title" id="equipe-titre">L'Équipe Chiasson De Francesco</h2><ul class="tb-row"><li><img alt="Pierre-Olivier Chiasson, courtier résidentiel et commercial" height="64" loading="eager" src="/assets-v2/pierre-olivier.webp" style="object-position:50% 20%" width="64"/><a href="/pierre-olivier.html"><span class="tb-name">Pierre-Olivier Chiasson</span><span class="tb-role">Courtier résidentiel et commercial</span></a></li><li><img alt="Marco De Francesco, courtier résidentiel et commercial" height="64" loading="eager" src="/assets-v2/marco.webp" style="object-position:50% 20%" width="64"/><a href="/marco.html"><span class="tb-name">Marco De Francesco</span><span class="tb-role">Courtier résidentiel et commercial</span></a></li><li><img alt="Jade Sirois, courtière résidentielle" height="64" loading="eager" src="/assets-v2/jade.webp" style="object-position:50% 20%" width="64"/><a href="/jade.html"><span class="tb-name">Jade Sirois</span><span class="tb-role">Courtière résidentielle</span></a></li><li><img alt="Pierre-Luc Giroux, courtier résidentiel" height="64" loading="eager" src="/assets-v2/pierre-luc-giroux-0J3A8610.webp" style="object-position:50% 25%" width="64"/><span class="tb-who"><span class="tb-name">Pierre-Luc Giroux</span><span class="tb-role">Courtier résidentiel</span></span></li></ul></div></section>
 <main>
 
 <section class="section local" data-sector="north-hatley" id="secteur-local">
 <div class="wrap split">
 <div><p class="kicker label">North Hatley</p><h2>Repères locaux <em>à North Hatley.</em></h2></div>
 <div>
-<div class="block" data-unique-block="north-hatley">
+<div class="block" data-unique-block="north-hatley"><figure class="sector-photo"><img alt="Quai et arche d'accueil de North Hatley, en Estrie, au bord du lac Massawippi." height="1067" loading="lazy" sizes="(min-width: 1024px) 640px, 100vw" src="/assets-v2/secteurs/north-hatley-quai-lac-massawippi-800.webp" srcset="/assets-v2/secteurs/north-hatley-quai-lac-massawippi-800.webp 800w, /assets-v2/secteurs/north-hatley-quai-lac-massawippi-1600.webp 1600w" width="1600"/><figcaption>Photo : Jean-Philippe Boulet, <a href="https://creativecommons.org/licenses/by/3.0" rel="license noopener" target="_blank">CC BY 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Pier_in_North_Hatley.JPG" rel="noopener" target="_blank">source Wikimedia Commons</a></figcaption></figure>
 <p>North Hatley n'est pas le canton de Hatley. Le Village a été érigé en 1897 par scission du township de Hatley, et le canton reste une autre municipalité, avec sa propre page. La MRC de Memphrémagog donne au village 3,23 km², 691 résidents permanents et 187 saisonniers. La mairie est au 3125, chemin Capelton. C'est l'un des plus petits territoires parmi les secteurs de l'équipe.</p>
 <p>Le nom vient du bureau de poste ouvert vers 1859. Avant, le lieu s'appelait Massawippi Outlet. En 1870, le chemin de fer de la Massawippi Valley Railway, entre Lennoxville et Newport au Vermont, longe la rive est du lac et amène des visiteurs par centaines. Des familles fortunées des États-Unis et de Montréal font alors construire des résidences d'été. Le quai à la décharge du lac repose aujourd'hui sur l'ancienne voie ferrée.</p>
 <p>Ce passé a une conséquence directe pour un acheteur. Le cœur du village a été cité site du patrimoine par la Municipalité le 1er juin 1987, et il est un site patrimonial cité depuis l'entrée en vigueur de la Loi sur le patrimoine culturel, en 2012. Il regroupe une quarantaine de bâtiments, de la jonction du chemin du Lac et de la rue Massawippi au sud jusqu'à la rue Mill et au chemin Capelton au nord, et inclut notamment les rues Gagnon et School. Selon le Répertoire du patrimoine culturel du Québec, la protection s'applique aux terrains et à l'enveloppe extérieure des constructions. Le même répertoire cite parmi les éléments caractéristiques la planche à clins, le bardeau de bois, les fenêtres à guillotine et les galeries. Changer un revêtement ou des fenêtres à l'intérieur du site n'est donc pas une simple décision d'entrepreneur.</p>
 <p>Le Village a déposé le 10 septembre 2026 son rôle d'évaluation triennal pour les exercices 2027, 2028 et 2029. La valeur inscrite au compte de taxes de 2026 ne sera donc plus celle du rôle en vigueur l'an prochain. Le Village a aussi présenté un programme particulier d'urbanisme (PPU) lors d'une consultation tenue un 23 février.</p>
 <p>L'APCIQ ne publie pas North Hatley à part. Le baromètre le range dans son sixième secteur, nommé « Périphérie de Sherbrooke », avec Orford, le canton de Hatley, Waterville et cinq autres municipalités. Sur les 12 mois terminés en juin 2026, ce secteur compte 289 ventes unifamiliales, avec une médiane de 632 500 $, en hausse de 12 %, et 41 ventes de copropriétés, avec une médiane de 385 000 $. Aucun de ces montants ne décrit une maison du site patrimonial ni une propriété riveraine du Massawippi.</p>
 <p>Le droit de mutation est celui du Village. L'avis de motion du 17 décembre 2025 annonce le règlement 2025-778, qui vise un taux de 3 % sur les tranches qui excèdent 500 000 $, le maximum que permet la loi provinciale hors Montréal. L'ordre du jour de la séance du 12 janvier 2026 en prévoit l'adoption. Au-delà de 500 000 $, le taux passerait donc de 1,5 % à 3 %, sans palier intermédiaire.</p>
+<p>Le décret de population de 2026 attribue 775 habitants au village. Le village appartient, pour l'école publique en français, au CSS de la Région-de-Sherbrooke, tel que l'indique la Fédération des centres de services scolaires.</p>
 </div>
 <nav aria-label="Secteurs voisins et pages liées" class="neighbours">
 <h3>Secteurs voisins</h3>
