@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://chiassondefrancesco.ca/</loc><lastmod>2026-10-09</lastmod><priority>1.0</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/</loc><lastmod>2026-10-10</lastmod><priority>1.0</priority></url>
   <url><loc>https://chiassondefrancesco.ca/acheter.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-bord-de-lac-estrie.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-bromont-ou-sutton.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
@@ -90,38 +90,39 @@
   <url><loc>https://chiassondefrancesco.ca/plex-sherbrooke.html</loc><lastmod>2026-10-09</lastmod><priority>0.7</priority></url>
   <url><loc>https://chiassondefrancesco.ca/proprietes.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions-desservies.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/austin.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/ayers-cliff.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/bromont.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/brompton.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/coaticook.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/compton.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/cookshire-eaton.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/danville.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/eastman.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/fleurimont.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/hatley.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/austin.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/ayers-cliff.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/bromont.html</loc><lastmod>2026-10-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/brompton.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/coaticook.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/compton.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/cookshire-eaton.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/danville.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/eastman.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/fleurimont.html</loc><lastmod>2026-10-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/hatley.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions/lac-aylmer.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/lac-brome.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/lac-brome.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions/lac-massawippi.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/lac-megantic.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/lac-megantic.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions/lac-memphremagog.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/lennoxville.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/les-nations.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/magog.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/milan.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/mont-bellevue.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/north-hatley.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/orford.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/richmond.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/rock-forest.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/saint-isidore-de-clifton.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/sherbrooke.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/stanstead.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/sutton.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/val-des-sources.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/waterville.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/weedon.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/regions/windsor.html</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/lennoxville.html</loc><lastmod>2026-10-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/les-nations.html</loc><lastmod>2026-10-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/magog.html</loc><lastmod>2026-10-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/milan.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/mont-bellevue.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/north-hatley.html</loc><lastmod>2026-10-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/orford.html</loc><lastmod>2026-10-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/richmond.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/rock-forest.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/saint-isidore-de-clifton.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/sherbrooke.html</loc><lastmod>2026-10-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/stanstead.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/sutton.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/val-des-sources.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/waterville.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/weedon.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/windsor.html</loc><lastmod>2026-10-10</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/vendre.html</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/regions/jacques-cartier.html</loc><lastmod>2026-10-10</lastmod><priority>0.7</priority></url>
 </urlset>
