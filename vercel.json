@@ -12,6 +12,11 @@
   ],
   "redirects": [
     {
+      "source": "/prop-271-ch-de-la-vallee-cleveland-9745288.html",
+      "destination": "/ca/qc/cleveland/centre/271-ch-de-la-vallee/",
+      "permanent": true
+    },
+    {
       "source": "/prop-1119-rue-evangeline-sherbrooke-27273866.html",
       "destination": "/ca/qc/sherbrooke/mont-bellevue/1119-rue-evangeline/",
       "permanent": true
@@ -19,11 +24,6 @@
     {
       "source": "/prop-2249-rue-king-o-sherbrooke-13269650.html",
       "destination": "/ca/qc/sherbrooke/jacques-cartier/2249-rue-king-o/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-2762-ch-de-georgeville-magog-22762710.html",
-      "destination": "/ca/qc/magog/centre/2762-ch-de-georgeville/",
       "permanent": true
     },
     {
@@ -82,8 +82,8 @@
       "permanent": true
     },
     {
-      "source": "/prop-271-ch-de-la-vallee-cleveland-9745288.html",
-      "destination": "/ca/qc/cleveland/centre/271-ch-de-la-vallee/",
+      "source": "/prop-236-238-rue-de-l-arena-magog-17095739.html",
+      "destination": "/ca/qc/magog/centre/236-238-rue-de-l-arena/",
       "permanent": true
     },
     {

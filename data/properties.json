@@ -2,6 +2,18 @@
   "baseUrl": "https://chiassondefrancesco.ca",
   "listings": [
     {
+      "uls": "9745288",
+      "country": "ca",
+      "province": "qc",
+      "city": "cleveland",
+      "sector": "centre",
+      "street": "271-ch-de-la-vallee",
+      "title": "271 Ch. de la Vallée, Cleveland",
+      "shareTitle": "Résidentielle à vendre à Cleveland : 271 Ch. de la Vallée",
+      "legacyFile": "prop-271-ch-de-la-vallee-cleveland-9745288.html",
+      "fallbackImage": "9745288.jpg"
+    },
+    {
       "uls": "27273866",
       "country": "ca",
       "province": "qc",
@@ -24,18 +36,6 @@
       "shareTitle": "Commerciale / Industrielle à vendre à Sherbrooke : 2249 Rue King O.",
       "legacyFile": "prop-2249-rue-king-o-sherbrooke-13269650.html",
       "fallbackImage": "13269650.jpg"
-    },
-    {
-      "uls": "22762710",
-      "country": "ca",
-      "province": "qc",
-      "city": "magog",
-      "sector": "centre",
-      "street": "2762-ch-de-georgeville",
-      "title": "2762 Ch. de Georgeville, Magog",
-      "shareTitle": "Maison de plain-pied à vendre à Magog : 2762 Ch. de Georgeville",
-      "legacyFile": "prop-2762-ch-de-georgeville-magog-22762710.html",
-      "fallbackImage": "22762710.jpg"
     },
     {
       "uls": "12505188",
@@ -170,16 +170,16 @@
       "fallbackImage": "182wells.jpg"
     },
     {
-      "uls": "9745288",
+      "uls": "17095739",
       "country": "ca",
       "province": "qc",
-      "city": "cleveland",
+      "city": "magog",
       "sector": "centre",
-      "street": "271-ch-de-la-vallee",
-      "title": "271 Ch. de la Vallée, Cleveland",
-      "shareTitle": "Résidentielle à vendre à Cleveland : 271 Ch. de la Vallée",
-      "legacyFile": "prop-271-ch-de-la-vallee-cleveland-9745288.html",
-      "fallbackImage": "9745288.jpg"
+      "street": "236-238-rue-de-l-arena",
+      "title": "236 - 238 Rue de l'Aréna, Magog",
+      "shareTitle": "Multi-Plex à vendre à Magog : 236 - 238 Rue de l'Aréna",
+      "legacyFile": "prop-236-238-rue-de-l-arena-magog-17095739.html",
+      "fallbackImage": "17095739.jpg"
     }
   ]
 }

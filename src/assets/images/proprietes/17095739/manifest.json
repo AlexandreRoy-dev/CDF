@@ -1,5 +1,5 @@
 {
-  "uls": "9745288",
+  "uls": "17095739",
   "photos": [
     "01.jpg",
     "02.jpg",
@@ -31,10 +31,17 @@
     "28.jpg",
     "29.jpg",
     "30.jpg",
-    "31.jpg"
+    "31.jpg",
+    "32.jpg",
+    "33.jpg",
+    "34.jpg",
+    "35.jpg",
+    "36.jpg",
+    "37.jpg",
+    "38.jpg"
   ],
   "ogShare": "og-share.jpg",
-  "count": 31,
-  "publicPath": "/ca/qc/cleveland/centre/271-ch-de-la-vallee/",
-  "ogImageUrl": "https://chiassondefrancesco.ca/src/assets/images/proprietes/9745288/og-share.jpg"
+  "count": 38,
+  "publicPath": null,
+  "ogImageUrl": "https://chiassondefrancesco.ca/src/assets/images/proprietes/17095739/og-share.jpg"
 }
