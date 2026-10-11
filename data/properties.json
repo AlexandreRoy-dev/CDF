@@ -2,6 +2,18 @@
   "baseUrl": "https://chiassondefrancesco.ca",
   "listings": [
     {
+      "uls": "17095739",
+      "country": "ca",
+      "province": "qc",
+      "city": "magog",
+      "sector": "centre",
+      "street": "236-238-rue-de-l-arena",
+      "title": "236 - 238 Rue de l'Aréna, Magog",
+      "shareTitle": "Multi-Plex à vendre à Magog : 236 - 238 Rue de l'Aréna",
+      "legacyFile": "prop-236-238-rue-de-l-arena-magog-17095739.html",
+      "fallbackImage": "17095739.jpg"
+    },
+    {
       "uls": "9745288",
       "country": "ca",
       "province": "qc",
@@ -168,18 +180,6 @@
       "shareTitle": "Fonds de commerce à vendre à Sherbrooke : 182, Rue Wellington N.",
       "legacyFile": "prop-182-rue-wellington-n-10043722.html",
       "fallbackImage": "182wells.jpg"
-    },
-    {
-      "uls": "17095739",
-      "country": "ca",
-      "province": "qc",
-      "city": "magog",
-      "sector": "centre",
-      "street": "236-238-rue-de-l-arena",
-      "title": "236 - 238 Rue de l'Aréna, Magog",
-      "shareTitle": "Multi-Plex à vendre à Magog : 236 - 238 Rue de l'Aréna",
-      "legacyFile": "prop-236-238-rue-de-l-arena-magog-17095739.html",
-      "fallbackImage": "17095739.jpg"
     }
   ]
 }

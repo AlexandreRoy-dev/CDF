@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T16:52:48.460215+00:00",
+  "generatedAt": "2026-10-11T17:15:17.967984+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -32,19 +32,10 @@
     "27273866",
     "9745288"
   ],
-  "removedListings": [
-    "22762710"
-  ],
-  "prunedPages": [
-    "/home/runner/work/CDF/CDF/ca/qc/magog/centre/2762-ch-de-georgeville/index.html",
-    "/home/runner/work/CDF/CDF/prop-2762-ch-de-georgeville-magog-22762710.html",
-    "proprietes.html:/ca/qc/magog/centre/2762-ch-de-georgeville/"
-  ],
+  "removedListings": [],
+  "prunedPages": [],
   "maxListings": 30,
-  "removedStale": [
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/22762710",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/22762710.jpg"
-  ],
+  "removedStale": [],
   "listings": [
     {
       "id": "17095739",
@@ -94,7 +85,7 @@
       ],
       "photoCount": 38,
       "ogShareImage": "src/assets/images/proprietes/17095739/og-share.jpg",
-      "publicPath": null
+      "publicPath": "/ca/qc/magog/centre/236-238-rue-de-l-arena/"
     },
     {
       "id": "9745288",
