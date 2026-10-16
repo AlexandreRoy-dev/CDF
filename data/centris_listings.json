@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T16:12:24.538951+00:00",
+  "generatedAt": "2026-10-16T16:01:39.254505+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -31,20 +31,10 @@
     "27273866",
     "9745288"
   ],
-  "removedListings": [
-    "13807137"
-  ],
-  "prunedPages": [
-    "/home/runner/work/CDF/CDF/ca/qc/quebec/la-cite-limoilou/760-av-honore-mercier-local-115/index.html",
-    "/home/runner/work/CDF/CDF/prop-760-av-honore-mercier-local-115-13807137.html",
-    "proprietes.html:/ca/qc/quebec/la-cite-limoilou/760-av-honore-mercier-local-115/"
-  ],
+  "removedListings": [],
+  "prunedPages": [],
   "maxListings": 30,
-  "removedStale": [
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/13807137",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/13807137.jpg",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/760honore.jpg"
-  ],
+  "removedStale": [],
   "listings": [
     {
       "id": "17095739",
