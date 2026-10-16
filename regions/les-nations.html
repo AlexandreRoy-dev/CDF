@@ -146,7 +146,6 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:500}
 .hero{position:relative;background:var(--cream);overflow:hidden}
 .hero-photo{position:absolute;top:0;right:0;width:62%;height:100%;min-height:600px}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.photo-cap{position:absolute;right:1rem;bottom:.8rem;font-size:.68rem;letter-spacing:.04em;color:var(--dark);background:rgba(255,255,255,.9);padding:.15rem .5rem}
 .hero > .wrap{position:relative;z-index:1}
 .panel{position:relative;max-width:43rem;margin:clamp(2.5rem,5vw,4rem) 0;background:var(--white);padding:clamp(1.8rem,3.4vw,3rem) clamp(1.4rem,3.4vw,3.2rem);border-top:3px solid var(--red);box-shadow:0 18px 50px rgba(0,14,53,.12)}
 .eyebrow{color:var(--red);margin-bottom:1.1rem}
@@ -259,7 +258,6 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:500}
   .team-mark img{height:20px}
   .team-mark .tbc{font-size:.56rem}
   .hero-photo{position:relative;width:100%;height:190px;min-height:0}
-  .photo-cap{display:none}
   .panel{margin:-34px calc(var(--gutter) * -1) 0;padding:1.3rem var(--gutter) 1.5rem;box-shadow:none}
   .eyebrow{margin-bottom:.6rem}
   .hero h1{font-size:1.85rem;margin-bottom:.7rem}
@@ -488,7 +486,6 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:500}
 .hx .hx-actions{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
 .hx .hx-cta{white-space:normal;text-align:center}
 .hx-call{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;font:700 .82rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1.5px solid currentColor;border-radius:2px}
-.hx .photo-cap{position:absolute;right:.6rem;bottom:.5rem;margin:0;font-size:.66rem;color:#fff;opacity:.85;z-index:3;text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .hx .crumbs, .hx .crumbs a{color:inherit;opacity:.85}
 .hx-below{background:var(--white)}
 .hx-below .wrap{padding-top:1.4rem;padding-bottom:1.6rem}
@@ -511,8 +508,7 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:500}
 .hx-a .hx-faces img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #fff}
 @media (max-width:760px){.hx-a{min-height:844px;min-height:calc(100svh - 64px)}.hx-a .wrap{padding-bottom:1.6rem}.hx-a h1{font-size:2.15rem}.hx-a .hx-faces img{width:38px;height:38px}}
 
-/* hero A fixes 2026-10-10: caption inside image, agency label >= team line (OACIQ) */
-.hx-a .photo-cap{display:block !important;top:.6rem;bottom:auto;right:.6rem;background:rgba(0,14,53,.6);padding:.2rem .5rem;border-radius:2px;font-size:.7rem;opacity:1;text-shadow:none}
+/* hero A fixes 2026-10-10: agency label >= team line (OACIQ) */
 .hx-a .hx-eyebrow{font-size:1.05rem;letter-spacing:.14em}
 .hx-a .hx-team{font-size:1rem}
 @media (max-width:760px){.hx-a .hx-eyebrow{font-size:1rem}.hx-a .hx-team{font-size:.96rem}}
@@ -533,7 +529,7 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:500}
 <a class="btn btn-dark btn-sm nav-cta" href="#contact">Nous contacter</a>
 </div>
 </header>
-<div class="hx hx-a"><div class="hx-bg"><img alt="Bungalow de brique rouge en hiver, toit enneigé, porte d'entrée vitrée et haies devant la façade" fetchpriority="high" height="1080" sizes="100vw" src="/assets-v2/house-banner.webp" srcset="/assets-v2/house-banner-800.webp 800w, /assets-v2/house-banner-1200.webp 1200w, /assets-v2/house-banner.webp 1920w" width="1920"/></div><p class="photo-cap">Photo d'ambiance, maison non à vendre.</p><div class="wrap"><section aria-labelledby="h1" class="hx-in"><nav aria-label="Fil d'Ariane" class="crumbs"><ol><li><a href="/">Accueil</a></li><li><a href="/regions-desservies.html">Secteurs desservis</a></li><li aria-current="page">Les Nations</li></ol></nav><p class="hx-eyebrow">RE/MAX D'ABORD</p><h1 id="h1">Courtier immobilier aux Nations</h1><ul class="hx-faces"><li><img alt="Pierre-Olivier Chiasson" height="120" src="/assets-v2/pierre-olivier-120.webp" width="120"/></li><li><img alt="Marco De Francesco" height="120" src="/assets-v2/marco-120.webp" width="120"/></li><li><img alt="Jade Sirois" height="120" src="/assets-v2/jade-120.webp" width="120"/></li><li><img alt="Pierre-Luc Giroux" height="120" src="/assets-v2/pierre-luc-giroux-0J3A8610-180.webp" width="120"/></li></ul><p class="hx-team">L'Équipe Chiasson De Francesco<small>Pierre-Olivier, Marco, Jade et Pierre-Luc</small></p><div class="hx-actions"><a class="btn btn-red hx-cta" href="/evaluation.html">Obtenir une analyse de votre propriété</a><a class="hx-call" href="tel:+18199194631"><svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z" fill="currentColor"></path></svg>Appeler 819-919-4631</a></div></section></div></div><div class="hx-below"><div class="wrap"><p class="lead">Les courtiers de <span class="nw">RE/MAX D'ABORD</span> (<strong class="team-name">L'Équipe Chiasson De Francesco</strong>) accompagnent les achats et les ventes aux Nations, l'arrondissement du centre de Sherbrooke.</p><div class="nap">
+<div class="hx hx-a"><div class="hx-bg"><img alt="Bungalow de brique rouge en hiver, toit enneigé, porte d'entrée vitrée et haies devant la façade" fetchpriority="high" height="1080" sizes="100vw" src="/assets-v2/house-banner.webp" srcset="/assets-v2/house-banner-800.webp 800w, /assets-v2/house-banner-1200.webp 1200w, /assets-v2/house-banner.webp 1920w" width="1920"/></div><div class="wrap"><section aria-labelledby="h1" class="hx-in"><nav aria-label="Fil d'Ariane" class="crumbs"><ol><li><a href="/">Accueil</a></li><li><a href="/regions-desservies.html">Secteurs desservis</a></li><li aria-current="page">Les Nations</li></ol></nav><p class="hx-eyebrow">RE/MAX D'ABORD</p><h1 id="h1">Courtier immobilier aux Nations</h1><ul class="hx-faces"><li><img alt="Pierre-Olivier Chiasson" height="120" src="/assets-v2/pierre-olivier-120.webp" width="120"/></li><li><img alt="Marco De Francesco" height="120" src="/assets-v2/marco-120.webp" width="120"/></li><li><img alt="Jade Sirois" height="120" src="/assets-v2/jade-120.webp" width="120"/></li><li><img alt="Pierre-Luc Giroux" height="120" src="/assets-v2/pierre-luc-giroux-0J3A8610-180.webp" width="120"/></li></ul><p class="hx-team">L'Équipe Chiasson De Francesco<small>Pierre-Olivier, Marco, Jade et Pierre-Luc</small></p><div class="hx-actions"><a class="btn btn-red hx-cta" href="/evaluation.html">Obtenir une analyse de votre propriété</a><a class="hx-call" href="tel:+18199194631"><svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z" fill="currentColor"></path></svg>Appeler 819-919-4631</a></div></section></div></div><div class="hx-below"><div class="wrap"><p class="lead">Les courtiers de <span class="nw">RE/MAX D'ABORD</span> (<strong class="team-name">L'Équipe Chiasson De Francesco</strong>) accompagnent les achats et les ventes aux Nations, l'arrondissement du centre de Sherbrooke.</p><div class="nap">
 <span class="nap-agency">RE/MAX D'ABORD INC., agence immobilière</span>
 <span class="nap-team">L'Équipe Chiasson De Francesco</span>
 <span>157 boul. Jacques-Cartier Sud, Sherbrooke (Québec) J1J 2Z4</span>
