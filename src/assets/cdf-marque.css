@@ -1,0 +1,18 @@
+/* Marque : Équipe Chiasson De Francesco en premier, RE/MAX D'ABORD en second (en-tête et pied de page des pages Tailwind). */
+.cdf-lockup{display:flex;align-items:center;gap:12px}
+.cdf-lockup .cdf-lockup-team{height:44px;width:auto;flex:none}
+.cdf-lockup .cdf-lockup-rule{width:1px;height:30px;background:rgba(255,255,255,.3);flex:none}
+.cdf-lockup .cdf-lockup-agency{height:24px;width:auto;flex:none}
+@media (min-width:768px){
+  .cdf-lockup{gap:16px}
+  .cdf-lockup .cdf-lockup-team{height:56px}
+  .cdf-lockup .cdf-lockup-rule{height:38px}
+  .cdf-lockup .cdf-lockup-agency{height:30px}
+}
+.cdf-fbrand{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.cdf-fbrand--center{align-items:center;text-align:center}
+.cdf-fbrand-logos{display:flex;align-items:center;gap:16px}
+.cdf-fbrand-team{height:64px;width:auto}
+.cdf-fbrand-rule{width:1px;height:40px;background:rgba(255,255,255,.22)}
+.cdf-fbrand-agency{height:32px;width:auto;opacity:.9}
+.cdf-fbrand-legal{margin:0;font-size:13px;line-height:1.5;font-weight:500;letter-spacing:.02em;color:rgba(255,255,255,.78)}
