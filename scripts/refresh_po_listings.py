@@ -173,7 +173,15 @@ def municipality_label(detail: dict, listing: dict) -> str:
     return CITY_DISPLAY.get(slug, slug.replace("-", " ").title())
 
 
+TEAM_NAME = "Équipe Chiasson De Francesco"
+
+
 def build_page_title(share_title: str, headline: str, city: str) -> str:
+    # Team name first in the title when it fits, short "CDF" suffix otherwise.
+    for base in (share_title, f"{headline} à {city}"):
+        candidate = f"{base} | {TEAM_NAME}"
+        if len(candidate) <= 70:
+            return candidate
     page_title = f"{share_title} | CDF"
     if len(page_title) > 60:
         page_title = f"{headline} à {city} | CDF"
@@ -709,6 +717,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700|Playfair+Display:600,700&amp;display=swap">
   <link rel="stylesheet" href="/public/css/site.min.css">
+  <link rel="stylesheet" href="/src/assets/cdf-marque.css">
 
 <script type="application/ld+json">
 {ld_json}
@@ -719,7 +728,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
 
   <nav class="py-4 px-6 fixed w-full top-0 z-50 bg-brand-navy shadow-md">
     <div class="relative max-w-7xl mx-auto flex items-center justify-between">
-      <a href="/index.html"><img src="/src/assets/logo.png" alt="Chiasson & De Francesco" class="h-10 md:h-12 w-auto"></a>
+      <a href="/index.html"><span class="cdf-lockup"><img class="cdf-lockup-team" src="/src/assets/logocdf.svg" alt="Équipe Chiasson De Francesco, courtiers immobiliers" width="140" height="68"><span class="cdf-lockup-rule" aria-hidden="true"></span><img class="cdf-lockup-agency" src="/assets-v2/logo-remax-dabord-creme-280.webp" srcset="/assets-v2/logo-remax-dabord-creme-280.webp 280w, /assets-v2/logo-remax-dabord-creme-400.webp 400w" sizes="64px" alt="RE/MAX D'ABORD, agence immobilière" width="280" height="132"></span></a>
       <div class="hidden md:flex items-center gap-10">
         <a href="/index.html" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
         <a href="/index.html#about" class="text-white hover:text-brand-red transition-colors font-medium">Équipe</a>
@@ -832,6 +841,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
   <div class="relative z-50 -mt-2">
     <footer id="footer" class="bg-[#232323] text-gray-400 py-16 border-t-4 border-brand-red font-body">
       <div class="max-w-7xl mx-auto px-6">
+        <div class="cdf-fbrand cdf-fbrand--center"><div class="cdf-fbrand-logos"><img class="cdf-fbrand-team" src="/src/assets/logocdf.svg" alt="Équipe Chiasson De Francesco, courtiers immobiliers" width="140" height="68" loading="lazy"><span class="cdf-fbrand-rule" aria-hidden="true"></span><img class="cdf-fbrand-agency" src="/assets-v2/logo-remax-dabord-creme-280.webp" alt="RE/MAX D'ABORD, agence immobilière" width="280" height="132" loading="lazy"></div><p class="cdf-fbrand-legal">RE/MAX D'ABORD Inc., agence immobilière</p></div>
         <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs mb-6 text-gray-500">
           <a href="https://immobiliermaison.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">immobiliermaison.com</a>
           <a href="https://vendremamaisonsherbrooke.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">vendremamaisonsherbrooke.com</a>
