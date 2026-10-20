@@ -6,6 +6,11 @@ Uses data/properties.json (SEO paths) + RE/MAX inscription details to:
 - rebuild proprietes.html cards
 - update King O 304 rental price on its existing page
 - regenerate sitemap.xml + vercel redirects
+
+Listing pages live under /ca/qc/{ville}/{secteur}/{rue}/. Every internal
+link in the template is root-absolute (starts with /) so it still resolves
+from that depth. Pass --rewrite-links to fix existing pages offline,
+without calling Centris or RE/MAX.
 """
 
 from __future__ import annotations
@@ -54,6 +59,101 @@ LEGACY_REDIRECT = """<!DOCTYPE html>
 </body>
 </html>
 """
+
+_ATTR_RE = re.compile(
+    r'(?P<attr>\b(?:href|src|poster)\s*=\s*)(?P<q>["\'])(?P<url>[^"\']*)(?P=q)',
+    re.IGNORECASE,
+)
+_SRCSET_RE = re.compile(
+    r'(?P<attr>\bsrcset\s*=\s*)(?P<q>["\'])(?P<val>[^"\']*)(?P=q)',
+    re.IGNORECASE,
+)
+
+
+def root_absolute_url(url: str) -> str:
+    """Turn a same-site relative URL into a root-absolute path.
+
+    Absolute, protocol-relative, hash, and non-http schemes are left as-is.
+    Parent segments (../) collapse against the site root, which is what a
+    link on a nested listing page must do.
+    """
+    raw = url.strip()
+    if not raw:
+        return url
+    lower = raw.lower()
+    if lower.startswith(("#", "mailto:", "tel:", "sms:", "data:", "javascript:")):
+        return url
+    if lower.startswith(("http://", "https://", "//")):
+        return url
+    if raw.startswith("/"):
+        return url
+    path = raw
+    while path.startswith("./"):
+        path = path[2:]
+    parts: list[str] = []
+    for part in path.split("/"):
+        if part in ("", "."):
+            continue
+        if part == "..":
+            if parts:
+                parts.pop()
+            continue
+        parts.append(part)
+    if not parts:
+        return "/"
+    return "/" + "/".join(parts)
+
+
+def absolutize_internal_attrs(html: str) -> str:
+    """Rewrite relative href/src/poster/srcset values to root-absolute URLs."""
+
+    def repl_attr(match: re.Match) -> str:
+        url = match.group("url")
+        new = root_absolute_url(url)
+        if new == url:
+            return match.group(0)
+        return f'{match.group("attr")}{match.group("q")}{new}{match.group("q")}'
+
+    def repl_srcset(match: re.Match) -> str:
+        value = match.group("val")
+        changed = False
+        pieces: list[str] = []
+        for part in value.split(","):
+            raw = part.strip()
+            if not raw:
+                pieces.append(part)
+                continue
+            bits = raw.split()
+            new_url = root_absolute_url(bits[0])
+            if new_url != bits[0]:
+                changed = True
+                bits[0] = new_url
+            lead = part[: len(part) - len(part.lstrip())]
+            pieces.append(lead + " ".join(bits))
+        if not changed:
+            return match.group(0)
+        return f'{match.group("attr")}{match.group("q")}{",".join(pieces)}{match.group("q")}'
+
+    html = _ATTR_RE.sub(repl_attr, html)
+    return _SRCSET_RE.sub(repl_srcset, html)
+
+
+def rewrite_existing_listing_links() -> list[Path]:
+    """Fix relative internal links on listing pages already on disk.
+
+    Does not fetch Centris or RE/MAX and does not alter other markup.
+    """
+    changed: list[Path] = []
+    root = ROOT / "ca"
+    if not root.exists():
+        return changed
+    for path in sorted(root.rglob("index.html")):
+        text = path.read_text(encoding="utf-8")
+        updated = absolutize_internal_attrs(text)
+        if updated != text:
+            path.write_text(updated, encoding="utf-8")
+            changed.append(path)
+    return changed
 
 BED_SVG = (
     '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">'
@@ -686,7 +786,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
 
     ld_json = json.dumps(ld, ensure_ascii=False, indent=2)
 
-    return f"""<!DOCTYPE html>
+    html = f"""<!DOCTYPE html>
 <html lang="fr-CA" class="scroll-smooth">
 <head>
     <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg">
@@ -851,6 +951,10 @@ def render_detail_page(listing: dict, detail: dict) -> str:
         </div>
         <div class="border-t border-white/10 pt-8 text-center text-xs text-gray-500">
           <p>&copy; 2026 Équipe Chiasson & De Francesco. Tous droits réservés.</p>
+          <p class="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-2">
+            <a href="/regions-desservies.html" class="hover:text-white transition-colors">Régions desservies</a>
+            <a href="/confidentialite.html" class="hover:text-white transition-colors">Politique de confidentialité</a>
+          </p>
         </div>
       </div>
     </footer>
@@ -866,6 +970,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
 </body>
 </html>
 """
+    return absolutize_internal_attrs(html)
 
 
 def card_html(listing: dict, detail: dict) -> str:
@@ -981,6 +1086,13 @@ def ensure_legacy_redirect(listing: dict) -> None:
 
 
 def main() -> int:
+    if "--rewrite-links" in sys.argv:
+        changed = rewrite_existing_listing_links()
+        for path in changed:
+            print(f"rewrote links: {path.relative_to(ROOT)}")
+        print(f"done: {len(changed)} listing pages")
+        return 0
+
     registry = json.loads((ROOT / "data" / "properties.json").read_text(encoding="utf-8"))
     session = requests.Session()
     session.headers.update(

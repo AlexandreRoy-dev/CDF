@@ -67,15 +67,12 @@ def og_image_url(listing: dict) -> str:
 
 
 def fix_root_paths(content: str) -> str:
-    content = content.replace('href="./src/', 'href="/src/')
-    content = content.replace('src="./src/', 'src="/src/')
-    content = content.replace('href="../src/', 'href="/src/')
-    content = content.replace('src="../src/', 'src="/src/')
-    content = content.replace('href="index.html"', 'href="/index.html"')
-    content = content.replace('href="proprietes.html"', 'href="/proprietes.html"')
-    content = content.replace('href="blog.html"', 'href="/blog.html"')
-    content = content.replace('href="index.html#', 'href="/index.html#')
-    return content
+    # Listings are published several folders deep. Every internal URL must be
+    # root-absolute, including footer links the older replacements skipped
+    # (regions-desservies.html, confidentialite.html).
+    from refresh_po_listings import absolutize_internal_attrs
+
+    return absolutize_internal_attrs(content)
 
 
 def inject_gallery(content: str, listing: dict) -> str:
