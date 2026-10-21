@@ -287,6 +287,10 @@ REGION_META = {
     "hatley": ("Courtier immobilier à Hatley | Cantons-de-l'Est | CDF", "Propriétés à Hatley, près de North Hatley et du Massawippi. Équipe Chiasson de Francesco, Estrie."),
     "milan": ("Courtier immobilier à Milan | Estrie | CDF", "Acheter ou vendre à Milan, Estrie (MRC du Granit). L'équipe Chiasson de Francesco y inscrit aussi des propriétés."),
     "saint-isidore-de-clifton": ("Courtier à Saint-Isidore-de-Clifton | fermettes | CDF", "Fermettes et rangs à Saint-Isidore-de-Clifton, Estrie. L'équipe Chiasson de Francesco y accompagne achat et vente."),
+    "jacques-cartier": (
+        "Courtier immobilier à Jacques-Cartier | Équipe Chiasson De Francesco",
+        "Courtier immobilier à Jacques-Cartier, RE/MAX D'ABORD. Jacques-Cartier est un secteur de l'arrondissement des Nations, pas un arrondissement à lui seul.",
+    ),
 }
 
 LISTING_OFFERS = {
@@ -511,6 +515,12 @@ def set_or_insert_meta(text: str, title: str | None, desc: str | None, canonical
         text,
         count=1,
     )
+    text = re.sub(
+        r'<meta name="twitter:description" content="[^"]*"\s*/?>',
+        f'<meta name="twitter:description" content="{chosen}">',
+        text,
+        count=1,
+    )
     if og_image:
         if re.search(r'<meta property="og:image"', text):
             text = re.sub(r'<meta property="og:image" content="[^"]*"\s*/?>', f'<meta property="og:image" content="{og_image}">', text, count=1)
@@ -694,7 +704,6 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
     # JSON-LD (skip homepage and rewritten region FAQ pages)
     keep_ld = rel == "index.html" or "FAQPage" in text
     if not keep_ld:
-        text = strip_json_ld(text)
         chosen_desc = desc or pick_description(descriptions(text), title or "")
         chosen_title = title or ""
         tm = re.search(r"<title>([^<]+)</title>", text, flags=re.I)
@@ -718,9 +727,12 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
                     if offer:
                         payload = listing_json_ld(listing, offer, chosen_desc)
                         offer_name = offer["name"].replace("\u2014", ", ").replace("\u2013", ", ")
-                        page_title = f"{offer_name} | CDF"
+                        street = offer_name.split(":", 1)[-1].strip() if ":" in offer_name else ""
+                        page_title = f"{offer_name.split(':')[0].strip()}, {street} | CDF" if street else f"{offer_name} | CDF"
                         if len(page_title) > 60:
-                            page_title = f"{offer_name.split(':')[0].strip()} | CDF"
+                            page_title = f"{street}, {offer_name.split(':')[0].strip()} | CDF" if street else page_title
+                        if len(page_title) > 65:
+                            page_title = page_title[:60].rsplit(" ", 1)[0]
                         text = set_or_insert_meta(
                             text,
                             page_title,
@@ -728,7 +740,9 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
                             page_url(path),
                         )
                     break
+        # Keep an existing JSON-LD block when this pass has nothing to replace it with.
         if payload:
+            text = strip_json_ld(text)
             text = inject_json_ld(text, payload)
 
     if rel == "merci.html":
@@ -743,38 +757,84 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
         print(f"updated {rel}")
 
 
-def write_sitemap(listings: list[dict]) -> None:
-    urls = [
-        (f"{BASE}/", "1.0"),
-        (f"{BASE}/proprietes.html", "0.8"),
-        (f"{BASE}/evaluation.html", "0.8"),
-        (f"{BASE}/vendre.html", "0.8"),
-        (f"{BASE}/acheter.html", "0.8"),
-        (f"{BASE}/courtier-commercial.html", "0.8"),
-        (f"{BASE}/courtier-acheteur-estrie.html", "0.8"),
-        (f"{BASE}/fermette-estrie.html", "0.7"),
-        (f"{BASE}/chalet-estrie.html", "0.7"),
-        (f"{BASE}/plex-sherbrooke.html", "0.7"),
-        (f"{BASE}/regions-desservies.html", "0.8"),
-        (f"{BASE}/blog.html", "0.7"),
-        (f"{BASE}/pierre-olivier.html", "0.7"),
-        (f"{BASE}/marco.html", "0.7"),
-        (f"{BASE}/jade.html", "0.7"),
-        (f"{BASE}/confidentialite.html", "0.3"),
-    ]
-    for slug in REGION_META:
-        urls.append((f"{BASE}/regions/{slug}.html", "0.8" if slug in {"sherbrooke", "magog", "bromont", "orford", "north-hatley", "lennoxville", "fleurimont", "les-nations"} else "0.6"))
-    for name in ARTICLES:
-        urls.append((f"{BASE}/{name}", "0.6"))
-    for listing in listings:
-        path = f"{BASE}/{listing['country']}/{listing['province']}/{listing['city']}/{listing['sector']}/{listing['street']}/"
-        urls.append((path, "0.8"))
-    urls.sort(key=lambda x: x[0])
+SKIP_SITEMAP = {
+    "merci.html",
+    "demo-webinaire-7k3q/index.html",
+}
+
+
+def indexable_page(path: Path) -> bool:
+    rel = rel_posix(path)
+    if rel.startswith("prop-") or rel.startswith("google") or rel in SOLD_PATHS or rel in SKIP_SITEMAP:
+        return False
+    if rel.startswith("demo-webinaire"):
+        return False
+    text = path.read_text(encoding="utf-8", errors="replace")
+    if is_redirect_stub(text):
+        return False
+    head = text.split("</head>", 1)[0]
+    if re.search(r"noindex", head, flags=re.I):
+        return False
+    return True
+
+
+def sitemap_priority(rel: str) -> str:
+    high_regions = {"sherbrooke", "magog", "bromont", "orford", "north-hatley", "lennoxville", "fleurimont", "les-nations"}
+    if rel == "index.html":
+        return "1.0"
+    if rel.startswith("ca/"):
+        return "0.8"
+    if rel in {
+        "proprietes.html",
+        "evaluation.html",
+        "vendre.html",
+        "acheter.html",
+        "courtier-commercial.html",
+        "courtier-acheteur-estrie.html",
+        "regions-desservies.html",
+    }:
+        return "0.8"
+    if rel in {
+        "pierre-olivier.html",
+        "marco.html",
+        "jade.html",
+        "blog.html",
+        "fermette-estrie.html",
+        "chalet-estrie.html",
+        "plex-sherbrooke.html",
+    }:
+        return "0.7"
+    if rel == "confidentialite.html":
+        return "0.3"
+    if rel.startswith("regions/"):
+        return "0.8" if Path(rel).stem in high_regions else "0.6"
+    if rel.startswith("article-"):
+        return "0.6"
+    return "0.6"
+
+
+def write_sitemap(listings: list[dict] | None = None) -> None:
+    urls: dict[str, str] = {}
+    for path in html_files():
+        if not indexable_page(path):
+            continue
+        rel = rel_posix(path)
+        urls[page_url(path)] = sitemap_priority(rel)
+    # Registry listings whose page is still indexable (sold stubs stay out).
+    for listing in listings or []:
+        rel = (
+            f"{listing['country']}/{listing['province']}/{listing['city']}/"
+            f"{listing['sector']}/{listing['street']}/index.html"
+        )
+        page = ROOT / rel
+        if page.exists() and indexable_page(page):
+            urls[page_url(page)] = "0.8"
+    urls = dict(sorted(urls.items()))
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
-    for loc, priority in urls:
+    for loc, priority in urls.items():
         lines.append(f"  <url><loc>{loc}</loc><lastmod>{TODAY}</lastmod><priority>{priority}</priority></url>")
     lines.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")

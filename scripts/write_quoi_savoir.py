@@ -1038,7 +1038,7 @@ def render(city: dict) -> str:
     body = f"""
   <main class="pt-32 pb-20">
     <div class="max-w-3xl mx-auto px-6">
-      <nav class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-red">Accueil</a> / <a href="blog.html" class="hover:text-brand-red">Blogue</a> / Guide local</nav>
+      <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-brand-red">Accueil</a> / <a href="blog.html" class="hover:text-brand-red">Blogue</a> / Guide local</nav>
       <div class="inline-block bg-brand-navy text-white px-3 py-1 rounded-full text-xs font-bold uppercase mb-4">Guide local</div>
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy mb-4">{headline}</h1>
       <p class="text-sm text-gray-500 mb-8">Par <a class="hover:text-brand-red" href="{author_page}">{author}</a>, {job} · 18 août 2026</p>
@@ -1065,7 +1065,7 @@ def render(city: dict) -> str:
       <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">Questions fréquentes</h2>
       {faqs_html}
 
-      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="index.html#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="vendre.html">Vendre</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="acheter.html">Acheter</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Blogue</a></p>
+      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="/#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="vendre.html">Vendre</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="acheter.html">Acheter</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Blogue</a></p>
     </div>
   </main>
 """
