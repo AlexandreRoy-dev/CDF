@@ -4,7 +4,7 @@
 
 ## About
 
-L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bureau à Sherbrooke (157 boul. Jacques-Cartier Sud, QC J1J 2Z4). Territoire : Sherbrooke (y compris Lennoxville, Fleurimont, Les Nations, Rock Forest, Mont-Bellevue, Brompton), Magog, Bromont, Orford, North Hatley, Coaticook, Sutton, Lac-Brome et le reste de l'Estrie, avec des inscriptions aussi ailleurs au Québec.
+L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco, Jade Sirois et Pierre-Luc Giroux. Bureau à Sherbrooke (157 boul. Jacques-Cartier Sud, QC J1J 2Z4). Territoire : Sherbrooke (y compris Lennoxville, Fleurimont, Les Nations, Jacques-Cartier, Rock Forest, Mont-Bellevue, Brompton), Magog, Bromont, Orford, North Hatley, Coaticook, Sutton, Lac-Brome et le reste de l'Estrie, avec des inscriptions aussi ailleurs au Québec.
 
 ## Contact
 
@@ -12,6 +12,7 @@ L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bu
 - Pierre-Olivier Chiasson: p-o.chiasson@remax-quebec.com · +1-819-919-4631
 - Marco De Francesco: +1-819-562-0656
 - Jade Sirois: +1-819-434-2652
+- Pierre-Luc Giroux: pierreluc.giroux@remax-quebec.com · +1-514-889-2927
 
 ## Services
 
@@ -31,6 +32,7 @@ L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bu
 - [Pierre-Olivier Chiasson](https://chiassondefrancesco.ca/pierre-olivier.html): courtier immobilier résidentiel et commercial
 - [Marco De Francesco](https://chiassondefrancesco.ca/marco.html): courtier immobilier résidentiel et commercial (bilingue)
 - [Jade Sirois](https://chiassondefrancesco.ca/jade.html): courtière immobilière résidentielle
+- Pierre-Luc Giroux: courtier immobilier résidentiel (pas de page profil pour l'instant)
 
 ## Sherbrooke neighbourhoods
 
@@ -40,6 +42,7 @@ L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bu
 - [Rock Forest](https://chiassondefrancesco.ca/regions/rock-forest.html)
 - [Mont-Bellevue](https://chiassondefrancesco.ca/regions/mont-bellevue.html)
 - [Brompton](https://chiassondefrancesco.ca/regions/brompton.html)
+- [Jacques-Cartier](https://chiassondefrancesco.ca/regions/jacques-cartier.html)
 
 ## Key region pages
 

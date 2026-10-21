@@ -463,20 +463,43 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:500}
 </style><script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "Équipe Chiasson De Francesco",
-      "url": "https://chiassondefrancesco.ca/",
-      "image": "https://chiassondefrancesco.ca/src/assets/images/chiassondefrancescoteam.jpg",
-      "telephone": "+1-819-919-4631",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "157 boul. Jacques-Cartier Sud",
-        "addressLocality": "Sherbrooke",
-        "addressRegion": "QC",
-        "postalCode": "J1J 2Z4",
-        "addressCountry": "CA"
-      },
-      "parentOrganization": { "@type": "RealEstateAgent", "name": "RE/MAX D'ABORD INC.", "telephone": "+1-819-822-2222" }
+      "@graph": [
+        {
+          "@type": ["RealEstateAgent", "LocalBusiness"],
+          "@id": "https://chiassondefrancesco.ca/#organization",
+          "name": "Équipe Chiasson De Francesco",
+          "url": "https://chiassondefrancesco.ca/",
+          "image": "https://chiassondefrancesco.ca/src/assets/images/chiassondefrancescoteam.jpg",
+          "telephone": "+1-819-919-4631",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "157 boul. Jacques-Cartier Sud",
+            "addressLocality": "Sherbrooke",
+            "addressRegion": "QC",
+            "postalCode": "J1J 2Z4",
+            "addressCountry": "CA"
+          },
+          "areaServed": [
+            {"@type": "City", "name": "Sherbrooke"},
+            {"@type": "AdministrativeArea", "name": "Estrie"}
+          ],
+          "employee": [
+            {"@type": "RealEstateAgent", "name": "Pierre-Olivier Chiasson", "telephone": "+1-819-919-4631", "url": "https://chiassondefrancesco.ca/pierre-olivier.html"},
+            {"@type": "RealEstateAgent", "name": "Marco De Francesco", "telephone": "+1-819-562-0656", "url": "https://chiassondefrancesco.ca/marco.html"},
+            {"@type": "RealEstateAgent", "name": "Jade Sirois", "telephone": "+1-819-434-2652", "url": "https://chiassondefrancesco.ca/jade.html"},
+            {"@type": "RealEstateAgent", "name": "Pierre-Luc Giroux", "telephone": "+1-514-889-2927", "email": "pierreluc.giroux@remax-quebec.com"}
+          ],
+          "parentOrganization": {"@type": "RealEstateAgent", "name": "RE/MAX D'ABORD INC.", "telephone": "+1-819-822-2222"}
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://chiassondefrancesco.ca/#website",
+          "url": "https://chiassondefrancesco.ca/",
+          "name": "Équipe Chiasson De Francesco",
+          "inLanguage": "fr-CA",
+          "publisher": {"@id": "https://chiassondefrancesco.ca/#organization"}
+        }
+      ]
     }
     </script></head>
 <body>
@@ -575,10 +598,10 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:500}
 </article>
 <p aria-live="polite" class="sr-only" id="courtier-annonce"></p>
 <div aria-label="Choisir un courtier" class="thumbs" role="group">
-<button aria-controls="courtier-vedette" aria-pressed="true" data-b="pierre-olivier-chiasson" type="button"><img alt="" aria-hidden="true" height="40" loading="lazy" src="/assets-v2/pierre-olivier-120.webp" width="40"/>Pierre-Olivier Chiasson</button>
-<button aria-controls="courtier-vedette" aria-pressed="false" data-b="marco-de-francesco" type="button"><img alt="" aria-hidden="true" height="40" loading="lazy" src="/assets-v2/marco-120.webp" width="40"/>Marco De Francesco</button>
-<button aria-controls="courtier-vedette" aria-pressed="false" data-b="jade-sirois" type="button"><img alt="" aria-hidden="true" height="40" loading="lazy" src="/assets-v2/jade-120.webp" width="40"/>Jade Sirois</button>
-<button aria-controls="courtier-vedette" aria-pressed="false" data-b="pierre-luc-giroux" type="button"><img alt="" aria-hidden="true" height="40" loading="lazy" src="/assets-v2/pierre-luc-giroux-0J3A8610-180.webp" width="40"/>Pierre-Luc Giroux</button>
+<button aria-controls="courtier-vedette" aria-pressed="true" data-b="pierre-olivier-chiasson" type="button"><img alt="Pierre-Olivier Chiasson" aria-hidden="true" height="40" loading="lazy" src="/assets-v2/pierre-olivier-120.webp" width="40"/>Pierre-Olivier Chiasson</button>
+<button aria-controls="courtier-vedette" aria-pressed="false" data-b="marco-de-francesco" type="button"><img alt="Marco De Francesco" aria-hidden="true" height="40" loading="lazy" src="/assets-v2/marco-120.webp" width="40"/>Marco De Francesco</button>
+<button aria-controls="courtier-vedette" aria-pressed="false" data-b="jade-sirois" type="button"><img alt="Jade Sirois" aria-hidden="true" height="40" loading="lazy" src="/assets-v2/jade-120.webp" width="40"/>Jade Sirois</button>
+<button aria-controls="courtier-vedette" aria-pressed="false" data-b="pierre-luc-giroux" type="button"><img alt="Pierre-Luc Giroux" aria-hidden="true" height="40" loading="lazy" src="/assets-v2/pierre-luc-giroux-0J3A8610-180.webp" width="40"/>Pierre-Luc Giroux</button>
 </div>
 </div>
 </section>

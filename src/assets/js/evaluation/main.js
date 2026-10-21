@@ -163,7 +163,7 @@ function icons() {
 
 function logos() {
   return `
-    <a href="index.html" class="eval-logo" aria-label="Retour à l’accueil Chiasson de Francesco">
+    <a href="/" class="eval-logo" aria-label="Retour à l’accueil Chiasson de Francesco">
       <img src="./src/assets/logocdf.svg" alt="Chiasson de Francesco" class="h-full w-auto">
     </a>
   `;

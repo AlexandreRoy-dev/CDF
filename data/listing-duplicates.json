@@ -1,0 +1,19 @@
+{
+  "canonicalize": {
+    "19753390": {
+      "canonicalUls": "23954624",
+      "canonicalPath": "/ca/qc/saint-isidore-de-clifton/centre/251-9e-rang/",
+      "note": "73 of 74 photos match ULS 23954624 (251, 9e Rang). The 251Z page stays online with a thinner text. Its canonical points at 251. Do not delete either page until Alexandre confirms they are one property."
+    }
+  },
+  "flaggedForReview": [
+    {
+      "uls": ["20828105", "16190804"],
+      "paths": [
+        "/ca/qc/sherbrooke/mont-bellevue/800-rue-tessier/",
+        "/ca/qc/sherbrooke/mont-bellevue/800z-rue-tessier/"
+      ],
+      "note": "800 Rue Tessier (ULS 20828105, batisse commerciale) and 800Z Rue Tessier (ULS 16190804, terrain residentiel) use the same photo files. Titles and property types differ, so they were not canonicalized. Alexandre to confirm whether these are one property or two."
+    }
+  ]
+}

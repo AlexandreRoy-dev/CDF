@@ -718,9 +718,7 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
                     if offer:
                         payload = listing_json_ld(listing, offer, chosen_desc)
                         offer_name = offer["name"].replace("\u2014", ", ").replace("\u2013", ", ")
-                        page_title = f"{offer_name} | CDF"
-                        if len(page_title) > 60:
-                            page_title = f"{offer_name.split(':')[0].strip()} | CDF"
+                        page_title = listing_page_title(offer_name)
                         text = set_or_insert_meta(
                             text,
                             page_title,
@@ -743,7 +741,28 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
         print(f"updated {rel}")
 
 
+def load_duplicate_map() -> dict[str, dict]:
+    path = ROOT / "data" / "listing-duplicates.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    raw = data.get("canonicalize") or {}
+    return {str(uls): entry for uls, entry in raw.items()}
+
+
+def listing_page_title(offer_name: str) -> str:
+    """Keep the civic address when the full title is long, so two listings in one town do not collapse."""
+    name = offer_name.replace("\u2014", ", ").replace("\u2013", ", ").strip()
+    street = name.split(":", 1)[1].strip() if ":" in name else ""
+    candidates = [f"{street} | CDF", f"{name} | CDF"] if street else [f"{name} | CDF"]
+    for candidate in candidates:
+        if len(candidate) <= 60:
+            return candidate
+    return candidates[0]
+
+
 def write_sitemap(listings: list[dict]) -> None:
+    skip_uls = set(load_duplicate_map())
     urls = [
         (f"{BASE}/", "1.0"),
         (f"{BASE}/proprietes.html", "0.8"),
@@ -762,11 +781,17 @@ def write_sitemap(listings: list[dict]) -> None:
         (f"{BASE}/jade.html", "0.7"),
         (f"{BASE}/confidentialite.html", "0.3"),
     ]
-    for slug in REGION_META:
-        urls.append((f"{BASE}/regions/{slug}.html", "0.8" if slug in {"sherbrooke", "magog", "bromont", "orford", "north-hatley", "lennoxville", "fleurimont", "les-nations"} else "0.6"))
+    high_regions = {"sherbrooke", "magog", "bromont", "orford", "north-hatley", "lennoxville", "fleurimont", "les-nations"}
+    region_dir = ROOT / "regions"
+    if region_dir.is_dir():
+        for path in sorted(region_dir.glob("*.html")):
+            slug = path.stem
+            urls.append((f"{BASE}/regions/{slug}.html", "0.8" if slug in high_regions else "0.6"))
     for name in ARTICLES:
         urls.append((f"{BASE}/{name}", "0.6"))
     for listing in listings:
+        if str(listing.get("uls")) in skip_uls:
+            continue
         path = f"{BASE}/{listing['country']}/{listing['province']}/{listing['city']}/{listing['sector']}/{listing['street']}/"
         urls.append((path, "0.8"))
     urls.sort(key=lambda x: x[0])

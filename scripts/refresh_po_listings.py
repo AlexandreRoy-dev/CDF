@@ -277,15 +277,49 @@ TEAM_NAME = "Équipe Chiasson De Francesco"
 
 
 def build_page_title(share_title: str, headline: str, city: str) -> str:
-    # Team name first in the title when it fits, short "CDF" suffix otherwise.
-    for base in (share_title, f"{headline} à {city}"):
-        candidate = f"{base} | {TEAM_NAME}"
-        if len(candidate) <= 70:
+    # Keep the civic number. Dropping it made 251 and 251Z share one title.
+    street = share_title.split(":", 1)[1].strip() if ":" in share_title else ""
+    candidates = []
+    if street:
+        candidates.append(f"{street}, {city} | CDF")
+        candidates.append(f"{headline} : {street} | CDF")
+        candidates.append(f"{street} | CDF")
+    candidates.append(f"{headline} à {city} | CDF")
+    for candidate in candidates:
+        if 35 <= len(candidate) <= 60:
             return candidate
-    page_title = f"{share_title} | CDF"
-    if len(page_title) > 60:
-        page_title = f"{headline} à {city} | CDF"
-    return page_title
+    for candidate in candidates:
+        if len(candidate) <= 65:
+            return candidate
+    return candidates[0][:60]
+
+
+def clip_meta_description(desc: str) -> str:
+    text = " ".join((desc or "").split())
+    if len(text) <= 160:
+        return text
+    window = text[:160]
+    for sep in (". ", "! ", "? "):
+        idx = window.rfind(sep)
+        if idx >= 90:
+            return window[: idx + 1].strip()
+    return window.rsplit(" ", 1)[0].strip()
+
+
+def preferred_canonical(listing: dict) -> str:
+    """Point a known duplicate fiche at the listing we keep, without deleting the page."""
+    own = canonical_url(listing)
+    path = ROOT / "data" / "listing-duplicates.json"
+    if not path.exists():
+        return own
+    data = json.loads(path.read_text(encoding="utf-8"))
+    entry = (data.get("canonicalize") or {}).get(str(listing.get("uls")))
+    if not isinstance(entry, dict):
+        return own
+    target = entry.get("canonicalPath") or ""
+    if not target.startswith("/"):
+        return own
+    return BASE_URL + target
 
 
 def image_dimensions(path: Path) -> tuple[int, int] | None:
@@ -624,7 +658,7 @@ def sync_registry_to_live(session: requests.Session, registry: dict) -> list[str
 
 def render_detail_page(listing: dict, detail: dict) -> str:
     path = public_path(listing)
-    canonical = canonical_url(listing)
+    canonical = preferred_canonical(listing)
     og = f"{BASE_URL}/src/assets/images/proprietes/{listing['uls']}/og-share.jpg"
     fallback = listing["fallbackImage"]
     kind = listing_kind(detail)
@@ -636,7 +670,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     share_title = f"{headline} à {city} : {street_addr}" if street_addr else f"{headline} à {city}"
     page_title = build_page_title(share_title, headline, city)
     desc = description_text(detail, listing)
-    meta_desc = desc[:155].rsplit(" ", 1)[0] + "…" if len(desc) > 160 else desc
+    meta_desc = clip_meta_description(desc)
     badge, badge_cls = badge_for(detail)
     price_html = format_price_html(detail)
     # For detail H1 price block, use larger styling for rentals
@@ -828,24 +862,24 @@ def render_detail_page(listing: dict, detail: dict) -> str:
 
   <nav class="py-4 px-6 fixed w-full top-0 z-50 bg-brand-navy shadow-md">
     <div class="relative max-w-7xl mx-auto flex items-center justify-between">
-      <a href="/index.html"><span class="cdf-lockup"><img class="cdf-lockup-team" src="/src/assets/logocdf.svg" alt="Équipe Chiasson De Francesco, courtiers immobiliers" width="140" height="68"><span class="cdf-lockup-rule" aria-hidden="true"></span><img class="cdf-lockup-agency" src="/assets-v2/logo-remax-dabord-creme-280.webp" srcset="/assets-v2/logo-remax-dabord-creme-280.webp 280w, /assets-v2/logo-remax-dabord-creme-400.webp 400w" sizes="64px" alt="RE/MAX D'ABORD, agence immobilière" width="280" height="132"></span></a>
+      <a href="/"><span class="cdf-lockup"><img class="cdf-lockup-team" src="/src/assets/logocdf.svg" alt="Équipe Chiasson De Francesco, courtiers immobiliers" width="140" height="68"><span class="cdf-lockup-rule" aria-hidden="true"></span><img class="cdf-lockup-agency" src="/assets-v2/logo-remax-dabord-creme-280.webp" srcset="/assets-v2/logo-remax-dabord-creme-280.webp 280w, /assets-v2/logo-remax-dabord-creme-400.webp 400w" sizes="64px" alt="RE/MAX D'ABORD, agence immobilière" width="280" height="132"></span></a>
       <div class="hidden md:flex items-center gap-10">
-        <a href="/index.html" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
-        <a href="/index.html#about" class="text-white hover:text-brand-red transition-colors font-medium">Équipe</a>
+        <a href="/" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
+        <a href="/#about" class="text-white hover:text-brand-red transition-colors font-medium">Équipe</a>
         <a href="/proprietes.html" class="text-brand-red font-bold transition-colors">Propriétés</a>
         <a href="/blog.html" class="text-white hover:text-brand-red transition-colors font-medium">Blogue</a>
-        <a href="/index.html#contact" class="text-white hover:text-brand-red transition-colors font-medium">Contact</a>
+        <a href="/#contact" class="text-white hover:text-brand-red transition-colors font-medium">Contact</a>
       </div>
       <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden relative bg-brand-navy px-6 py-6 space-y-4 border-t border-white/10 mt-4">
-      <a href="/index.html" class="block text-white hover:text-brand-red font-medium">Accueil</a>
-      <a href="/index.html#about" class="block text-white hover:text-brand-red font-medium">Équipe</a>
+      <a href="/" class="block text-white hover:text-brand-red font-medium">Accueil</a>
+      <a href="/#about" class="block text-white hover:text-brand-red font-medium">Équipe</a>
       <a href="/proprietes.html" class="block text-brand-red font-bold">Propriétés</a>
       <a href="/blog.html" class="block text-white hover:text-brand-red font-medium">Blogue</a>
-      <a href="/index.html#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
+      <a href="/#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
     </div>
   </nav>
 
@@ -931,7 +965,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
           <section class="bg-white border border-gray-200 rounded-2xl p-7">
             <h2 class="font-heading text-xl font-bold text-brand-navy mb-3">Intéressé par {cta_label}?</h2>
             <p class="text-gray-600 text-sm leading-relaxed mb-5">Contactez-nous pour planifier une visite ou obtenir plus d'informations.</p>
-            <a href="/index.html#contact" class="inline-flex items-center justify-center w-full bg-brand-red text-white font-semibold py-3 rounded-lg hover:bg-brand-navy transition-colors text-sm">Nous contacter</a>
+            <a href="/#contact" class="inline-flex items-center justify-center w-full bg-brand-red text-white font-semibold py-3 rounded-lg hover:bg-brand-navy transition-colors text-sm">Nous contacter</a>
           </section>
         </aside>
       </div>

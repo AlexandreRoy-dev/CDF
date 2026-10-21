@@ -560,9 +560,10 @@ def prune_delisted_site_pages(removed_listings: list[dict]) -> list[str]:
             legacy_path.write_text(redirect, encoding="utf-8")
             actions.append(str(legacy_path))
 
-        sitemap_line = f'  <url><loc>{absolute}</loc><priority>0.7</priority></url>\n'
-        if sitemap_line in sitemap:
-            sitemap = sitemap.replace(sitemap_line, "")
+        sitemap_line = re.compile(rf"\n  <url><loc>{re.escape(absolute)}</loc>.*?</url>")
+        updated, count = sitemap_line.subn("", sitemap, count=1)
+        if count:
+            sitemap = updated
             actions.append(f"sitemap:{public}")
 
         if public in proprietes or public.rstrip("/") in proprietes:

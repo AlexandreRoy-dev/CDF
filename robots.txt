@@ -34,4 +34,13 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
 Sitemap: https://chiassondefrancesco.ca/sitemap.xml
