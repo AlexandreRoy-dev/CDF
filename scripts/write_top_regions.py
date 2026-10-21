@@ -291,6 +291,17 @@ def json_ld(page: dict) -> str:
     return json.dumps(graph, ensure_ascii=False, indent=2)
 
 
+def region_public_href(href: str) -> str:
+    """Root-absolute href for a page generated under /regions/."""
+    if href.startswith(("http://", "https://", "//", "/", "mailto:", "tel:", "#")):
+        return href
+    if href.startswith("../"):
+        return "/" + href[3:]
+    if href.startswith("./"):
+        href = href[2:]
+    return "/regions/" + href
+
+
 def render(page: dict) -> str:
     sections = "\n".join(
         f"""      <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-3">{h}</h2>
@@ -305,7 +316,7 @@ def render(page: dict) -> str:
         for q, a in page["faqs"]
     )
     related = "\n".join(
-        f'          <li><a href="{href}" class="text-brand-navy font-medium hover:text-brand-red">{label}</a></li>'
+        f'          <li><a href="{region_public_href(href)}" class="text-brand-navy font-medium hover:text-brand-red">{label}</a></li>'
         for label, href in page["related"]
     )
     ld = json_ld(page)
@@ -340,30 +351,30 @@ def render(page: dict) -> str:
 <body class="antialiased bg-gray-50 text-gray-900 font-body flex flex-col min-h-screen">
   <nav class="py-4 px-6 fixed w-full top-0 z-50 bg-brand-navy shadow-md">
     <div class="relative max-w-7xl mx-auto flex items-center justify-between">
-      <a href="../index.html"><img src="/src/assets/logo.png" alt="Chiasson & De Francesco" class="h-10 md:h-12 w-auto"></a>
+      <a href="/index.html"><img src="/src/assets/logo.png" alt="Chiasson & De Francesco" class="h-10 md:h-12 w-auto"></a>
       <div class="hidden md:flex items-center gap-10">
-        <a href="../index.html" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
-        <a href="../index.html#about" class="text-white hover:text-brand-red font-medium">Équipe</a>
-        <a href="../proprietes.html" class="text-white hover:text-brand-red font-medium">Propriétés</a>
-        <a href="../blog.html" class="text-white hover:text-brand-red font-medium">Blogue</a>
-        <a href="../index.html#contact" class="text-white hover:text-brand-red font-medium">Contact</a>
+        <a href="/index.html" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
+        <a href="/index.html#about" class="text-white hover:text-brand-red font-medium">Équipe</a>
+        <a href="/proprietes.html" class="text-white hover:text-brand-red font-medium">Propriétés</a>
+        <a href="/blog.html" class="text-white hover:text-brand-red font-medium">Blogue</a>
+        <a href="/index.html#contact" class="text-white hover:text-brand-red font-medium">Contact</a>
       </div>
       <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Ouvrir le menu"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg></button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-brand-navy px-6 py-6 space-y-4 border-t border-white/10 mt-4">
-      <a href="../index.html" class="block text-white hover:text-brand-red font-medium">Accueil</a>
-      <a href="../index.html#about" class="block text-white hover:text-brand-red font-medium">Équipe</a>
-      <a href="../proprietes.html" class="block text-white hover:text-brand-red font-medium">Propriétés</a>
-      <a href="../blog.html" class="block text-white hover:text-brand-red font-medium">Blogue</a>
-      <a href="../index.html#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
+      <a href="/index.html" class="block text-white hover:text-brand-red font-medium">Accueil</a>
+      <a href="/index.html#about" class="block text-white hover:text-brand-red font-medium">Équipe</a>
+      <a href="/proprietes.html" class="block text-white hover:text-brand-red font-medium">Propriétés</a>
+      <a href="/blog.html" class="block text-white hover:text-brand-red font-medium">Blogue</a>
+      <a href="/index.html#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
     </div>
   </nav>
   <header class="pt-32 pb-12 bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-6">
       <nav class="text-sm text-gray-500 mb-4" aria-label="Fil d'Ariane">
-        <a href="../index.html" class="hover:text-brand-red">Accueil</a>
+        <a href="/index.html" class="hover:text-brand-red">Accueil</a>
         <span class="mx-1">/</span>
-        <a href="../regions-desservies.html" class="hover:text-brand-red">Régions desservies</a>
+        <a href="/regions-desservies.html" class="hover:text-brand-red">Régions desservies</a>
         <span class="mx-1">/</span>
         <span class="text-gray-700">{page["name"]}</span>
       </nav>
@@ -386,19 +397,19 @@ def render(page: dict) -> str:
 {related}
       </ul>
       <div class="flex flex-wrap gap-4">
-        <a href="../proprietes.html" class="inline-block bg-brand-navy text-white font-semibold py-3 px-6 rounded-lg hover:bg-brand-red transition-colors">Voir nos propriétés</a>
-        <a href="../evaluation.html" class="inline-block bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">Évaluer le timing de vente</a>
-        <a href="../index.html#contact" class="inline-block bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">Nous contacter</a>
+        <a href="/proprietes.html" class="inline-block bg-brand-navy text-white font-semibold py-3 px-6 rounded-lg hover:bg-brand-red transition-colors">Voir nos propriétés</a>
+        <a href="/evaluation.html" class="inline-block bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">Évaluer le timing de vente</a>
+        <a href="/index.html#contact" class="inline-block bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">Nous contacter</a>
       </div>
     </div>
   </main>
   <footer id="footer" class="bg-[#232323] text-gray-400 py-12 border-t-4 border-brand-red font-body">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-        <a href="../index.html" class="hover:text-brand-red transition-colors">Accueil</a>
-        <a href="../proprietes.html" class="hover:text-brand-red transition-colors">Propriétés</a>
-        <a href="../regions-desservies.html" class="hover:text-brand-red transition-colors">Régions desservies</a>
-        <a href="../index.html#contact" class="hover:text-brand-red transition-colors">Contact</a>
+        <a href="/index.html" class="hover:text-brand-red transition-colors">Accueil</a>
+        <a href="/proprietes.html" class="hover:text-brand-red transition-colors">Propriétés</a>
+        <a href="/regions-desservies.html" class="hover:text-brand-red transition-colors">Régions desservies</a>
+        <a href="/index.html#contact" class="hover:text-brand-red transition-colors">Contact</a>
       </div>
       <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs mt-4 text-gray-500">
         <a href="https://immobiliermaison.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">immobiliermaison.com</a>
