@@ -50,6 +50,7 @@ LEGACY_REDIRECT = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <title>Redirection…</title>
+  <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="refresh" content="0; url={canonical}">
   <script>window.location.replace("{canonical}");</script>
@@ -75,7 +76,8 @@ def root_absolute_url(url: str) -> str:
 
     Absolute, protocol-relative, hash, and non-http schemes are left as-is.
     Parent segments (../) collapse against the site root, which is what a
-    link on a nested listing page must do.
+    link on a nested listing page must do. The homepage file index.html
+    becomes /, so it is not a second URL.
     """
     raw = url.strip()
     if not raw:
@@ -85,23 +87,36 @@ def root_absolute_url(url: str) -> str:
         return url
     if lower.startswith(("http://", "https://", "//")):
         return url
-    if raw.startswith("/"):
-        return url
+    hashpart = ""
+    query = ""
     path = raw
-    while path.startswith("./"):
-        path = path[2:]
-    parts: list[str] = []
-    for part in path.split("/"):
-        if part in ("", "."):
-            continue
-        if part == "..":
-            if parts:
-                parts.pop()
-            continue
-        parts.append(part)
+    if "#" in path:
+        path, hashpart = path.split("#", 1)
+        hashpart = "#" + hashpart
+    if "?" in path:
+        path, query = path.split("?", 1)
+        query = "?" + query
+    if path.startswith("/"):
+        parts = [part for part in path.split("/") if part not in ("", ".")]
+    else:
+        while path.startswith("./"):
+            path = path[2:]
+        parts = []
+        for part in path.split("/"):
+            if part in ("", "."):
+                continue
+            if part == "..":
+                if parts:
+                    parts.pop()
+                continue
+            parts.append(part)
+    if parts == ["index.html"]:
+        parts = []
+    if not parts and hashpart == "#about":
+        hashpart = "#courtiers"
     if not parts:
-        return "/"
-    return "/" + "/".join(parts)
+        return "/" + query + hashpart
+    return "/" + "/".join(parts) + query + hashpart
 
 
 def absolutize_internal_attrs(html: str) -> str:
@@ -276,16 +291,22 @@ def municipality_label(detail: dict, listing: dict) -> str:
 TEAM_NAME = "Équipe Chiasson De Francesco"
 
 
-def build_page_title(share_title: str, headline: str, city: str) -> str:
-    # Team name first in the title when it fits, short "CDF" suffix otherwise.
-    for base in (share_title, f"{headline} à {city}"):
-        candidate = f"{base} | {TEAM_NAME}"
-        if len(candidate) <= 70:
+def build_page_title(share_title: str, headline: str, city: str, street_addr: str = "") -> str:
+    """French title, civic address kept so two listings in one city stay unique."""
+    street = (street_addr or "").strip()
+    candidates = []
+    if street:
+        candidates.append(f"{headline}, {street} | CDF")
+        candidates.append(f"{street}, {city} | CDF")
+    candidates.append(f"{share_title} | CDF")
+    candidates.append(f"{headline} à {city} | CDF")
+    for candidate in candidates:
+        if len(candidate) <= 60:
             return candidate
-    page_title = f"{share_title} | CDF"
-    if len(page_title) > 60:
-        page_title = f"{headline} à {city} | CDF"
-    return page_title
+    fallback = candidates[0]
+    if len(fallback) <= 70:
+        return fallback
+    return fallback[:60].rsplit(" ", 1)[0]
 
 
 def image_dimensions(path: Path) -> tuple[int, int] | None:
@@ -634,7 +655,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     city = municipality_label(detail, listing)
     street_addr = street_short(detail, listing)
     share_title = f"{headline} à {city} : {street_addr}" if street_addr else f"{headline} à {city}"
-    page_title = build_page_title(share_title, headline, city)
+    page_title = build_page_title(share_title, headline, city, street_addr)
     desc = description_text(detail, listing)
     meta_desc = desc[:155].rsplit(" ", 1)[0] + "…" if len(desc) > 160 else desc
     badge, badge_cls = badge_for(detail)
@@ -811,6 +832,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     <meta property="og:image:type" content="image/jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{page_title}">
+    <meta name="twitter:description" content="{meta_desc.replace('"', '&quot;')}">
     <meta name="twitter:image" content="{og}">
     <meta property="og:locale" content="fr_CA">
 
@@ -828,24 +850,24 @@ def render_detail_page(listing: dict, detail: dict) -> str:
 
   <nav class="py-4 px-6 fixed w-full top-0 z-50 bg-brand-navy shadow-md">
     <div class="relative max-w-7xl mx-auto flex items-center justify-between">
-      <a href="/index.html"><span class="cdf-lockup"><img class="cdf-lockup-team" src="/src/assets/logocdf.svg" alt="Équipe Chiasson De Francesco, courtiers immobiliers" width="140" height="68"><span class="cdf-lockup-rule" aria-hidden="true"></span><img class="cdf-lockup-agency" src="/assets-v2/logo-remax-dabord-creme-280.webp" srcset="/assets-v2/logo-remax-dabord-creme-280.webp 280w, /assets-v2/logo-remax-dabord-creme-400.webp 400w" sizes="64px" alt="RE/MAX D'ABORD, agence immobilière" width="280" height="132"></span></a>
+      <a href="/"><span class="cdf-lockup"><img class="cdf-lockup-team" src="/src/assets/logocdf.svg" alt="Équipe Chiasson De Francesco, courtiers immobiliers" width="140" height="68"><span class="cdf-lockup-rule" aria-hidden="true"></span><img class="cdf-lockup-agency" src="/assets-v2/logo-remax-dabord-creme-280.webp" srcset="/assets-v2/logo-remax-dabord-creme-280.webp 280w, /assets-v2/logo-remax-dabord-creme-400.webp 400w" sizes="64px" alt="RE/MAX D'ABORD, agence immobilière" width="280" height="132"></span></a>
       <div class="hidden md:flex items-center gap-10">
-        <a href="/index.html" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
-        <a href="/index.html#about" class="text-white hover:text-brand-red transition-colors font-medium">Équipe</a>
+        <a href="/" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
+        <a href="/#courtiers" class="text-white hover:text-brand-red transition-colors font-medium">Équipe</a>
         <a href="/proprietes.html" class="text-brand-red font-bold transition-colors">Propriétés</a>
         <a href="/blog.html" class="text-white hover:text-brand-red transition-colors font-medium">Blogue</a>
-        <a href="/index.html#contact" class="text-white hover:text-brand-red transition-colors font-medium">Contact</a>
+        <a href="/#contact" class="text-white hover:text-brand-red transition-colors font-medium">Contact</a>
       </div>
       <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden relative bg-brand-navy px-6 py-6 space-y-4 border-t border-white/10 mt-4">
-      <a href="/index.html" class="block text-white hover:text-brand-red font-medium">Accueil</a>
-      <a href="/index.html#about" class="block text-white hover:text-brand-red font-medium">Équipe</a>
+      <a href="/" class="block text-white hover:text-brand-red font-medium">Accueil</a>
+      <a href="/#courtiers" class="block text-white hover:text-brand-red font-medium">Équipe</a>
       <a href="/proprietes.html" class="block text-brand-red font-bold">Propriétés</a>
       <a href="/blog.html" class="block text-white hover:text-brand-red font-medium">Blogue</a>
-      <a href="/index.html#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
+      <a href="/#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
     </div>
   </nav>
 
@@ -931,7 +953,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
           <section class="bg-white border border-gray-200 rounded-2xl p-7">
             <h2 class="font-heading text-xl font-bold text-brand-navy mb-3">Intéressé par {cta_label}?</h2>
             <p class="text-gray-600 text-sm leading-relaxed mb-5">Contactez-nous pour planifier une visite ou obtenir plus d'informations.</p>
-            <a href="/index.html#contact" class="inline-flex items-center justify-center w-full bg-brand-red text-white font-semibold py-3 rounded-lg hover:bg-brand-navy transition-colors text-sm">Nous contacter</a>
+            <a href="/#contact" class="inline-flex items-center justify-center w-full bg-brand-red text-white font-semibold py-3 rounded-lg hover:bg-brand-navy transition-colors text-sm">Nous contacter</a>
           </section>
         </aside>
       </div>

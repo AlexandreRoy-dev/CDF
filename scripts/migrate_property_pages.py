@@ -122,6 +122,14 @@ def update_seo(content: str, listing: dict) -> str:
         content,
     )
 
+    desc_match = re.search(r'<meta name="description" content="([^"]*)"', content)
+    tw_desc = desc_match.group(1) if desc_match else share_title
+    if 'name="twitter:description"' not in content and 'name="twitter:title"' in content:
+        content = content.replace(
+            f'<meta name="twitter:title" content="{share_title}">',
+            f'<meta name="twitter:title" content="{share_title}">\n    <meta name="twitter:description" content="{tw_desc}">',
+            1,
+        )
     if 'property="og:image:width"' not in content:
         content = content.replace(
             f'<meta property="og:image" content="{og_image}">',
@@ -132,6 +140,7 @@ def update_seo(content: str, listing: dict) -> str:
                 f'    <meta property="og:image:type" content="image/jpeg">\n'
                 f'    <meta name="twitter:card" content="summary_large_image">\n'
                 f'    <meta name="twitter:title" content="{share_title}">\n'
+                f'    <meta name="twitter:description" content="{tw_desc}">\n'
                 f'    <meta name="twitter:image" content="{og_image}">'
             ),
         )

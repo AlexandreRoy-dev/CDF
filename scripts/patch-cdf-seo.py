@@ -9,10 +9,10 @@ ROOT = Path(__file__).resolve().parent.parent
 OLD_SERVICES = """        <div class="lg:col-span-3">
           <h4 class="text-white font-heading font-bold text-lg mb-6 tracking-wide">Services</h4>
           <ul class="space-y-3 text-sm font-medium">
-            <li><a href="index.html#contact" class="hover:text-brand-red transition-colors">Achat résidentiel</a></li>
-            <li><a href="index.html#contact" class="hover:text-brand-red transition-colors">Vente de propriété</a></li>
-            <li><a href="index.html#contact" class="hover:text-brand-red transition-colors">Investissement</a></li>
-            <li><a href="index.html#contact" class="hover:text-brand-red transition-colors">Évaluation marchande</a></li>
+            <li><a href="/#contact" class="hover:text-brand-red transition-colors">Achat résidentiel</a></li>
+            <li><a href="/#contact" class="hover:text-brand-red transition-colors">Vente de propriété</a></li>
+            <li><a href="/#contact" class="hover:text-brand-red transition-colors">Investissement</a></li>
+            <li><a href="/#contact" class="hover:text-brand-red transition-colors">Évaluation marchande</a></li>
           </ul>
         </div>"""
 

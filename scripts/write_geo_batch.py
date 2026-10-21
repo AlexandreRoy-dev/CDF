@@ -356,21 +356,21 @@ REMAINING = [
 def nav_root() -> str:
     return """  <nav class="py-4 px-6 fixed w-full top-0 z-50 bg-brand-navy shadow-md">
     <div class="relative max-w-7xl mx-auto flex items-center justify-between">
-      <a href="index.html"><img src="/src/assets/logo.png" alt="Chiasson & De Francesco" class="h-10 md:h-12 w-auto"></a>
+      <a href="/"><img src="/src/assets/logo.png" alt="Chiasson & De Francesco" class="h-10 md:h-12 w-auto"></a>
       <div class="hidden md:flex items-center gap-10">
-        <a href="index.html" class="text-white hover:text-brand-red font-medium">Accueil</a>
-        <a href="index.html#about" class="text-white hover:text-brand-red font-medium">Équipe</a>
+        <a href="/" class="text-white hover:text-brand-red font-medium">Accueil</a>
+        <a href="/#courtiers" class="text-white hover:text-brand-red font-medium">Équipe</a>
         <a href="proprietes.html" class="text-white hover:text-brand-red font-medium">Propriétés</a>
         <a href="blog.html" class="text-white hover:text-brand-red font-medium">Blogue</a>
-        <a href="index.html#contact" class="text-white hover:text-brand-red font-medium">Contact</a>
+        <a href="/#contact" class="text-white hover:text-brand-red font-medium">Contact</a>
       </div>
       <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Menu"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg></button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-brand-navy px-6 py-6 space-y-4 border-t border-white/10 mt-4">
-      <a href="index.html" class="block text-white">Accueil</a>
+      <a href="/" class="block text-white">Accueil</a>
       <a href="proprietes.html" class="block text-white">Propriétés</a>
       <a href="blog.html" class="block text-white">Blogue</a>
-      <a href="index.html#contact" class="block text-white">Contact</a>
+      <a href="/#contact" class="block text-white">Contact</a>
     </div>
   </nav>"""
 
@@ -379,7 +379,7 @@ def footer_root() -> str:
     return """  <footer class="bg-[#232323] text-gray-400 py-12 border-t-4 border-brand-red">
     <div class="max-w-7xl mx-auto px-6 text-sm">
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="index.html" class="hover:text-brand-red">Accueil</a>
+        <a href="/" class="hover:text-brand-red">Accueil</a>
         <a href="vendre.html" class="hover:text-brand-red">Vendre</a>
         <a href="acheter.html" class="hover:text-brand-red">Acheter</a>
         <a href="courtier-commercial.html" class="hover:text-brand-red">Commercial</a>
@@ -393,7 +393,7 @@ def footer_root() -> str:
   <script>var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m)b.addEventListener('click',function(){m.classList.toggle('hidden');});</script>"""
 
 
-def page_shell(title: str, desc: str, canonical: str, body: str, ld: dict | None = None) -> str:
+def page_shell(title: str, desc: str, canonical: str, body: str, ld: dict | None = None, og_type: str = "website") -> str:
     ld_html = ""
     if ld:
         ld_html = f'<script type="application/ld+json">\n{json.dumps(ld, ensure_ascii=False, indent=2)}\n</script>'
@@ -408,11 +408,17 @@ def page_shell(title: str, desc: str, canonical: str, body: str, ld: dict | None
   <meta name="description" content="{desc}">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="{canonical}">
+  <meta property="og:type" content="{og_type}">
+  <meta property="og:site_name" content="Équipe Chiasson De Francesco">
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:image" content="{BASE}/src/assets/images/chiassondefrancescoteam.jpg">
   <meta property="og:locale" content="fr_CA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{title}">
+  <meta name="twitter:description" content="{desc}">
+  <meta name="twitter:image" content="{BASE}/src/assets/images/chiassondefrancescoteam.jpg">
   <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700|Playfair+Display:600,700&amp;display=swap">
 
@@ -737,7 +743,7 @@ def write_service(s: dict) -> None:
     body = f"""
   <header class="pt-32 pb-10 bg-white border-b">
     <div class="max-w-3xl mx-auto px-6">
-      <p class="text-sm text-gray-500 mb-3"><a href="index.html" class="hover:text-brand-red">Accueil</a> / {s["h1"].split()[0]}</p>
+      <p class="text-sm text-gray-500 mb-3"><a href="/" class="hover:text-brand-red">Accueil</a> / {s["h1"].split()[0]}</p>
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy">{s["h1"]}</h1>
       <p class="text-lg text-gray-600 mt-4">{s["lead"]}</p>
     </div>
@@ -748,7 +754,7 @@ def write_service(s: dict) -> None:
     {faqs}
     <p class="mt-8 text-gray-600">Pour aller plus loin : {links}</p>
     <div class="flex flex-wrap gap-4 mt-8">
-      <a href="index.html#contact" class="bg-brand-navy text-white font-semibold py-3 px-6 rounded-lg hover:bg-brand-red">Nous contacter</a>
+      <a href="/#contact" class="bg-brand-navy text-white font-semibold py-3 px-6 rounded-lg hover:bg-brand-red">Nous contacter</a>
       <a href="evaluation.html" class="bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg">Questionnaire vendeur</a>
     </div>
   </div></main>
@@ -793,14 +799,14 @@ def write_article(a: dict) -> None:
     body = f"""
   <main class="pt-32 pb-20">
     <div class="max-w-3xl mx-auto px-6">
-      <nav class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-red">Accueil</a> / <a href="blog.html" class="hover:text-brand-red">Blogue</a> / {a["tag"]}</nav>
+      <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-brand-red">Accueil</a> / <a href="blog.html" class="hover:text-brand-red">Blogue</a> / {a["tag"]}</nav>
       <div class="inline-block bg-brand-navy text-white px-3 py-1 rounded-full text-xs font-bold uppercase mb-4">{a["tag"]}</div>
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy mb-4">{a["headline"]}</h1>
       <p class="text-sm text-gray-500 mb-8">Par <a class="hover:text-brand-red" href="{a["author_page"]}">{a["author"]}</a> · {a["date"]}</p>
       <p class="text-xl font-medium text-brand-navy mb-8">{a["kicker"]}</p>
       {sections}
       {faqs_html}
-      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="index.html#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Retour au blogue</a>{extra}</p>
+      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="/#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Retour au blogue</a>{extra}</p>
     </div>
   </main>
 """
@@ -824,7 +830,7 @@ def write_article(a: dict) -> None:
         ld = {"@context": "https://schema.org", "@graph": [article_ld, faq_ld(f"{BASE}/{a['file']}", a["faqs"])]}
     else:
         ld = {"@context": "https://schema.org", **article_ld}
-    (ROOT / a["file"]).write_text(page_shell(a["title"], a["desc"], f"{BASE}/{a['file']}", body, ld), encoding="utf-8")
+    (ROOT / a["file"]).write_text(page_shell(a["title"], a["desc"], f"{BASE}/{a['file']}", body, ld, og_type="article"), encoding="utf-8")
     print("wrote", a["file"])
 
 
