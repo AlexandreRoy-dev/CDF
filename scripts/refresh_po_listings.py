@@ -23,6 +23,10 @@ from pathlib import Path
 
 import requests
 
+from contact_slot import MOUNT as CONTACT_MOUNT
+from contact_slot import SCRIPT as CONTACT_SCRIPT
+from contact_slot import STYLESHEET as CONTACT_CSS
+
 ROOT = Path(__file__).resolve().parent.parent
 BASE_URL = "https://chiassondefrancesco.ca"
 REMAX_API = "https://api.remax-quebec.com/api/"
@@ -818,6 +822,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700|Playfair+Display:600,700&amp;display=swap">
   <link rel="stylesheet" href="/public/css/site.min.css">
   <link rel="stylesheet" href="/src/assets/cdf-marque.css">
+  {CONTACT_CSS}
 
 <script type="application/ld+json">
 {ld_json}
@@ -931,7 +936,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
           <section class="bg-white border border-gray-200 rounded-2xl p-7">
             <h2 class="font-heading text-xl font-bold text-brand-navy mb-3">Intéressé par {cta_label}?</h2>
             <p class="text-gray-600 text-sm leading-relaxed mb-5">Contactez-nous pour planifier une visite ou obtenir plus d'informations.</p>
-            <a href="/index.html#contact" class="inline-flex items-center justify-center w-full bg-brand-red text-white font-semibold py-3 rounded-lg hover:bg-brand-navy transition-colors text-sm">Nous contacter</a>
+            {CONTACT_MOUNT}
           </section>
         </aside>
       </div>
@@ -965,6 +970,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     if (btn && menu) btn.addEventListener('click', () => menu.classList.toggle('hidden'));
   </script>
 
+  {CONTACT_SCRIPT}
   <script src="/src/assets/js/property-gallery.js" defer></script>
   <script src="/src/assets/js/property-share.js" defer></script>
 </body>
