@@ -1,8 +1,8 @@
 """HTML du formulaire de contact partagé par les générateurs.
 
-L'identifiant GoHighLevel se colle dans src/assets/cdf-contact.js
-(constante CDF_GHL_FORM_ID). Tant qu'il est vide, le bloc affiche le
-formulaire courriel vers l'adresse déjà publiée sur le site.
+L'identifiant GoHighLevel est dans src/assets/cdf-contact.js
+(constante CDF_GHL_FORM_ID). Si l'iframe ou form_embed.js ne charge pas,
+le bloc garde le formulaire courriel vers l'adresse déjà publiée.
 """
 
 EMAIL = "p-o.chiasson@remax-quebec.com"

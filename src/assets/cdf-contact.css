@@ -1,6 +1,7 @@
 /* Colonne contact : formulaire courriel, ou iframe GoHighLevel une fois l'identifiant collé. */
 .cdf-contact {
   container-type: inline-size;
+  position: relative;
   width: 100%;
   min-width: 0;
   color: #1c2438;
@@ -169,11 +170,22 @@
   line-height: 0;
 }
 
+.cdf-contact .cdf-form-embed.cdf-contact-embed-pending {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
 .cdf-contact .cdf-form-iframe {
   display: block;
   width: 100%;
   max-width: 100%;
-  min-height: 560px;
+  min-height: 460px;
   border: 0;
   background: transparent;
 }

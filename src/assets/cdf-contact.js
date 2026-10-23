@@ -1,12 +1,14 @@
 /* Formulaire de contact.
-   Une seule ligne à modifier : CDF_GHL_FORM_ID, juste sous ce commentaire.
-   Collez l'identifiant nu (exemple Abc123), ou l'URL complète
-   https://api.leadconnectorhq.com/widget/form/Abc123.
-   Le script charge alors l'iframe et https://link.msgsndr.com/js/form_embed.js.
-   Laissez les guillemets vides pour garder le formulaire courriel. */
+   CDF_GHL_FORM_ID est l'identifiant GoHighLevel (ou l'URL du widget).
+   L'iframe charge https://api.leadconnectorhq.com/widget/form/IDENTIFIANT
+   et la page charge https://link.msgsndr.com/js/form_embed.js.
+   Si l'iframe ou ce script échoue, ou si l'iframe ne charge pas en 5 secondes,
+   le formulaire courriel reste affiché. La colonne n'est jamais vide. */
 (function () {
-  var CDF_GHL_FORM_ID = '';
+  var CDF_GHL_FORM_ID = 'aPBFp2Ved0if0rWkUWTx';
   var CDF_CONTACT_EMAIL = 'p-o.chiasson@remax-quebec.com';
+  var LOAD_TIMEOUT_MS = 5000;
+  var FALLBACK_SELECTOR = '.cdf-contact-title, .cdf-contact-lead, .cdf-contact-note, .cdf-contact-form, .cdf-contact-direct';
 
   function formIdFromConfig(value) {
     var raw = String(value || '').trim();
@@ -17,11 +19,32 @@
     return '';
   }
 
-  function loadScript(src) {
-    if (document.querySelector('script[src="' + src + '"]')) return;
+  function loadScript(src, onload, onerror) {
+    var existing = document.querySelector('script[src="' + src + '"]');
+    if (existing) {
+      if (existing.getAttribute('data-cdf-loaded') === '1') {
+        if (onload) onload();
+        return;
+      }
+      if (existing.getAttribute('data-cdf-failed') === '1') {
+        if (onerror) onerror();
+        return;
+      }
+      if (onload) existing.addEventListener('load', onload);
+      if (onerror) existing.addEventListener('error', onerror);
+      return;
+    }
     var script = document.createElement('script');
     script.src = src;
     script.async = false;
+    script.addEventListener('load', function () {
+      script.setAttribute('data-cdf-loaded', '1');
+      if (onload) onload();
+    });
+    script.addEventListener('error', function () {
+      script.setAttribute('data-cdf-failed', '1');
+      if (onerror) onerror();
+    });
     document.body.appendChild(script);
   }
 
@@ -81,39 +104,122 @@
     });
   }
 
-  function embedForm(root, formId, index) {
-    var iframeId = 'cdf-ghl-' + formId + '-' + index;
-    root.innerHTML = ''
-      + '<div class="cdf-form-embed">'
-      + '<iframe'
-      + ' src="https://api.leadconnectorhq.com/widget/form/' + formId + '"'
-      + ' class="cdf-form-iframe"'
-      + ' id="' + iframeId + '"'
-      + ' title="Formulaire de contact, Équipe Chiasson De Francesco"'
-      + ' loading="lazy"'
-      + ' data-layout="{\'id\':\'INLINE\'}"'
-      + ' data-trigger-type="alwaysShow"'
-      + ' data-trigger-value=""'
-      + ' data-activation-type="alwaysActivated"'
-      + ' data-activation-value=""'
-      + ' data-deactivation-type="neverDeactivate"'
-      + ' data-deactivation-value=""'
-      + ' data-form-name="Contact Équipe Chiasson De Francesco"'
-      + ' data-height="640"'
-      + ' data-layout-iframe-id="' + iframeId + '"'
-      + ' data-form-id="' + formId + '"'
-      + '></iframe>'
-      + '</div>';
+  function setFallbackHidden(root, hidden) {
+    var nodes = root.querySelectorAll(FALLBACK_SELECTOR);
+    Array.prototype.forEach.call(nodes, function (node) {
+      if (hidden) node.setAttribute('hidden', '');
+      else node.removeAttribute('hidden');
+    });
+  }
+
+  function iframeHasForeignDocument(iframe) {
+    try {
+      var win = iframe.contentWindow;
+      if (!win) return false;
+      /* Une page lisible (about:blank ou erreur locale) n'est pas le formulaire. */
+      void win.location.href;
+      return false;
+    } catch (error) {
+      return true;
+    }
+  }
+
+  function createIframe(formId, iframeId) {
+    var iframe = document.createElement('iframe');
+    iframe.className = 'cdf-form-iframe';
+    iframe.id = iframeId;
+    iframe.title = 'Lead form Site: CDF';
+    iframe.setAttribute('data-layout', "{'id':'INLINE'}");
+    iframe.setAttribute('data-trigger-type', 'alwaysShow');
+    iframe.setAttribute('data-trigger-value', '');
+    iframe.setAttribute('data-activation-type', 'alwaysActivated');
+    iframe.setAttribute('data-activation-value', '');
+    iframe.setAttribute('data-deactivation-type', 'neverDeactivate');
+    iframe.setAttribute('data-deactivation-value', '');
+    iframe.setAttribute('data-form-name', 'Lead form Site: CDF');
+    iframe.setAttribute('data-height', '460');
+    iframe.setAttribute('data-layout-iframe-id', iframeId);
+    iframe.setAttribute('data-form-id', formId);
+    return iframe;
+  }
+
+  function showEmbed(root) {
+    var embed = root.querySelector('.cdf-form-embed');
+    if (embed) embed.classList.remove('cdf-contact-embed-pending');
+    var iframe = root.querySelector('.cdf-form-iframe');
+    if (iframe) iframe.removeAttribute('tabindex');
+    setFallbackHidden(root, true);
+    root.setAttribute('data-cdf-state', 'embed');
+  }
+
+  function showFallback(root) {
+    var embed = root.querySelector('.cdf-form-embed');
+    if (embed) embed.remove();
+    setFallbackHidden(root, false);
+    bindFallback(root);
+    root.setAttribute('data-cdf-state', 'fallback');
+  }
+
+  function mountEmbed(root, formId, index) {
+    var settled = false;
+    var iframeLoaded = false;
+    var scriptLoaded = false;
+    var iframeId = index === 0 ? 'inline-' + formId : 'inline-' + formId + '-' + (index + 1);
+    var embed = document.createElement('div');
+    var iframe = createIframe(formId, iframeId);
+    var timer;
+
+    embed.className = 'cdf-form-embed cdf-contact-embed-pending';
+    iframe.setAttribute('tabindex', '-1');
+    embed.appendChild(iframe);
+    root.insertBefore(embed, root.firstChild);
+    root.setAttribute('data-cdf-state', 'pending');
+    bindFallback(root);
+
+    function fail() {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timer);
+      showFallback(root);
+    }
+
+    function succeed() {
+      if (settled || !iframeLoaded || !scriptLoaded) return;
+      settled = true;
+      window.clearTimeout(timer);
+      showEmbed(root);
+    }
+
+    iframe.addEventListener('error', fail);
+    iframe.addEventListener('load', function () {
+      if (!iframeHasForeignDocument(iframe)) return;
+      iframeLoaded = true;
+      succeed();
+    });
+
+    timer = window.setTimeout(function () {
+      if (!iframeLoaded || !scriptLoaded) fail();
+    }, LOAD_TIMEOUT_MS);
+
+    iframe.src = 'https://api.leadconnectorhq.com/widget/form/' + formId;
+
+    loadScript('https://link.msgsndr.com/js/form_embed.js', function () {
+      scriptLoaded = true;
+      succeed();
+    }, fail);
+
     loadScript('/src/assets/cdf-forms.js');
-    loadScript('https://link.msgsndr.com/js/form_embed.js');
   }
 
   function boot() {
     var formId = formIdFromConfig(CDF_GHL_FORM_ID);
     var slots = document.querySelectorAll('[data-cdf-contact]');
     Array.prototype.forEach.call(slots, function (root, index) {
-      if (formId) embedForm(root, formId, index);
-      else bindFallback(root);
+      if (formId) mountEmbed(root, formId, index);
+      else {
+        bindFallback(root);
+        root.setAttribute('data-cdf-state', 'fallback');
+      }
     });
   }
 
