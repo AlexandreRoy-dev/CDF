@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T16:21:30.736250+00:00",
+  "generatedAt": "2026-10-24T15:20:14.570381+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -178,39 +178,7 @@
     {
       "id": "13269650",
       "propertyUrl": "https://www.centris.ca/fr/propriete~a-vendre/13269650",
-      "ogTitle": "Commerce &#xE0; vendre &#xE0; Sherbrooke (Les Nations)",
-      "ogImage": "https://mspublic.centris.ca/media.ashx?id=ADDD250DACD3D9FDDDDDDDDDDD&t=pi&w=1260&h=1024&sm=c",
-      "price": null,
-      "photos": [
-        "01.jpg",
-        "02.jpg",
-        "03.jpg",
-        "04.jpg",
-        "05.jpg",
-        "06.jpg",
-        "07.jpg",
-        "08.jpg",
-        "09.jpg",
-        "10.jpg",
-        "11.jpg",
-        "12.jpg",
-        "13.jpg",
-        "14.jpg",
-        "15.jpg",
-        "16.jpg",
-        "17.jpg",
-        "18.jpg",
-        "19.jpg",
-        "20.jpg",
-        "21.jpg",
-        "22.jpg",
-        "23.jpg",
-        "24.jpg",
-        "25.jpg"
-      ],
-      "photoCount": 25,
-      "ogShareImage": "src/assets/images/proprietes/13269650/og-share.jpg",
-      "publicPath": "/ca/qc/sherbrooke/jacques-cartier/2249-rue-king-o/"
+      "error": "404 Client Error: Not Found for url: https://www.centris.ca/fr/inscription?listingnotfound=13269650"
     },
     {
       "id": "12505188",
