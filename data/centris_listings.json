@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T15:28:16.275352+00:00",
+  "generatedAt": "2026-10-26T18:09:07.141522+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -30,19 +30,10 @@
     "27273866",
     "9745288"
   ],
-  "removedListings": [
-    "13269650"
-  ],
-  "prunedPages": [
-    "/home/runner/work/CDF/CDF/ca/qc/sherbrooke/jacques-cartier/2249-rue-king-o/index.html",
-    "/home/runner/work/CDF/CDF/prop-2249-rue-king-o-sherbrooke-13269650.html",
-    "proprietes.html:/ca/qc/sherbrooke/jacques-cartier/2249-rue-king-o/"
-  ],
+  "removedListings": [],
+  "prunedPages": [],
   "maxListings": 30,
-  "removedStale": [
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/13269650",
-    "/home/runner/work/CDF/CDF/src/assets/images/proprietes/13269650.jpg"
-  ],
+  "removedStale": [],
   "listings": [
     {
       "id": "17095739",
