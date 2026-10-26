@@ -359,19 +359,19 @@ def render(page: dict) -> str:
       <a href="/index.html"><img src="/src/assets/logo.png" alt="Chiasson & De Francesco" class="h-10 md:h-12 w-auto"></a>
       <div class="hidden md:flex items-center gap-10">
         <a href="/index.html" class="text-white hover:text-brand-red transition-colors font-medium">Accueil</a>
-        <a href="/index.html#about" class="text-white hover:text-brand-red font-medium">Équipe</a>
+        <a href="/#courtiers" class="text-white hover:text-brand-red font-medium">Équipe</a>
         <a href="/proprietes.html" class="text-white hover:text-brand-red font-medium">Propriétés</a>
         <a href="/blog.html" class="text-white hover:text-brand-red font-medium">Blogue</a>
-        <a href="/index.html#contact" class="text-white hover:text-brand-red font-medium">Contact</a>
+        <a href="/#contact" class="text-white hover:text-brand-red font-medium">Contact</a>
       </div>
       <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Ouvrir le menu"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg></button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-brand-navy px-6 py-6 space-y-4 border-t border-white/10 mt-4">
       <a href="/index.html" class="block text-white hover:text-brand-red font-medium">Accueil</a>
-      <a href="/index.html#about" class="block text-white hover:text-brand-red font-medium">Équipe</a>
+      <a href="/#courtiers" class="block text-white hover:text-brand-red font-medium">Équipe</a>
       <a href="/proprietes.html" class="block text-white hover:text-brand-red font-medium">Propriétés</a>
       <a href="/blog.html" class="block text-white hover:text-brand-red font-medium">Blogue</a>
-      <a href="/index.html#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
+      <a href="/#contact" class="block text-white hover:text-brand-red font-medium">Contact</a>
     </div>
   </nav>
   <header class="pt-32 pb-12 bg-white border-b border-gray-200">
@@ -392,7 +392,7 @@ def render(page: dict) -> str:
       <p class="text-gray-600 leading-relaxed mb-6">{page["intro"]}</p>
 {sections}
       <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-3">À propos de l'équipe</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">Équipe Chiasson de Francesco, RE/MAX D'ABORD, 157 boul. Jacques-Cartier Sud, Sherbrooke (QC) J1J 2Z4. Pierre-Olivier Chiasson : <a href="tel:8199194631" class="text-brand-navy hover:text-brand-red">819-919-4631</a> · Marco De Francesco : <a href="tel:8195620656" class="text-brand-navy hover:text-brand-red">819-562-0656</a> · Jade Sirois : <a href="tel:8194342652" class="text-brand-navy hover:text-brand-red">819-434-2652</a>.</p>
+      <p class="text-gray-600 leading-relaxed mb-6">Équipe Chiasson de Francesco, RE/MAX D'ABORD, 157 boul. Jacques-Cartier Sud, Sherbrooke (QC) J1J 2Z4. Téléphone : <a href="tel:+18199194631" class="text-brand-navy hover:text-brand-red">819-919-4631</a>.</p>
       <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">Questions fréquentes</h2>
       <div class="space-y-4 mb-10">
 {faqs_html}
@@ -404,7 +404,7 @@ def render(page: dict) -> str:
       <div class="flex flex-wrap gap-4">
         <a href="/proprietes.html" class="inline-block bg-brand-navy text-white font-semibold py-3 px-6 rounded-lg hover:bg-brand-red transition-colors">Voir nos propriétés</a>
         <a href="/evaluation.html" class="inline-block bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">Évaluer le timing de vente</a>
-        <a href="/index.html#contact" class="inline-block bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">Nous contacter</a>
+        <a href="/#contact" class="inline-block bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">Nous contacter</a>
       </div>
       <div class="mt-8">{CONTACT_MOUNT}</div>
     </div>
@@ -415,7 +415,7 @@ def render(page: dict) -> str:
         <a href="/index.html" class="hover:text-brand-red transition-colors">Accueil</a>
         <a href="/proprietes.html" class="hover:text-brand-red transition-colors">Propriétés</a>
         <a href="/regions-desservies.html" class="hover:text-brand-red transition-colors">Régions desservies</a>
-        <a href="/index.html#contact" class="hover:text-brand-red transition-colors">Contact</a>
+        <a href="/#contact" class="hover:text-brand-red transition-colors">Contact</a>
       </div>
       <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs mt-4 text-gray-500">
         <a href="https://immobiliermaison.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">immobiliermaison.com</a>

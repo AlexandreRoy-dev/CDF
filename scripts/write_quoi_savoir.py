@@ -265,7 +265,7 @@ CITIES = [
             "Le village vise cafés, galeries et résidence ou week-end.",
             "Les secteurs ski visent villégiature : lisez le syndicat.",
             "Les rangs offrent plus de terrain et un autre type d'inspection.",
-            "Acheteurs Montréal et Rive-Sud sont fréquents, sans garantir n'importe quel prix.",
+            "Acheteurs Montréal et Rive-Sud sont fréquents. Le prix reste celui du marché.",
         ],
         "sell": "Vendre à Sutton, c'est clarifier l'usage (principal vs week-end) et afficher un prix de montagne, pas de Sherbrooke.",
         "sell_steps": [
@@ -1060,12 +1060,12 @@ def render(city: dict) -> str:
       {mistakes}
 
       <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">Qui appeler pour vendre ou acheter {prep} {name} ?</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">L'équipe Chiasson de Francesco, courtiers immobiliers RE/MAX D'ABORD à Sherbrooke, accompagne l'achat et la vente {prep} {name}. Pierre-Olivier Chiasson (819-919-4631) et Marco De Francesco (819-562-0656) sont courtiers résidentiels et commerciaux. Jade Sirois (819-434-2652) est courtière résidentielle. Bureau : 157 boul. Jacques-Cartier Sud, Sherbrooke (QC) J1J 2Z4. Page région : <a class="text-brand-navy font-medium hover:text-brand-red" href="{region_href}">{name}</a>.</p>
+      <p class="text-gray-600 leading-relaxed mb-6">L'équipe Chiasson de Francesco, courtiers immobiliers RE/MAX D'ABORD à Sherbrooke, accompagne l'achat et la vente {prep} {name}. Pierre-Olivier Chiasson et Marco De Francesco sont courtiers résidentiels et commerciaux. Jade Sirois est courtière résidentielle. Téléphone : 819-919-4631. Bureau : 157 boul. Jacques-Cartier Sud, Sherbrooke (QC) J1J 2Z4. Page région : <a class="text-brand-navy font-medium hover:text-brand-red" href="{region_href}">{name}</a>.</p>
 
       <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">Questions fréquentes</h2>
       {faqs_html}
 
-      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="index.html#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="vendre.html">Vendre</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="acheter.html">Acheter</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Blogue</a></p>
+      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="/#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="vendre.html">Vendre</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="acheter.html">Acheter</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Blogue</a></p>
     </div>
   </main>
 """

@@ -382,7 +382,7 @@ BROKERS = {
     "marco.html": {
         "name": "Marco De Francesco",
         "job": "Courtier immobilier résidentiel et commercial",
-        "tel": "+1-819-562-0656",
+        "tel": "+1-819-919-4631",
         "email": "marco.defrancesco@remax-quebec.com",
         "image": f"{BASE}/src/assets/marco-de-francesco.webp",
         "languages": ["fr-CA", "en-CA"],
@@ -394,7 +394,7 @@ BROKERS = {
     "jade.html": {
         "name": "Jade Sirois",
         "job": "Courtière immobilière résidentielle",
-        "tel": "+1-819-434-2652",
+        "tel": "+1-819-919-4631",
         "email": "",
         "image": f"{BASE}/src/assets/images/jade-sirois.webp",
         "languages": None,
@@ -402,6 +402,15 @@ BROKERS = {
             "https://www.remax-quebec.com/fr/courtiers-immobiliers/jade.sirois",
             "https://www.centris.ca/fr/courtier-immobilier~jade-sirois~re-max-d-abord-inc./j8023",
         ],
+    },
+    "pierre-luc.html": {
+        "name": "Pierre-Luc Giroux",
+        "job": "Courtier immobilier résidentiel",
+        "tel": "+1-819-919-4631",
+        "email": "pierreluc.giroux@remax-quebec.com",
+        "image": f"{BASE}/assets-v2/pierre-luc-giroux-0J3A8610.webp",
+        "languages": None,
+        "sameAs": [],
     },
 }
 
@@ -687,6 +696,8 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
         og_image = BROKERS["jade.html"]["image"]
     elif rel == "pierre-olivier.html":
         og_image = BROKERS["pierre-olivier.html"]["image"]
+    elif rel == "pierre-luc.html":
+        og_image = BROKERS["pierre-luc.html"]["image"]
 
     if rel != "index.html":
         text = set_or_insert_meta(text, title, desc, page_url(path), og_image)
