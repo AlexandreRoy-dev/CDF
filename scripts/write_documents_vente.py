@@ -179,7 +179,7 @@ PAGES = [
             ),
             (
                 "Qui confirme qu'on peut bâtir ?",
-                "La municipalité (urbanisme), pas l'annonce. Le notaire confirme les titres. Pierre-Olivier Chiasson (819-919-4631), Marco De Francesco (819-562-0656) et Jade Sirois (819-434-2652), RE/MAX D'ABORD, 157 boul. Jacques-Cartier Sud, Sherbrooke.",
+                "La municipalité (urbanisme), pas l'annonce. Le notaire confirme les titres. Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois (819-919-4631), RE/MAX D'ABORD, 157 boul. Jacques-Cartier Sud, Sherbrooke.",
             ),
         ],
         "series": [
@@ -209,7 +209,6 @@ PAGES = [
             "Les documents d'une vente de maison : déclaration du vendeur, certificat de localisation, taxes, hypothèque, preuves de travaux. Voir <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-documents-vente-maison.html\">documents pour vendre une maison</a>.",
             "Baux en vigueur de chaque logement, avenants, et avis d'augmentation déjà donnés.",
             "Tableau des loyers (logement, occupant, loyer, échéance, dépôt) collé aux baux, pas à un souvenir.",
-            "Preuves de dépôts de garantie et de leur traitement.",
             "Relevé simple des revenus et des dépenses (taxes, assurances, chauffage s'il est inclus, entretien, vacance).",
             "Règlements d'immeuble remis aux locataires, s'ils existent.",
             "Assurances de l'immeuble et sinistres connus.",
@@ -259,7 +258,7 @@ PAGES = [
             ),
             (
                 "Qui aide à vendre un plex à Sherbrooke ?",
-                "Pierre-Olivier Chiasson (819-919-4631) et Marco De Francesco (819-562-0656), courtiers résidentiels et commerciaux, et Jade Sirois (819-434-2652), courtière résidentielle. RE/MAX D'ABORD, 157 boul. Jacques-Cartier Sud, Sherbrooke (QC) J1J 2Z4.",
+                "Pierre-Olivier Chiasson et Marco De Francesco, courtiers résidentiels et commerciaux, et Jade Sirois, courtière résidentielle. Téléphone : 819-919-4631. RE/MAX D'ABORD, 157 boul. Jacques-Cartier Sud, Sherbrooke (QC) J1J 2Z4.",
             ),
         ],
         "series": [
@@ -364,13 +363,13 @@ def render(page: dict) -> str:
       <p class="text-gray-600 leading-relaxed mb-6">{page["special"]}</p>
 
       <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">Qui appeler pour préparer le dossier ?</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">L'équipe Chiasson de Francesco, courtiers immobiliers RE/MAX D'ABORD à Sherbrooke, accompagne la vente de maisons, terrains et plex en Estrie. Pierre-Olivier Chiasson (819-919-4631) et Marco De Francesco (819-562-0656) sont courtiers résidentiels et commerciaux. Jade Sirois (819-434-2652) est courtière résidentielle. Bureau : 157 boul. Jacques-Cartier Sud, Sherbrooke (QC) J1J 2Z4.</p>
+      <p class="text-gray-600 leading-relaxed mb-6">L'équipe Chiasson de Francesco, courtiers immobiliers RE/MAX D'ABORD à Sherbrooke, accompagne la vente de maisons, terrains et plex en Estrie. Pierre-Olivier Chiasson et Marco De Francesco sont courtiers résidentiels et commerciaux. Jade Sirois est courtière résidentielle. Téléphone : 819-919-4631. Bureau : 157 boul. Jacques-Cartier Sud, Sherbrooke (QC) J1J 2Z4.</p>
 
       <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">Questions fréquentes</h2>
       {faqs_html}
 
       <p class="text-gray-600 mt-10">Série documents de vente : {series}</p>
-      <p class="text-gray-600 mt-4">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="index.html#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="vendre.html">Vendre</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Blogue</a></p>
+      <p class="text-gray-600 mt-4">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="/#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="vendre.html">Vendre</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Blogue</a></p>
     </div>
   </main>
 """

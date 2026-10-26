@@ -47,7 +47,7 @@ export const QUESTIONS = [
     id: 'estimatedValue',
     kind: 'currency',
     title: 'Quelle valeur approximative lui donneriez-vous ?',
-    subtitle: 'Votre ordre de grandeur, sans expertise.',
+    subtitle: 'Votre ordre de grandeur, à titre indicatif.',
     placeholder: '450 000'
   },
   {

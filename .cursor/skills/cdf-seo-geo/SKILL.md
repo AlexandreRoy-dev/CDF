@@ -12,7 +12,7 @@ French-Canadian real-estate brokerage site. Stack: static HTML, Tailwind CDN, Ve
 - `html lang="fr-CA"`, `og:locale` `fr_CA`
 - Brand: Équipe Chiasson de Francesco, RE/MAX D'ABORD
 - Address: 157 boul. Jacques-Cartier Sud, Sherbrooke, QC J1J 2Z4
-- Phones: P-O 819-919-4631 · Marco 819-562-0656 · Jade 819-434-2652
+- Phone: 819-919-4631 is the only public number. Marco 819-562-0656, Jade 819-434-2652 and Pierre-Luc 514-889-2927 stay only on their own bio pages, next to 819-919-4631.
 - Measurement ID: `G-VBQPR5ZNV0` via `/src/assets/js/ga.js`
 
 ## Meta

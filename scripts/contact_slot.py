@@ -38,6 +38,6 @@ MOUNT = """<div class="cdf-contact" data-cdf-contact>
 <div class="cdf-contact-direct">
 <p>Ou joignez l'équipe directement.</p>
 <p><a href="mailto:p-o.chiasson@remax-quebec.com">p-o.chiasson@remax-quebec.com</a></p>
-<p><a href="tel:+18199194631">819-919-4631 (P-O)</a> · <a href="tel:+18195620656">819-562-0656 (Marco)</a></p>
+<p><a href="tel:+18199194631">819-919-4631</a></p>
 </div>
 </div>"""

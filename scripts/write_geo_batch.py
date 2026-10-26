@@ -54,7 +54,7 @@ REMAINING = [
         "related": [("Coaticook", "coaticook.html"), ("Cookshire-Eaton", "cookshire-eaton.html"), ("Sherbrooke", "sherbrooke.html"), ("Évaluation", "../evaluation.html")],
         "faqs": [
             ("Compton convient-il comme résidence principale ?", "Oui si vous acceptez moins de services qu'en ville et parfois un déplacement vers Sherbrooke ou Coaticook. Le calme et le terrain sont le contrepartie."),
-            ("Peut-on acheter une terre agricole à Compton ?", "Selon le zonage et votre statut (producteur ou non). Un courtier et, au besoin, un notaire spécialisé évitent une offre sur un lot que vous ne pourrez pas utiliser comme prévu."),
+            ("Peut-on acheter une terre agricole à Compton ?", "Selon le zonage et votre statut (producteur ou non). Un courtier et, au besoin, un notaire évitent une offre sur un lot que vous ne pourrez pas utiliser comme prévu."),
             ("Pourquoi si peu de maisons à vendre à Compton ?", "Marché mince : les propriétaires restent longtemps. Quand une inscription sort, le prix doit coller aux rares comparables, pas à un espoir de pénurie."),
             ("Travaillez-vous Compton depuis Sherbrooke ?", "Oui. L'équipe Chiasson de Francesco dessert Compton et le Haut-Saint-François."),
         ],
@@ -362,10 +362,10 @@ def nav_root() -> str:
       <a href="index.html"><img src="/src/assets/logo.png" alt="Chiasson & De Francesco" class="h-10 md:h-12 w-auto"></a>
       <div class="hidden md:flex items-center gap-10">
         <a href="index.html" class="text-white hover:text-brand-red font-medium">Accueil</a>
-        <a href="index.html#about" class="text-white hover:text-brand-red font-medium">Équipe</a>
+        <a href="/#courtiers" class="text-white hover:text-brand-red font-medium">Équipe</a>
         <a href="proprietes.html" class="text-white hover:text-brand-red font-medium">Propriétés</a>
         <a href="blog.html" class="text-white hover:text-brand-red font-medium">Blogue</a>
-        <a href="index.html#contact" class="text-white hover:text-brand-red font-medium">Contact</a>
+        <a href="/#contact" class="text-white hover:text-brand-red font-medium">Contact</a>
       </div>
       <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Menu"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg></button>
     </div>
@@ -373,7 +373,7 @@ def nav_root() -> str:
       <a href="index.html" class="block text-white">Accueil</a>
       <a href="proprietes.html" class="block text-white">Propriétés</a>
       <a href="blog.html" class="block text-white">Blogue</a>
-      <a href="index.html#contact" class="block text-white">Contact</a>
+      <a href="/#contact" class="block text-white">Contact</a>
     </div>
   </nav>"""
 
@@ -805,7 +805,7 @@ def write_article(a: dict) -> None:
       <p class="text-xl font-medium text-brand-navy mb-8">{a["kicker"]}</p>
       {sections}
       {faqs_html}
-      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="index.html#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Retour au blogue</a>{extra}</p>
+      <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="/#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Retour au blogue</a>{extra}</p>
     </div>
   </main>
 """
