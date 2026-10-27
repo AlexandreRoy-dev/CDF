@@ -8,6 +8,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from contact_slot import MOUNT as CONTACT_MOUNT
+from contact_slot import SCRIPT as CONTACT_SCRIPT
+from contact_slot import STYLESHEET as CONTACT_CSS
 from write_top_regions import render as render_region
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -418,11 +421,13 @@ def page_shell(title: str, desc: str, canonical: str, body: str, ld: dict | None
 
   {ld_html}
 <link rel="stylesheet" href="/public/css/site.min.css">
+  {CONTACT_CSS}
 </head>
 <body class="antialiased bg-gray-50 text-gray-900 font-body min-h-screen flex flex-col">
 {nav_root()}
 {body}
 {footer_root()}
+{CONTACT_SCRIPT}
 </body>
 </html>
 """
@@ -748,9 +753,9 @@ def write_service(s: dict) -> None:
     {faqs}
     <p class="mt-8 text-gray-600">Pour aller plus loin : {links}</p>
     <div class="flex flex-wrap gap-4 mt-8">
-      <a href="index.html#contact" class="bg-brand-navy text-white font-semibold py-3 px-6 rounded-lg hover:bg-brand-red">Nous contacter</a>
       <a href="evaluation.html" class="bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg">Questionnaire vendeur</a>
     </div>
+    <div class="mt-8">{CONTACT_MOUNT}</div>
   </div></main>
 """
     graph = {

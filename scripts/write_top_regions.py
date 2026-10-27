@@ -6,6 +6,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from contact_slot import MOUNT as CONTACT_MOUNT
+from contact_slot import SCRIPT as CONTACT_SCRIPT
+from contact_slot import STYLESHEET as CONTACT_CSS
+
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://chiassondefrancesco.ca"
 
@@ -347,6 +351,7 @@ def render(page: dict) -> str:
 {ld}
 </script>
 <link rel="stylesheet" href="/public/css/site.min.css">
+{CONTACT_CSS}
 </head>
 <body class="antialiased bg-gray-50 text-gray-900 font-body flex flex-col min-h-screen">
   <nav class="py-4 px-6 fixed w-full top-0 z-50 bg-brand-navy shadow-md">
@@ -401,6 +406,7 @@ def render(page: dict) -> str:
         <a href="/evaluation.html" class="inline-block bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">Évaluer le timing de vente</a>
         <a href="/index.html#contact" class="inline-block bg-gray-200 text-brand-navy font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">Nous contacter</a>
       </div>
+      <div class="mt-8">{CONTACT_MOUNT}</div>
     </div>
   </main>
   <footer id="footer" class="bg-[#232323] text-gray-400 py-12 border-t-4 border-brand-red font-body">
@@ -422,6 +428,7 @@ def render(page: dict) -> str:
     </div>
   </footer>
   <script>var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m)b.addEventListener('click',function(){{m.classList.toggle('hidden');}});</script>
+  {CONTACT_SCRIPT}
 </body>
 </html>
 """

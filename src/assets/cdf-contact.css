@@ -1,0 +1,205 @@
+/* Colonne contact : formulaire courriel, ou iframe GoHighLevel une fois l'identifiant collé. */
+.cdf-contact {
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  color: #1c2438;
+}
+
+.cdf-contact-title {
+  margin: 0 0 0.55rem;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #000e35;
+}
+
+.cdf-contact-lead,
+.cdf-contact-note {
+  margin: 0 0 1rem;
+  color: #4a5468;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cdf-contact-note {
+  margin-top: -0.45rem;
+  font-size: 0.78rem;
+}
+
+.cdf-contact-form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.cdf-contact-form label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  color: #000e35;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.cdf-contact-req {
+  color: #aa1120;
+}
+
+.cdf-contact-form input[type="text"],
+.cdf-contact-form input[type="email"],
+.cdf-contact-form input[type="tel"],
+.cdf-contact-form textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #8792a5;
+  border-radius: 0;
+  background: #fff;
+  color: #1c2438;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.cdf-contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.cdf-contact-form input:focus,
+.cdf-contact-form textarea:focus,
+.cdf-contact-form input:focus-visible,
+.cdf-contact-form textarea:focus-visible {
+  outline: 2px solid #000e35;
+  outline-offset: 1px;
+  border-color: #000e35;
+}
+
+.cdf-contact-form.is-invalid input:invalid,
+.cdf-contact-form.is-invalid textarea:invalid {
+  border-color: #aa1120;
+}
+
+.cdf-contact-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: #4a5468;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.cdf-contact-consent input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.15rem;
+  accent-color: #aa1120;
+  flex: none;
+}
+
+.cdf-contact-consent label {
+  display: inline;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.cdf-contact-consent a {
+  color: #aa1120;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.cdf-contact-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 54px;
+  padding: 0 1.4rem;
+  border: 0;
+  background: #aa1120;
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cdf-contact-submit:hover {
+  background: #660000;
+}
+
+.cdf-contact-submit:focus-visible {
+  outline: 2px solid #000e35;
+  outline-offset: 3px;
+}
+
+.cdf-contact-direct {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dcdfe5;
+  color: #4a5468;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.cdf-contact-direct a {
+  color: #000e35;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  overflow-wrap: anywhere;
+}
+
+.cdf-contact-direct a:hover {
+  color: #aa1120;
+}
+
+.cdf-contact .cdf-form-embed {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cdf-contact .cdf-form-embed.cdf-contact-embed-pending {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.cdf-contact .cdf-form-iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 460px;
+  border: 0;
+  background: transparent;
+}
+
+@container (min-width: 520px) {
+  .cdf-contact-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cdf-contact-span {
+    grid-column: 1 / -1;
+  }
+
+  .cdf-contact-submit {
+    width: auto;
+  }
+}
