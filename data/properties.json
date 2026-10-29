@@ -156,6 +156,30 @@
       "shareTitle": "Fonds de commerce à vendre à Sherbrooke : 182, Rue Wellington N.",
       "legacyFile": "prop-182-rue-wellington-n-10043722.html",
       "fallbackImage": "182wells.jpg"
+    },
+    {
+      "uls": "15613071",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "fleurimont",
+      "street": "2077-chemin-galvin",
+      "title": "2077 Chemin Galvin, Sherbrooke",
+      "shareTitle": "Maison de plain-pied à vendre à Sherbrooke : 2077 Chemin Galvin",
+      "legacyFile": "prop-2077-chemin-galvin-sherbrooke-15613071.html",
+      "fallbackImage": "15613071.jpg"
+    },
+    {
+      "uls": "23324094",
+      "country": "ca",
+      "province": "qc",
+      "city": "montreal",
+      "sector": "lasalle",
+      "street": "7700-rue-bouvier-app-305",
+      "title": "7700 Rue Bouvier, app. 305, Montréal",
+      "shareTitle": "Condo à vendre à Montréal : 7700 Rue Bouvier, app. 305",
+      "legacyFile": "prop-7700-rue-bouvier-app-305-montreal-23324094.html",
+      "fallbackImage": "23324094.jpg"
     }
   ]
 }
