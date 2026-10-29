@@ -599,7 +599,7 @@ def person_json_ld(rel: str, broker: dict) -> dict:
         "worksFor": {"@id": f"{BASE}/#organization"},
         "memberOf": {
             "@type": "RealEstateAgent",
-            "name": "RE/MAX D'ABORD INC.",
+            "name": "RE/MAX D'ABORD",
             "url": "https://remax-dabord.com/",
         },
         "address": {
