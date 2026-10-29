@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-"""Refresh site inventory from live RE/MAX listings for P-O Chiasson.
+"""Refresh site inventory from live RE/MAX listings for the team.
 
 Uses data/properties.json (SEO paths) + RE/MAX inscription details to:
 - generate missing SEO detail pages + legacy redirect stubs
 - rebuild proprietes.html cards
 - update King O 304 rental price on its existing page
 - regenerate sitemap.xml + vercel redirects
+
+Discovery covers every team broker in scripts/team_brokers.py, not only
+Pierre-Olivier's BrokerId. Listings that Centris shows for the team but that
+the RE/MAX inscriptions API does not return are kept via data/centris_pinned.json.
 
 Listing pages live under /ca/qc/{ville}/{secteur}/{rue}/. Every internal
 link in the template is root-absolute (starts with /) so it still resolves
@@ -19,9 +23,13 @@ import json
 import re
 import sys
 import unicodedata
+from html import escape as html_escape
 from pathlib import Path
 
 import requests
+
+from centris_listing import detail_for_uls, load_pinned_records, protected_jobs
+from team_brokers import AGENCY_NAME, TEAM_BROKERS
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE_URL = "https://chiassondefrancesco.ca"
@@ -541,6 +549,11 @@ def caracteristiques_items(detail: dict) -> list[tuple[str, str]]:
 def fetch_detail(session: requests.Session, uls: str) -> dict:
     url = f"{REMAX_API}inscriptions/{uls}"
     resp = session.get(url, timeout=60)
+    if resp.status_code == 404:
+        centris_detail = detail_for_uls(session, uls)
+        if centris_detail:
+            print(f"  ULS {uls} absent from RE/MAX API; using the Centris listing page")
+            return centris_detail
     resp.raise_for_status()
     return resp.json()
 
@@ -570,7 +583,7 @@ def registry_entry_from_detail(uls: str, detail: dict) -> dict:
     }
 
 
-def fetch_live_uls(session: requests.Session, broker_idagent: int = DEFAULT_BROKER_IDAGENT) -> list[str]:
+def fetch_broker_uls(session: requests.Session, broker_idagent: int) -> list[str]:
     uls_list: list[str] = []
     page = 1
     while True:
@@ -594,32 +607,121 @@ def fetch_live_uls(session: requests.Session, broker_idagent: int = DEFAULT_BROK
     return uls_list
 
 
+def fetch_live_uls(session: requests.Session, broker_idagent: int = DEFAULT_BROKER_IDAGENT) -> list[str]:
+    """Active ULS for one broker. Prefer fetch_team_uls for the daily inventory."""
+    return fetch_broker_uls(session, broker_idagent)
+
+
+def fetch_team_uls(session: requests.Session) -> tuple[list[str], bool]:
+    """Union of active ULS for every team broker.
+
+    The boolean is False when at least one broker query failed. Callers must
+    not drop listings in that case: a partial inventory is not a sold list.
+    """
+    ordered: list[str] = []
+    seen: set[str] = set()
+    complete = True
+    for broker in TEAM_BROKERS:
+        try:
+            found = fetch_broker_uls(session, int(broker["idagent"]))
+        except requests.RequestException as exc:
+            complete = False
+            print(
+                f"WARN: RE/MAX inventory for {broker['name']} "
+                f"({broker['idagent']}) failed: {exc}"
+            )
+            continue
+        print(f"  {broker['slug']}: {len(found)} active listing(s)")
+        for uls in found:
+            if uls not in seen:
+                seen.add(uls)
+                ordered.append(uls)
+    return ordered, complete
+
+
 def sync_registry_to_live(session: requests.Session, registry: dict) -> list[str]:
     """Add missing live ULS to the registry; drop sold ones. Returns newly added ULS."""
-    live_uls = fetch_live_uls(session)
+    live_uls, complete = fetch_team_uls(session)
+    protected, pins_ok = protected_jobs(session)
+    if not pins_ok:
+        complete = False
+    for uls in protected:
+        if uls not in live_uls:
+            print(f"keeping Centris-only ULS {uls} (absent from the RE/MAX broker feeds)")
+            live_uls.append(uls)
     live_set = set(live_uls)
     existing = {str(item["uls"]): item for item in registry.get("listings", [])}
     added: list[str] = []
 
-    kept = [existing[u] for u in live_uls if u in existing]
-    for uls in live_uls:
-        if uls in existing:
-            continue
-        print(f"adding new listing ULS {uls} to registry…")
-        detail = fetch_detail(session, uls)
-        entry = registry_entry_from_detail(uls, detail)
-        kept.append(entry)
-        added.append(uls)
+    def _append_new(target: list[dict]) -> None:
+        known = {str(item["uls"]) for item in target}
+        for uls in live_uls:
+            if uls in known:
+                continue
+            print(f"adding new listing ULS {uls} to registry…")
+            detail = fetch_detail(session, uls)
+            target.append(registry_entry_from_detail(uls, detail))
+            added.append(uls)
 
-    removed = sorted(set(existing) - live_set)
-    for uls in removed:
-        print(f"removing sold/inactive ULS {uls} from registry…")
+    if complete:
+        kept = [existing[u] for u in live_uls if u in existing]
+        _append_new(kept)
+        removed = sorted(set(existing) - live_set)
+        for uls in removed:
+            print(f"removing sold/inactive ULS {uls} from registry…")
+    else:
+        print("inventory incomplete; not removing listings absent from this run")
+        kept = list(registry.get("listings") or [])
+        _append_new(kept)
+        removed = []
 
     registry["listings"] = kept
     path = ROOT / "data" / "properties.json"
     path.write_text(json.dumps(registry, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"registry now has {len(kept)} listings ({len(added)} added, {len(removed)} removed)")
     return added
+
+
+def render_broker_cards(detail: dict) -> str:
+    """Courtier cards. Centris listings pass listing_brokers; otherwise Pierre-Olivier."""
+    brokers = detail.get("listing_brokers") or [
+        {
+            "name": "Pierre-Olivier Chiasson",
+            "job": "Courtier immobilier résidentiel et commercial",
+            "profile": "/pierre-olivier.html",
+            "phone": "819-919-4631",
+        }
+    ]
+    chunks: list[str] = []
+    for broker in brokers:
+        phone = (broker.get("phone") or "").strip()
+        tel = re.sub(r"\D", "", phone)
+        name = html_escape(broker.get("name") or "")
+        job = html_escape(broker.get("job") or "")
+        profile = broker.get("profile") or ""
+        if profile:
+            name_html = (
+                f'<a href="{html_escape(profile, quote=True)}" '
+                f'class="font-semibold text-gray-900 hover:text-brand-red">{name}</a>'
+            )
+        else:
+            name_html = f'<span class="font-semibold text-gray-900">{name}</span>'
+        phone_html = ""
+        if phone and tel:
+            phone_html = (
+                f'<a href="tel:{tel}" class="mt-3 inline-flex items-center justify-center '
+                f'w-full bg-brand-navy text-white font-semibold py-2 rounded-lg '
+                f'hover:bg-brand-red transition-colors text-sm">{html_escape(phone)}</a>'
+            )
+        chunks.append(
+            "              <div class=\"bg-gray-50 border border-gray-200 rounded-xl p-4\">\n"
+            f"                {name_html}\n"
+            f"                <div class=\"text-sm text-gray-600 mt-1\">{job}</div>\n"
+            f"                <div class=\"text-sm text-gray-600 mt-1\">{AGENCY_NAME}</div>\n"
+            f"                {phone_html}\n"
+            "              </div>"
+        )
+    return "\n".join(chunks)
 
 
 def render_detail_page(listing: dict, detail: dict) -> str:
@@ -637,6 +739,8 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     page_title = build_page_title(share_title, headline, city)
     desc = description_text(detail, listing)
     meta_desc = desc[:155].rsplit(" ", 1)[0] + "…" if len(desc) > 160 else desc
+    meta_attr = meta_desc.replace('"', "&quot;")
+    desc_html = html_escape(desc, quote=False)
     badge, badge_cls = badge_for(detail)
     price_html = format_price_html(detail)
     # For detail H1 price block, use larger styling for rentals
@@ -785,6 +889,10 @@ def render_detail_page(listing: dict, detail: dict) -> str:
         }
 
     ld_json = json.dumps(ld, ensure_ascii=False, indent=2)
+    brokers_html = render_broker_cards(detail)
+    share_attr = html_escape(share_title, quote=True)
+    addr_html = html_escape(addr, quote=False)
+    street_html = html_escape(street_addr, quote=False)
 
     html = f"""<!DOCTYPE html>
 <html lang="fr-CA" class="scroll-smooth">
@@ -796,7 +904,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
   <title>{page_title}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="{meta_desc.replace('"', '&quot;')}">
+  <meta name="description" content="{meta_attr}">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Équipe Chiasson de Francesco">
     <link rel="canonical" href="{canonical}">
@@ -804,7 +912,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     <meta property="og:url" content="{canonical}">
     <meta property="og:site_name" content="Chiasson de Francesco">
     <meta property="og:title" content="{page_title}">
-    <meta property="og:description" content="{meta_desc.replace('"', '&quot;')}">
+    <meta property="og:description" content="{meta_attr}">
     <meta property="og:image" content="{og}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -863,7 +971,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
         <div class="lg:col-span-2">
           <span class="inline-block {badge_cls} text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">{badge}</span>
           <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy leading-tight">{headline} à {city}</h1>
-          <p class="text-gray-600 mt-3 text-lg">{addr}</p>
+          <p class="text-gray-600 mt-3 text-lg">{addr_html}</p>
           <div class="mt-5 flex items-center gap-4 flex-wrap">
             {price_block}
             <div class="text-sm text-gray-500"><span class="font-semibold text-gray-700">ULS</span> : {listing['uls']}</div>
@@ -881,14 +989,14 @@ def render_detail_page(listing: dict, detail: dict) -> str:
 
           <section class="property-media bg-white border border-gray-200 rounded-2xl overflow-hidden"
             data-uls="{listing['uls']}"
-            data-share-title="{share_title.replace('"', '&quot;')}"
+            data-share-title="{share_attr}"
             data-share-url="{canonical}"
             data-share-image="{og}"
             data-fallback-image="/src/assets/images/proprietes/{fallback}"
-            data-photo-label="{headline} au {street_addr}, {city}">
+            data-photo-label="{headline} au {street_html}, {city}">
             <div class="property-gallery">
               <div class="relative bg-gray-100 group">
-                <img id="property-gallery-main" src="/src/assets/images/proprietes/{fallback}" alt="{headline} au {street_addr}, {city}, photo 1" width="{img_w}" height="{img_h}" fetchpriority="high" class="w-full h-[280px] sm:h-[380px] md:h-[520px] object-cover transition-opacity duration-300">
+                <img id="property-gallery-main" src="/src/assets/images/proprietes/{fallback}" alt="{headline} au {street_html}, {city}, photo 1" width="{img_w}" height="{img_h}" fetchpriority="high" class="w-full h-[280px] sm:h-[380px] md:h-[520px] object-cover transition-opacity duration-300">
                 <button type="button" id="property-gallery-prev" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow-md hover:bg-white" aria-label="Photo précédente">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
@@ -908,7 +1016,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
           <section class="bg-white border border-gray-200 rounded-2xl p-8">
             <h2 class="font-heading text-2xl font-bold text-brand-navy mb-4">Description</h2>
             <p class="text-gray-600 leading-relaxed text-lg">
-              {desc}
+              {desc_html}
             </p>
           </section>
 {sector_block(city_slug, city)}
@@ -920,12 +1028,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
           <section class="bg-white border border-gray-200 rounded-2xl p-7">
             <h2 class="font-heading text-xl font-bold text-brand-navy mb-4">Courtier(s)</h2>
             <div class="space-y-5">
-              <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
-                <a href="/pierre-olivier.html" class="font-semibold text-gray-900 hover:text-brand-red">Pierre-Olivier Chiasson</a>
-                <div class="text-sm text-gray-600 mt-1">Courtier immobilier résidentiel et commercial</div>
-                <div class="text-sm text-gray-600 mt-1">RE/MAX D'ABORD, agence immobilière</div>
-                <a href="tel:8199194631" class="mt-3 inline-flex items-center justify-center w-full bg-brand-navy text-white font-semibold py-2 rounded-lg hover:bg-brand-red transition-colors text-sm">819-919-4631</a>
-              </div>
+{brokers_html}
             </div>
           </section>
           <section class="bg-white border border-gray-200 rounded-2xl p-7">
@@ -941,7 +1044,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
   <div class="relative z-50 -mt-2">
     <footer id="footer" class="bg-[#232323] text-gray-400 py-16 border-t-4 border-brand-red font-body">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="cdf-fbrand cdf-fbrand--center"><div class="cdf-fbrand-logos"><img class="cdf-fbrand-team" src="/src/assets/logocdf.svg" alt="Équipe Chiasson De Francesco, courtiers immobiliers" width="140" height="68" loading="lazy"><span class="cdf-fbrand-rule" aria-hidden="true"></span><img class="cdf-fbrand-agency" src="/assets-v2/logo-remax-dabord-creme-280.webp" alt="RE/MAX D'ABORD, agence immobilière" width="280" height="132" loading="lazy"></div><p class="cdf-fbrand-legal">RE/MAX D'ABORD, agence immobilière</p></div>
+        <div class="cdf-fbrand cdf-fbrand--center"><div class="cdf-fbrand-logos"><img class="cdf-fbrand-team" src="/src/assets/logocdf.svg" alt="Équipe Chiasson De Francesco, courtiers immobiliers" width="140" height="68" loading="lazy"><span class="cdf-fbrand-rule" aria-hidden="true"></span><img class="cdf-fbrand-agency" src="/assets-v2/logo-remax-dabord-creme-280.webp" alt="RE/MAX D'ABORD, agence immobilière" width="280" height="132" loading="lazy"></div><p class="cdf-fbrand-legal">{AGENCY_NAME}</p></div>
         <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs mb-6 text-gray-500">
           <a href="https://immobiliermaison.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">immobiliermaison.com</a>
           <a href="https://vendremamaisonsherbrooke.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">vendremamaisonsherbrooke.com</a>
@@ -1107,6 +1210,7 @@ def main() -> int:
 
     added = sync_registry_to_live(session, registry)
     listings = registry["listings"]
+    pinned_uls = {item["uls"] for item in load_pinned_records()}
 
     details: dict[str, dict] = {}
     for listing in listings:
@@ -1126,7 +1230,7 @@ def main() -> int:
             / "index.html"
         )
         detail = details[listing["uls"]]
-        if not dest.exists() or listing["uls"] in added:
+        if not dest.exists() or listing["uls"] in added or listing["uls"] in pinned_uls:
             dest.parent.mkdir(parents=True, exist_ok=True)
             dest.write_text(render_detail_page(listing, detail), encoding="utf-8")
             print(f"wrote {dest.relative_to(ROOT)}")

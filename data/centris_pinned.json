@@ -1,0 +1,13 @@
+{
+  "readme": "Inscriptions Centris de l'équipe absentes de l'API publique RE/MAX Québec. Vérifié le 2026-10-29 : GET https://api.remax-quebec.com/api/inscriptions/{uls} répond 404, et inscriptions/search?BrokerId= pour Pierre-Olivier Chiasson (24115), Marco De Francesco (21772), Jade Sirois (26057) et Pierre-Luc Giroux (25873) ne les contient pas. Le sync quotidien les conserve tant que la fiche Centris expose un prix et une description. Si la fiche Centris disparaît, elles suivent le même retrait qu'une inscription vendue. Si l'API RE/MAX se met à les renvoyer, le flux normal (fiche RE/MAX) prend le relais.",
+  "listings": [
+    {
+      "uls": "15613071",
+      "centrisUrl": "https://www.centris.ca/fr/maison~a-vendre~sherbrooke-fleurimont/15613071"
+    },
+    {
+      "uls": "23324094",
+      "centrisUrl": "https://www.centris.ca/fr/condo~a-vendre~montreal-lasalle/23324094"
+    }
+  ]
+}

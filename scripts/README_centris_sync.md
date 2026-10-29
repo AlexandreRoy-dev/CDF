@@ -1,6 +1,8 @@
 # Centris periodic sync
 
-Discovers active listings from the RE/MAX courtier profile (P-O Chiasson → view all properties), then downloads **full photo galleries** from Centris for each ULS, generates a **1200×630** social share image (`og-share.jpg`) per property, and writes sync metadata to `data/centris_listings.json`.
+Discovers active listings for every courtier of the team (Pierre-Olivier Chiasson, Marco De Francesco, Jade Sirois, Pierre-Luc Giroux; see `scripts/team_brokers.py`), then downloads **full photo galleries** from Centris for each ULS, generates a **1200×630** social share image (`og-share.jpg`) per property, and writes sync metadata to `data/centris_listings.json`.
+
+Some team mandates are on Centris but absent from the RE/MAX Québec inscriptions API (no `BrokerId` returns them, and `GET /api/inscriptions/{uls}` is 404). Those ULS are listed in `data/centris_pinned.json`. The daily sync keeps them while the Centris page still shows a price and a description, and drops them when Centris says the listing is gone. When RE/MAX starts returning the same ULS, the normal RE/MAX detail path takes over.
 
 ## Files generated
 
@@ -60,7 +62,7 @@ The workflow `.github/workflows/centris-sync.yml` runs daily and can also be tri
 
 It will:
 
-1. Discover listings from RE/MAX (`p-o.chiasson` → view all properties)
+1. Discover listings from RE/MAX for the four team brokers (not only `p-o.chiasson`), and keep ULS listed in `data/centris_pinned.json`
 2. Download full Centris galleries + 1200×630 share images
 3. Commit and push changes back to `main`
 
@@ -70,7 +72,7 @@ It will:
 |------|------|---------|
 | `REMAX_BROKER_SLUG` | Variable | RE/MAX broker slug (default: `p-o.chiasson`) |
 | `REMAX_AGENT_URL` | Variable | RE/MAX courtier profile URL (for logs) |
-| `REMAX_BROKER_IDAGENT` | Variable | Broker `idagent` override (default: `24115`) — avoids brokers API on GitHub Actions |
+| `REMAX_BROKER_IDAGENT` | Variable | Ignored by the daily sync. Discovery uses the four idagent values in `scripts/team_brokers.py`. Pass `--remax-broker-idagent` only for a manual one-broker run. |
 | `REMAX_API_KEY` | Secret | Override RE/MAX API key (optional) |
 | `CENTRIS_BROKER_FEED_URL` | Secret | Official Centris broker JSON feed |
 | `CENTRIS_SEARCH_URL` | Variable | Custom Centris search URL (search-page mode only) |

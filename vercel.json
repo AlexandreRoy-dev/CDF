@@ -135,6 +135,16 @@
       "source": "/prop-505-chemin-de-la-yard-milan-26831137.html",
       "destination": "/proprietes.html",
       "permanent": true
+    },
+    {
+      "source": "/prop-2077-chemin-galvin-sherbrooke-15613071.html",
+      "destination": "/ca/qc/sherbrooke/fleurimont/2077-chemin-galvin/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-7700-rue-bouvier-app-305-montreal-23324094.html",
+      "destination": "/ca/qc/montreal/lasalle/7700-rue-bouvier-app-305/",
+      "permanent": true
     }
   ]
 }

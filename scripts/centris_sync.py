@@ -21,6 +21,9 @@ from PIL import Image
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+from centris_listing import protected_jobs
+from team_brokers import TEAM_BROKERS
+
 ROOT = Path(__file__).resolve().parent.parent
 BASE_URL = "https://chiassondefrancesco.ca"
 USER_AGENT = (
@@ -791,36 +794,69 @@ def collect_listing_jobs(
                 by_id[listing_id] = property_url
     elif args.sync_remax:
         idagent_override = getattr(args, "remax_broker_idagent", None)
-        broker = resolve_remax_broker(
-            args.remax_broker_slug,
-            session,
-            idagent_override=idagent_override,
-        )
-        broker_idagent = int(broker["idagent"])
+        if idagent_override:
+            brokers = [
+                {
+                    "slug": args.remax_broker_slug,
+                    "idagent": int(idagent_override),
+                    "name": args.remax_broker_slug,
+                    "no_membre": None,
+                    "source": "override",
+                }
+            ]
+        else:
+            brokers = TEAM_BROKERS
         if remax_meta is not None:
             remax_meta.update(
                 {
-                    "brokerSlug": broker.get("slug") or args.remax_broker_slug,
-                    "brokerName": broker.get("name"),
-                    "brokerMemberNo": broker.get("no_membre"),
-                    "brokerIdAgent": broker_idagent,
-                    "brokerSource": broker.get("source"),
+                    "brokerSlug": ", ".join(broker["slug"] for broker in brokers),
+                    "brokerName": ", ".join(broker["name"] for broker in brokers),
+                    "brokerMemberNo": ", ".join(
+                        str(broker.get("no_membre") or "") for broker in brokers
+                    ),
+                    "brokerIdAgent": [int(broker["idagent"]) for broker in brokers],
+                    "brokerSource": "override" if idagent_override else "team",
                     "agentUrl": args.remax_agent_url,
                     "viewAllUrl": remax_view_all_url(
-                        broker_idagent,
+                        int(brokers[0]["idagent"]),
                         include_sold=args.remax_include_sold,
                     ),
                 }
             )
-        try:
-            listings = discover_remax_listings(
-                broker_idagent,
-                session,
-                include_sold=args.remax_include_sold,
-                page_size=max(args.max_listings, 100),
-                api_key=getattr(args, "remax_api_key", None) or DEFAULT_REMAX_API_KEY,
-            )
-        except requests.RequestException as exc:
+        listings: list[dict] = []
+        seen_uls: set[str] = set()
+        broker_errors: list[str] = []
+        for broker in brokers:
+            try:
+                batch = discover_remax_listings(
+                    int(broker["idagent"]),
+                    session,
+                    include_sold=args.remax_include_sold,
+                    page_size=max(args.max_listings, 100),
+                    api_key=getattr(args, "remax_api_key", None) or DEFAULT_REMAX_API_KEY,
+                )
+            except requests.RequestException as exc:
+                broker_errors.append(f"{broker['slug']} ({broker['idagent']}): {exc}")
+                print(
+                    f"WARN: RE/MAX listings for {broker['name']} failed ({exc})",
+                    file=sys.stderr,
+                )
+                continue
+            added_here = 0
+            for item in batch:
+                uls = str(item.get("no_inscription") or "")
+                if not uls or uls in seen_uls:
+                    continue
+                seen_uls.add(uls)
+                listings.append(item)
+                added_here += 1
+            print(f"  {broker['slug']}: {added_here} new ULS ({len(batch)} rows)")
+        if broker_errors and remax_meta is not None:
+            remax_meta["brokerErrors"] = broker_errors
+            # A partial team inventory must not be treated as the sold list.
+            remax_meta["syncLimited"] = True
+        if not listings and broker_errors:
+            exc = requests.RequestException("; ".join(broker_errors))
             print(
                 f"WARN: RE/MAX listings API unavailable ({exc}); "
                 "falling back to Centris search discovery.",
@@ -871,17 +907,34 @@ def collect_listing_jobs(
             if listing_id:
                 by_id[listing_id] = link
 
+    protected: dict[str, str] = {}
+    if args.sync_remax:
+        # Team feeds miss mandates that exist only on Centris. Keep those pins
+        # in the active set so the sold-listing prune cannot drop them.
+        protected, pins_complete = protected_jobs(session)
+        for uls, url in protected.items():
+            by_id.setdefault(uls, url)
+        if remax_meta is not None:
+            remax_meta["protectedUls"] = sorted(protected)
+            if not pins_complete:
+                remax_meta["syncLimited"] = True
+            if remax_meta.get("fallback") is None:
+                remax_meta["discoveredCount"] = len(by_id)
+
     if not by_id:
         raise RuntimeError("No Centris listings found to sync.")
 
     if remax_meta is not None and "discoveredCount" in remax_meta:
-        remax_meta["syncLimited"] = bool(
+        limited_by_max = bool(
             args.max_listings and 0 < args.max_listings < remax_meta["discoveredCount"]
         )
+        remax_meta["syncLimited"] = bool(remax_meta.get("syncLimited") or limited_by_max)
 
     limit = args.max_listings
     if limit and limit > 0:
         trimmed = dict(list(by_id.items())[:limit])
+        for uls, url in protected.items():
+            trimmed[uls] = url
         return trimmed
     return by_id
 
@@ -901,8 +954,8 @@ def main() -> int:
         "--sync-remax",
         action="store_true",
         help=(
-            "Discover listings from RE/MAX agent profile (view all properties), "
-            "then sync galleries from Centris"
+            "Discover listings for every team broker (scripts/team_brokers.py), "
+            "plus Centris-only pins in data/centris_pinned.json, then sync galleries"
         ),
     )
     parser.add_argument(
@@ -924,7 +977,11 @@ def main() -> int:
         "--remax-broker-idagent",
         type=int,
         default=0,
-        help="Optional RE/MAX idagent override (skips brokers API lookup)",
+        help=(
+            "Limit discovery to one RE/MAX idagent. Omit it to sync all team brokers. "
+            "The REMAX_BROKER_IDAGENT environment variable is ignored so a single "
+            "GitHub variable cannot drop the rest of the team."
+        ),
     )
     parser.add_argument(
         "--output-json",
@@ -958,15 +1015,11 @@ def main() -> int:
     env_agent_url = os.environ.get("REMAX_AGENT_URL") or ""
     if env_agent_url:
         args.remax_agent_url = env_agent_url
-    env_idagent = os.environ.get("REMAX_BROKER_IDAGENT") or ""
-    if env_idagent.isdigit():
-        args.remax_broker_idagent = int(env_idagent)
-    elif not args.remax_broker_idagent:
+    # argparse default 0 means "whole team", not a single BrokerId.
+    # REMAX_BROKER_IDAGENT is intentionally ignored: the daily workflow used to
+    # pass 24115 and the registry then dropped mandates of the other courtiers.
+    if not args.remax_broker_idagent:
         args.remax_broker_idagent = None
-    else:
-        # argparse default 0 means unset
-        if args.remax_broker_idagent == 0:
-            args.remax_broker_idagent = None
 
     registry = load_properties_registry()
     registry_by_uls = {str(item["uls"]): item for item in registry.get("listings", [])}

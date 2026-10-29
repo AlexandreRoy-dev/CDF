@@ -59,9 +59,11 @@ jobs:
           [ -n "$CENTRIS_SEARCH_URL" ] || unset CENTRIS_SEARCH_URL
           [ -n "$CENTRIS_BROKER_FEED_URL" ] || unset CENTRIS_BROKER_FEED_URL
 
+          # Discover every team broker (scripts/team_brokers.py). Do not pass a
+          # single BrokerId: that used to keep only Pierre-Olivier (24115) and
+          # the prune step deleted the other courtiers' mandates.
           python scripts/centris_sync.py \
             --sync-remax \
-            --remax-broker-idagent "${REMAX_BROKER_IDAGENT:-24115}" \
             --max-listings "${{ github.event.inputs.max_listings || '30' }}" \
             --delay-seconds "${{ github.event.inputs.delay_seconds || '2' }}"
 
