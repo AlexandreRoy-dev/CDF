@@ -12,6 +12,16 @@
   ],
   "redirects": [
     {
+      "source": "/prop-2077-chemin-galvin-sherbrooke-15613071.html",
+      "destination": "/ca/qc/sherbrooke/fleurimont/2077-chemin-galvin/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-7700-rue-bouvier-app-305-montreal-23324094.html",
+      "destination": "/ca/qc/montreal/lasalle/7700-rue-bouvier-app-305/",
+      "permanent": true
+    },
+    {
       "source": "/prop-236-238-rue-de-l-arena-magog-17095739.html",
       "destination": "/ca/qc/magog/centre/236-238-rue-de-l-arena/",
       "permanent": true
@@ -77,13 +87,8 @@
       "permanent": true
     },
     {
-      "source": "/prop-2077-chemin-galvin-sherbrooke-15613071.html",
-      "destination": "/ca/qc/sherbrooke/fleurimont/2077-chemin-galvin/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-7700-rue-bouvier-app-305-montreal-23324094.html",
-      "destination": "/ca/qc/montreal/lasalle/7700-rue-bouvier-app-305/",
+      "source": "/prop-229-rue-st-marc-coaticook-28409515.html",
+      "destination": "/ca/qc/coaticook/centre/229-rue-st-marc/",
       "permanent": true
     },
     {
