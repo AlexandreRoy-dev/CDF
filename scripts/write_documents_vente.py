@@ -209,7 +209,6 @@ PAGES = [
             "Les documents d'une vente de maison : déclaration du vendeur, certificat de localisation, taxes, hypothèque, preuves de travaux. Voir <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-documents-vente-maison.html\">documents pour vendre une maison</a>.",
             "Baux en vigueur de chaque logement, avenants, et avis d'augmentation déjà donnés.",
             "Tableau des loyers (logement, occupant, loyer, échéance, dépôt) collé aux baux, pas à un souvenir.",
-            "Preuves de dépôts de garantie et de leur traitement.",
             "Relevé simple des revenus et des dépenses (taxes, assurances, chauffage s'il est inclus, entretien, vacance).",
             "Règlements d'immeuble remis aux locataires, s'ils existent.",
             "Assurances de l'immeuble et sinistres connus.",
