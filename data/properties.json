@@ -26,6 +26,18 @@
       "fallbackImage": "23324094.jpg"
     },
     {
+      "uls": "28409515",
+      "country": "ca",
+      "province": "qc",
+      "city": "coaticook",
+      "sector": "centre",
+      "street": "229-rue-st-marc",
+      "title": "229 Rue St-Marc, Coaticook",
+      "shareTitle": "Résidentielle à vendre à Coaticook : 229 Rue St-Marc",
+      "legacyFile": "prop-229-rue-st-marc-coaticook-28409515.html",
+      "fallbackImage": "28409515.jpg"
+    },
+    {
       "uls": "17095739",
       "country": "ca",
       "province": "qc",
@@ -182,16 +194,16 @@
       "fallbackImage": "182wells.jpg"
     },
     {
-      "uls": "28409515",
+      "uls": "16311471",
       "country": "ca",
       "province": "qc",
       "city": "coaticook",
       "sector": "centre",
-      "street": "229-rue-st-marc",
-      "title": "229 Rue St-Marc, Coaticook",
-      "shareTitle": "Résidentielle à vendre à Coaticook : 229 Rue St-Marc",
-      "legacyFile": "prop-229-rue-st-marc-coaticook-28409515.html",
-      "fallbackImage": "28409515.jpg"
+      "street": "339-rue-child",
+      "title": "339 Rue Child, Coaticook",
+      "shareTitle": "Commerciale / Industrielle à vendre à Coaticook : 339 Rue Child",
+      "legacyFile": "prop-339-rue-child-coaticook-16311471.html",
+      "fallbackImage": "16311471.jpg"
     }
   ]
 }

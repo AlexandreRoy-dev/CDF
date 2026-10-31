@@ -22,6 +22,11 @@
       "permanent": true
     },
     {
+      "source": "/prop-229-rue-st-marc-coaticook-28409515.html",
+      "destination": "/ca/qc/coaticook/centre/229-rue-st-marc/",
+      "permanent": true
+    },
+    {
       "source": "/prop-236-238-rue-de-l-arena-magog-17095739.html",
       "destination": "/ca/qc/magog/centre/236-238-rue-de-l-arena/",
       "permanent": true
@@ -87,8 +92,8 @@
       "permanent": true
     },
     {
-      "source": "/prop-229-rue-st-marc-coaticook-28409515.html",
-      "destination": "/ca/qc/coaticook/centre/229-rue-st-marc/",
+      "source": "/prop-339-rue-child-coaticook-16311471.html",
+      "destination": "/ca/qc/coaticook/centre/339-rue-child/",
       "permanent": true
     },
     {
