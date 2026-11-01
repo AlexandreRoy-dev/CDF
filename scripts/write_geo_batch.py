@@ -459,7 +459,7 @@ SERVICES = [
             ("Courtier acheteur, à quoi ça sert", "Le vendeur a souvent déjà un courtier. Le vôtre lit les défauts, le zonage, et ce que le marché a vraiment payé dans la rue : pas l'annonce. Au Québec, les règles d'agence s'expliquent avant de visiter sérieusement."),
             ("Recherche et filtres", "Centris, hors-marché parfois, et le territoire réel : Fleurimont n'est pas Lennoxville, un chalet Orford n'est pas un condo Magog. Nous évitons les visites hors critères."),
             ("Offre, inspection, notaire", "Une offre trop émotive se paie. Inspection, tests (fosse, pyrite selon le cas), et notaire. Les frais de clôture (mutation, notaire, ajustements) se prévoient : voir notre guide des frais cachés."),
-            ("Premier achat", "Préautorisation, mise de fonds, SCHL si moins de 20 %, et calendrier réaliste. Jade, Pierre-Olivier et Marco accompagnent aussi les premiers acheteurs."),
+            ("Premier achat", "Préautorisation, mise de fonds, SCHL si moins de 20 %, et calendrier réaliste. Jade, Pierre-Olivier et Marco accompagnent aussi les premiers acheteurs. Nouveau en 2026 : <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-credit-impot-taxe-de-bienvenue.html\">le remboursement de la taxe de bienvenue, jusqu'à 5 875 $</a>."),
         ],
         "faqs": [
             ("Le courtier acheteur est-il gratuit ?", "Au Québec, la rémunération est prévue aux contrats. Souvent, une part de la commission du listage rémunère le courtier collaborateur. On vous l'explique clairement avant de commencer."),
@@ -613,7 +613,7 @@ ARTICLES = [
         "author_page": "jade.html",
         "kicker": "Le premier achat en Estrie se joue sur le budget total (pas seulement le prix Centris) et sur un secteur que vous supporterez en janvier, pas seulement en juillet.",
         "sections": [
-            ("L'argent autour du prix", "Mise de fonds, SCHL, droits de mutation, notaire, inspection, déménagement. Notre guide des frais cachés liste les postes. Arrivez chez le notaire avec une réserve, pas à 200 $ près."),
+            ("L'argent autour du prix", "Mise de fonds, SCHL, droits de mutation, notaire, inspection, déménagement. Notre guide des frais cachés liste les postes. Arrivez chez le notaire avec une réserve, pas à 200 $ près. Nouveau en 2026 : <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-credit-impot-taxe-de-bienvenue.html\">jusqu'à 5 875 $ de taxe de bienvenue remboursés</a> pour un premier achat."),
             ("Préautorisation", "Elle cadre le maximum. Elle ne dit pas quelle rue acheter. Un courtier hypothécaire + un courtier immobilier, ce n'est pas un luxe, c'est deux métiers."),
             ("Où chercher", "Sherbrooke pour les services. Magog si le lac et la villégiature comptent. Windsor/Richmond si le budget est plus serré et le navettage acceptable. Visitez le soir et un samedi matin."),
             ("L'émotion", "La première maison n'a pas à être la dernière. Une inspection sévère sur un « coup de cœur » vous évite d'acheter les problèmes du vendeur."),

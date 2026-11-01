@@ -173,6 +173,10 @@ PAGE_META = {
         "Contre-offre immobilière au Québec | CDF",
         "Comment répondre à une offre à Sherbrooke : prix, inspection, inclusions. Conseils de l'équipe Chiasson de Francesco.",
     ),
+    "article-credit-impot-taxe-de-bienvenue.html": (
+        "Remboursement taxe de bienvenue : jusqu'à 5 875 $ (2026)",
+        "Premier achat en 2026? Québec rembourse jusqu'à 5 875 $ de taxe de bienvenue. Conditions, exemples chiffrés et versement anticipé avant le 1er décembre.",
+    ),
     "article-declaration-vendeur.html": (
         "Déclaration du vendeur au Québec | CDF",
         "Fuites, fosses, sinistres : pourquoi une déclaration incomplète coûte plus cher qu'une réparation avouée à Sherbrooke.",
@@ -323,6 +327,7 @@ ARTICLES = {
     "article-notaire-immobilier-quebec.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
     "article-droits-mutation-sherbrooke.html": ("2026-08-18", "Jade Sirois", "jade.html"),
     "article-contre-offre-quebec.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
+    "article-credit-impot-taxe-de-bienvenue.html": ("2026-11-01", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
     "article-declaration-vendeur.html": ("2026-08-18", "Pierre-Olivier Chiasson", "pierre-olivier.html"),
     "article-pyrrhotite-estrie.html": ("2026-08-18", "Marco De Francesco", "marco.html"),
     "article-schl-premier-acheteur.html": ("2026-08-18", "Jade Sirois", "jade.html"),
