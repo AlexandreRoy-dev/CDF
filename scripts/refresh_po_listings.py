@@ -759,8 +759,9 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     if stats:
         cells = []
         for val, label in stats:
+            wide = " class=\"stat-long\"" if len(val) >= 12 else ""
             cells.append(
-                f'<div><div class="text-2xl font-bold text-brand-navy">{val}</div>'
+                f'<div{wide}><div class="text-2xl font-bold text-brand-navy">{val}</div>'
                 f'<div class="text-sm text-gray-500">{label}</div></div>'
             )
         stats_html = f"""
