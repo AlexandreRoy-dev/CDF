@@ -402,7 +402,7 @@ ARTICLES = [
             ("Ce que c'est", "Un impôt municipal à l'achat, souvent appelé taxe de bienvenue. Il s'ajoute au notaire, à l'inspection et aux ajustements. Notre guide des frais cachés le place dans le budget total."),
             ("Sherbrooke vs ailleurs", "Chaque ville fixe ses tranches. Magog, Bromont, Coaticook : vérifiez le site de la municipalité ou demandez une estimation à votre notaire. Une page web d'équipe ne remplace pas le calcul officiel."),
             ("Exemptions", "Certains transferts (succession, parfois entre conjoints selon les règles) peuvent être traités autrement. Ce n'est pas automatique. Le notaire tranche, pas l'annonce Centris."),
-            ("Dans l'offre", "Prévoir le cash le jour de l'acte. Un premier acheteur qui a mis toute sa mise de fonds dans le prix découvre la taxe trop tard."),
+            ("Dans l'offre", "Prévoir le cash le jour de l'acte. Un premier acheteur qui a mis toute sa mise de fonds dans le prix découvre la taxe trop tard. Premier achat en 2026? Une partie de ce montant peut vous être remboursée : voyez <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-credit-impot-taxe-de-bienvenue.html\">le remboursement de la taxe de bienvenue, jusqu'à 5 875 $</a>."),
         ],
     },
     {
@@ -474,7 +474,7 @@ ARTICLES = [
         "sections": [
             ("Le principe", "Sous 20 %, le prêteur exige généralement une assurance prêt hypothécaire. La prime se capitalise souvent dans le prêt. Les règles et les taux changent : votre courtier hypothécaire donne le chiffre du jour, pas cette page."),
             ("Ce que ça change dans l'offre", "La préautorisation doit coller au type de bien (unifamiliale, plex, chalet). Un chalet saisonnier ou un plex de 5 logements n'entre pas dans la même case qu'un bungalow Fleurimont."),
-            ("Frais autour", "Droits de mutation, notaire, inspection. Une mise de fonds « au maximum du prix » sans réserve pour la taxe de bienvenue casse le closing. Voir frais cachés."),
+            ("Frais autour", "Droits de mutation, notaire, inspection. Une mise de fonds « au maximum du prix » sans réserve pour la taxe de bienvenue casse le closing. Voir <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-frais-caches.html\">frais cachés</a>. Le Québec peut ensuite vous rembourser une partie de la taxe de bienvenue : <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-credit-impot-taxe-de-bienvenue.html\">crédit d'impôt pour accès à la propriété</a>."),
             ("Rôle du courtier immobilier", "On aligne le bien sur ce que le prêteur finance. On ne promet pas une prime. Pierre-Olivier, Marco et Jade travaillent avec votre dossier hypothécaire, pas à sa place."),
         ],
     },
