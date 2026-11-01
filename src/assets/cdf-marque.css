@@ -16,3 +16,7 @@
 .cdf-fbrand-rule{width:1px;height:40px;background:rgba(255,255,255,.22)}
 .cdf-fbrand-agency{height:32px;width:auto;opacity:.9}
 .cdf-fbrand-legal{margin:0;font-size:13px;line-height:1.5;font-weight:500;letter-spacing:.02em;color:rgba(255,255,255,.78)}
+/* Longues superficies du résumé : une ligne complète sous 900px, grille 2 colonnes inchangée au-dessus. */
+@media (max-width:899px){
+  header .bg-gray-50.rounded-2xl > .grid.grid-cols-2 > .stat-long{grid-column:1 / -1}
+}
