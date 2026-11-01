@@ -2,6 +2,18 @@
   "baseUrl": "https://chiassondefrancesco.ca",
   "listings": [
     {
+      "uls": "16311471",
+      "country": "ca",
+      "province": "qc",
+      "city": "coaticook",
+      "sector": "centre",
+      "street": "339-rue-child",
+      "title": "339 Rue Child, Coaticook",
+      "shareTitle": "Commerciale / Industrielle à vendre à Coaticook : 339 Rue Child",
+      "legacyFile": "prop-339-rue-child-coaticook-16311471.html",
+      "fallbackImage": "16311471.jpg"
+    },
+    {
       "uls": "15613071",
       "country": "ca",
       "province": "qc",
@@ -192,18 +204,6 @@
       "shareTitle": "Fonds de commerce à vendre à Sherbrooke : 182, Rue Wellington N.",
       "legacyFile": "prop-182-rue-wellington-n-10043722.html",
       "fallbackImage": "182wells.jpg"
-    },
-    {
-      "uls": "16311471",
-      "country": "ca",
-      "province": "qc",
-      "city": "coaticook",
-      "sector": "centre",
-      "street": "339-rue-child",
-      "title": "339 Rue Child, Coaticook",
-      "shareTitle": "Commerciale / Industrielle à vendre à Coaticook : 339 Rue Child",
-      "legacyFile": "prop-339-rue-child-coaticook-16311471.html",
-      "fallbackImage": "16311471.jpg"
     }
   ]
 }

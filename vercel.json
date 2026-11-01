@@ -12,6 +12,11 @@
   ],
   "redirects": [
     {
+      "source": "/prop-339-rue-child-coaticook-16311471.html",
+      "destination": "/ca/qc/coaticook/centre/339-rue-child/",
+      "permanent": true
+    },
+    {
       "source": "/prop-2077-chemin-galvin-sherbrooke-15613071.html",
       "destination": "/ca/qc/sherbrooke/fleurimont/2077-chemin-galvin/",
       "permanent": true
@@ -89,11 +94,6 @@
     {
       "source": "/prop-182-rue-wellington-n-10043722.html",
       "destination": "/ca/qc/sherbrooke/mont-bellevue/182-rue-wellington-n/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-339-rue-child-coaticook-16311471.html",
-      "destination": "/ca/qc/coaticook/centre/339-rue-child/",
       "permanent": true
     },
     {
