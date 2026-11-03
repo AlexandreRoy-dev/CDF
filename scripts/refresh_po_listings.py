@@ -857,12 +857,16 @@ def render_detail_page(listing: dict, detail: dict) -> str:
                 "url": canonical,
                 "image": photo_urls,
                 "identifier": listing["uls"],
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": street_addr,
-                    "addressLocality": city,
-                    "addressRegion": "QC",
-                    "addressCountry": "CA",
+                "about": {
+                    "@type": "Place",
+                    "name": street_addr,
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": street_addr,
+                        "addressLocality": city,
+                        "addressRegion": "QC",
+                        "addressCountry": "CA",
+                    },
                 },
                 "offers": {
                     "@type": "Offer",
@@ -920,6 +924,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     <meta property="og:image:type" content="image/jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{page_title}">
+    <meta name="twitter:description" content="{meta_attr}">
     <meta name="twitter:image" content="{og}">
     <meta property="og:locale" content="fr_CA">
 

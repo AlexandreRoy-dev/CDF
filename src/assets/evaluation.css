@@ -57,6 +57,16 @@ body.eval-body {
   min-height: 100dvh;
 }
 
+.eval-static a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.eval-static a:hover {
+  color: var(--gold);
+}
+
 .eval-logo {
   position: fixed;
   top: 1.1rem;

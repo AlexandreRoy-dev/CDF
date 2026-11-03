@@ -144,7 +144,7 @@ CITIES = [
         "name": "Orford",
         "prep": "à",
         "author": "marco",
-        "desc": "Vendre ou acheter à Orford : mont, parc, chalets. Quoi savoir avec l'équipe Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Orford : chalets, mont et parc national, habitabilité quatre-saisons à confirmer. Quoi savoir avec l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Orford, le produit type est souvent chalet, maison près du mont ou du parc, rarement un condo de centre-ville. Magog est tout près, mais les comparables Orford ne sont pas ceux du Memphrémagog urbain. L'équipe Chiasson de Francesco, RE/MAX D'ABORD, traite Orford comme un marché montagne et nature.",
         "market": "Orford vit au pied du mont et du parc national. Villégiature, quatre-saisons et accès hivernal structurent la demande plus que les artères de Sherbrooke.",
         "facts": [
@@ -258,7 +258,7 @@ CITIES = [
         "name": "Sutton",
         "prep": "à",
         "author": "po",
-        "desc": "Vendre ou acheter à Sutton : village, ski, condos. Quoi savoir avec Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Sutton : village des Cantons, condos de ski et maisons de rang, distinct de Bromont. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Sutton, séparez village marchable, condo de montagne et maison de rang. Sutton n'est pas Bromont. L'équipe Chiasson de Francesco compare des ventes Sutton, pas Knowlton lac ni Sherbrooke.",
         "market": "Sutton mélange arts, ski et village des Cantons-de-l'Est. Les copropriétés de pente ont souvent des règles de location strictes.",
         "facts": [
@@ -296,7 +296,7 @@ CITIES = [
         "name": "Lac-Brome",
         "prep": "à",
         "author": "marco",
-        "desc": "Vendre ou acheter à Lac-Brome (Knowlton) : village, lac. Guide Chiasson de Francesco, Estrie.",
+        "desc": "Vendre ou acheter à Lac-Brome (Knowlton) : village, lac et rangs, souvent en français et en anglais. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Lac-Brome, Knowlton est le village, le lac Brome et les rangs sont d'autres produits. Le secteur est souvent bilingue. L'équipe Chiasson de Francesco (Marco De Francesco est bilingue) ancre le prix sur Knowlton et Brome, pas sur un condo de Bromont.",
         "market": "Lac-Brome attire une clientèle souvent bilingue, parfois montréalaise, sensible au village, aux lacs et au cachet. Ce n'est ni Sutton ski ni Sherbrooke urbain.",
         "facts": [
@@ -448,7 +448,7 @@ CITIES = [
         "name": "Rock Forest",
         "prep": "à",
         "author": "marco",
-        "desc": "Vendre ou acheter à Rock Forest (Sherbrooke) : terrain, axe Magog. Guide Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Rock Forest (Sherbrooke) : terrains plus grands, axe Magog, Saint-Élie et Deauville à part. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Rock Forest, vous êtes dans l'ouest de Sherbrooke : souvent plus de terrain qu'aux Nations, un pied vers Magog, et des services qui varient (égouts vs fosse selon le secteur). L'équipe Chiasson de Francesco compare des micro-secteurs, pas un prix « Rock Forest » unique.",
         "market": "Rock Forest–Saint-Élie–Deauville est un arrondissement. Saint-Élie n'est pas la même poche que les rues près de la 112. Deauville, côté Magog, se discute à part.",
         "facts": [
@@ -486,7 +486,7 @@ CITIES = [
         "name": "Eastman",
         "prep": "à",
         "author": "marco",
-        "desc": "Vendre ou acheter à Eastman : village, Orford, Magog. Quoi savoir, équipe Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Eastman, entre le village, Orford et Magog : chalets, maisons et saisonnalité à vérifier. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Eastman, vous êtes entre Magog et le mont Orford : plus village et terrain qu'un condo Magog, moins « pied-de-pente » qu'Orford station. L'équipe Chiasson de Francesco compare Eastman et Orford rural, pas Magog lac.",
         "market": "Eastman vit dans l'orbite d'Orford et de Magog sans en être le centre-ville. Spa, village, accès montagne : les acheteurs paient le cadre.",
         "facts": [
@@ -562,7 +562,7 @@ CITIES = [
         "name": "Stanstead",
         "prep": "à",
         "author": "marco",
-        "desc": "Vendre ou acheter à Stanstead : frontière, Memphrémagog, patrimoine. Guide Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Stanstead : village frontalier, patrimoine et sud du Memphrémagog, distinct de Magog. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Stanstead, le caractère frontalier (Rock Island, Beebe) et le patrimoine changent le bassin d'acheteurs, souvent bilingue. Ce n'est pas Magog centre. L'équipe Chiasson de Francesco (Marco De Francesco est bilingue) compare Stanstead et le Memphrémagog sud.",
         "market": "Stanstead vit la frontière au quotidien. Une maison de village n'a pas la valeur d'un bord de lac. Le droit applicable reste le Québec pour un immeuble au Québec.",
         "facts": [
@@ -638,7 +638,7 @@ CITIES = [
         "name": "Ayer's Cliff",
         "prep": "à",
         "author": "marco",
-        "desc": "Vendre ou acheter à Ayer's Cliff : lac Massawippi. Quoi savoir, Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Ayer's Cliff, au lac Massawippi : village, rives et fosses, à distinguer de North Hatley. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Ayer's Cliff, vous partagez le lac Massawippi avec North Hatley sans le même cachet village ni les mêmes prix. Calquer un prix Hatley ici, ou l'inverse, est une erreur fréquente. L'équipe Chiasson de Francesco compare rive par rive.",
         "market": "Ayer's Cliff est un village compact, souvent plus villégiature, bilingue. Une maison sans lac n'est pas un prix de rive.",
         "facts": [
@@ -676,7 +676,7 @@ CITIES = [
         "name": "Austin",
         "prep": "à",
         "author": "marco",
-        "desc": "Vendre ou acheter à Austin : près d'Orford et Magog. Guide Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Austin, entre Magog, Eastman et Orford : chalets, rangs et accès à l'eau à vérifier. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Austin, vous êtes entre Magog, Eastman et Orford : plus champêtre que Magog centre, moins de volume. Un prix Magog condo ne s'applique pas. L'équipe Chiasson de Francesco compare Austin et Orford rural.",
         "market": "Austin a peu d'inscriptions, beaucoup de villégiature et de résidences avec terrain. L'accès au lac n'est pas automatique parce que « Austin » est dans l'annonce.",
         "facts": [
@@ -714,7 +714,7 @@ CITIES = [
         "name": "Richmond",
         "prep": "à",
         "author": "jade",
-        "desc": "Vendre ou acheter à Richmond : Saint-François, Estrie. Quoi savoir, Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Richmond, sur la rivière Saint-François : petite ville de vallée, maisons et plex locaux. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Richmond, vous êtes dans une petite ville de vallée, plus industrielle que villégiature. Les prix suivent Windsor et les Sources plus que Magog. L'équipe Chiasson de Francesco n'affiche pas un prix « 20 minutes de Sherbrooke » sans comparables Richmond.",
         "market": "Le centre et les rues résidentielles dominent. La rivière donne du cadre à certains lots, sans en faire un marché lac.",
         "facts": [
@@ -752,7 +752,7 @@ CITIES = [
         "name": "Compton",
         "prep": "à",
         "author": "po",
-        "desc": "Vendre ou acheter à Compton : village, rangs, fermettes. Guide Chiasson de Francesco, Estrie.",
+        "desc": "Vendre ou acheter à Compton : village, rangs et fermettes, avec puits ou fosse selon le lot. Marché rural de l'équipe Chiasson De Francesco, en Estrie.",
         "tldr": "Pour vendre ou acheter à Compton, le marché est rural : peu d'inscriptions, beaucoup de terre ou de dépendances. Un prix « parce qu'on est près de Sherbrooke » ne tient pas si le bâtiment ou le puits ne suit pas. L'équipe Chiasson de Francesco compare Compton et Coaticook, pas Magog lac.",
         "market": "Le village offre un ancrage communautaire. Les rangs se distinguent par la superficie, l'accès hivernal et le type d'exploitation.",
         "facts": [
@@ -790,7 +790,7 @@ CITIES = [
         "name": "Waterville",
         "prep": "à",
         "author": "jade",
-        "desc": "Vendre ou acheter à Waterville : entre Sherbrooke et Coaticook. Guide Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Waterville, entre Sherbrooke et Coaticook : fosse ou égouts selon la rue, marché mince. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Waterville, vous êtes dans un petit marché de village entre Sherbrooke, Compton et Coaticook. Un prix « 15 minutes de Sherbrooke » sans comparables Waterville ne tient pas. L'équipe Chiasson de Francesco ancre sur Waterville et Compton village.",
         "market": "Moins d'inscriptions que Sherbrooke, plus de services que Compton rang. L'axe vers Coaticook et Lennoxville structure les déplacements.",
         "facts": [
@@ -828,7 +828,7 @@ CITIES = [
         "name": "Hatley",
         "prep": "à",
         "author": "marco",
-        "desc": "Vendre ou acheter à Hatley : canton, Massawippi, pas North Hatley. Guide Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Hatley, canton rural près du Massawippi : plus de terrain, ce n'est pas North Hatley. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Hatley, ne confondez pas avec North Hatley. Hatley est plus rural : plus de terrain, moins de vitrine touristique. L'équipe Chiasson de Francesco ne mélange pas les comparables village lacustre et canton.",
         "market": "Hatley (le canton) n'est pas le village de North Hatley. Confondre les deux dans un prix d'affichage est une erreur classique.",
         "facts": [
@@ -866,7 +866,7 @@ CITIES = [
         "name": "Mont-Bellevue",
         "prep": "à",
         "author": "jade",
-        "desc": "Vendre ou acheter à Mont-Bellevue (Sherbrooke) : unifamiliales, parc. Guide Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Mont-Bellevue (Sherbrooke) : unifamiliales près du parc du mont, pas un marché de condos. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Mont-Bellevue, le stock dominant est la maison, pas le condo King. Le parc du mont structure une partie du cadre. L'équipe Chiasson de Francesco compare Mont-Bellevue à Mont-Bellevue, pas à un condo des Nations.",
         "market": "Arrondissement de Sherbrooke, rues familiales, accès au parc du mont. L'université est proche sans que tout le quartier soit « étudiant » comme Lennoxville.",
         "facts": [
@@ -904,7 +904,7 @@ CITIES = [
         "name": "Brompton",
         "prep": "à",
         "author": "jade",
-        "desc": "Vendre ou acheter à Brompton (Sherbrooke) : vallée, Saint-François. Guide Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Brompton, arrondissement de Sherbrooke dans la vallée de la Saint-François : maisons et plex. Guide de l'équipe Chiasson De Francesco.",
         "tldr": "Pour vendre ou acheter à Brompton, vous êtes dans un arrondissement nord de Sherbrooke qui a gardé une identité de petite ville de vallée. Ce n'est pas Fleurimont, ni Windsor. L'équipe Chiasson de Francesco compare Brompton à Brompton.",
         "market": "Noyau, rues résidentielles, proximité de la Saint-François. Moins de condos que Les Nations. Beaucoup d'acheteurs y voient un budget plus accessible, avec un temps de route vers le centre.",
         "facts": [
@@ -980,7 +980,7 @@ CITIES = [
         "name": "Lac-Mégantic",
         "prep": "à",
         "author": "po",
-        "desc": "Vendre ou acheter à Lac-Mégantic : ville, lac, Granit. Guide Chiasson de Francesco.",
+        "desc": "Vendre ou acheter à Lac-Mégantic : maison en ville ou chalet au lac, deux marchés du Granit. L'équipe Chiasson De Francesco compare des ventes locales.",
         "tldr": "Pour vendre ou acheter à Lac-Mégantic, le marché est distinct de Sherbrooke : ville moyenne, lac, MRC du Granit. Les comparables doivent rester Granit, pas Estrie-ouest. L'équipe Chiasson de Francesco s'y déplace lorsque le mandat le justifie, et traite aussi le commercial à l'échelle locale.",
         "market": "Le centre et les quartiers résidentiels ne se vendent pas comme un chalet sur le lac. Le plan d'eau attire villégiature ; la ville attire résidence et commerce de proximité.",
         "facts": [
