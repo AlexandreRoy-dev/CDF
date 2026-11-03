@@ -55,6 +55,7 @@ SOLD_REDIRECT_HTML = """<!DOCTYPE html>
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="refresh" content="0; url={canonical}">
   <script>window.location.replace("{canonical}");</script>
+  <script src="/src/assets/js/consent-pixel.js"></script>
 </head>
 <body>
   <p>Cette propriété a été vendue. <a href="{canonical}">Voir nos propriétés disponibles</a>.</p>

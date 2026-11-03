@@ -15,6 +15,7 @@ TODAY = date.today().isoformat()
 
 GA_SNIPPET = f'''<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT}"></script>
 <script src="/src/assets/js/ga.js"></script>'''
+CONSENT_PIXEL_TAG = '<script src="/src/assets/js/consent-pixel.js"></script>'
 
 GTAG_BLOCK = re.compile(
     r'(?:\s*<!--\s*Google tag \(gtag\.js\)\s*-->)?'
@@ -478,6 +479,21 @@ def replace_gtag(text: str) -> str:
     return text
 
 
+def ensure_consent_pixel(text: str) -> str:
+    """Inclut le bandeau de témoins. Le pixel Meta ne part qu'après accord, dans ce script."""
+    if "consent-pixel.js" in text:
+        return text
+    if 'src="/src/assets/js/ga.js"' in text:
+        return text.replace(
+            '<script src="/src/assets/js/ga.js"></script>',
+            '<script src="/src/assets/js/ga.js"></script>\n' + CONSENT_PIXEL_TAG,
+            1,
+        )
+    if re.search(r"</head>", text, flags=re.I):
+        return re.sub(r"</head>", "  " + CONSENT_PIXEL_TAG + "\n</head>", text, count=1, flags=re.I)
+    return text
+
+
 def descriptions(text: str) -> list[str]:
     return re.findall(r'<meta\s+name="description"\s+content="([^"]*)"', text, flags=re.I)
 
@@ -737,6 +753,7 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
         return
 
     text = replace_gtag(text)
+    text = ensure_consent_pixel(text)
     text = fix_root_asset_paths(path, text)
 
     title = desc = None

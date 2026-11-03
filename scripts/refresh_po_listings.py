@@ -46,6 +46,7 @@ SOLD_REDIRECT = """<!DOCTYPE html>
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="refresh" content="0; url={canonical}">
   <script>window.location.replace("{canonical}");</script>
+  <script src="/src/assets/js/consent-pixel.js"></script>
 </head>
 <body>
   <p>Cette propriété a été vendue. <a href="{canonical}">Voir nos propriétés disponibles</a>.</p>
@@ -61,6 +62,7 @@ LEGACY_REDIRECT = """<!DOCTYPE html>
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="refresh" content="0; url={canonical}">
   <script>window.location.replace("{canonical}");</script>
+  <script src="/src/assets/js/consent-pixel.js"></script>
 </head>
 <body>
   <p>Cette fiche a déménagé. <a href="{canonical}">Continuer vers la nouvelle adresse</a>.</p>
@@ -905,6 +907,7 @@ def render_detail_page(listing: dict, detail: dict) -> str:
     <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBQPR5ZNV0"></script>
 <script src="/src/assets/js/ga.js"></script>
+<script src="/src/assets/js/consent-pixel.js"></script>
 
   <title>{page_title}</title>
   <meta charset="utf-8">

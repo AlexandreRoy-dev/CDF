@@ -402,6 +402,7 @@ def page_shell(title: str, desc: str, canonical: str, body: str, ld: dict | None
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBQPR5ZNV0"></script>
   <script src="/src/assets/js/ga.js"></script>
+  <script src="/src/assets/js/consent-pixel.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>{title}</title>

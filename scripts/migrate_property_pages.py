@@ -43,6 +43,7 @@ REDIRECT_TEMPLATE = """<!DOCTYPE html>
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="refresh" content="0; url={canonical}">
   <script>window.location.replace("{canonical}");</script>
+  <script src="/src/assets/js/consent-pixel.js"></script>
 </head>
 <body>
   <p>Cette fiche a déménagé. <a href="{canonical}">Continuer vers la nouvelle adresse</a>.</p>
