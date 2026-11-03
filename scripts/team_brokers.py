@@ -2,7 +2,7 @@
 
 idagent values are the public RE/MAX Québec BrokerId (inscriptions/search).
 no_membre values are the Centris data-broker-id attributes.
-Phones are the numbers published on the site.
+Phones and emails are the coordinates published on the site.
 """
 
 from __future__ import annotations
@@ -17,6 +17,7 @@ TEAM_BROKERS: list[dict] = [
         "no_membre": "124729",
         "name": "Pierre-Olivier Chiasson",
         "phone": "819-919-4631",
+        "email": "p-o.chiasson@remax-quebec.com",
         "profile": "/pierre-olivier.html",
         "job": "Courtier immobilier résidentiel et commercial",
     },
@@ -26,6 +27,7 @@ TEAM_BROKERS: list[dict] = [
         "no_membre": "119714",
         "name": "Marco De Francesco",
         "phone": "819-562-0656",
+        "email": "marco.defrancesco@remax-quebec.com",
         "profile": "/marco.html",
         "job": "Courtier immobilier résidentiel et commercial",
     },
@@ -35,6 +37,7 @@ TEAM_BROKERS: list[dict] = [
         "no_membre": "141323",
         "name": "Jade Sirois",
         "phone": "819-434-2652",
+        "email": "jade.sirois@remax-quebec.com",
         "profile": "/jade.html",
         "job": "Courtière immobilière résidentielle",
     },
@@ -44,6 +47,7 @@ TEAM_BROKERS: list[dict] = [
         "no_membre": "140191",
         "name": "Pierre-Luc Giroux",
         "phone": "514-889-2927",
+        "email": "pierreluc.giroux@remax-quebec.com",
         "profile": "/pierre-luc.html",
         "job": "Courtier immobilier résidentiel",
     },
