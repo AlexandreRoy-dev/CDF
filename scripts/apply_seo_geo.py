@@ -150,8 +150,8 @@ PAGE_META = {
         "Chalets à Magog, Orford, lacs Estrie : quatre-saisons, fosses, accès. Courtiers Chiasson de Francesco à Sherbrooke.",
     ),
     "plex-sherbrooke.html": (
-        "Acheter ou vendre un plex à Sherbrooke | CDF",
-        "Duplex, triplex et multiplex à Sherbrooke : loyers, rénos, quartiers. Équipe Chiasson de Francesco, RE/MAX.",
+        "Vendre un plex à Sherbrooke | Chiasson De Francesco",
+        "Vendre un plex à Sherbrooke : duplex ou triplex, baux, secteurs et données Centris. L'équipe Chiasson De Francesco prépare le dossier de vente.",
     ),
     "courtier-acheteur-estrie.html": (
         "Courtier acheteur en Estrie | Sherbrooke | CDF",

@@ -436,7 +436,7 @@ SERVICES = [
         "h1": "Vendre une propriété à Sherbrooke et en Estrie",
         "lead": "L'équipe Chiasson de Francesco, courtiers RE/MAX D'ABORD à Sherbrooke, prépare le prix, le dossier et la négociation pour vendre une maison, un condo, un plex ou un immeuble en Estrie.",
         "sections": [
-            ("Une évaluation avant l'affichage", "Le premier levier d'une vente, c'est le prix d'inscription. Trop haut, le bien s'use sur Centris. Trop bas, vous laissez de l'argent. Nous ancrons le prix sur des ventes récentes du même secteur : Les Nations n'est pas Magog, Coaticook n'est pas Bromont."),
+            ("Une évaluation avant l'affichage", "Le premier levier d'une vente, c'est le prix d'inscription. Trop haut, le bien s'use sur Centris. Trop bas, vous laissez de l'argent. Nous ancrons le prix sur des ventes récentes du même secteur : Les Nations n'est pas Magog, Coaticook n'est pas Bromont. Pour un immeuble de deux à cinq logements, le guide <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"plex-sherbrooke.html\">vendre un plex à Sherbrooke</a> détaille les baux, les revenus et les secteurs."),
             ("Mise en marché", "Photos, description honnête, réseau RE/MAX et diffusion. Home staging léger quand ça paie. Visites accompagnées, comptes rendus, et ajustement si le marché ne répond pas : pas d'attente passive de six mois."),
             ("Négociation et conditions", "Le prix n'est pas le seul enjeu : inspection, délais, inclusions, financement. L'équipe gère les offres jusqu'à l'acte chez le notaire."),
             ("Vendre sans urgence : ou avec", "Si vous hésitez encore entre vendre maintenant ou attendre, commencez par le questionnaire de timing. Il ne remplace pas une évaluation sur place, mais il cadre la décision."),
@@ -447,7 +447,7 @@ SERVICES = [
             ("Combien de temps pour vendre ?", "Ça dépend du prix, de l'état et du secteur. Un bien juste n'a pas le même délai qu'un bien 15 % au-dessus des comparables."),
             ("Intervenez-vous hors Sherbrooke ?", "Oui : Magog, Bromont, Orford, North Hatley, Coaticook et le reste de l'Estrie, selon le mandat."),
         ],
-        "links": [("Évaluer le timing", "evaluation.html"), ("Documents maison", "article-documents-vente-maison.html"), ("Documents terrain", "article-documents-vente-terrain.html"), ("Documents plex", "article-documents-vente-plex.html"), ("Fermette", "fermette-estrie.html"), ("Chalet", "chalet-estrie.html"), ("Plex", "plex-sherbrooke.html"), ("Régions desservies", "regions-desservies.html")],
+        "links": [("Évaluer le timing", "evaluation.html"), ("Documents maison", "article-documents-vente-maison.html"), ("Documents terrain", "article-documents-vente-terrain.html"), ("Documents plex", "article-documents-vente-plex.html"), ("Fermette", "fermette-estrie.html"), ("Chalet", "chalet-estrie.html"), ("Vendre mon plex à Sherbrooke", "plex-sherbrooke.html"), ("Régions desservies", "regions-desservies.html")],
     },
     {
         "file": "acheter.html",

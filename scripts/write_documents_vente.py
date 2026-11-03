@@ -204,7 +204,7 @@ PAGES = [
         "desc": "Documents pour vendre un plex au Québec : baux, loyers, déclaration du vendeur, inspection. Dossier locatif, Chiasson de Francesco à Sherbrooke.",
         "tldr": "Pour vendre un plex au Québec, le dossier maison ne suffit pas : il faut les baux, les loyers réels, les dépôts, un aperçu des revenus et dépenses, plus la déclaration du vendeur et l'état de l'immeuble (toit, fondations, logements occupés). À Sherbrooke (Les Nations, Lennoxville, Fleurimont), l'acheteur investisseur lit les papiers avant la cuisine du 2e. L'équipe Chiasson de Francesco, courtiers RE/MAX D'ABORD, prépare ce dossier locatif avant l'affichage.",
         "qae": "Quels documents faut-il pour vendre un plex au Québec ?",
-        "intro": "Un plex se vend à un acheteur qui calcule. Un dossier locatif flou à Sherbrooke allonge les conditions, ou fait fuir l'offre. La visite d'un seul logement ne remplace pas les baux. Complément mise en marché : <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-vendre-plex-sherbrooke.html\">vendre un plex à Sherbrooke</a>. Page service : <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"plex-sherbrooke.html\">plex à Sherbrooke</a>.",
+        "intro": "Un plex se vend à un acheteur qui calcule. Un dossier locatif flou à Sherbrooke allonge les conditions, ou fait fuir l'offre. La visite d'un seul logement ne remplace pas les baux. Complément mise en marché : <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-vendre-plex-sherbrooke.html\">vendre un plex à Sherbrooke</a>. Page service : <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"plex-sherbrooke.html\">vendre un plex à Sherbrooke</a>.",
         "checklist": [
             "Les documents d'une vente de maison : déclaration du vendeur, certificat de localisation, taxes, hypothèque, preuves de travaux. Voir <a class=\"text-brand-navy font-medium hover:text-brand-red\" href=\"article-documents-vente-maison.html\">documents pour vendre une maison</a>.",
             "Baux en vigueur de chaque logement, avenants, et avis d'augmentation déjà donnés.",
@@ -265,7 +265,7 @@ PAGES = [
             ("Documents maison", "article-documents-vente-maison.html"),
             ("Documents terrain", "article-documents-vente-terrain.html"),
             ("Vendre un plex", "article-vendre-plex-sherbrooke.html"),
-            ("Plex à Sherbrooke", "plex-sherbrooke.html"),
+            ("Vendre un plex à Sherbrooke", "plex-sherbrooke.html"),
         ],
         "howto_name": "Préparer les documents pour vendre un plex au Québec",
         "howto_steps": [
