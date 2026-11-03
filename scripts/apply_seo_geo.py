@@ -401,7 +401,7 @@ BROKERS = {
         "name": "Jade Sirois",
         "job": "Courtière immobilière résidentielle",
         "tel": "+1-819-434-2652",
-        "email": "",
+        "email": "jade.sirois@remax-quebec.com",
         "image": f"{BASE}/src/assets/images/jade-sirois.webp",
         "languages": None,
         "sameAs": [
