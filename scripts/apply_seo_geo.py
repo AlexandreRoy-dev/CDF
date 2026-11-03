@@ -199,7 +199,7 @@ PAGE_META = {
     ),
     "article-vendre-plex-sherbrooke.html": (
         "Vendre un plex à Sherbrooke | dossier locatif | CDF",
-        "Un plex ne se vend pas comme une unifamiliale. Dossier locatif, photos des logements, comparables.",
+        "Vendre un plex à Sherbrooke : baux, loyers, photos de chaque logement et comparables du secteur. L'équipe Chiasson De Francesco monte le dossier locatif.",
     ),
     "article-prix-affiche-vs-vente.html": (
         "Prix demandé vs prix de vente en Estrie | CDF",
@@ -215,7 +215,7 @@ PAGE_META = {
     ),
     "article-photos-mise-en-marche.html": (
         "Photos immobilières en Estrie | mise en marché | CDF",
-        "Lumière, neige, lac, pièces vides : comment préparer les photos avant Centris en Estrie.",
+        "Photos de mise en marché en Estrie : lumière, saison, lac et pièces dégagées avant Centris. L'équipe Chiasson De Francesco prépare des photos honnêtes.",
     ),
     "article-documents-vente-maison.html": (
         "Documents pour vendre une maison au Québec | CDF",
@@ -232,29 +232,29 @@ PAGE_META = {
     "article-vendre-acheter-sherbrooke.html": ("Vendre ou acheter à Sherbrooke : quoi savoir | CDF", "Vendre ou acheter à Sherbrooke : quartiers, prix, inspection. Guide de l'équipe Chiasson de Francesco, courtiers RE/MAX."),
     "article-vendre-acheter-magog.html": ("Vendre ou acheter à Magog : quoi savoir | CDF", "Vendre ou acheter à Magog : lac Memphrémagog, condos, chalets. Quoi savoir selon l'équipe Chiasson de Francesco."),
     "article-vendre-acheter-bromont.html": ("Vendre ou acheter à Bromont : quoi savoir | CDF", "Vendre ou acheter à Bromont : ski, village, condos. Guide local de l'équipe Chiasson de Francesco en Estrie."),
-    "article-vendre-acheter-orford.html": ("Vendre ou acheter à Orford : quoi savoir | CDF", "Vendre ou acheter à Orford : mont, parc, chalets. Quoi savoir avec l'équipe Chiasson de Francesco."),
+    "article-vendre-acheter-orford.html": ("Vendre ou acheter à Orford : quoi savoir | CDF", "Vendre ou acheter à Orford : chalets, mont et parc national, habitabilité quatre-saisons à confirmer. Quoi savoir avec l'équipe Chiasson De Francesco."),
     "article-vendre-acheter-north-hatley.html": ("Vendre ou acheter à North Hatley : quoi savoir | CDF", "Vendre ou acheter à North Hatley : lac Massawippi, village. Quoi savoir, équipe Chiasson de Francesco."),
     "article-vendre-acheter-coaticook.html": ("Vendre ou acheter à Coaticook : quoi savoir | CDF", "Vendre ou acheter à Coaticook : ville de services, fermettes, gorge. Guide Chiasson de Francesco, Estrie."),
-    "article-vendre-acheter-sutton.html": ("Vendre ou acheter à Sutton : quoi savoir | CDF", "Vendre ou acheter à Sutton : village, ski, condos. Quoi savoir avec Chiasson de Francesco."),
-    "article-vendre-acheter-lac-brome.html": ("Vendre ou acheter à Lac-Brome : quoi savoir | CDF", "Vendre ou acheter à Lac-Brome (Knowlton) : village, lac. Guide Chiasson de Francesco, Estrie."),
+    "article-vendre-acheter-sutton.html": ("Vendre ou acheter à Sutton : quoi savoir | CDF", "Vendre ou acheter à Sutton : village des Cantons, condos de ski et maisons de rang, distinct de Bromont. Guide de l'équipe Chiasson De Francesco."),
+    "article-vendre-acheter-lac-brome.html": ("Vendre ou acheter à Lac-Brome : quoi savoir | CDF", "Vendre ou acheter à Lac-Brome (Knowlton) : village, lac et rangs, souvent en français et en anglais. Guide de l'équipe Chiasson De Francesco."),
     "article-vendre-acheter-lennoxville.html": ("Vendre ou acheter à Lennoxville : quoi savoir | CDF", "Vendre ou acheter à Lennoxville (Sherbrooke) : village, plex, campus. Quoi savoir, Chiasson de Francesco."),
     "article-vendre-acheter-fleurimont.html": ("Vendre ou acheter à Fleurimont : quoi savoir | CDF", "Vendre ou acheter à Fleurimont (Sherbrooke) : bungalows, familles, CHUS. Guide Chiasson de Francesco."),
     "article-vendre-acheter-les-nations.html": ("Vendre ou acheter aux Nations : quoi savoir | CDF", "Vendre ou acheter aux Nations (Sherbrooke) : condos, plex, centre. Quoi savoir, Chiasson de Francesco."),
-    "article-vendre-acheter-rock-forest.html": ("Vendre ou acheter à Rock Forest : quoi savoir | CDF", "Vendre ou acheter à Rock Forest (Sherbrooke) : terrain, axe Magog. Guide Chiasson de Francesco."),
-    "article-vendre-acheter-eastman.html": ("Vendre ou acheter à Eastman : quoi savoir | CDF", "Vendre ou acheter à Eastman : village, Orford, Magog. Quoi savoir, équipe Chiasson de Francesco."),
+    "article-vendre-acheter-rock-forest.html": ("Vendre ou acheter à Rock Forest : quoi savoir | CDF", "Vendre ou acheter à Rock Forest (Sherbrooke) : terrains plus grands, axe Magog, Saint-Élie et Deauville à part. Guide de l'équipe Chiasson De Francesco."),
+    "article-vendre-acheter-eastman.html": ("Vendre ou acheter à Eastman : quoi savoir | CDF", "Vendre ou acheter à Eastman, entre le village, Orford et Magog : chalets, maisons et saisonnalité à vérifier. Guide de l'équipe Chiasson De Francesco."),
     "article-vendre-acheter-windsor.html": ("Vendre ou acheter à Windsor : quoi savoir | CDF", "Vendre ou acheter à Windsor (Estrie) : Saint-François, navette Sherbrooke. Guide Chiasson de Francesco."),
-    "article-vendre-acheter-stanstead.html": ("Vendre ou acheter à Stanstead : quoi savoir | CDF", "Vendre ou acheter à Stanstead : frontière, Memphrémagog, patrimoine. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-stanstead.html": ("Vendre ou acheter à Stanstead : quoi savoir | CDF", "Vendre ou acheter à Stanstead : village frontalier, patrimoine et sud du Memphrémagog, distinct de Magog. Guide de l'équipe Chiasson De Francesco."),
     "article-vendre-acheter-cookshire-eaton.html": ("Vendre ou acheter à Cookshire-Eaton : quoi savoir | CDF", "Vendre ou acheter à Cookshire-Eaton : terrains, Sawyerville, route 108. Guide Chiasson de Francesco."),
-    "article-vendre-acheter-ayers-cliff.html": ("Vendre ou acheter à Ayer's Cliff : quoi savoir | CDF", "Vendre ou acheter à Ayer's Cliff : lac Massawippi. Quoi savoir, Chiasson de Francesco."),
-    "article-vendre-acheter-austin.html": ("Vendre ou acheter à Austin : quoi savoir | CDF", "Vendre ou acheter à Austin : près d'Orford et Magog. Guide Chiasson de Francesco."),
-    "article-vendre-acheter-richmond.html": ("Vendre ou acheter à Richmond : quoi savoir | CDF", "Vendre ou acheter à Richmond : Saint-François, Estrie. Quoi savoir, Chiasson de Francesco."),
-    "article-vendre-acheter-compton.html": ("Vendre ou acheter à Compton : quoi savoir | CDF", "Vendre ou acheter à Compton : village, rangs, fermettes. Guide Chiasson de Francesco, Estrie."),
-    "article-vendre-acheter-waterville.html": ("Vendre ou acheter à Waterville : quoi savoir | CDF", "Vendre ou acheter à Waterville : entre Sherbrooke et Coaticook. Guide Chiasson de Francesco."),
-    "article-vendre-acheter-hatley.html": ("Vendre ou acheter à Hatley : quoi savoir | CDF", "Vendre ou acheter à Hatley : canton, Massawippi, pas North Hatley. Guide Chiasson de Francesco."),
-    "article-vendre-acheter-mont-bellevue.html": ("Vendre ou acheter à Mont-Bellevue : quoi savoir | CDF", "Vendre ou acheter à Mont-Bellevue (Sherbrooke) : unifamiliales, parc. Guide Chiasson de Francesco."),
-    "article-vendre-acheter-brompton.html": ("Vendre ou acheter à Brompton : quoi savoir | CDF", "Vendre ou acheter à Brompton (Sherbrooke) : vallée, Saint-François. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-ayers-cliff.html": ("Vendre ou acheter à Ayer's Cliff : quoi savoir | CDF", "Vendre ou acheter à Ayer's Cliff, au lac Massawippi : village, rives et fosses, à distinguer de North Hatley. Guide de l'équipe Chiasson De Francesco."),
+    "article-vendre-acheter-austin.html": ("Vendre ou acheter à Austin : quoi savoir | CDF", "Vendre ou acheter à Austin, entre Magog, Eastman et Orford : chalets, rangs et accès à l'eau à vérifier. Guide de l'équipe Chiasson De Francesco."),
+    "article-vendre-acheter-richmond.html": ("Vendre ou acheter à Richmond : quoi savoir | CDF", "Vendre ou acheter à Richmond, sur la rivière Saint-François : petite ville de vallée, maisons et plex locaux. Guide de l'équipe Chiasson De Francesco."),
+    "article-vendre-acheter-compton.html": ("Vendre ou acheter à Compton : quoi savoir | CDF", "Vendre ou acheter à Compton : village, rangs et fermettes, avec puits ou fosse selon le lot. Marché rural de l'équipe Chiasson De Francesco, en Estrie."),
+    "article-vendre-acheter-waterville.html": ("Vendre ou acheter à Waterville : quoi savoir | CDF", "Vendre ou acheter à Waterville, entre Sherbrooke et Coaticook : fosse ou égouts selon la rue, marché mince. Guide de l'équipe Chiasson De Francesco."),
+    "article-vendre-acheter-hatley.html": ("Vendre ou acheter à Hatley : quoi savoir | CDF", "Vendre ou acheter à Hatley, canton rural près du Massawippi : plus de terrain, ce n'est pas North Hatley. Guide de l'équipe Chiasson De Francesco."),
+    "article-vendre-acheter-mont-bellevue.html": ("Vendre ou acheter à Mont-Bellevue : quoi savoir | CDF", "Vendre ou acheter à Mont-Bellevue (Sherbrooke) : unifamiliales près du parc du mont, pas un marché de condos. Guide de l'équipe Chiasson De Francesco."),
+    "article-vendre-acheter-brompton.html": ("Vendre ou acheter à Brompton : quoi savoir | CDF", "Vendre ou acheter à Brompton, arrondissement de Sherbrooke dans la vallée de la Saint-François : maisons et plex. Guide de l'équipe Chiasson De Francesco."),
     "article-vendre-acheter-val-des-sources.html": ("Vendre ou acheter à Val-des-Sources : quoi savoir | CDF", "Vendre ou acheter à Val-des-Sources (Asbestos) : Estrie, MRC des Sources. Guide Chiasson de Francesco."),
-    "article-vendre-acheter-lac-megantic.html": ("Vendre ou acheter à Lac-Mégantic : quoi savoir | CDF", "Vendre ou acheter à Lac-Mégantic : ville, lac, Granit. Guide Chiasson de Francesco."),
+    "article-vendre-acheter-lac-megantic.html": ("Vendre ou acheter à Lac-Mégantic : quoi savoir | CDF", "Vendre ou acheter à Lac-Mégantic : maison en ville ou chalet au lac, deux marchés du Granit. L'équipe Chiasson De Francesco compare des ventes locales."),
 }
 
 REGION_META = {
@@ -290,7 +290,8 @@ REGION_META = {
     "waterville": ("Courtier immobilier à Waterville | Estrie | CDF", "Acheter ou vendre à Waterville, entre Sherbrooke et Coaticook. Courtiers Chiasson de Francesco."),
     "hatley": ("Courtier immobilier à Hatley | Cantons-de-l'Est | CDF", "Propriétés à Hatley, près de North Hatley et du Massawippi. Équipe Chiasson de Francesco, Estrie."),
     "milan": ("Courtier immobilier à Milan | Estrie | CDF", "Acheter ou vendre à Milan, Estrie (MRC du Granit). L'équipe Chiasson de Francesco y inscrit aussi des propriétés."),
-    "saint-isidore-de-clifton": ("Courtier à Saint-Isidore-de-Clifton | fermettes | CDF", "Fermettes et rangs à Saint-Isidore-de-Clifton, Estrie. L'équipe Chiasson de Francesco y accompagne achat et vente."),
+    "saint-isidore-de-clifton": ("Courtier immobilier à Saint-Isidore-de-Clifton | CDF", "Fermettes et rangs à Saint-Isidore-de-Clifton, Estrie. L'équipe Chiasson de Francesco y accompagne achat et vente."),
+    "jacques-cartier": ("Courtier immobilier à Jacques-Cartier | CDF", "Courtier immobilier à Jacques-Cartier, RE/MAX D'ABORD. Jacques-Cartier est un secteur de l'arrondissement des Nations, pas un arrondissement à lui seul."),
 }
 
 LISTING_OFFERS = {
@@ -524,6 +525,47 @@ def set_or_insert_meta(text: str, title: str | None, desc: str | None, canonical
     return text
 
 
+def _meta_content(text: str, key: str) -> str:
+    patterns = [
+        rf'<meta[^>]*?(?:property|name)="{re.escape(key)}"[^>]*?content="([^"]*)"',
+        rf'<meta[^>]*?content="([^"]*)"[^>]*?(?:property|name)="{re.escape(key)}"',
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.I)
+        if match:
+            return match.group(1).strip()
+    return ""
+
+
+def ensure_social_meta(text: str, og_type: str = "website") -> str:
+    """Add missing Open Graph and X/Twitter tags without duplicating existing ones."""
+    if "</head>" not in text.lower():
+        return text
+    title = _meta_content(text, "og:title")
+    if not title:
+        match = re.search(r"<title>([^<]+)</title>", text, flags=re.I)
+        title = match.group(1).strip() if match else ""
+    description = _meta_content(text, "og:description") or _meta_content(text, "description")
+    image = _meta_content(text, "og:image") or f"{BASE}/src/assets/images/chiassondefrancescoteam.jpg"
+    tags: list[str] = []
+    if not re.search(r'["\']og:type["\']', text, flags=re.I):
+        tags.append(f'<meta property="og:type" content="{og_type}">')
+    if not re.search(r'["\']og:site_name["\']', text, flags=re.I):
+        tags.append('<meta property="og:site_name" content="Équipe Chiasson De Francesco">')
+    if not re.search(r'["\']twitter:card["\']', text, flags=re.I):
+        tags.append('<meta name="twitter:card" content="summary_large_image">')
+    if title and not re.search(r'["\']twitter:title["\']', text, flags=re.I):
+        tags.append(f'<meta name="twitter:title" content="{title}">')
+    if description and not re.search(r'["\']twitter:description["\']', text, flags=re.I):
+        tags.append(f'<meta name="twitter:description" content="{description}">')
+    if image and not re.search(r'["\']twitter:image["\']', text, flags=re.I):
+        tags.append(f'<meta name="twitter:image" content="{image}">')
+    if not tags:
+        return text
+    block = "\n  " + "\n  ".join(tags) + "\n"
+    return re.sub(r"</head>", block + "</head>", text, count=1, flags=re.I)
+
+
 def strip_json_ld(text: str) -> str:
     return re.sub(r'\s*<script type="application/ld\+json">[\s\S]*?</script>', "", text)
 
@@ -570,12 +612,16 @@ def listing_json_ld(listing: dict, offer: dict, desc: str) -> dict:
                 "url": canonical,
                 "image": f"{BASE}/src/assets/images/proprietes/{listing['uls']}/og-share.jpg",
                 "identifier": listing["uls"],
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": street,
-                    "addressLocality": city,
-                    "addressRegion": "QC",
-                    "addressCountry": "CA",
+                "about": {
+                    "@type": "Place",
+                    "name": street,
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": street,
+                        "addressLocality": city,
+                        "addressRegion": "QC",
+                        "addressCountry": "CA",
+                    },
                 },
                 "offers": offer_node,
             },
@@ -601,9 +647,25 @@ def person_json_ld(rel: str, broker: dict) -> dict:
         "url": f"{BASE}/{rel}",
         "image": broker["image"],
         "telephone": broker["tel"],
-        "worksFor": {"@id": f"{BASE}/#organization"},
-        "memberOf": {
+        "worksFor": {
             "@type": "RealEstateAgent",
+            "@id": f"{BASE}/#organization",
+            "name": "Équipe Chiasson De Francesco",
+            "url": f"{BASE}/",
+            "image": f"{BASE}/src/assets/images/chiassondefrancescoteam.jpg",
+            "logo": {"@type": "ImageObject", "url": f"{BASE}/src/assets/logo.png"},
+            "telephone": "+1-819-919-4631",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "157 boul. Jacques-Cartier Sud",
+                "addressLocality": "Sherbrooke",
+                "addressRegion": "QC",
+                "postalCode": "J1J 2Z4",
+                "addressCountry": "CA",
+            },
+        },
+        "memberOf": {
+            "@type": "Organization",
             "name": "RE/MAX D'ABORD",
             "url": "https://remax-dabord.com/",
         },
@@ -742,6 +804,9 @@ def process_file(path: Path, listings_by_uls: dict[str, dict]) -> None:
             text = text.replace("</head>", '  <meta name="robots" content="noindex, nofollow">\n</head>', 1)
         if "cdfTrackLead" not in text:
             text = text.replace("</body>", '<script>window.cdfTrackLead && window.cdfTrackLead("ghl_form");</script>\n</body>', 1)
+
+    og_type = "article" if rel.startswith("article-") or rel in {"chalet-estrie.html", "fermette-estrie.html", "plex-sherbrooke.html"} else "website"
+    text = ensure_social_meta(text, og_type=og_type)
 
     if text != original:
         path.write_text(text, encoding="utf-8")
