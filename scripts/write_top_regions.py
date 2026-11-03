@@ -326,6 +326,7 @@ def render(page: dict) -> str:
   <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBQPR5ZNV0"></script>
   <script src="/src/assets/js/ga.js"></script>
+  <script src="/src/assets/js/consent-pixel.js"></script>
   <title>{page["title"]}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
