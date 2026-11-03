@@ -310,9 +310,9 @@ SERVICES = [
     },
     {
         "file": "plex-sherbrooke.html",
-        "title": "Acheter ou vendre un plex à Sherbrooke | CDF",
-        "desc": "Duplex, triplex et multiplex à Sherbrooke : loyers, rénos, quartiers. Équipe Chiasson de Francesco, RE/MAX.",
-        "h1": "Acheter ou vendre un plex à Sherbrooke",
+        "title": "Vendre un plex à Sherbrooke | Chiasson De Francesco",
+        "desc": "Vendre un plex à Sherbrooke : duplex ou triplex, baux, secteurs et données Centris. L'équipe Chiasson De Francesco prépare le dossier de vente.",
+        "h1": "Vendre un plex à Sherbrooke",
         "lead": "L'équipe Chiasson de Francesco accompagne plex et multiplex à Sherbrooke : Les Nations, Lennoxville, Fleurimont : un investissement qui se juge aux loyers réels et à l'état, pas à un rendement théorique.",
         "sections": [
             ("Le rendement n'est pas l'annonce", "Loyers au bail, vacance, taxes, assurances, travaux. Un plex « 6 % » dans une pub Facebook ignore souvent le toit. Notre article investir à Sherbrooke complète cette page."),
@@ -620,6 +620,10 @@ def main() -> None:
         path.write_text(render_region(page), encoding="utf-8")
         print("wrote", path.relative_to(ROOT))
     for s in SERVICES:
+        # La page longue est maintenue à la main (données Centris, SCHL, FAQ).
+        if s["file"] == "plex-sherbrooke.html":
+            print("skip hand-maintained", s["file"])
+            continue
         write_service(s)
     for a in ARTICLES:
         write_article(a)
