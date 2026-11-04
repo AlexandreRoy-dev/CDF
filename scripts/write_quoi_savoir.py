@@ -1041,7 +1041,7 @@ def render(city: dict) -> str:
       <nav class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-red">Accueil</a> / <a href="blog.html" class="hover:text-brand-red">Blogue</a> / Guide local</nav>
       <div class="inline-block bg-brand-navy text-white px-3 py-1 rounded-full text-xs font-bold uppercase mb-4">Guide local</div>
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy mb-4">{headline}</h1>
-      <p class="text-sm text-gray-500 mb-8">Par <a class="hover:text-brand-red" href="{author_page}">{author}</a>, {job} · 18 août 2026</p>
+      <p class="text-sm text-gray-500 mb-8">Par <a class="hover:text-brand-red" href="{author_page}">{author}</a>, {job} – Équipe Chiasson De Francesco, courtiers immobiliers à Sherbrooke (RE/MAX D'ABORD) · 18 août 2026</p>
       <p class="text-lg font-medium text-brand-navy mb-8 leading-relaxed"><strong>En bref.</strong> {city["tldr"]}</p>
 
       <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">Qu'est-ce qui distingue le marché immobilier {prep} {name} ?</h2>
@@ -1065,6 +1065,7 @@ def render(city: dict) -> str:
       <h2 class="font-heading text-2xl font-bold text-brand-navy mt-10 mb-4">Questions fréquentes</h2>
       {faqs_html}
 
+      <aside class="border border-gray-200 rounded-xl p-5 bg-white mt-10 mb-6"><p class="text-gray-600 leading-relaxed"><strong>À propos :</strong> l'Équipe Chiasson De Francesco est une équipe de courtiers immobiliers résidentiels et commerciaux de RE/MAX D'ABORD, à Sherbrooke. Nous ne sommes pas un cabinet de planification financière ni de fiscalité ; pour votre situation fiscale, consultez Revenu Québec ou un professionnel en fiscalité.</p></aside>
       <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="index.html#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="vendre.html">Vendre</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="acheter.html">Acheter</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Blogue</a></p>
     </div>
   </main>
@@ -1083,6 +1084,7 @@ def render(city: dict) -> str:
             "url": f"{BASE}/{author_page}",
         },
         "publisher": {
+            "@id": f"{BASE}/#organization",
             "@type": "Organization",
             "name": "Équipe Chiasson de Francesco",
             "url": f"{BASE}/",
