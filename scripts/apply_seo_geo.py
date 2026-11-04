@@ -175,7 +175,7 @@ PAGE_META = {
         "Comment répondre à une offre à Sherbrooke : prix, inspection, inclusions. Conseils de l'équipe Chiasson de Francesco.",
     ),
     "article-credit-impot-taxe-de-bienvenue.html": (
-        "Remboursement taxe de bienvenue : jusqu'à 5 875 $ (2026)",
+        "Remboursement taxe de bienvenue : jusqu'à 5 875 $ (2026) | Courtiers Sherbrooke",
         "Premier achat en 2026? Québec rembourse jusqu'à 5 875 $ de taxe de bienvenue. Conditions, exemples chiffrés et versement anticipé avant le 1er décembre.",
     ),
     "article-declaration-vendeur.html": (
@@ -718,8 +718,19 @@ def article_json_ld(rel: str, title: str, desc: str, published: str, author: str
         "inLanguage": "fr-CA",
         "datePublished": published,
         "dateModified": published,
-        "author": {"@type": "Person", "name": author, "url": f"{BASE}/{author_page}"},
+        "author": {
+            "@type": "Person",
+            "name": author,
+            "jobTitle": {
+                "Pierre-Olivier Chiasson": "Courtier immobilier résidentiel et commercial",
+                "Marco De Francesco": "Courtier immobilier résidentiel et commercial",
+                "Jade Sirois": "Courtière immobilière résidentielle",
+                "Pierre-Luc Giroux": "Courtier immobilier résidentiel",
+            }.get(author, "Courtier immobilier"),
+            "url": f"{BASE}/{author_page}",
+        },
         "publisher": {
+            "@id": f"{BASE}/#organization",
             "@type": "Organization",
             "name": "Équipe Chiasson de Francesco",
             "url": BASE + "/",

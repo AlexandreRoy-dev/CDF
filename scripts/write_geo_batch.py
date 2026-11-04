@@ -797,10 +797,11 @@ def write_article(a: dict) -> None:
       <nav class="text-sm text-gray-500 mb-6"><a href="index.html" class="hover:text-brand-red">Accueil</a> / <a href="blog.html" class="hover:text-brand-red">Blogue</a> / {a["tag"]}</nav>
       <div class="inline-block bg-brand-navy text-white px-3 py-1 rounded-full text-xs font-bold uppercase mb-4">{a["tag"]}</div>
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-navy mb-4">{a["headline"]}</h1>
-      <p class="text-sm text-gray-500 mb-8">Par <a class="hover:text-brand-red" href="{a["author_page"]}">{a["author"]}</a> · {a["date"]}</p>
+      <p class="text-sm text-gray-500 mb-8">Par <a class="hover:text-brand-red" href="{a["author_page"]}">{a["author"]}</a>, { {"Pierre-Olivier Chiasson": "courtier immobilier résidentiel et commercial", "Marco De Francesco": "courtier immobilier résidentiel et commercial", "Jade Sirois": "courtière immobilière résidentielle", "Pierre-Luc Giroux": "courtier immobilier résidentiel"}[a["author"]] } – Équipe Chiasson De Francesco, courtiers immobiliers à Sherbrooke (RE/MAX D'ABORD) · {a["date"]}</p>
       <p class="text-xl font-medium text-brand-navy mb-8">{a["kicker"]}</p>
       {sections}
       {faqs_html}
+      <aside class="border border-gray-200 rounded-xl p-5 bg-white mt-10 mb-6"><p class="text-gray-600 leading-relaxed"><strong>À propos :</strong> l'Équipe Chiasson De Francesco est une équipe de courtiers immobiliers résidentiels et commerciaux de RE/MAX D'ABORD, à Sherbrooke. Nous ne sommes pas un cabinet de planification financière ni de fiscalité ; pour votre situation fiscale, consultez Revenu Québec ou un professionnel en fiscalité.</p></aside>
       <p class="text-gray-600 mt-10">Équipe Chiasson de Francesco, RE/MAX D'ABORD, Sherbrooke. <a class="text-brand-navy font-medium hover:text-brand-red" href="index.html#contact">Discuter d'un projet</a> · <a class="text-brand-navy font-medium hover:text-brand-red" href="blog.html">Retour au blogue</a>{extra}</p>
     </div>
   </main>
@@ -812,8 +813,19 @@ def write_article(a: dict) -> None:
         "datePublished": a["published"],
         "dateModified": a["published"],
         "inLanguage": "fr-CA",
-        "author": {"@type": "Person", "name": a["author"], "url": f"{BASE}/{a['author_page']}"},
+        "author": {
+            "@type": "Person",
+            "name": a["author"],
+            "jobTitle": {
+                "Pierre-Olivier Chiasson": "Courtier immobilier résidentiel et commercial",
+                "Marco De Francesco": "Courtier immobilier résidentiel et commercial",
+                "Jade Sirois": "Courtière immobilière résidentielle",
+                "Pierre-Luc Giroux": "Courtier immobilier résidentiel",
+            }.get(a["author"], "Courtier immobilier"),
+            "url": f"{BASE}/{a['author_page']}",
+        },
         "publisher": {
+            "@id": f"{BASE}/#organization",
             "@type": "Organization",
             "name": "Équipe Chiasson de Francesco",
             "url": f"{BASE}/",
