@@ -97,6 +97,11 @@
       "permanent": true
     },
     {
+      "source": "/prop-602-604-rue-du-conseil-sherbrooke-20820663.html",
+      "destination": "/ca/qc/sherbrooke/fleurimont/602-604-rue-du-conseil/",
+      "permanent": true
+    },
+    {
       "source": "/prop-16-rue-lisee-cookshire-eaton-16447016.html",
       "destination": "/proprietes.html",
       "permanent": true
