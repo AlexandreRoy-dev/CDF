@@ -12,6 +12,11 @@
   ],
   "redirects": [
     {
+      "source": "/prop-602-604-rue-du-conseil-sherbrooke-20820663.html",
+      "destination": "/ca/qc/sherbrooke/fleurimont/602-604-rue-du-conseil/",
+      "permanent": true
+    },
+    {
       "source": "/prop-339-rue-child-coaticook-16311471.html",
       "destination": "/ca/qc/coaticook/centre/339-rue-child/",
       "permanent": true
@@ -94,11 +99,6 @@
     {
       "source": "/prop-182-rue-wellington-n-10043722.html",
       "destination": "/ca/qc/sherbrooke/mont-bellevue/182-rue-wellington-n/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-602-604-rue-du-conseil-sherbrooke-20820663.html",
-      "destination": "/ca/qc/sherbrooke/fleurimont/602-604-rue-du-conseil/",
       "permanent": true
     },
     {

@@ -2,6 +2,18 @@
   "baseUrl": "https://chiassondefrancesco.ca",
   "listings": [
     {
+      "uls": "20820663",
+      "country": "ca",
+      "province": "qc",
+      "city": "sherbrooke",
+      "sector": "fleurimont",
+      "street": "602-604-rue-du-conseil",
+      "title": "602 - 604 Rue du Conseil, Sherbrooke",
+      "shareTitle": "Multi-Plex à vendre à Sherbrooke : 602 - 604 Rue du Conseil",
+      "legacyFile": "prop-602-604-rue-du-conseil-sherbrooke-20820663.html",
+      "fallbackImage": "20820663.jpg"
+    },
+    {
       "uls": "16311471",
       "country": "ca",
       "province": "qc",
@@ -204,18 +216,6 @@
       "shareTitle": "Fonds de commerce à vendre à Sherbrooke : 182, Rue Wellington N.",
       "legacyFile": "prop-182-rue-wellington-n-10043722.html",
       "fallbackImage": "182wells.jpg"
-    },
-    {
-      "uls": "20820663",
-      "country": "ca",
-      "province": "qc",
-      "city": "sherbrooke",
-      "sector": "fleurimont",
-      "street": "602-604-rue-du-conseil",
-      "title": "602 - 604 Rue du Conseil, Sherbrooke",
-      "shareTitle": "Multi-Plex à vendre à Sherbrooke : 602 - 604 Rue du Conseil",
-      "legacyFile": "prop-602-604-rue-du-conseil-sherbrooke-20820663.html",
-      "fallbackImage": "20820663.jpg"
     }
   ]
 }
