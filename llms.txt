@@ -25,6 +25,7 @@ L'équipe réunit Pierre-Olivier Chiasson, Marco De Francesco et Jade Sirois. Bu
 - [Fermette](https://chiassondefrancesco.ca/fermette-estrie.html)
 - [Chalet](https://chiassondefrancesco.ca/chalet-estrie.html)
 - [Vendre un plex à Sherbrooke](https://chiassondefrancesco.ca/plex-sherbrooke.html): guide pour vendre un duplex, un triplex ou un plex occupé à Sherbrooke (évaluation, MRB, baux, TAL, secteurs, données Centris, APCIQ et SCHL). Mis à jour le 3 novembre 2026.
+- [Duplex, triplex et plex à vendre à Sherbrooke](https://chiassondefrancesco.ca/plex-a-vendre-sherbrooke.html): page acheteur et investisseur pour un duplex, un triplex, un plex ou un immeuble à revenus à Sherbrooke (baux, MRB, MRN, capitalisation, due diligence).
 - [Propriétés à vendre](https://chiassondefrancesco.ca/proprietes.html)
 - [Évaluation : vendre maintenant ?](https://chiassondefrancesco.ca/evaluation.html)
 - [Régions desservies](https://chiassondefrancesco.ca/regions-desservies.html)

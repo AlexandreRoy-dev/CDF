@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://chiassondefrancesco.ca/</loc><lastmod>2026-11-04</lastmod><priority>1.0</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/acheter.html</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/</loc><lastmod>2026-11-05</lastmod><priority>1.0</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/acheter.html</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-bord-de-lac-estrie.html</loc><lastmod>2026-11-04</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-bromont-ou-sutton.html</loc><lastmod>2026-11-04</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/article-condo-sherbrooke.html</loc><lastmod>2026-11-04</lastmod><priority>0.6</priority></url>
@@ -85,13 +85,14 @@
   <url><loc>https://chiassondefrancesco.ca/chalet-estrie.html</loc><lastmod>2026-11-04</lastmod><priority>0.7</priority></url>
   <url><loc>https://chiassondefrancesco.ca/confidentialite.html</loc><lastmod>2026-11-04</lastmod><priority>0.3</priority></url>
   <url><loc>https://chiassondefrancesco.ca/courtier-acheteur-estrie.html</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/courtier-commercial.html</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/courtier-commercial.html</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/evaluation.html</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/fermette-estrie.html</loc><lastmod>2026-11-04</lastmod><priority>0.7</priority></url>
   <url><loc>https://chiassondefrancesco.ca/jade.html</loc><lastmod>2026-11-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/marco.html</loc><lastmod>2026-11-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/marco.html</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
   <url><loc>https://chiassondefrancesco.ca/pierre-olivier.html</loc><lastmod>2026-11-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/plex-sherbrooke.html</loc><lastmod>2026-11-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/plex-a-vendre-sherbrooke.html</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/plex-sherbrooke.html</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
   <url><loc>https://chiassondefrancesco.ca/proprietes.html</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions-desservies.html</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions/austin.html</loc><lastmod>2026-11-04</lastmod><priority>0.6</priority></url>
@@ -128,5 +129,5 @@
   <url><loc>https://chiassondefrancesco.ca/regions/waterville.html</loc><lastmod>2026-11-04</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions/weedon.html</loc><lastmod>2026-11-04</lastmod><priority>0.6</priority></url>
   <url><loc>https://chiassondefrancesco.ca/regions/windsor.html</loc><lastmod>2026-11-04</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chiassondefrancesco.ca/vendre.html</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chiassondefrancesco.ca/vendre.html</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
 </urlset>

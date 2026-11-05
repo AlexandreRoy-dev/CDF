@@ -55,8 +55,8 @@ PAGE_META = {
         "Pierre-Olivier Chiasson, courtier immobilier résidentiel et commercial RE/MAX à Sherbrooke. Achat, vente et investissement en Estrie.",
     ),
     "marco.html": (
-        "Marco De Francesco, courtier Sherbrooke",
-        "Marco De Francesco, courtier immobilier bilingue RE/MAX à Sherbrooke. Accompagnement à l'achat et à la vente en Estrie et à distance.",
+        "Marco De Francesco | Courtier immobilier résidentiel et commercial à Sherbrooke",
+        "Marco De Francesco, courtier RE/MAX D'ABORD à Sherbrooke : résidentiel et commercial, bilingue FR/EN. Achat, vente et plex en Estrie — 819-562-0656.",
     ),
     "jade.html": (
         "Jade Sirois, courtière immobilière Sherbrooke",
@@ -83,16 +83,20 @@ PAGE_META = {
         "Préparer une maison à la vente en Estrie : mise en valeur, photos et première impression, par l'équipe Chiasson de Francesco.",
     ),
     "vendre.html": (
-        "Vendre sa maison à Sherbrooke et en Estrie | CDF",
-        "Vendre avec l'équipe Chiasson de Francesco : évaluation marchande, mise en marché Centris et négociation à Sherbrooke et en Estrie.",
+        "Vendre une maison à Sherbrooke | Courtier immobilier Estrie | CDF",
+        "Vendre une maison, un condo ou un plex à Sherbrooke : étapes, documents, estimation et négociation avec l'équipe Chiasson De Francesco, RE/MAX D'ABORD.",
     ),
     "acheter.html": (
         "Acheter une maison en Estrie | courtier Sherbrooke | CDF",
         "Acheter à Sherbrooke et en Estrie avec un courtier acheteur : recherche Centris, visites, inspection et négociation. Équipe Chiasson de Francesco.",
     ),
     "courtier-commercial.html": (
-        "Courtier immobilier commercial Sherbrooke | CDF",
-        "Locaux, fonds de commerce, bâtisses et terrains à Sherbrooke et au Québec. Pierre-Olivier Chiasson et Marco De Francesco, RE/MAX D'ABORD.",
+        "Courtier immobilier commercial à Sherbrooke | Locaux, bâtisses, terrains | CDF",
+        "Courtage commercial Sherbrooke : locaux, fonds de commerce, bâtisses, terrains. Pierre-Olivier et Marco, RE/MAX D'ABORD.",
+    ),
+    "plex-a-vendre-sherbrooke.html": (
+        "Courtier multi-logement et plex à Sherbrooke | Duplex, triplex, immeuble à revenus",
+        "Duplex, plex ou immeuble à revenus à Sherbrooke : baux, MRB, MRN, capitalisation et due diligence — équipe CDF, RE/MAX D'ABORD.",
     ),
     "article-courtier-ou-vente-libre.html": (
         "Vendre avec un courtier ou seul ? | Estrie | CDF",
@@ -852,6 +856,7 @@ def write_sitemap(listings: list[dict]) -> None:
         (f"{BASE}/courtier-acheteur-estrie.html", "0.8"),
         (f"{BASE}/fermette-estrie.html", "0.7"),
         (f"{BASE}/chalet-estrie.html", "0.7"),
+        (f"{BASE}/plex-a-vendre-sherbrooke.html", "0.7"),
         (f"{BASE}/plex-sherbrooke.html", "0.7"),
         (f"{BASE}/regions-desservies.html", "0.8"),
         (f"{BASE}/blog.html", "0.7"),
