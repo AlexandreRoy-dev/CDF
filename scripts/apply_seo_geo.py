@@ -863,6 +863,7 @@ def write_sitemap(listings: list[dict]) -> None:
         (f"{BASE}/pierre-olivier.html", "0.7"),
         (f"{BASE}/marco.html", "0.7"),
         (f"{BASE}/jade.html", "0.7"),
+        (f"{BASE}/pierre-luc.html", "0.7"),
         (f"{BASE}/confidentialite.html", "0.3"),
     ]
     for slug in REGION_META:

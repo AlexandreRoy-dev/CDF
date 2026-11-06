@@ -31,7 +31,11 @@
       "description": "Premier achat en 2026? Québec rembourse jusqu'à 5 875 $ de taxe de bienvenue. Conditions, exemples chiffrés et versement anticipé avant le 1er décembre.",
       "inLanguage": "fr-CA",
       "datePublished": "2026-11-01",
-      "mainEntityOfPage": "https://chiassondefrancesco.ca/article-credit-impot-taxe-de-bienvenue.html",
+      "dateModified": "2026-11-01",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://chiassondefrancesco.ca/article-credit-impot-taxe-de-bienvenue.html"
+      },
       "author": {
         "@type": "Person",
         "@id": "https://chiassondefrancesco.ca/pierre-olivier.html#person",
@@ -43,14 +47,23 @@
         }
       },
       "publisher": {
-        "@id": "https://chiassondefrancesco.ca/#organization"
+        "@type": "Organization",
+        "@id": "https://chiassondefrancesco.ca/#organization",
+        "name": "Équipe Chiasson De Francesco",
+        "url": "https://chiassondefrancesco.ca/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://chiassondefrancesco.ca/src/assets/logo.png",
+          "width": 908,
+          "height": 244
+        }
       },
       "about": [
-        "crédit d'impôt pour accès à la propriété",
-        "remboursement taxe de bienvenue",
-        "droit de mutation",
-        "premier achat",
-        "Sherbrooke"
+        {"@type": "Thing", "name": "crédit d'impôt pour accès à la propriété"},
+        {"@type": "Thing", "name": "remboursement taxe de bienvenue"},
+        {"@type": "Thing", "name": "droit de mutation"},
+        {"@type": "Thing", "name": "premier achat"},
+        {"@type": "Thing", "name": "Sherbrooke"}
       ],
       "citation": [
         "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-acces-a-la-propriete-remboursement-de-la-taxe-de-bienvenue/",
@@ -67,7 +80,12 @@
         "https://www.quebec.ca/gouvernement/gestion-municipale/finances-fiscalite-municipales/fiscalite/droits-mutations-immobilieres",
         "https://www.sherbrooke.ca/fr/services-a-la-population/taxes-et-evaluation/droits-de-mutation-immobiliere"
       ],
-      "image": "https://chiassondefrancesco.ca/assets-v2/credit-impot-taxe-de-bienvenue-hero-1200x630.webp"
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://chiassondefrancesco.ca/assets-v2/credit-impot-taxe-de-bienvenue-hero-1200x630.webp",
+        "width": 1200,
+        "height": 630
+      }
     },
     {
       "@type": "RealEstateAgent",
@@ -75,6 +93,12 @@
       "name": "Équipe Chiasson De Francesco",
       "url": "https://chiassondefrancesco.ca/",
       "image": "https://chiassondefrancesco.ca/src/assets/images/chiassondefrancescoteam.jpg",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chiassondefrancesco.ca/src/assets/logo.png",
+        "width": 908,
+        "height": 244
+      },
       "telephone": "+1-819-919-4631",
       "address": {
         "@type": "PostalAddress",
@@ -85,9 +109,18 @@
         "addressCountry": "CA"
       },
       "parentOrganization": {
-        "@type": "RealEstateAgent",
+        "@type": "Organization",
         "name": "RE/MAX D'ABORD, agence immobilière",
-        "telephone": "+1-819-822-2222"
+        "url": "https://remax-dabord.com/",
+        "telephone": "+1-819-822-2222",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "157 boul. Jacques-Cartier Sud",
+          "addressLocality": "Sherbrooke",
+          "addressRegion": "QC",
+          "postalCode": "J1J 2Z4",
+          "addressCountry": "CA"
+        }
       },
       "description": "Équipe de courtiers immobiliers résidentiels et commerciaux à Sherbrooke et en Estrie, affiliée à RE/MAX D'ABORD",
       "knowsAbout": [
