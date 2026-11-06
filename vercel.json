@@ -102,6 +102,16 @@
       "permanent": true
     },
     {
+      "source": "/prop-71-rue-de-l-eglise-app-1-windsor-25394249.html",
+      "destination": "/ca/qc/windsor/centre/71-rue-de-l-eglise-app-1/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-71-rue-de-l-eglise-app-3-windsor-28699947.html",
+      "destination": "/ca/qc/windsor/centre/71-rue-de-l-eglise-app-3/",
+      "permanent": true
+    },
+    {
       "source": "/prop-16-rue-lisee-cookshire-eaton-16447016.html",
       "destination": "/proprietes.html",
       "permanent": true

@@ -216,6 +216,30 @@
       "shareTitle": "Fonds de commerce à vendre à Sherbrooke : 182, Rue Wellington N.",
       "legacyFile": "prop-182-rue-wellington-n-10043722.html",
       "fallbackImage": "182wells.jpg"
+    },
+    {
+      "uls": "25394249",
+      "country": "ca",
+      "province": "qc",
+      "city": "windsor",
+      "sector": "centre",
+      "street": "71-rue-de-l-eglise-app-1",
+      "title": "71 Rue de l'Église, app. 1, Windsor",
+      "shareTitle": "Commerciale à louer à Windsor : 71 Rue de l'Église, app. 1",
+      "legacyFile": "prop-71-rue-de-l-eglise-app-1-windsor-25394249.html",
+      "fallbackImage": "25394249.jpg"
+    },
+    {
+      "uls": "28699947",
+      "country": "ca",
+      "province": "qc",
+      "city": "windsor",
+      "sector": "centre",
+      "street": "71-rue-de-l-eglise-app-3",
+      "title": "71 Rue de l'Église, app. 3, Windsor",
+      "shareTitle": "Résidentielle à louer à Windsor : 71 Rue de l'Église, app. 3",
+      "legacyFile": "prop-71-rue-de-l-eglise-app-3-windsor-28699947.html",
+      "fallbackImage": "28699947.jpg"
     }
   ]
 }
