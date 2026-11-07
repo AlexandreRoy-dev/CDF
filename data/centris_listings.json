@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T18:51:14.223297+00:00",
+  "generatedAt": "2026-11-07T17:21:18.973872+00:00",
   "scrapeMode": "remax",
   "searchUrl": null,
   "registryPath": "data/properties.json",
@@ -98,7 +98,7 @@
       ],
       "photoCount": 37,
       "ogShareImage": "src/assets/images/proprietes/25394249/og-share.jpg",
-      "publicPath": null
+      "publicPath": "/ca/qc/windsor/centre/71-rue-de-l-eglise-app-1/"
     },
     {
       "id": "28699947",
@@ -131,7 +131,7 @@
       ],
       "photoCount": 21,
       "ogShareImage": "src/assets/images/proprietes/28699947/og-share.jpg",
-      "publicPath": null
+      "publicPath": "/ca/qc/windsor/centre/71-rue-de-l-eglise-app-3/"
     },
     {
       "id": "20820663",

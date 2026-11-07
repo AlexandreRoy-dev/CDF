@@ -12,6 +12,16 @@
   ],
   "redirects": [
     {
+      "source": "/prop-71-rue-de-l-eglise-app-1-windsor-25394249.html",
+      "destination": "/ca/qc/windsor/centre/71-rue-de-l-eglise-app-1/",
+      "permanent": true
+    },
+    {
+      "source": "/prop-71-rue-de-l-eglise-app-3-windsor-28699947.html",
+      "destination": "/ca/qc/windsor/centre/71-rue-de-l-eglise-app-3/",
+      "permanent": true
+    },
+    {
       "source": "/prop-602-604-rue-du-conseil-sherbrooke-20820663.html",
       "destination": "/ca/qc/sherbrooke/fleurimont/602-604-rue-du-conseil/",
       "permanent": true
@@ -99,16 +109,6 @@
     {
       "source": "/prop-182-rue-wellington-n-10043722.html",
       "destination": "/ca/qc/sherbrooke/mont-bellevue/182-rue-wellington-n/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-71-rue-de-l-eglise-app-1-windsor-25394249.html",
-      "destination": "/ca/qc/windsor/centre/71-rue-de-l-eglise-app-1/",
-      "permanent": true
-    },
-    {
-      "source": "/prop-71-rue-de-l-eglise-app-3-windsor-28699947.html",
-      "destination": "/ca/qc/windsor/centre/71-rue-de-l-eglise-app-3/",
       "permanent": true
     },
     {
